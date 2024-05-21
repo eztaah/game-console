@@ -7,3 +7,7 @@ Matin :
 - On a récupéré des écrans et on a trouvé la datasheet associé
 
 
+
+Après midi :
+
+- On code en C la gestion des leds et des boutons sur le jeu du Simon
