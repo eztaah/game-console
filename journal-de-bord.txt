@@ -1,0 +1,9 @@
+---------- Mardi 21 mai ----------
+
+Matin : 
+
+- On confirme le fait que l'on va créer 2 bornes d'arcades, qui vont envoyer leurs meilleur score à un pc (ou autre microcontroleur) pour faire un leaderboard
+
+- On a récupéré des écrans et on a trouvé la datasheet associé
+
+
