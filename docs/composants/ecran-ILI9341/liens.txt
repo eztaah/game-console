@@ -1,0 +1,10 @@
+Site qui explique comment faire fonctionner l'écran :
+https://learn.adafruit.com/adafruit-2-8-and-3-2-color-tft-touchscreen-breakout-v2/pinouts
+
+
+Interfacing PIC18F46K22 with ILI9341 TFT (schéma pour connecter le pic vers l'ecran):
+https://simple-circuit.com/pic18f46k22-ili9341-tft-ccs-c-proteus/
+
+
+Video qui montre un montage avec le pic et l'ecran : 
+https://www.youtube.com/watch?v=dFDeh2Nc86w

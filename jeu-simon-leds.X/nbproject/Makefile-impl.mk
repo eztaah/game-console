@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=jeu-simon-c
+PROJECTNAME=jeu-simon-leds.X
 
 # Active Configuration
 DEFAULTCONF=default
