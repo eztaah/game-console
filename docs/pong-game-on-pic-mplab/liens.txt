@@ -1,0 +1,9 @@
+Video youtube : 
+https://www.youtube.com/watch?v=DLZzlCkHmFU
+
+Repo github : 
+https://github.com/sebas2906/mplab_projects/tree/main/ililib.X
+
+
+Proteus Squematic (This is not  a simulation):
+https://github.com/sebas2906/mplab_projects/tree/main/ililib.X/squematic

@@ -1,13 +1,28 @@
 ---------- Mardi 21 mai ----------
-
 Matin : 
+    - On confirme le fait que l'on va créer 2 bornes d'arcade, qui vont envoyer leur meilleur score à un PC (ou autre microcontrôleur) pour faire un leaderboard.
+    - On a récupéré des écrans et on a trouvé la datasheet associée.
 
-- On confirme le fait que l'on va créer 2 bornes d'arcades, qui vont envoyer leurs meilleur score à un pc (ou autre microcontroleur) pour faire un leaderboard
-
-- On a récupéré des écrans et on a trouvé la datasheet associé
-
+Après-midi :
+    - On code en C la gestion des LED et des boutons sur le jeu du Simon (pour s'entraîner).
 
 
-Après midi :
 
-- On code en C la gestion des leds et des boutons sur le jeu du Simon
+---------- Mercredi 22 mai ----------
+Matin : 
+    - Formation Altium Designer n°1.
+
+Après-midi :
+    - On essaie de faire marcher l'écran SPITFT (écran rouge), on se rend compte que la datasheet est introuvable, donc impossible de savoir comment connecter les pins sur le microcontrôleur.
+    On va donc utiliser l'écran ILI9341.
+
+
+
+---------- Jeudi 23 mai ----------
+Matin : 
+    - Formation Altium Designer n°2.
+
+Après-midi :
+    - On connecte l'écran ILI9341 sur le microcontrôleur avec la carte de prototypage et un breadboard.
+    - On se rend compte qu'il va falloir utiliser un driver pour communiquer avec l'écran (car recréer le driver de zéro serait trop long).
+    - On trouve une vidéo YouTube + repo GitHub de quelqu'un qui a fait un jeu de pong avec un PIC16 et écran ILI9341 sur MPLAB. On va donc devoir faire fonctionner ce driver sur un PIC18 au lieu d'un PIC16.
