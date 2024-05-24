@@ -1,9 +1,9 @@
-| ECRAN       | PIC18F46K22 |
+| PIC18F46K22 | ECRAN       |
 |-------------|-------------|
 | GND         | GND         |
-| 3-5V        | +5V (haut)  |
-| CS          | RD0         |
-| D/C         | RD2         |
-| RST         | RD1         |
-| CLK         | RC3         |
-| MOSI        | RC5         |
+| +5V (haut)  | 3-5V        |
+| RD0         | CS          |
+| RD2         | D/C         |
+| RD1         | RST         |
+| RC3         | CLK         |
+| RC5         | MOSI        |
