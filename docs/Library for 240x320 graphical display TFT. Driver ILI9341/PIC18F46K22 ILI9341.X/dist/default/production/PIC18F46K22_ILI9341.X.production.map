@@ -1,0 +1,1938 @@
+Microchip MPLAB XC8 Compiler V1.35 ()
+
+Linker command line:
+
+-W-2 --edf=C:\Program Files\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
+  -h+dist/default/production\PIC18F46K22_ILI9341.X.production.sym \
+  --cmf=dist/default/production\PIC18F46K22_ILI9341.X.production.cmf -z \
+  -Q18F46K22 -oC:\Users\Hector\AppData\Local\Temp\s3kg.2 \
+  -Mdist/default/production/PIC18F46K22_ILI9341.X.production.map -E1 \
+  -ver=XC8 -ASTACK=068h-0f37h -pstack=STACK -ACODE=00h-0FFFFh \
+  -ACONST=00h-0FFFFh -ASMALLCONST=01000h-010FFhx240 \
+  -AMEDIUMCONST=01000h-0FFFFh -ACOMRAM=01h-05Fh -AABS1=00h-0F37h \
+  -ABIGRAM=01h-0F37h -ARAM=060h-0FFh,0100h-01FFhx14,0F00h-0F37h \
+  -ABANK0=060h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh \
+  -ABANK3=0300h-03FFh -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh \
+  -ABANK6=0600h-06FFh -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh \
+  -ABANK9=0900h-09FFh -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh \
+  -ABANK12=0C00h-0CFFh -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EFFh \
+  -ABANK15=0F00h-0F37h -ASFR=0F38h-0F5Fh,0F60h-0FFFh \
+  -preset_vec=00h,intcode,intcodelo,powerup,init,end_init -pramtop=01000h \
+  -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
+  -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
+  -AIDLOC=0200000h-0200007h -pidloc=IDLOC -AEEDATA=0F00000h-0F003FFh \
+  -peeprom_data=EEDATA \
+  -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
+  -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
+  -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
+  C:\Users\Hector\AppData\Local\Temp\s3kg.obj \
+  dist/default/production\PIC18F46K22_ILI9341.X.production.obj 
+
+Object code version is 3.11
+
+Machine type is 18F46K22
+
+Call graph: (short form)
+
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+                end_init                              0        0        4        0       0
+                idloc                            200000   200000        8   200000       0
+                config                           300000   300000        E   300000       0
+dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+                mediumconst                        CD20     CD20     32E0     6690       0
+                text29                             B0EE     B0EE        4     5877       0
+                text28                             B12A     B12A       12     5895       0
+                text27                             B0FA     B0FA       10     587D       0
+                text26                             B294     B294       52     594A       0
+                text25                             B3F6     B3F6       74     59FB       0
+                text24                             B5CA     B5CA       B8     5AE5       0
+                text23                             BD62     BD62      232     5EB1       0
+                text22                             C442     C442      308     6221       0
+                text21                             B392     B392       64     59C9       0
+                text20                             B682     B682       C8     5B41       0
+                text19                             B46A     B46A       AE     5A35       0
+                text18                             B1EC     B1EC       2C     58F6       0
+                text17                             B15A     B15A       20     58AD       0
+                text16                             B10A     B10A       10     5885       0
+                text15                             B11A     B11A       10     588D       0
+                text14                             B92C     B92C      214     5C96       0
+                text13                             B19C     B19C       26     58CE       0
+                text12                             B74A     B74A      1E2     5BA5       0
+                text11                             B518     B518       B2     5A8C       0
+                text10                             C1DE     C1DE      264     60EF       0
+                text9                              BB40     BB40      222     5DA0       0
+                text8                              B0F2     B0F2        8     5879       0
+                text7                              B1C2     B1C2       2A     58E1       0
+                text6                              B17A     B17A       22     58BD       0
+                text5                              B338     B338       5A     599C       0
+                text4                              B2E6     B2E6       52     5973       0
+                text3                              B252     B252       42     5929       0
+                text2                              B13C     B13C       1E     589E       0
+                text1                              BF94     BF94      24A     5FCA       0
+                text0                              C74A     C74A      5D6     63A5       0
+                cstackCOMRAM                          1        1       5A        1       1
+                dataBANK0                            65       65        3       60       1
+                bssBANK0                             60       60        5       60       1
+                bssCOMRAM                            5B       5B        5        1       1
+                cinit                              B218     B218       3A     590C       0
+                idataBANK0                         B0EB     B0EB        3     B0EB       0
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   STACK          
+
+        CLASS   CODE           
+                end_init                              0        0        4         0
+                text29                             B0EE     B0EE        4         0
+                text28                             B12A     B12A       12         0
+                text27                             B0FA     B0FA       10         0
+                text26                             B294     B294       52         0
+                text25                             B3F6     B3F6       74         0
+                text24                             B5CA     B5CA       B8         0
+                text23                             BD62     BD62      232         0
+                text22                             C442     C442      308         0
+                text21                             B392     B392       64         0
+                text20                             B682     B682       C8         0
+                text19                             B46A     B46A       AE         0
+                text18                             B1EC     B1EC       2C         0
+                text17                             B15A     B15A       20         0
+                text16                             B10A     B10A       10         0
+                text15                             B11A     B11A       10         0
+                text14                             B92C     B92C      214         0
+                text13                             B19C     B19C       26         0
+                text12                             B74A     B74A      1E2         0
+                text11                             B518     B518       B2         0
+                text10                             C1DE     C1DE      264         0
+                text9                              BB40     BB40      222         0
+                text8                              B0F2     B0F2        8         0
+                text7                              B1C2     B1C2       2A         0
+                text6                              B17A     B17A       22         0
+                text5                              B338     B338       5A         0
+                text4                              B2E6     B2E6       52         0
+                text3                              B252     B252       42         0
+                text2                              B13C     B13C       1E         0
+                text1                              BF94     BF94      24A         0
+                text0                              C74A     C74A      5D6         0
+                cinit                              B218     B218       3A         0
+                idataBANK0                         B0EB     B0EB        3         0
+
+        CLASS   CONST          
+
+        CLASS   SMALLCONST     
+
+        CLASS   MEDIUMCONST    
+                mediumconst                        CD20     CD20     32E0         0
+
+        CLASS   COMRAM         
+                cstackCOMRAM                          1        1       5A         1
+                bssCOMRAM                            5B       5B        5         1
+
+        CLASS   ABS1           
+
+        CLASS   BIGRAM         
+
+        CLASS   RAM            
+
+        CLASS   BANK0          
+                dataBANK0                            65       65        3         1
+                bssBANK0                             60       60        5         1
+
+        CLASS   BANK1          
+
+        CLASS   BANK2          
+
+        CLASS   BANK3          
+
+        CLASS   BANK4          
+
+        CLASS   BANK5          
+
+        CLASS   BANK6          
+
+        CLASS   BANK7          
+
+        CLASS   BANK8          
+
+        CLASS   BANK9          
+
+        CLASS   BANK10         
+
+        CLASS   BANK11         
+
+        CLASS   BANK12         
+
+        CLASS   BANK13         
+
+        CLASS   BANK14         
+
+        CLASS   BANK15         
+
+        CLASS   SFR            
+
+        CLASS   FARRAM         
+
+        CLASS   CONFIG         
+                config                           300000   300000        E         0
+
+        CLASS   IDLOC          
+                idloc                            200000   200000        8         0
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
+
+                reset_vec                      000000  000004  000004         0       0  CODE    
+                cstackCOMRAM                   000001  00005F  000060         1       1  COMRAM  
+                bssBANK0                       000060  000008  000068        60       1  BANK0   
+                idataBANK0                     00B0EB  000003  00B0EE      B0EB       0  CODE    
+                text29                         00B0EE  000004  00B0F2      5877       0  CODE    
+                text8                          00B0F2  000008  00B0FA      5879       0  CODE    
+                text27                         00B0FA  000010  00B10A      587D       0  CODE    
+                text16                         00B10A  000010  00B11A      5885       0  CODE    
+                text15                         00B11A  000010  00B12A      588D       0  CODE    
+                text28                         00B12A  000012  00B13C      5895       0  CODE    
+                text2                          00B13C  00001E  00B15A      589E       0  CODE    
+                text17                         00B15A  000020  00B17A      58AD       0  CODE    
+                text6                          00B17A  000022  00B19C      58BD       0  CODE    
+                text13                         00B19C  000026  00B1C2      58CE       0  CODE    
+                text7                          00B1C2  00002A  00B1EC      58E1       0  CODE    
+                text18                         00B1EC  00002C  00B218      58F6       0  CODE    
+                cinit                          00B218  00003A  00B252      590C       0  CODE    
+                text3                          00B252  000042  00B294      5929       0  CODE    
+                text26                         00B294  000052  00B2E6      594A       0  CODE    
+                text4                          00B2E6  000052  00B338      5973       0  CODE    
+                text5                          00B338  00005A  00B392      599C       0  CODE    
+                text21                         00B392  000064  00B3F6      59C9       0  CODE    
+                text25                         00B3F6  000074  00B46A      59FB       0  CODE    
+                text19                         00B46A  0000AE  00B518      5A35       0  CODE    
+                text11                         00B518  0000B2  00B5CA      5A8C       0  CODE    
+                text24                         00B5CA  0000B8  00B682      5AE5       0  CODE    
+                text20                         00B682  0000C8  00B74A      5B41       0  CODE    
+                text12                         00B74A  0001E2  00B92C      5BA5       0  CODE    
+                text14                         00B92C  000214  00BB40      5C96       0  CODE    
+                text9                          00BB40  000222  00BD62      5DA0       0  CODE    
+                text23                         00BD62  000232  00BF94      5EB1       0  CODE    
+                text1                          00BF94  00024A  00C1DE      5FCA       0  CODE    
+                text10                         00C1DE  000264  00C442      60EF       0  CODE    
+                text22                         00C442  000308  00C74A      6221       0  CODE    
+                text0                          00C74A  0005D6  00CD20      63A5       0  CODE    
+                mediumconst                    00CD20  0032E0  010000      6690       0  MEDIUMCO
+                idloc                          200000  000008  200008    200000       0  IDLOC   
+                config                         300000  00000E  30000E    300000       0  CONFIG  
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            000068-0000FF               98
+        BANK1            000100-0001FF              100
+        BANK10           000A00-000AFF              100
+        BANK11           000B00-000BFF              100
+        BANK12           000C00-000CFF              100
+        BANK13           000D00-000DFF              100
+        BANK14           000E00-000EFF              100
+        BANK15           000F00-000F37               38
+        BANK2            000200-0002FF              100
+        BANK3            000300-0003FF              100
+        BANK4            000400-0004FF              100
+        BANK5            000500-0005FF              100
+        BANK6            000600-0006FF              100
+        BANK7            000700-0007FF              100
+        BANK8            000800-0008FF              100
+        BANK9            000900-0009FF              100
+        BIGRAM           000068-000F37              ED0
+        CODE             000004-00B0EA             B0E7
+        CONST            000004-00B0EA             B0E7
+        EEDATA           F00000-F003FF              400
+        MEDIUMCONST      001000-00B0EA             A0EB
+        RAM              000068-000F37              100
+        SFR              000F38-000FFF               28
+        SMALLCONST       001000-00B0EA              100
+        STACK            000068-000F37              ED0
+
+                                  Symbol Table
+
+?___lwdiv                    cstackCOMRAM 000001
+?___lwmod                    cstackCOMRAM 000008
+?___wmul                     cstackCOMRAM 000001
+?_sprintf                    cstackCOMRAM 00000D
+Delay_ms@count               cstackCOMRAM 000001
+Delay_ms@i                   cstackCOMRAM 000004
+SPI1_Write@data              cstackCOMRAM 000001
+TFT_Box@DH                   cstackCOMRAM 000018
+TFT_Box@DL                   cstackCOMRAM 000019
+TFT_Box@color                cstackCOMRAM 000012
+TFT_Box@i                    cstackCOMRAM 000014
+TFT_Box@j                    cstackCOMRAM 000016
+TFT_Box@x1                   cstackCOMRAM 00000A
+TFT_Box@x2                   cstackCOMRAM 00000E
+TFT_Box@y1                   cstackCOMRAM 00000C
+TFT_Box@y2                   cstackCOMRAM 000010
+TFT_Circle@color             cstackCOMRAM 00001B
+TFT_Circle@radius            cstackCOMRAM 000019
+TFT_Circle@radiusError       cstackCOMRAM 000021
+TFT_Circle@x                 cstackCOMRAM 000023
+TFT_Circle@x1                cstackCOMRAM 000015
+TFT_Circle@y                 cstackCOMRAM 000025
+TFT_Circle@y1                cstackCOMRAM 000017
+TFT_ColumnPage@x1            cstackCOMRAM 000002
+TFT_ColumnPage@x2            cstackCOMRAM 000004
+TFT_ColumnPage@y1            cstackCOMRAM 000006
+TFT_ColumnPage@y2            cstackCOMRAM 000008
+TFT_ConstText@buffer         cstackCOMRAM 00001B
+TFT_ConstText@color1         cstackCOMRAM 000021
+TFT_ConstText@color2         cstackCOMRAM 000023
+TFT_ConstText@x              cstackCOMRAM 00001D
+TFT_ConstText@y              cstackCOMRAM 00001F
+TFT_Dot@color                cstackCOMRAM 00000E
+TFT_Dot@i                    cstackCOMRAM 000014
+TFT_Dot@x                    cstackCOMRAM 00000A
+TFT_Dot@y                    cstackCOMRAM 00000C
+TFT_FillScreen@DH            cstackCOMRAM 00000C
+TFT_FillScreen@DL            cstackCOMRAM 00000D
+TFT_FillScreen@color         cstackCOMRAM 00000A
+TFT_FillScreen@i             cstackCOMRAM 00000E
+TFT_FillScreen@j             cstackCOMRAM 000010
+TFT_Icon@buffer              cstackCOMRAM 00000A
+TFT_Icon@height_             cstackCOMRAM 000011
+TFT_Icon@i                   cstackCOMRAM 000016
+TFT_Icon@j                   cstackCOMRAM 000018
+TFT_Icon@width_              cstackCOMRAM 000010
+TFT_Icon@x                   cstackCOMRAM 00000C
+TFT_Icon@y                   cstackCOMRAM 00000E
+TFT_Line@color               cstackCOMRAM 00001D
+TFT_Line@dx1                 cstackCOMRAM 000025
+TFT_Line@dx2                 cstackCOMRAM 00002B
+TFT_Line@dy1                 cstackCOMRAM 000027
+TFT_Line@dy2                 cstackCOMRAM 000029
+TFT_Line@h                   cstackCOMRAM 000033
+TFT_Line@i                   cstackCOMRAM 000021
+TFT_Line@longest             cstackCOMRAM 00002F
+TFT_Line@numerator           cstackCOMRAM 000023
+TFT_Line@shortest            cstackCOMRAM 00002D
+TFT_Line@w                   cstackCOMRAM 000031
+TFT_Line@x1                  cstackCOMRAM 000015
+TFT_Line@x2                  cstackCOMRAM 000019
+TFT_Line@y1                  cstackCOMRAM 000017
+TFT_Line@y2                  cstackCOMRAM 00001B
+TFT_Rectangle@color          cstackCOMRAM 00003D
+TFT_Rectangle@x1             cstackCOMRAM 000035
+TFT_Rectangle@x2             cstackCOMRAM 000039
+TFT_Rectangle@y1             cstackCOMRAM 000037
+TFT_Rectangle@y2             cstackCOMRAM 00003B
+TFT_RectangleRound@color     cstackCOMRAM 00003F
+TFT_RectangleRound@radius    cstackCOMRAM 00003D
+TFT_RectangleRound@x1        cstackCOMRAM 000035
+TFT_RectangleRound@x2        cstackCOMRAM 000039
+TFT_RectangleRound@y1        cstackCOMRAM 000037
+TFT_RectangleRound@y2        cstackCOMRAM 00003B
+TFT_RoundEdge@alignment      cstackCOMRAM 000019
+TFT_RoundEdge@color          cstackCOMRAM 00001D
+TFT_RoundEdge@radius         cstackCOMRAM 00001B
+TFT_RoundEdge@radiusError    cstackCOMRAM 000023
+TFT_RoundEdge@x              cstackCOMRAM 000025
+TFT_RoundEdge@x1             cstackCOMRAM 000015
+TFT_RoundEdge@y              cstackCOMRAM 000027
+TFT_RoundEdge@y1             cstackCOMRAM 000017
+TFT_SetDotSize@size_         cstackCOMRAM 000001
+TFT_SetFont@font_            cstackCOMRAM 000001
+TFT_SetFont@letterspacing    cstackCOMRAM 000003
+TFT_Text@buffer              cstackCOMRAM 00001B
+TFT_Text@color1              cstackCOMRAM 000021
+TFT_Text@color2              cstackCOMRAM 000023
+TFT_Text@x                   cstackCOMRAM 00001D
+TFT_Text@y                   cstackCOMRAM 00001F
+TFT_WriteChar@c              cstackCOMRAM 000015
+TFT_WriteChar@color1         cstackCOMRAM 00000E
+TFT_WriteChar@color2         cstackCOMRAM 000010
+TFT_WriteChar@i              cstackCOMRAM 000016
+TFT_WriteChar@j              cstackCOMRAM 00001A
+TFT_WriteChar@k              cstackCOMRAM 000017
+TFT_WriteChar@p              cstackCOMRAM 000018
+TFT_WriteChar@x              cstackCOMRAM 00000A
+TFT_WriteChar@y              cstackCOMRAM 00000C
+TFT_WriteCommand@command     cstackCOMRAM 000002
+TFT_WriteParameter@parameter cstackCOMRAM 000002
+_ANSELA                      (abs)        000F38
+_ANSELB                      (abs)        000F39
+_ANSELC                      (abs)        000F3A
+_ANSELD                      (abs)        000F3B
+_ANSELE                      (abs)        000F3C
+_Courier_New_Bold_20         mediumconst  00ED2B
+_Delay_ms                    text18       00B1EC
+_LATDbits                    (abs)        000F8C
+_OSCCON                      (abs)        000FD3
+_OSCTUNEbits                 (abs)        000F9B
+_PORTA                       (abs)        000F80
+_PORTB                       (abs)        000F81
+_PORTC                       (abs)        000F82
+_PORTD                       (abs)        000F83
+_PORTE                       (abs)        000F84
+_SPI1_Close                  text29       00B0EE
+_SPI1_Init                   text28       00B12A
+_SPI1_Write                  text27       00B0FA
+_SSP1BUF                     (abs)        000FC9
+_SSP1CON1                    (abs)        000FC6
+_SSP1STAT                    (abs)        000FC7
+_SSP1STATbits                (abs)        000FC7
+_TFT_Box                     text25       00B3F6
+_TFT_CharHeight              text7        00B1C2
+_TFT_Circle                  text23       00BD62
+_TFT_ColumnPage              text26       00B294
+_TFT_ConstText               text21       00B392
+_TFT_Dot                     text24       00B5CA
+_TFT_FillScreen              text19       00B46A
+_TFT_Icon                    text20       00B682
+_TFT_Init                    text14       00B92C
+_TFT_Line                    text12       00B74A
+_TFT_Rectangle               text11       00B518
+_TFT_RectangleRound          text9        00BB40
+_TFT_Reset                   text17       00B15A
+_TFT_RoundEdge               text10       00C1DE
+_TFT_SetDotSize              text8        00B0F2
+_TFT_SetFont                 text6        00B17A
+_TFT_Text                    text5        00B338
+_TFT_WriteChar               text22       00C442
+_TFT_WriteCommand            text16       00B10A
+_TFT_WriteParameter          text15       00B11A
+_TRISA                       (abs)        000F92
+_TRISAbits                   (abs)        000F92
+_TRISB                       (abs)        000F93
+_TRISC                       (abs)        000F94
+_TRISCbits                   (abs)        000F94
+_TRISD                       (abs)        000F95
+_TRISDbits                   (abs)        000F95
+_TRISE                       (abs)        000F96
+__CFG_BOREN$SBORDIS          (abs)        000000
+__CFG_BORV$190               (abs)        000000
+__CFG_CCP2MX$PORTC1          (abs)        000000
+__CFG_CCP3MX$PORTB5          (abs)        000000
+__CFG_CP0$OFF                (abs)        000000
+__CFG_CP1$OFF                (abs)        000000
+__CFG_CP2$OFF                (abs)        000000
+__CFG_CP3$OFF                (abs)        000000
+__CFG_CPB$OFF                (abs)        000000
+__CFG_CPD$OFF                (abs)        000000
+__CFG_EBTR0$OFF              (abs)        000000
+__CFG_EBTR1$OFF              (abs)        000000
+__CFG_EBTR2$OFF              (abs)        000000
+__CFG_EBTR3$OFF              (abs)        000000
+__CFG_EBTRB$OFF              (abs)        000000
+__CFG_FCMEN$OFF              (abs)        000000
+__CFG_FOSC$INTIO67           (abs)        000000
+__CFG_HFOFST$ON              (abs)        000000
+__CFG_IESO$OFF               (abs)        000000
+__CFG_LVP$OFF                (abs)        000000
+__CFG_MCLRE$INTMCLR          (abs)        000000
+__CFG_P2BMX$PORTD2           (abs)        000000
+__CFG_PBADEN$ON              (abs)        000000
+__CFG_PLLCFG$OFF             (abs)        000000
+__CFG_PRICLKEN$ON            (abs)        000000
+__CFG_PWRTEN$OFF             (abs)        000000
+__CFG_STVREN$ON              (abs)        000000
+__CFG_T3CMX$PORTC0           (abs)        000000
+__CFG_WDTEN$OFF              (abs)        000000
+__CFG_WDTPS$32768            (abs)        000000
+__CFG_WRT0$OFF               (abs)        000000
+__CFG_WRT1$OFF               (abs)        000000
+__CFG_WRT2$OFF               (abs)        000000
+__CFG_WRT3$OFF               (abs)        000000
+__CFG_WRTB$OFF               (abs)        000000
+__CFG_WRTC$OFF               (abs)        000000
+__CFG_WRTD$OFF               (abs)        000000
+__CFG_XINST$OFF              (abs)        000000
+__HRAM                       (abs)        000000
+__Habs1                      abs1         000000
+__Hbank0                     bank0        000000
+__Hbank1                     bank1        000000
+__Hbank10                    bank10       000000
+__Hbank11                    bank11       000000
+__Hbank12                    bank12       000000
+__Hbank13                    bank13       000000
+__Hbank14                    bank14       000000
+__Hbank15                    bank15       000000
+__Hbank2                     bank2        000000
+__Hbank3                     bank3        000000
+__Hbank4                     bank4        000000
+__Hbank5                     bank5        000000
+__Hbank6                     bank6        000000
+__Hbank7                     bank7        000000
+__Hbank8                     bank8        000000
+__Hbank9                     bank9        000000
+__Hbigbss                    bigbss       000000
+__Hbigdata                   bigdata      000000
+__Hbigram                    bigram       000000
+__Hbss                       bss          000000
+__HbssBANK0                  bssBANK0     000000
+__HbssCOMRAM                 bssCOMRAM    000000
+__Hcinit                     cinit        000000
+__Hclrtext                   clrtext      000000
+__Hcomram                    comram       000000
+__Hconfig                    config       30000E
+__Hconst                     const        000000
+__HcstackCOMRAM              cstackCOMRAM 000000
+__Hdata                      data         000000
+__HdataBANK0                 dataBANK0    000000
+__Heeprom_data               eeprom_data  000000
+__Hend_init                  end_init     000004
+__Hfarbss                    farbss       000000
+__Hfardata                   fardata      000000
+__Hibigdata                  ibigdata     000000
+__Hidata                     idata        000000
+__HidataBANK0                idataBANK0   000000
+__Hidloc                     idloc        200008
+__Hifardata                  ifardata     000000
+__Hinit                      init         000000
+__Hintcode                   intcode      000000
+__Hintcode_body              intcode_body 000000
+__Hintcodelo                 intcodelo    000000
+__Hintentry                  intentry     000000
+__Hintret                    intret       000000
+__Hintsave_regs              intsave_regs 000000
+__Hirdata                    irdata       000000
+__Hmediumconst               mediumconst  010000
+__HnvFARRAM                  nvFARRAM     000000
+__Hnvbit                     nvbit        000000
+__Hnvrram                    nvrram       000000
+__Hparam                     rparam       000000
+__Hpowerup                   powerup      000000
+__Hram                       ram          000000
+__Hramtop                    ramtop       001000
+__Hrbit                      rbit         000000
+__Hrbss                      rbss         000000
+__Hrdata                     rdata        000000
+__Hreset_vec                 reset_vec    000000
+__Hrparam                    rparam       000000
+__Hsfr                       sfr          000000
+__Hsmallconst                smallconst   000000
+__Hspace_0                   (abs)        30000E
+__Hspace_1                   (abs)        000068
+__Hspace_2                   (abs)        000000
+__Hstack                     stack        000000
+__Hstruct                    struct       000000
+__Htemp                      temp         000000
+__Htext                      text         000000
+__Htext0                     text0        000000
+__Htext1                     text1        000000
+__Htext10                    text10       000000
+__Htext11                    text11       000000
+__Htext12                    text12       000000
+__Htext13                    text13       000000
+__Htext14                    text14       000000
+__Htext15                    text15       000000
+__Htext16                    text16       000000
+__Htext17                    text17       000000
+__Htext18                    text18       000000
+__Htext19                    text19       000000
+__Htext2                     text2        000000
+__Htext20                    text20       000000
+__Htext21                    text21       000000
+__Htext22                    text22       000000
+__Htext23                    text23       000000
+__Htext24                    text24       000000
+__Htext25                    text25       000000
+__Htext26                    text26       000000
+__Htext27                    text27       000000
+__Htext28                    text28       000000
+__Htext29                    text29       000000
+__Htext3                     text3        000000
+__Htext4                     text4        000000
+__Htext5                     text5        000000
+__Htext6                     text6        000000
+__Htext7                     text7        000000
+__Htext8                     text8        000000
+__Htext9                     text9        000000
+__LRAM                       (abs)        000001
+__Labs1                      abs1         000000
+__Lbank0                     bank0        000000
+__Lbank1                     bank1        000000
+__Lbank10                    bank10       000000
+__Lbank11                    bank11       000000
+__Lbank12                    bank12       000000
+__Lbank13                    bank13       000000
+__Lbank14                    bank14       000000
+__Lbank15                    bank15       000000
+__Lbank2                     bank2        000000
+__Lbank3                     bank3        000000
+__Lbank4                     bank4        000000
+__Lbank5                     bank5        000000
+__Lbank6                     bank6        000000
+__Lbank7                     bank7        000000
+__Lbank8                     bank8        000000
+__Lbank9                     bank9        000000
+__Lbigbss                    bigbss       000000
+__Lbigdata                   bigdata      000000
+__Lbigram                    bigram       000000
+__Lbss                       bss          000000
+__LbssBANK0                  bssBANK0     000000
+__LbssCOMRAM                 bssCOMRAM    000000
+__Lcinit                     cinit        000000
+__Lclrtext                   clrtext      000000
+__Lcomram                    comram       000000
+__Lconfig                    config       300000
+__Lconst                     const        000000
+__LcstackCOMRAM              cstackCOMRAM 000000
+__Ldata                      data         000000
+__LdataBANK0                 dataBANK0    000000
+__Leeprom_data               eeprom_data  000000
+__Lend_init                  end_init     000000
+__Lfarbss                    farbss       000000
+__Lfardata                   fardata      000000
+__Libigdata                  ibigdata     000000
+__Lidata                     idata        000000
+__LidataBANK0                idataBANK0   000000
+__Lidloc                     idloc        200000
+__Lifardata                  ifardata     000000
+__Linit                      init         000000
+__Lintcode                   intcode      000000
+__Lintcode_body              intcode_body 000000
+__Lintcodelo                 intcodelo    000000
+__Lintentry                  intentry     000000
+__Lintret                    intret       000000
+__Lintsave_regs              intsave_regs 000000
+__Lirdata                    irdata       000000
+__Lmediumconst               mediumconst  00CD20
+__LnvFARRAM                  nvFARRAM     000000
+__Lnvbit                     nvbit        000000
+__Lnvrram                    nvrram       000000
+__Lparam                     rparam       000000
+__Lpowerup                   powerup      000000
+__Lram                       ram          000000
+__Lramtop                    ramtop       001000
+__Lrbit                      rbit         000000
+__Lrbss                      rbss         000000
+__Lrdata                     rdata        000000
+__Lreset_vec                 reset_vec    000000
+__Lrparam                    rparam       000000
+__Lsfr                       sfr          000000
+__Lsmallconst                smallconst   000000
+__Lspace_0                   (abs)        000000
+__Lspace_1                   (abs)        000000
+__Lspace_2                   (abs)        000000
+__Lstack                     stack        000000
+__Lstruct                    struct       000000
+__Ltemp                      temp         000000
+__Ltext                      text         000000
+__Ltext0                     text0        000000
+__Ltext1                     text1        000000
+__Ltext10                    text10       000000
+__Ltext11                    text11       000000
+__Ltext12                    text12       000000
+__Ltext13                    text13       000000
+__Ltext14                    text14       000000
+__Ltext15                    text15       000000
+__Ltext16                    text16       000000
+__Ltext17                    text17       000000
+__Ltext18                    text18       000000
+__Ltext19                    text19       000000
+__Ltext2                     text2        000000
+__Ltext20                    text20       000000
+__Ltext21                    text21       000000
+__Ltext22                    text22       000000
+__Ltext23                    text23       000000
+__Ltext24                    text24       000000
+__Ltext25                    text25       000000
+__Ltext26                    text26       000000
+__Ltext27                    text27       000000
+__Ltext28                    text28       000000
+__Ltext29                    text29       000000
+__Ltext3                     text3        000000
+__Ltext4                     text4        000000
+__Ltext5                     text5        000000
+__Ltext6                     text6        000000
+__Ltext7                     text7        000000
+__Ltext8                     text8        000000
+__Ltext9                     text9        000000
+__S0                         (abs)        30000E
+__S1                         (abs)        000068
+__S2                         (abs)        000000
+___inthi_sp                  stack        000000
+___intlo_sp                  stack        000000
+___lwdiv                     text4        00B2E6
+___lwdiv@counter             cstackCOMRAM 000007
+___lwdiv@dividend            cstackCOMRAM 000001
+___lwdiv@divisor             cstackCOMRAM 000003
+___lwdiv@quotient            cstackCOMRAM 000005
+___lwmod                     text3        00B252
+___lwmod@counter             cstackCOMRAM 00000C
+___lwmod@dividend            cstackCOMRAM 000008
+___lwmod@divisor             cstackCOMRAM 00000A
+___param_bank                (abs)        000010
+___rparam_used               (abs)        000001
+___sp                        stack        000000
+___wmul                      text13       00B19C
+___wmul@multiplicand         cstackCOMRAM 000003
+___wmul@multiplier           cstackCOMRAM 000001
+___wmul@product              cstackCOMRAM 000005
+__accesstop                  (abs)        000060
+__activetblptr               (abs)        000003
+__end_of_Courier_New_Bold_20 mediumconst  00FFC1
+__end_of_Delay_ms            text18       00B218
+__end_of_SPI1_Close          text29       00B0F2
+__end_of_SPI1_Init           text28       00B13C
+__end_of_SPI1_Write          text27       00B10A
+__end_of_TFT_Box             text25       00B46A
+__end_of_TFT_CharHeight      text7        00B1EC
+__end_of_TFT_Circle          text23       00BF94
+__end_of_TFT_ColumnPage      text26       00B2E6
+__end_of_TFT_ConstText       text21       00B3F6
+__end_of_TFT_Dot             text24       00B682
+__end_of_TFT_FillScreen      text19       00B518
+__end_of_TFT_Icon            text20       00B74A
+__end_of_TFT_Init            text14       00BB40
+__end_of_TFT_Line            text12       00B92C
+__end_of_TFT_Rectangle       text11       00B5CA
+__end_of_TFT_RectangleRound  text9        00BD62
+__end_of_TFT_Reset           text17       00B17A
+__end_of_TFT_RoundEdge       text10       00C442
+__end_of_TFT_SetDotSize      text8        00B0FA
+__end_of_TFT_SetFont         text6        00B19C
+__end_of_TFT_Text            text5        00B392
+__end_of_TFT_WriteChar       text22       00C74A
+__end_of_TFT_WriteCommand    text16       00B11A
+__end_of_TFT_WriteParameter  text15       00B12A
+__end_of___lwdiv             text4        00B338
+__end_of___lwmod             text3        00B294
+__end_of___wmul              text13       00B1C2
+__end_of__initialization     cinit        00B24C
+__end_of_dpowers             mediumconst  00CD2B
+__end_of_icon1               mediumconst  00ED2B
+__end_of_isdigit             text2        00B15A
+__end_of_main                text0        00CD20
+__end_of_sprintf             text1        00C1DE
+__initialization             cinit        00B218
+__mediumconst                mediumconst  00CD20
+__pbssBANK0                  bssBANK0     000060
+__pbssCOMRAM                 bssCOMRAM    00005B
+__pcinit                     cinit        00B218
+__pcstackCOMRAM              cstackCOMRAM 000001
+__pdataBANK0                 dataBANK0    000065
+__pidataBANK0                idataBANK0   00B0EB
+__pmediumconst               mediumconst  00CD20
+__ptext0                     text0        00C74A
+__ptext1                     text1        00BF94
+__ptext10                    text10       00C1DE
+__ptext11                    text11       00B518
+__ptext12                    text12       00B74A
+__ptext13                    text13       00B19C
+__ptext14                    text14       00B92C
+__ptext15                    text15       00B11A
+__ptext16                    text16       00B10A
+__ptext17                    text17       00B15A
+__ptext18                    text18       00B1EC
+__ptext19                    text19       00B46A
+__ptext2                     text2        00B13C
+__ptext20                    text20       00B682
+__ptext21                    text21       00B392
+__ptext22                    text22       00C442
+__ptext23                    text23       00BD62
+__ptext24                    text24       00B5CA
+__ptext25                    text25       00B3F6
+__ptext26                    text26       00B294
+__ptext27                    text27       00B0FA
+__ptext28                    text28       00B12A
+__ptext29                    text29       00B0EE
+__ptext3                     text3        00B252
+__ptext4                     text4        00B2E6
+__ptext5                     text5        00B338
+__ptext6                     text6        00B17A
+__ptext7                     text7        00B1C2
+__ptext8                     text8        00B0F2
+__ptext9                     text9        00BB40
+__ramtop                     ramtop       001000
+__size_of_Delay_ms           (abs)        000000
+__size_of_SPI1_Close         (abs)        000000
+__size_of_SPI1_Init          (abs)        000000
+__size_of_SPI1_Write         (abs)        000000
+__size_of_TFT_Box            (abs)        000000
+__size_of_TFT_CharHeight     (abs)        000000
+__size_of_TFT_Circle         (abs)        000000
+__size_of_TFT_ColumnPage     (abs)        000000
+__size_of_TFT_ConstText      (abs)        000000
+__size_of_TFT_Dot            (abs)        000000
+__size_of_TFT_FillScreen     (abs)        000000
+__size_of_TFT_Icon           (abs)        000000
+__size_of_TFT_Init           (abs)        000000
+__size_of_TFT_Line           (abs)        000000
+__size_of_TFT_Rectangle      (abs)        000000
+__size_of_TFT_RectangleRound (abs)        000000
+__size_of_TFT_Reset          (abs)        000000
+__size_of_TFT_RoundEdge      (abs)        000000
+__size_of_TFT_SetDotSize     (abs)        000000
+__size_of_TFT_SetFont        (abs)        000000
+__size_of_TFT_Text           (abs)        000000
+__size_of_TFT_WriteChar      (abs)        000000
+__size_of_TFT_WriteCommand   (abs)        000000
+__size_of_TFT_WriteParameter (abs)        000000
+__size_of___lwdiv            (abs)        000000
+__size_of___lwmod            (abs)        000000
+__size_of___wmul             (abs)        000000
+__size_of_isdigit            (abs)        000000
+__size_of_main               (abs)        000000
+__size_of_sprintf            (abs)        000000
+__smallconst                 smallconst   000000
+_dot_size                    bssBANK0     000063
+_dpowers                     mediumconst  00CD21
+_font                        bssCOMRAM    00005B
+_font2                       bssBANK0     000060
+_frame_memory                dataBANK0    000067
+_height                      bssBANK0     000064
+_icon1                       mediumconst  00CD2B
+_isdigit                     text2        00B13C
+_isdigit$1162                cstackCOMRAM 000002
+_letter_spacing              bssCOMRAM    00005E
+_main                        text0        00C74A
+_sprintf                     text1        00BF94
+_tft_x                       dataBANK0    000065
+_width                       bssCOMRAM    00005F
+end_of_initialization        cinit        00B24C
+intlevel0                    text         000000
+intlevel1                    text         000000
+intlevel2                    text         000000
+intlevel3                    text         000000
+isdigit@c                    cstackCOMRAM 000003
+main@buffer1                 cstackCOMRAM 000045
+main@i                       cstackCOMRAM 000059
+sprintf@ap                   cstackCOMRAM 000017
+sprintf@c                    cstackCOMRAM 00001F
+sprintf@f                    cstackCOMRAM 00000F
+sprintf@flag                 cstackCOMRAM 00001A
+sprintf@prec                 cstackCOMRAM 000019
+sprintf@sp                   cstackCOMRAM 00000D
+sprintf@val                  cstackCOMRAM 00001B
+sprintf@width                cstackCOMRAM 00001D
+stackhi                      (abs)        000F37
+stacklo                      (abs)        000068
+start                        init         000000
+start_initialization         cinit        00B218
+
+
+FUNCTION INFORMATION:
+
+ *************** function _main *****************
+ Defined at:
+		line 16 in file "main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  buffer1        20   68[COMRAM] unsigned char [20]
+  i               2   88[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:        22       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        22       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       22 bytes
+ Hardware stack levels required when called:    5
+ This function calls:
+		_Delay_ms
+		_SPI1_Close
+		_SPI1_Init
+		_TFT_Box
+		_TFT_Circle
+		_TFT_ConstText
+		_TFT_Icon
+		_TFT_Init
+		_TFT_Line
+		_TFT_Rectangle
+		_TFT_RectangleRound
+		_TFT_SetDotSize
+		_TFT_SetFont
+		_TFT_Text
+		_TFT_WriteChar
+		_sprintf
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _sprintf *****************
+ Defined at:
+		line 492 in file "C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c"
+ Parameters:    Size  Location     Type
+  sp              2   12[COMRAM] PTR unsigned char 
+		 -> main@buffer1(20), 
+  f               2   14[COMRAM] PTR const unsigned char 
+		 -> STR_12(12), 
+ Auto vars:     Size  Location     Type
+  tmpval          4    0        struct .
+  cp              3    0        PTR const unsigned char 
+  width           2   28[COMRAM] int 
+  val             2   26[COMRAM] unsigned int 
+  ap              2   22[COMRAM] PTR void [1]
+		 -> ?_sprintf(2), 
+  len             2    0        unsigned int 
+  c               1   30[COMRAM] char 
+  flag            1   25[COMRAM] unsigned char 
+  prec            1   24[COMRAM] char 
+ Return value:  Size  Location     Type
+                  2   12[COMRAM] int 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         9       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        19       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       19 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		___lwdiv
+		___lwmod
+		___wmul
+		_isdigit
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _isdigit *****************
+ Defined at:
+		line 8 in file "C:\Program Files\Microchip\xc8\v1.35\sources\common\isdigit.c"
+ Parameters:    Size  Location     Type
+  c               1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  c               1    2[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_sprintf
+ This function uses a non-reentrant model
+
+
+ *************** function ___lwmod *****************
+ Defined at:
+		line 8 in file "C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c"
+ Parameters:    Size  Location     Type
+  dividend        2    7[COMRAM] unsigned int 
+  divisor         2    9[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  counter         1   11[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  2    7[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_sprintf
+ This function uses a non-reentrant model
+
+
+ *************** function ___lwdiv *****************
+ Defined at:
+		line 8 in file "C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c"
+ Parameters:    Size  Location     Type
+  dividend        2    0[COMRAM] unsigned int 
+  divisor         2    2[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  quotient        2    4[COMRAM] unsigned int 
+  counter         1    6[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  2    0[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_sprintf
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_Text *****************
+ Defined at:
+		line 365 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  buffer          2   26[COMRAM] PTR unsigned char 
+		 -> main@buffer1(20), 
+  x               2   28[COMRAM] unsigned int 
+  y               2   30[COMRAM] unsigned int 
+  color1          2   32[COMRAM] unsigned int 
+  color2          2   34[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:        10       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        12       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       12 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_TFT_WriteChar
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_SetFont *****************
+ Defined at:
+		line 267 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  font_           2    0[COMRAM] PTR const unsigned char 
+		 -> Courier_New_Bold_20(4758), 
+  letterspacin    1    2[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_TFT_CharHeight
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_CharHeight *****************
+ Defined at:
+		line 276 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, tblptrl, tblptrh, tblptru
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_TFT_SetFont
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_SetDotSize *****************
+ Defined at:
+		line 230 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  size_           1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  size_           1    0[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_RectangleRound *****************
+ Defined at:
+		line 541 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  x1              2   52[COMRAM] unsigned int 
+  y1              2   54[COMRAM] unsigned int 
+  x2              2   56[COMRAM] unsigned int 
+  y2              2   58[COMRAM] unsigned int 
+  radius          2   60[COMRAM] unsigned int 
+  color           2   62[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:        12       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        16       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       16 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_TFT_Line
+		_TFT_RoundEdge
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_RoundEdge *****************
+ Defined at:
+		line 634 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  x1              2   20[COMRAM] unsigned int 
+  y1              2   22[COMRAM] unsigned int 
+  alignment       2   24[COMRAM] unsigned int 
+  radius          2   26[COMRAM] unsigned int 
+  color           2   28[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  y               2   38[COMRAM] int 
+  x               2   36[COMRAM] int 
+  radiusError     2   34[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:        10       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        20       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       20 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_TFT_Dot
+ This function is called by:
+		_TFT_RectangleRound
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_Rectangle *****************
+ Defined at:
+		line 530 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  x1              2   52[COMRAM] unsigned int 
+  y1              2   54[COMRAM] unsigned int 
+  x2              2   56[COMRAM] unsigned int 
+  y2              2   58[COMRAM] unsigned int 
+  color           2   60[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:        10       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        10       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       10 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_TFT_Line
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_Line *****************
+ Defined at:
+		line 482 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  x1              2   20[COMRAM] unsigned int 
+  y1              2   22[COMRAM] unsigned int 
+  x2              2   24[COMRAM] unsigned int 
+  y2              2   26[COMRAM] unsigned int 
+  color           2   28[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  h               2   50[COMRAM] int 
+  w               2   48[COMRAM] int 
+  longest         2   46[COMRAM] int 
+  shortest        2   44[COMRAM] int 
+  dx2             2   42[COMRAM] int 
+  dy2             2   40[COMRAM] int 
+  dy1             2   38[COMRAM] int 
+  dx1             2   36[COMRAM] int 
+  numerator       2   34[COMRAM] int 
+  i               2   32[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:        10       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:        20       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        32       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       32 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_TFT_Dot
+		___wmul
+ This function is called by:
+		_main
+		_TFT_Rectangle
+		_TFT_RectangleRound
+		_TFT_CircleFill
+ This function uses a non-reentrant model
+
+
+ *************** function ___wmul *****************
+ Defined at:
+		line 15 in file "C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul16.c"
+ Parameters:    Size  Location     Type
+  multiplier      2    0[COMRAM] unsigned int 
+  multiplicand    2    2[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  product         2    4[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+                  2    0[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_TFT_Line
+		_sprintf
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_Init *****************
+ Defined at:
+		line 24 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_Delay_ms
+		_TFT_FillScreen
+		_TFT_Reset
+		_TFT_WriteCommand
+		_TFT_WriteParameter
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_WriteParameter *****************
+ Defined at:
+		line 154 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  parameter       1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  parameter       1    1[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_SPI1_Write
+ This function is called by:
+		_TFT_Init
+		_TFT_MemoryAccessControl
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_WriteCommand *****************
+ Defined at:
+		line 144 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  command         1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  command         1    1[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_SPI1_Write
+ This function is called by:
+		_TFT_Init
+		_TFT_MemoryAccessControl
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_Reset *****************
+ Defined at:
+		line 135 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_Delay_ms
+ This function is called by:
+		_TFT_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _Delay_ms *****************
+ Defined at:
+		line 9 in file "time_delay.c"
+ Parameters:    Size  Location     Type
+  count           2    0[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  i               2    3[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+		_TFT_Init
+		_TFT_Reset
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_FillScreen *****************
+ Defined at:
+		line 426 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  color           2    9[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  j               2   15[COMRAM] unsigned int 
+  i               2   13[COMRAM] unsigned int 
+  DL              1   12[COMRAM] unsigned char 
+  DH              1   11[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_SPI1_Write
+		_TFT_ColumnPage
+ This function is called by:
+		_TFT_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_Icon *****************
+ Defined at:
+		line 677 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  buffer          2    9[COMRAM] PTR const unsigned int 
+		 -> icon1(8192), 
+  x               2   11[COMRAM] unsigned int 
+  y               2   13[COMRAM] unsigned int 
+  width_          1   15[COMRAM] unsigned char 
+  height_         1   16[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  j               2   23[COMRAM] unsigned int 
+  i               2   21[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         8       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        16       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       16 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_SPI1_Write
+		_TFT_ColumnPage
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_ConstText *****************
+ Defined at:
+		line 348 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  buffer          2   26[COMRAM] PTR const unsigned char 
+		 -> STR_11(8), STR_10(15), STR_9(15), STR_8(15), 
+		 -> STR_7(15), STR_6(12), STR_5(12), STR_4(8), 
+		 -> STR_3(15), STR_2(15), STR_1(12), 
+  x               2   28[COMRAM] unsigned int 
+  y               2   30[COMRAM] unsigned int 
+  color1          2   32[COMRAM] unsigned int 
+  color2          2   34[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:        10       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        12       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       12 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_TFT_WriteChar
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_WriteChar *****************
+ Defined at:
+		line 307 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  c               1    wreg     unsigned char 
+  x               2    9[COMRAM] unsigned int 
+  y               2   11[COMRAM] unsigned int 
+  color1          2   13[COMRAM] unsigned int 
+  color2          2   15[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  c               1   20[COMRAM] unsigned char 
+  p               2   23[COMRAM] unsigned int 
+  j               1   25[COMRAM] unsigned char 
+  k               1   22[COMRAM] unsigned char 
+  i               1   21[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         8       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        17       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       17 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_SPI1_Write
+		_TFT_ColumnPage
+ This function is called by:
+		_main
+		_TFT_ConstText
+		_TFT_Text
+		_TFT_TextLEFT
+		_TFT_TextCENTER
+		_TFT_TextRIGHT
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_Circle *****************
+ Defined at:
+		line 571 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  x1              2   20[COMRAM] unsigned int 
+  y1              2   22[COMRAM] unsigned int 
+  radius          2   24[COMRAM] unsigned int 
+  color           2   26[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  y               2   36[COMRAM] int 
+  x               2   34[COMRAM] int 
+  radiusError     2   32[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         8       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        18       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       18 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_TFT_Dot
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_Dot *****************
+ Defined at:
+		line 240 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  x               2    9[COMRAM] unsigned int 
+  y               2   11[COMRAM] unsigned int 
+  color           2   13[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  i               1   19[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        11       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       11 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_SPI1_Write
+		_TFT_ColumnPage
+ This function is called by:
+		_TFT_Line
+		_TFT_Circle
+		_TFT_RoundEdge
+		_TFT_CircleFill
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_Box *****************
+ Defined at:
+		line 456 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  x1              2    9[COMRAM] unsigned int 
+  y1              2   11[COMRAM] unsigned int 
+  x2              2   13[COMRAM] unsigned int 
+  y2              2   15[COMRAM] unsigned int 
+  color           2   17[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  j               2   21[COMRAM] unsigned int 
+  i               2   19[COMRAM] unsigned int 
+  DL              1   24[COMRAM] unsigned char 
+  DH              1   23[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:        10       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:        16       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:       16 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_SPI1_Write
+		_TFT_ColumnPage
+ This function is called by:
+		_main
+		_TFT_TextLEFT
+		_TFT_TextCENTER
+		_TFT_TextRIGHT
+		_TFT_RectangleRoundFill
+ This function uses a non-reentrant model
+
+
+ *************** function _TFT_ColumnPage *****************
+ Defined at:
+		line 168 in file "ili9341.c"
+ Parameters:    Size  Location     Type
+  x1              2    1[COMRAM] unsigned int 
+  x2              2    3[COMRAM] unsigned int 
+  y1              2    5[COMRAM] unsigned int 
+  y2              2    7[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         8       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_SPI1_Write
+ This function is called by:
+		_TFT_Dot
+		_TFT_WriteChar
+		_TFT_FillScreen
+		_TFT_Box
+		_TFT_Icon
+ This function uses a non-reentrant model
+
+
+ *************** function _SPI1_Write *****************
+ Defined at:
+		line 18 in file "spi_pic18f.c"
+ Parameters:    Size  Location     Type
+  data            1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  data            1    0[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_TFT_WriteCommand
+		_TFT_WriteParameter
+		_TFT_ColumnPage
+		_TFT_Dot
+		_TFT_WriteChar
+		_TFT_FillScreen
+		_TFT_Box
+		_TFT_Icon
+		_TFT_Pixel
+ This function uses a non-reentrant model
+
+
+ *************** function _SPI1_Init *****************
+ Defined at:
+		line 8 in file "spi_pic18f.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _SPI1_Close *****************
+ Defined at:
+		line 14 in file "spi_pic18f.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+spi_pic18f.c
+		_SPI1_Init     		CODE           	B12A	0000	19
+		_SPI1_Close    		CODE           	B0EE	0000	5
+		_SPI1_Write    		CODE           	B0FA	0000	17
+
+spi_pic18f.c estimated size: 41
+
+C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+		_sprintf       		CODE           	BF94	0000	587
+
+C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c estimated size: 587
+
+ili9341.c
+		_TFT_Text      		CODE           	B338	0000	91
+		_TFT_SetFont   		CODE           	B17A	0000	35
+		_TFT_Line      		CODE           	B74A	0000	483
+		_TFT_RoundEdge 		CODE           	C1DE	0000	613
+		_TFT_Reset     		CODE           	B15A	0000	33
+		_TFT_Icon      		CODE           	B682	0000	201
+		_TFT_Circle    		CODE           	BD62	0000	563
+		_TFT_Box       		CODE           	B3F6	0000	117
+		_TFT_Rectangle 		CODE           	B518	0000	179
+		_TFT_SetDotSize		CODE           	B0F2	0000	9
+		_TFT_WriteParameter		CODE           	B11A	0000	17
+		_TFT_ColumnPage		CODE           	B294	0000	83
+		_TFT_CharHeight		CODE           	B1C2	0000	43
+		_TFT_RectangleRound		CODE           	BB40	0000	547
+		_TFT_WriteCommand		CODE           	B10A	0000	17
+		_TFT_ConstText 		CODE           	B392	0000	101
+		_TFT_WriteChar 		CODE           	C442	0000	777
+		_TFT_Init      		CODE           	B92C	0000	533
+		_TFT_Dot       		CODE           	B5CA	0000	185
+		_TFT_FillScreen		CODE           	B46A	0000	175
+
+ili9341.c estimated size: 4802
+
+C:\Program Files\Microchip\xc8\v1.35\sources\common\isdigit.c
+		_isdigit       		CODE           	B13C	0000	31
+
+C:\Program Files\Microchip\xc8\v1.35\sources\common\isdigit.c estimated size: 31
+
+C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+		___lwmod       		CODE           	B252	0000	67
+
+C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c estimated size: 67
+
+C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul16.c
+		___wmul        		CODE           	B19C	0000	39
+
+C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul16.c estimated size: 39
+
+C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+		___lwdiv       		CODE           	B2E6	0000	83
+
+C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c estimated size: 83
+
+shared
+		_dpowers       		MEDIUMCONST    	CD21	0000	11
+		_Courier_New_Bold_20		MEDIUMCONST    	ED2B	0000	4759
+		__initialization		CODE           	B218	0000	53
+		_icon1         		MEDIUMCONST    	CD2B	0000	8193
+
+shared estimated size: 13016
+
+time_delay.c
+		_Delay_ms      		CODE           	B1EC	0000	45
+
+time_delay.c estimated size: 45
+
+main.c
+		_main          		CODE           	C74A	0000	1495
+
+main.c estimated size: 1495
+

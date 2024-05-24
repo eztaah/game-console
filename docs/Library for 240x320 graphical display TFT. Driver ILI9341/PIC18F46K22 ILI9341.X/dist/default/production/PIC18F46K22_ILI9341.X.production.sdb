@@ -1,0 +1,691 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F46K22 ]
+[d frameptr 4065 ]
+"492 C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"62 C:\Program Files\Microchip\xc8\v1.35\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files\Microchip\xc8\v1.35\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files\Microchip\xc8\v1.35\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files\Microchip\xc8\v1.35\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 C:\Program Files\Microchip\xc8\v1.35\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"8 C:\Program Files\Microchip\xc8\v1.35\sources\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+"8 C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v1.35\sources\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files\Microchip\xc8\v1.35\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files\Microchip\xc8\v1.35\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"24 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+[v _TFT_Init TFT_Init `(v  1 e 0 0 ]
+"135
+[v _TFT_Reset TFT_Reset `(v  1 e 0 0 ]
+"144
+[v _TFT_WriteCommand TFT_WriteCommand `(v  1 e 0 0 ]
+"154
+[v _TFT_WriteParameter TFT_WriteParameter `(v  1 e 0 0 ]
+"168
+[v _TFT_ColumnPage TFT_ColumnPage `(v  1 e 0 0 ]
+"230
+[v _TFT_SetDotSize TFT_SetDotSize `(v  1 e 0 0 ]
+"240
+[v _TFT_Dot TFT_Dot `(v  1 e 0 0 ]
+"267
+[v _TFT_SetFont TFT_SetFont `(v  1 e 0 0 ]
+"276
+[v _TFT_CharHeight TFT_CharHeight `(uc  1 e 1 0 ]
+"285
+[v _TFT_TextWidth TFT_TextWidth `(ui  1 e 2 0 ]
+"307
+[v _TFT_WriteChar TFT_WriteChar `(v  1 e 0 0 ]
+"348
+[v _TFT_ConstText TFT_ConstText `(v  1 e 0 0 ]
+"365
+[v _TFT_Text TFT_Text `(v  1 e 0 0 ]
+"426
+[v _TFT_FillScreen TFT_FillScreen `(v  1 e 0 0 ]
+"456
+[v _TFT_Box TFT_Box `(v  1 e 0 0 ]
+"482
+[v _TFT_Line TFT_Line `(v  1 e 0 0 ]
+"530
+[v _TFT_Rectangle TFT_Rectangle `(v  1 e 0 0 ]
+"541
+[v _TFT_RectangleRound TFT_RectangleRound `(v  1 e 0 0 ]
+"571
+[v _TFT_Circle TFT_Circle `(v  1 e 0 0 ]
+"599
+[v _TFT_CircleFill TFT_CircleFill `(v  1 e 0 0 ]
+"634
+[v _TFT_RoundEdge TFT_RoundEdge `(v  1 e 0 0 ]
+"677
+[v _TFT_Icon TFT_Icon `(v  1 e 0 0 ]
+"16 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+[v _main main `(v  1 e 0 0 ]
+"8 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+[v _SPI1_Init SPI1_Init `(v  1 e 0 0 ]
+"14
+[v _SPI1_Close SPI1_Close `(v  1 e 0 0 ]
+"18
+[v _SPI1_Write SPI1_Write `(v  1 e 0 0 ]
+"9 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\time_delay.c
+[v _Delay_ms Delay_ms `(v  1 e 0 0 ]
+"9 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\bitmap.h
+[v _icon1 icon1 `C[4096]ui  1 e 8192 0 ]
+"49 C:\Program Files\Microchip\xc8\v1.35\include\pic18f46k22.h
+[v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
+"93
+[v _ANSELB ANSELB `VEuc  1 e 1 @3897 ]
+"142
+[v _ANSELC ANSELC `VEuc  1 e 1 @3898 ]
+"192
+[v _ANSELD ANSELD `VEuc  1 e 1 @3899 ]
+"253
+[v _ANSELE ANSELE `VEuc  1 e 1 @3900 ]
+"6370
+[v _PORTA PORTA `VEuc  1 e 1 @3968 ]
+"6656
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+"6925
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+"7234
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"7476
+[v _PORTE PORTE `VEuc  1 e 1 @3972 ]
+[s S250 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"8220
+[s S259 . 1 `uc 1 LD0 1 0 :1:0 
+]
+[s S261 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+]
+[s S264 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LD2 1 0 :1:2 
+]
+[s S267 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LD3 1 0 :1:3 
+]
+[s S270 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LD4 1 0 :1:4 
+]
+[s S273 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LD5 1 0 :1:5 
+]
+[s S276 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LD6 1 0 :1:6 
+]
+[s S279 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S282 . 1 `S250 1 . 1 0 `S259 1 . 1 0 `S261 1 . 1 0 `S264 1 . 1 0 `S267 1 . 1 0 `S270 1 . 1 0 `S273 1 . 1 0 `S276 1 . 1 0 `S279 1 . 1 0 ]
+[v _LATDbits LATDbits `VES282  1 e 1 @3980 ]
+"8406
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+[s S603 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"8438
+[s S612 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[u S621 . 1 `S603 1 . 1 0 `S612 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES621  1 e 1 @3986 ]
+"8627
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"8848
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S563 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"8880
+[s S572 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S581 . 1 `S563 1 . 1 0 `S572 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES581  1 e 1 @3988 ]
+"9069
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S210 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"9101
+[s S219 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+[u S228 . 1 `S210 1 . 1 0 `S219 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES228  1 e 1 @3989 ]
+"9290
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+[s S22 . 1 `uc 1 TUN 1 0 :6:0 
+`uc 1 PLLEN 1 0 :1:6 
+`uc 1 INTSRC 1 0 :1:7 
+]
+"9425
+[s S26 . 1 `uc 1 TUN0 1 0 :1:0 
+`uc 1 TUN1 1 0 :1:1 
+`uc 1 TUN2 1 0 :1:2 
+`uc 1 TUN3 1 0 :1:3 
+`uc 1 TUN4 1 0 :1:4 
+`uc 1 TUN5 1 0 :1:5 
+]
+[u S33 . 1 `S22 1 . 1 0 `S26 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES33  1 e 1 @3995 ]
+"14695
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @4038 ]
+"14974
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @4039 ]
+[s S646 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_NOT_W 1 0 :1:2 
+]
+"15121
+[s S649 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_NOT_A 1 0 :1:5 
+]
+[s S652 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+[s S661 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S666 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 A 1 0 :1:5 
+]
+[s S671 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S676 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S681 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_WRITE 1 0 :1:2 
+]
+[s S684 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_ADDRESS 1 0 :1:5 
+]
+[s S687 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S692 . 1 `uc 1 BF1 1 0 :1:0 
+]
+[s S694 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CKE1 1 0 :1:6 
+]
+[s S697 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DA 1 0 :1:5 
+]
+[s S700 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DA1 1 0 :1:5 
+]
+[s S703 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[s S706 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 I2C_DAT 1 0 :1:5 
+]
+[s S709 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+]
+[s S712 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 I2C_START 1 0 :1:3 
+]
+[s S715 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 I2C_STOP 1 0 :1:4 
+]
+[s S718 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+]
+[s S721 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW 1 0 :1:2 
+]
+[s S724 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW1 1 0 :1:2 
+]
+[s S727 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SMP1 1 0 :1:7 
+]
+[s S730 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 START 1 0 :1:3 
+]
+[s S733 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 START1 1 0 :1:3 
+]
+[s S736 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 STOP 1 0 :1:4 
+]
+[s S739 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 STOP1 1 0 :1:4 
+]
+[s S742 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 UA1 1 0 :1:1 
+]
+[s S745 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_W 1 0 :1:2 
+]
+[s S748 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_A 1 0 :1:5 
+]
+[u S751 . 1 `S646 1 . 1 0 `S649 1 . 1 0 `S652 1 . 1 0 `S661 1 . 1 0 `S666 1 . 1 0 `S671 1 . 1 0 `S676 1 . 1 0 `S681 1 . 1 0 `S684 1 . 1 0 `S687 1 . 1 0 `S692 1 . 1 0 `S694 1 . 1 0 `S697 1 . 1 0 `S700 1 . 1 0 `S703 1 . 1 0 `S706 1 . 1 0 `S709 1 . 1 0 `S712 1 . 1 0 `S715 1 . 1 0 `S718 1 . 1 0 `S721 1 . 1 0 `S724 1 . 1 0 `S727 1 . 1 0 `S730 1 . 1 0 `S733 1 . 1 0 `S736 1 . 1 0 `S739 1 . 1 0 `S742 1 . 1 0 `S745 1 . 1 0 `S748 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES751  1 e 1 @4039 ]
+"16022
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @4041 ]
+"16782
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"354 C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+[v _dpowers dpowers `C[5]ui  1 s 10 dpowers ]
+"14 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\font.h
+[v _Courier_New_Bold_20 Courier_New_Bold_20 `C[4758]uc  1 e 4758 0 ]
+"18 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+[v _font font `*.33Cuc  1 e 3 0 ]
+[v _font2 font2 `*.33Cuc  1 e 3 0 ]
+"19
+[v _width width `uc  1 e 1 0 ]
+[v _height height `uc  1 e 1 0 ]
+[v _letter_spacing letter_spacing `uc  1 e 1 0 ]
+[v _dot_size dot_size `uc  1 e 1 0 ]
+[v _frame_memory frame_memory `uc  1 e 1 0 ]
+"20
+[v _tft_x tft_x `ui  1 e 2 0 ]
+"16 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+[v _main main `(v  1 e 0 0 ]
+{
+"18
+[v main@buffer1 buffer1 `[20]uc  1 a 20 68 ]
+"17
+[v main@i i `i  1 a 2 88 ]
+"70
+} 0
+"492 C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+"501
+[v sprintf@width width `i  1 a 2 28 ]
+"528
+[v sprintf@val val `ui  1 a 2 26 ]
+"494
+[v sprintf@ap ap `[1]*.39v  1 a 2 22 ]
+"499
+[v sprintf@c c `c  1 a 1 30 ]
+"508
+[v sprintf@flag flag `uc  1 a 1 25 ]
+"506
+[v sprintf@prec prec `c  1 a 1 24 ]
+"492
+[v sprintf@sp sp `*.39uc  1 p 2 12 ]
+[v sprintf@f f `*.32Cuc  1 p 2 14 ]
+"1541
+} 0
+"8 C:\Program Files\Microchip\xc8\v1.35\sources\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+{
+[v isdigit@c c `uc  1 a 1 wreg ]
+[v isdigit@c c `uc  1 a 1 wreg ]
+"14
+[v isdigit@c c `uc  1 a 1 2 ]
+"15
+} 0
+"8 C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 11 ]
+"8
+[v ___lwmod@dividend dividend `ui  1 p 2 7 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 9 ]
+"26
+} 0
+"8 C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 0 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
+"31
+} 0
+"365 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+[v _TFT_Text TFT_Text `(v  1 e 0 0 ]
+{
+[v TFT_Text@buffer buffer `*.39uc  1 p 2 26 ]
+[v TFT_Text@x x `ui  1 p 2 28 ]
+[v TFT_Text@y y `ui  1 p 2 30 ]
+[v TFT_Text@color1 color1 `ui  1 p 2 32 ]
+[v TFT_Text@color2 color2 `ui  1 p 2 34 ]
+"372
+} 0
+"267
+[v _TFT_SetFont TFT_SetFont `(v  1 e 0 0 ]
+{
+[v TFT_SetFont@font_ font_ `*.32Cuc  1 p 2 0 ]
+[v TFT_SetFont@letterspacing letterspacing `uc  1 p 1 2 ]
+"271
+} 0
+"276
+[v _TFT_CharHeight TFT_CharHeight `(uc  1 e 1 0 ]
+{
+"280
+} 0
+"230
+[v _TFT_SetDotSize TFT_SetDotSize `(v  1 e 0 0 ]
+{
+[v TFT_SetDotSize@size_ size_ `uc  1 a 1 wreg ]
+[v TFT_SetDotSize@size_ size_ `uc  1 a 1 wreg ]
+[v TFT_SetDotSize@size_ size_ `uc  1 a 1 0 ]
+"232
+} 0
+"541
+[v _TFT_RectangleRound TFT_RectangleRound `(v  1 e 0 0 ]
+{
+[v TFT_RectangleRound@x1 x1 `ui  1 p 2 52 ]
+[v TFT_RectangleRound@y1 y1 `ui  1 p 2 54 ]
+[v TFT_RectangleRound@x2 x2 `ui  1 p 2 56 ]
+[v TFT_RectangleRound@y2 y2 `ui  1 p 2 58 ]
+[v TFT_RectangleRound@radius radius `ui  1 p 2 60 ]
+[v TFT_RectangleRound@color color `ui  1 p 2 62 ]
+"550
+} 0
+"634
+[v _TFT_RoundEdge TFT_RoundEdge `(v  1 e 0 0 ]
+{
+"635
+[v TFT_RoundEdge@y y `i  1 a 2 38 ]
+[v TFT_RoundEdge@x x `i  1 a 2 36 ]
+"636
+[v TFT_RoundEdge@radiusError radiusError `i  1 a 2 34 ]
+"634
+[v TFT_RoundEdge@x1 x1 `ui  1 p 2 20 ]
+[v TFT_RoundEdge@y1 y1 `ui  1 p 2 22 ]
+[v TFT_RoundEdge@alignment alignment `ui  1 p 2 24 ]
+[v TFT_RoundEdge@radius radius `ui  1 p 2 26 ]
+[v TFT_RoundEdge@color color `ui  1 p 2 28 ]
+"668
+} 0
+"530
+[v _TFT_Rectangle TFT_Rectangle `(v  1 e 0 0 ]
+{
+[v TFT_Rectangle@x1 x1 `ui  1 p 2 52 ]
+[v TFT_Rectangle@y1 y1 `ui  1 p 2 54 ]
+[v TFT_Rectangle@x2 x2 `ui  1 p 2 56 ]
+[v TFT_Rectangle@y2 y2 `ui  1 p 2 58 ]
+[v TFT_Rectangle@color color `ui  1 p 2 60 ]
+"535
+} 0
+"482
+[v _TFT_Line TFT_Line `(v  1 e 0 0 ]
+{
+"487
+[v TFT_Line@h h `i  1 a 2 50 ]
+"486
+[v TFT_Line@w w `i  1 a 2 48 ]
+"484
+[v TFT_Line@longest longest `i  1 a 2 46 ]
+[v TFT_Line@shortest shortest `i  1 a 2 44 ]
+"488
+[v TFT_Line@dx2 dx2 `i  1 a 2 42 ]
+[v TFT_Line@dy2 dy2 `i  1 a 2 40 ]
+[v TFT_Line@dy1 dy1 `i  1 a 2 38 ]
+[v TFT_Line@dx1 dx1 `i  1 a 2 36 ]
+"485
+[v TFT_Line@numerator numerator `i  1 a 2 34 ]
+"483
+[v TFT_Line@i i `i  1 a 2 32 ]
+"482
+[v TFT_Line@x1 x1 `ui  1 p 2 20 ]
+[v TFT_Line@y1 y1 `ui  1 p 2 22 ]
+[v TFT_Line@x2 x2 `ui  1 p 2 24 ]
+[v TFT_Line@y2 y2 `ui  1 p 2 26 ]
+[v TFT_Line@color color `ui  1 p 2 28 ]
+"520
+} 0
+"15 C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"24 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+[v _TFT_Init TFT_Init `(v  1 e 0 0 ]
+{
+"130
+} 0
+"154
+[v _TFT_WriteParameter TFT_WriteParameter `(v  1 e 0 0 ]
+{
+[v TFT_WriteParameter@parameter parameter `uc  1 a 1 wreg ]
+[v TFT_WriteParameter@parameter parameter `uc  1 a 1 wreg ]
+[v TFT_WriteParameter@parameter parameter `uc  1 a 1 1 ]
+"159
+} 0
+"144
+[v _TFT_WriteCommand TFT_WriteCommand `(v  1 e 0 0 ]
+{
+[v TFT_WriteCommand@command command `uc  1 a 1 wreg ]
+[v TFT_WriteCommand@command command `uc  1 a 1 wreg ]
+[v TFT_WriteCommand@command command `uc  1 a 1 1 ]
+"149
+} 0
+"135
+[v _TFT_Reset TFT_Reset `(v  1 e 0 0 ]
+{
+"139
+} 0
+"9 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\time_delay.c
+[v _Delay_ms Delay_ms `(v  1 e 0 0 ]
+{
+"10
+[v Delay_ms@i i `ui  1 a 2 3 ]
+"9
+[v Delay_ms@count count `ui  1 p 2 0 ]
+"14
+} 0
+"426 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+[v _TFT_FillScreen TFT_FillScreen `(v  1 e 0 0 ]
+{
+"428
+[v TFT_FillScreen@j j `ui  1 a 2 15 ]
+[v TFT_FillScreen@i i `ui  1 a 2 13 ]
+"427
+[v TFT_FillScreen@DL DL `uc  1 a 1 12 ]
+[v TFT_FillScreen@DH DH `uc  1 a 1 11 ]
+"426
+[v TFT_FillScreen@color color `ui  1 p 2 9 ]
+"446
+} 0
+"677
+[v _TFT_Icon TFT_Icon `(v  1 e 0 0 ]
+{
+"678
+[v TFT_Icon@j j `ui  1 a 2 23 ]
+[v TFT_Icon@i i `ui  1 a 2 21 ]
+"677
+[v TFT_Icon@buffer buffer `*.32Cui  1 p 2 9 ]
+[v TFT_Icon@x x `ui  1 p 2 11 ]
+[v TFT_Icon@y y `ui  1 p 2 13 ]
+[v TFT_Icon@width_ width_ `uc  1 p 1 15 ]
+[v TFT_Icon@height_ height_ `uc  1 p 1 16 ]
+"691
+} 0
+"348
+[v _TFT_ConstText TFT_ConstText `(v  1 e 0 0 ]
+{
+[v TFT_ConstText@buffer buffer `*.32Cuc  1 p 2 26 ]
+[v TFT_ConstText@x x `ui  1 p 2 28 ]
+[v TFT_ConstText@y y `ui  1 p 2 30 ]
+[v TFT_ConstText@color1 color1 `ui  1 p 2 32 ]
+[v TFT_ConstText@color2 color2 `ui  1 p 2 34 ]
+"355
+} 0
+"307
+[v _TFT_WriteChar TFT_WriteChar `(v  1 e 0 0 ]
+{
+[v TFT_WriteChar@c c `uc  1 a 1 wreg ]
+"309
+[v TFT_WriteChar@p p `ui  1 a 2 23 ]
+"308
+[v TFT_WriteChar@j j `uc  1 a 1 25 ]
+[v TFT_WriteChar@k k `uc  1 a 1 22 ]
+[v TFT_WriteChar@i i `uc  1 a 1 21 ]
+"307
+[v TFT_WriteChar@c c `uc  1 a 1 wreg ]
+[v TFT_WriteChar@x x `ui  1 p 2 9 ]
+[v TFT_WriteChar@y y `ui  1 p 2 11 ]
+[v TFT_WriteChar@color1 color1 `ui  1 p 2 13 ]
+[v TFT_WriteChar@color2 color2 `ui  1 p 2 15 ]
+"310
+[v TFT_WriteChar@c c `uc  1 a 1 20 ]
+"338
+} 0
+"571
+[v _TFT_Circle TFT_Circle `(v  1 e 0 0 ]
+{
+"572
+[v TFT_Circle@y y `i  1 a 2 36 ]
+[v TFT_Circle@x x `i  1 a 2 34 ]
+"573
+[v TFT_Circle@radiusError radiusError `i  1 a 2 32 ]
+"571
+[v TFT_Circle@x1 x1 `ui  1 p 2 20 ]
+[v TFT_Circle@y1 y1 `ui  1 p 2 22 ]
+[v TFT_Circle@radius radius `ui  1 p 2 24 ]
+[v TFT_Circle@color color `ui  1 p 2 26 ]
+"594
+} 0
+"240
+[v _TFT_Dot TFT_Dot `(v  1 e 0 0 ]
+{
+"241
+[v TFT_Dot@i i `uc  1 a 1 19 ]
+"240
+[v TFT_Dot@x x `ui  1 p 2 9 ]
+[v TFT_Dot@y y `ui  1 p 2 11 ]
+[v TFT_Dot@color color `ui  1 p 2 13 ]
+"261
+} 0
+"456
+[v _TFT_Box TFT_Box `(v  1 e 0 0 ]
+{
+"458
+[v TFT_Box@j j `ui  1 a 2 21 ]
+[v TFT_Box@i i `ui  1 a 2 19 ]
+"457
+[v TFT_Box@DL DL `uc  1 a 1 24 ]
+[v TFT_Box@DH DH `uc  1 a 1 23 ]
+"456
+[v TFT_Box@x1 x1 `ui  1 p 2 9 ]
+[v TFT_Box@y1 y1 `ui  1 p 2 11 ]
+[v TFT_Box@x2 x2 `ui  1 p 2 13 ]
+[v TFT_Box@y2 y2 `ui  1 p 2 15 ]
+[v TFT_Box@color color `ui  1 p 2 17 ]
+"472
+} 0
+"168
+[v _TFT_ColumnPage TFT_ColumnPage `(v  1 e 0 0 ]
+{
+[v TFT_ColumnPage@x1 x1 `ui  1 p 2 1 ]
+[v TFT_ColumnPage@x2 x2 `ui  1 p 2 3 ]
+[v TFT_ColumnPage@y1 y1 `ui  1 p 2 5 ]
+[v TFT_ColumnPage@y2 y2 `ui  1 p 2 7 ]
+"176
+} 0
+"18 C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+[v _SPI1_Write SPI1_Write `(v  1 e 0 0 ]
+{
+[v SPI1_Write@data data `uc  1 a 1 wreg ]
+[v SPI1_Write@data data `uc  1 a 1 wreg ]
+"20
+[v SPI1_Write@data data `uc  1 a 1 0 ]
+"23
+} 0
+"8
+[v _SPI1_Init SPI1_Init `(v  1 e 0 0 ]
+{
+"12
+} 0
+"14
+[v _SPI1_Close SPI1_Close `(v  1 e 0 0 ]
+{
+"16
+} 0

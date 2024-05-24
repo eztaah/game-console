@@ -1,0 +1,1207 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+cinit CODE 0 B218 B218 3A 1
+text0 CODE 0 C74A C74A 5D6 1
+text1 CODE 0 BF94 BF94 24A 1
+text2 CODE 0 B13C B13C 1E 1
+text3 CODE 0 B252 B252 42 1
+text4 CODE 0 B2E6 B2E6 52 1
+text5 CODE 0 B338 B338 5A 1
+text6 CODE 0 B17A B17A 22 1
+text7 CODE 0 B1C2 B1C2 2A 1
+text8 CODE 0 B0F2 B0F2 8 1
+text9 CODE 0 BB40 BB40 222 1
+text10 CODE 0 C1DE C1DE 264 1
+text11 CODE 0 B518 B518 B2 1
+text12 CODE 0 B74A B74A 1E2 1
+text13 CODE 0 B19C B19C 26 1
+text14 CODE 0 B92C B92C 214 1
+text15 CODE 0 B11A B11A 10 1
+text16 CODE 0 B10A B10A 10 1
+text17 CODE 0 B15A B15A 20 1
+text18 CODE 0 B1EC B1EC 2C 1
+text19 CODE 0 B46A B46A AE 1
+text20 CODE 0 B682 B682 C8 1
+text21 CODE 0 B392 B392 64 1
+text22 CODE 0 C442 C442 308 1
+text23 CODE 0 BD62 BD62 232 1
+text24 CODE 0 B5CA B5CA B8 1
+text25 CODE 0 B3F6 B3F6 74 1
+text26 CODE 0 B294 B294 52 1
+text27 CODE 0 B0FA B0FA 10 1
+text28 CODE 0 B12A B12A 12 1
+text29 CODE 0 B0EE B0EE 4 1
+cstackCOMRAM COMRAM 1 1 1 5A 1
+bssBANK0 BANK0 1 60 60 5 1
+idataBANK0 CODE 0 B0EB B0EB 3 1
+dataBANK0 BANK0 1 65 65 3 1
+bssCOMRAM COMRAM 1 5B 5B 5 1
+mediumconst MEDIUMCONST 0 CD20 CD20 32E0 1
+$C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+idloc IDLOC 0 200000 200000 8 1
+end_init CODE 0 0 0 4 1
+config CONFIG 0 300000 300000 E 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 68-F37 1
+SFR F38-FFF 1
+BANK0 68-FF 1
+BANK1 100-1FF 1
+BANK2 200-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+BANK6 600-6FF 1
+BANK7 700-7FF 1
+BANK8 800-8FF 1
+BANK9 900-9FF 1
+CONST 4-B0EA 1
+STACK 68-F37 1
+SMALLCONST 1000-B0EA 1
+CODE 4-B0EA 1
+BANK10 A00-AFF 1
+BANK11 B00-BFF 1
+BANK12 C00-CFF 1
+BANK13 D00-DFF 1
+BANK14 E00-EFF 1
+BANK15 F00-F37 1
+BIGRAM 68-F37 1
+EEDATA F00000-F003FF 1
+MEDIUMCONST 1000-B0EA 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+B0EE text29 CODE >14:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B0EE text29 CODE >15:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B0F0 text29 CODE >16:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B12A text28 CODE >8:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B12A text28 CODE >9:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B132 text28 CODE >10:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B136 text28 CODE >11:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B13A text28 CODE >12:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B0FA text27 CODE >18:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B0FC text27 CODE >20:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B100 text27 CODE >21:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B104 text27 CODE >22:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B108 text27 CODE >23:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\spi_pic18f.c
+B294 text26 CODE >168:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B294 text26 CODE >169:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B296 text26 CODE >170:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B29E text26 CODE >171:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B2B8 text26 CODE >172:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B2C0 text26 CODE >173:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B2DA text26 CODE >174:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B2E2 text26 CODE >175:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B2E4 text26 CODE >176:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B3F6 text25 CODE >456:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B3F6 text25 CODE >459:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B3FA text25 CODE >460:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B3FE text25 CODE >461:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B422 text25 CODE >462:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B426 text25 CODE >463:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B430 text25 CODE >464:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B430 text25 CODE >465:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B43A text25 CODE >467:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B440 text25 CODE >468:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B446 text25 CODE >465:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B456 text25 CODE >463:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B466 text25 CODE >471:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B468 text25 CODE >472:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5CA text24 CODE >240:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5CA text24 CODE >242:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5CC text24 CODE >244:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5D0 text24 CODE >245:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5D4 text24 CODE >246:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5D8 text24 CODE >247:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5DC text24 CODE >248:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5DE text24 CODE >249:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5E2 text24 CODE >250:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5E6 text24 CODE >242:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B60C text24 CODE >252:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B664 text24 CODE >253:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B668 text24 CODE >254:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B66A text24 CODE >256:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B670 text24 CODE >257:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B676 text24 CODE >258:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B678 text24 CODE >254:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B67E text24 CODE >260:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B680 text24 CODE >261:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BD62 text23 CODE >571:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BD62 text23 CODE >572:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BD72 text23 CODE >573:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BD8E text23 CODE >574:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BD90 text23 CODE >576:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BDB4 text23 CODE >577:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BDD8 text23 CODE >578:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BE0C text23 CODE >579:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BE40 text23 CODE >580:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BE84 text23 CODE >581:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BEC8 text23 CODE >582:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BEFC text23 CODE >583:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BF30 text23 CODE >584:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BF34 text23 CODE >585:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BF38 text23 CODE >587:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BF4A text23 CODE >590:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BF50 text23 CODE >591:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BF7E text23 CODE >574:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C442 text22 CODE >307:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C444 text22 CODE >310:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C478 text22 CODE >311:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C484 text22 CODE >312:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C494 text22 CODE >313:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C4A6 text22 CODE >314:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C4C6 text22 CODE >315:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C4F0 text22 CODE >316:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C4FC text22 CODE >317:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C50C text22 CODE >318:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C510 text22 CODE >319:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C554 text22 CODE >320:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C558 text22 CODE >321:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C55A text22 CODE >322:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C55E text22 CODE >323:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C560 text22 CODE >324:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C594 text22 CODE >325:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C5C8 text22 CODE >326:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C5FC text22 CODE >327:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C630 text22 CODE >328:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C664 text22 CODE >329:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C698 text22 CODE >330:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C6CC text22 CODE >331:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C710 text22 CODE >332:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C71C text22 CODE >323:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C722 text22 CODE >334:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C73E text22 CODE >335:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C740 text22 CODE >321:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C746 text22 CODE >337:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C748 text22 CODE >338:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B392 text21 CODE >348:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B392 text21 CODE >349:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B394 text21 CODE >351:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B3C6 text21 CODE >352:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B3DC text21 CODE >353:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B3E0 text21 CODE >349:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B682 text20 CODE >677:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B682 text20 CODE >679:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B6C6 text20 CODE >680:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B6CA text20 CODE >681:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B6D4 text20 CODE >683:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B6DE text20 CODE >685:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B700 text20 CODE >686:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B712 text20 CODE >687:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B71A text20 CODE >683:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B730 text20 CODE >681:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B746 text20 CODE >690:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B748 text20 CODE >691:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B46A text19 CODE >426:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B46A text19 CODE >429:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B46E text19 CODE >430:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B472 text19 CODE >431:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B474 text19 CODE >433:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B49A text19 CODE >434:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B4BE text19 CODE >435:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B4C0 text19 CODE >431:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B4D0 text19 CODE >435:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B4D0 text19 CODE >436:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B4D4 text19 CODE >437:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B4E8 text19 CODE >439:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B4FC text19 CODE >441:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B502 text19 CODE >442:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B508 text19 CODE >439:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B50E text19 CODE >437:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B514 text19 CODE >445:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B516 text19 CODE >446:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B1EC text18 CODE >9:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\time_delay.c
+B1EC text18 CODE >11:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\time_delay.c
+B1F6 text18 CODE >12:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\time_delay.c
+B206 text18 CODE >11:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\time_delay.c
+B15A text17 CODE >135:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B15A text17 CODE >136:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B15C text17 CODE >137:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B16A text17 CODE >138:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B178 text17 CODE >139:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B10A text16 CODE >144:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B10C text16 CODE >145:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B10E text16 CODE >146:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B110 text16 CODE >147:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B116 text16 CODE >148:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B118 text16 CODE >149:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B11A text15 CODE >154:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B11C text15 CODE >155:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B11E text15 CODE >156:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B120 text15 CODE >157:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B126 text15 CODE >158:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B128 text15 CODE >159:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B92C text14 CODE >24:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B92C text14 CODE >25:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B932 text14 CODE >26:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B938 text14 CODE >27:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B93C text14 CODE >28:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B942 text14 CODE >29:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B948 text14 CODE >30:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B94E text14 CODE >31:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B954 text14 CODE >32:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B95A text14 CODE >33:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B960 text14 CODE >35:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B966 text14 CODE >36:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B96C text14 CODE >37:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B972 text14 CODE >38:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B978 text14 CODE >40:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B97E text14 CODE >41:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B984 text14 CODE >42:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B98A text14 CODE >43:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B990 text14 CODE >45:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B996 text14 CODE >46:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B99C text14 CODE >47:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9A2 text14 CODE >49:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9A8 text14 CODE >50:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9AE text14 CODE >51:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9B4 text14 CODE >52:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9BA text14 CODE >53:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9C0 text14 CODE >55:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9C6 text14 CODE >56:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9CC text14 CODE >58:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9D2 text14 CODE >59:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9D8 text14 CODE >61:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9DE text14 CODE >62:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9E4 text14 CODE >64:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9EA text14 CODE >65:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9F0 text14 CODE >66:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9F6 text14 CODE >68:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B9FC text14 CODE >69:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA02 text14 CODE >71:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA08 text14 CODE >72:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA0E text14 CODE >74:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA14 text14 CODE >75:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA1A text14 CODE >77:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA20 text14 CODE >78:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA26 text14 CODE >79:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA2C text14 CODE >81:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA32 text14 CODE >82:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA38 text14 CODE >83:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA3E text14 CODE >84:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA44 text14 CODE >86:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA4A text14 CODE >87:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA50 text14 CODE >89:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA56 text14 CODE >90:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA5C text14 CODE >92:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA62 text14 CODE >93:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA68 text14 CODE >94:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA6E text14 CODE >95:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA74 text14 CODE >96:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA7A text14 CODE >97:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA80 text14 CODE >98:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA86 text14 CODE >99:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA8C text14 CODE >100:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA92 text14 CODE >101:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA98 text14 CODE >102:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BA9E text14 CODE >103:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAA4 text14 CODE >104:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAAA text14 CODE >105:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAB0 text14 CODE >106:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAB6 text14 CODE >107:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BABC text14 CODE >109:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAC2 text14 CODE >110:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAC8 text14 CODE >111:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BACE text14 CODE >112:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAD4 text14 CODE >113:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BADA text14 CODE >114:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAE0 text14 CODE >115:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAE6 text14 CODE >116:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAEC text14 CODE >117:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAF2 text14 CODE >118:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAF8 text14 CODE >119:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BAFE text14 CODE >120:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB04 text14 CODE >121:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB0A text14 CODE >122:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB10 text14 CODE >123:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB16 text14 CODE >124:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB1C text14 CODE >126:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB22 text14 CODE >127:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB2E text14 CODE >128:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB34 text14 CODE >129:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB3E text14 CODE >130:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B19C text13 CODE >15:C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul16.c
+B19C text13 CODE >37:C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul16.c
+B1A8 text13 CODE >38:C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul16.c
+B1B0 text13 CODE >39:C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul16.c
+B1B8 text13 CODE >52:C:\Program Files\Microchip\xc8\v1.35\sources\common\Umul16.c
+B74A text12 CODE >482:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B74A text12 CODE >486:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B766 text12 CODE >487:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B782 text12 CODE >488:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B7A2 text12 CODE >490:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B7C2 text12 CODE >491:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B7E2 text12 CODE >492:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B802 text12 CODE >493:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B820 text12 CODE >494:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B83E text12 CODE >495:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B846 text12 CODE >496:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B84E text12 CODE >497:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B862 text12 CODE >499:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B86A text12 CODE >500:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B872 text12 CODE >501:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B892 text12 CODE >502:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B89A text12 CODE >504:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B8A8 text12 CODE >505:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B8B2 text12 CODE >507:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B8CE text12 CODE >508:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B8D6 text12 CODE >509:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B8EA text12 CODE >511:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B8F2 text12 CODE >512:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B8FA text12 CODE >513:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B902 text12 CODE >516:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B90A text12 CODE >517:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B912 text12 CODE >505:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B518 text11 CODE >530:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B518 text11 CODE >531:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B544 text11 CODE >532:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B570 text11 CODE >533:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B59C text11 CODE >534:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B5C8 text11 CODE >535:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C1DE text10 CODE >634:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C1DE text10 CODE >635:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C1EE text10 CODE >636:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C20A text10 CODE >637:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C20C text10 CODE >642:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C230 text10 CODE >643:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C254 text10 CODE >644:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C256 text10 CODE >646:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C28A text10 CODE >647:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C2BE text10 CODE >648:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C2C0 text10 CODE >650:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C304 text10 CODE >651:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C348 text10 CODE >652:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C34A text10 CODE >654:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C37E text10 CODE >655:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C3B2 text10 CODE >657:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C3B4 text10 CODE >639:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C3DE text10 CODE >658:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C3E2 text10 CODE >659:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C3E6 text10 CODE >661:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C3F8 text10 CODE >664:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C3FE text10 CODE >665:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+C42C text10 CODE >637:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB40 text9 CODE >541:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB40 text9 CODE >542:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BB84 text9 CODE >543:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BBC8 text9 CODE >544:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BC0C text9 CODE >545:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BC50 text9 CODE >546:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BC84 text9 CODE >547:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BCC8 text9 CODE >548:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BD0C text9 CODE >549:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+BD60 text9 CODE >550:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B0F2 text8 CODE >230:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B0F4 text8 CODE >231:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B0F8 text8 CODE >232:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B1C2 text7 CODE >276:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B1C2 text7 CODE >277:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B1CE text7 CODE >278:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B1DA text7 CODE >279:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B17A text6 CODE >267:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B17A text6 CODE >268:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B18E text6 CODE >269:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B192 text6 CODE >270:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B19A text6 CODE >271:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B338 text5 CODE >365:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B338 text5 CODE >366:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B33A text5 CODE >368:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B368 text5 CODE >369:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B37E text5 CODE >370:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B382 text5 CODE >366:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\ili9341.c
+B2E6 text4 CODE >8:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B2E6 text4 CODE >14:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B2EE text4 CODE >15:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B2F6 text4 CODE >16:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B2FA text4 CODE >17:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B2FC text4 CODE >18:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B302 text4 CODE >19:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B304 text4 CODE >17:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B308 text4 CODE >22:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B30E text4 CODE >23:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B31A text4 CODE >24:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B322 text4 CODE >25:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B324 text4 CODE >27:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B32A text4 CODE >28:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B32E text4 CODE >29:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B32E text4 CODE >30:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B336 text4 CODE >31:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwdiv.c
+B252 text3 CODE >8:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B252 text3 CODE >13:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B25A text3 CODE >14:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B25E text3 CODE >15:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B260 text3 CODE >16:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B266 text3 CODE >17:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B268 text3 CODE >15:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B26C text3 CODE >20:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B278 text3 CODE >21:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B280 text3 CODE >22:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B286 text3 CODE >23:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B28A text3 CODE >24:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B28A text3 CODE >25:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B292 text3 CODE >26:C:\Program Files\Microchip\xc8\v1.35\sources\common\lwmod.c
+B13C text2 CODE >8:C:\Program Files\Microchip\xc8\v1.35\sources\common\isdigit.c
+B13E text2 CODE >14:C:\Program Files\Microchip\xc8\v1.35\sources\common\isdigit.c
+BF94 text1 CODE >492:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BF94 text1 CODE >533:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BF9C text1 CODE >536:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BF9E text1 CODE >538:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BFA6 text1 CODE >541:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BFB6 text1 CODE >542:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BFB8 text1 CODE >546:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BFC0 text1 CODE >548:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BFC4 text1 CODE >597:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BFDA text1 CODE >598:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BFE2 text1 CODE >600:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+BFFE text1 CODE >601:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C02C text1 CODE >602:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C042 text1 CODE >635:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C06A text1 CODE >1259:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C082 text1 CODE >1261:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C086 text1 CODE >1262:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C08A text1 CODE >1263:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C092 text1 CODE >1305:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C09E text1 CODE >1306:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C0C4 text1 CODE >1305:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C0C8 text1 CODE >1345:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C0DC text1 CODE >1346:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C0E2 text1 CODE >1381:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C0F8 text1 CODE >1382:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C106 text1 CODE >1384:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C10E text1 CODE >1428:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C116 text1 CODE >1430:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C126 text1 CODE >1431:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C134 text1 CODE >1438:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C140 text1 CODE >1439:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C150 text1 CODE >1472:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C154 text1 CODE >1474:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C156 text1 CODE >1489:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C19E text1 CODE >1524:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C1AE text1 CODE >1474:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C1B6 text1 CODE >536:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C1D0 text1 CODE >1538:C:\Program Files\Microchip\xc8\v1.35\sources\common\doprnt.c
+C74A text0 CODE >16:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C74A text0 CODE >19:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C74E text0 CODE >20:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C750 text0 CODE >21:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C76E text0 CODE >22:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C782 text0 CODE >23:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C796 text0 CODE >24:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C79A text0 CODE >25:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C79E text0 CODE >26:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C7A2 text0 CODE >28:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C7A8 text0 CODE >29:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C7DC text0 CODE >30:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C7EC text0 CODE >31:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C816 text0 CODE >32:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C840 text0 CODE >33:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C86A text0 CODE >34:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C894 text0 CODE >35:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C8A0 text0 CODE >37:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C8FA text0 CODE >38:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C946 text0 CODE >39:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C9A0 text0 CODE >40:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+C9EC text0 CODE >41:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CA46 text0 CODE >42:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CA92 text0 CODE >43:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CAEC text0 CODE >45:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CB04 text0 CODE >47:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CB20 text0 CODE >48:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CB4A text0 CODE >49:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CB56 text0 CODE >45:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CB5E text0 CODE >52:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CB8A text0 CODE >53:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CBB6 text0 CODE >54:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CBE2 text0 CODE >56:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CC06 text0 CODE >57:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CC3A text0 CODE >58:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CC66 text0 CODE >60:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CC8A text0 CODE >62:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CC90 text0 CODE >63:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CCC4 text0 CODE >65:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CCCA text0 CODE >66:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CCF2 text0 CODE >67:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+CD1E text0 CODE >69:C:\Users\Hector\Desktop\ILI9341 V2.0\PIC18F46K22 ILI9341.X\main.c
+B218 cinit CODE >11337:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B218 cinit CODE >11339:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B218 cinit CODE >11342:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B218 cinit CODE >11386:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B21A cinit CODE >11387:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B21C cinit CODE >11388:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B21E cinit CODE >11389:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B220 cinit CODE >11390:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B222 cinit CODE >11391:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B224 cinit CODE >11394:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B226 cinit CODE >11395:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B228 cinit CODE >11396:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B22A cinit CODE >11397:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B22C cinit CODE >11398:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B22E cinit CODE >11403:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B230 cinit CODE >11404:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B232 cinit CODE >11405:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B234 cinit CODE >11406:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B236 cinit CODE >11407:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B238 cinit CODE >11408:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B23A cinit CODE >11409:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B23C cinit CODE >11410:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B240 cinit CODE >11411:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B242 cinit CODE >11412:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B246 cinit CODE >11413:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B248 cinit CODE >11414:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B24C cinit CODE >11420:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B24C cinit CODE >11422:C:\Users\Hector\AppData\Local\Temp\s3kg.
+B24E cinit CODE >11423:C:\Users\Hector\AppData\Local\Temp\s3kg.
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__size_of_TFT_ConstText 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___lwmod@counter C 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lmediumconst CD20 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hspace_0 30000E 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hspace_1 68 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hspace_2 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Circle@radius 19 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_SSP1STATbits FC7 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__mediumconst CD20 0 MEDIUMCONST 0 mediumconst C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+main@i 59 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+main@buffer1 45 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+_font 5B 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_main C74A 0 CODE 0 text0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+start 0 0 CODE 0 init C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+__size_of_main 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of___lwdiv 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of___lwmod 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RoundEdge@radiusError 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RoundEdge@color 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_Box B3F6 0 CODE 0 text25 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_Dot B5CA 0 CODE 0 text24 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_ConstText@buffer 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_ConstText B3F6 0 CODE 0 text21 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+?___wmul 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_ConstText@color1 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_ConstText@color2 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_ConstText@x 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_ConstText@y 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__LidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_Rectangle B518 0 CODE 0 text11 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_CCP2MX$PORTC1 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_MCLRE$INTMCLR 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hpowerup 0 0 CODE 0 powerup dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Box@DH 18 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Box@DL 19 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Box@x1 A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Box@x2 E 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Box@y1 C 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Box@y2 10 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_SPI1_Close B0EE 0 CODE 0 text29 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_SPI1_Write B0FA 0 CODE 0 text27 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_CCP3MX$PORTB5 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteChar@color1 E 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteChar@color2 10 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__accesstop 60 0 ABS 0 - C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+intlevel0 0 0 CODE 0 text C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+intlevel1 0 0 CODE 0 text C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+intlevel2 0 0 CODE 0 text C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+intlevel3 0 0 CODE 0 text C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_EBTR2$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_P2BMX$PORTD2 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hifardata 0 0 CODE 0 ifardata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Icon@i 16 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Icon@j 18 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Icon@x C 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Icon@y E 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@dx1 25 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@dx2 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@dy1 27 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@dy2 29 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_WriteChar C442 0 CODE 0 text22 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_PRICLKEN$ON 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_SetFont B17A 0 CODE 0 text6 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___wmul@multiplicand 3 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_Delay_ms 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_FOSC$INTIO67 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_ANSELA F38 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_ANSELB F39 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_ANSELC F3A 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_ANSELD F3B 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_ANSELE F3C 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@h 33 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@i 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@w 31 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+Delay_ms@count 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+Delay_ms@i 4 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of___wmul B1C2 0 CODE 0 text13 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@color 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_SetDotSize@size_ 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_sprintf 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hmediumconst 10000 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_SPI1_Close B0F2 0 CODE 0 text29 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hintcodelo 0 0 CODE 0 intcodelo dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_SPI1_Write B10A 0 CODE 0 text27 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_SetDotSize 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_FillScreen 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___lwmod@divisor A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of___lwdiv B338 0 CODE 0 text4 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of___lwmod B294 0 CODE 0 text3 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_isdigit 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RoundEdge@alignment 19 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Text@x 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Text@y 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_Courier_New_Bold_20 ED2B 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_OSCTUNEbits F9B 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_dpowers CD21 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Box@color 12 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___lwdiv@quotient 5 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_Rectangle 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Circle@color 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_CharHeight 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___lwmod@dividend 8 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lintcodelo 0 0 CODE 0 intcodelo dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_Delay_ms B1EC 0 CODE 0 text18 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_Circle BD62 0 CODE 0 text23 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+start_initialization B218 0 CODE 0 cinit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_WriteParameter B12A 0 CODE 0 text15 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_PBADEN$ON 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_OSCCON FD3 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_ColumnPage B294 0 CODE 0 text26 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_RectangleRound BD62 0 CODE 0 text9 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TRISAbits F92 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TRISCbits F94 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TRISDbits F95 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_Delay_ms B218 0 CODE 0 text18 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___rparam_used 1 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_WDTPS$32768 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Icon@buffer A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_WriteCommand B10A 0 CODE 0 text16 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_WriteChar 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_Rectangle B5CA 0 CODE 0 text11 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Rectangle@color 3D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_WriteParameter B11A 0 CODE 0 text15 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank1 0 0 ABS 0 bank1 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank2 0 0 ABS 0 bank2 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank3 0 0 ABS 0 bank3 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank4 0 0 ABS 0 bank4 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank5 0 0 ABS 0 bank5 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank6 0 0 ABS 0 bank6 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank7 0 0 ABS 0 bank7 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank8 0 0 ABS 0 bank8 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank9 0 0 ABS 0 bank9 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hcinit 0 0 ABS 0 cinit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hconst 0 0 CODE 0 const dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hidata 0 0 CODE 0 idata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hidloc 200008 0 IDLOC 0 idloc dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hrdata 0 0 COMRAM 1 rdata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hstack 0 0 STACK 2 stack dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext0 0 0 ABS 0 text0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext1 0 0 ABS 0 text1 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext2 0 0 ABS 0 text2 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext3 0 0 ABS 0 text3 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext4 0 0 ABS 0 text4 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext5 0 0 ABS 0 text5 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext6 0 0 ABS 0 text6 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext7 0 0 ABS 0 text7 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext8 0 0 ABS 0 text8 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext9 0 0 ABS 0 text9 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___lwdiv@counter 7 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_Icon 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_Init 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_Line 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_Text 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_RectangleRound BB40 0 CODE 0 text9 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank10 0 0 ABS 0 bank10 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank11 0 0 ABS 0 bank11 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank12 0 0 ABS 0 bank12 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank13 0 0 ABS 0 bank13 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank14 0 0 ABS 0 bank14 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbank15 0 0 ABS 0 bank15 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbigram 0 0 ABS 0 bigram dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+__end_of_sprintf C1DE 0 CODE 0 text1 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hcomram 0 0 ABS 0 comram dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hconfig 30000E 0 CONFIG 0 config dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank0 0 0 ABS 0 bank0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank1 0 0 ABS 0 bank1 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank2 0 0 ABS 0 bank2 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank3 0 0 ABS 0 bank3 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank4 0 0 ABS 0 bank4 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank5 0 0 ABS 0 bank5 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank6 0 0 ABS 0 bank6 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank7 0 0 ABS 0 bank7 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank8 0 0 ABS 0 bank8 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank9 0 0 ABS 0 bank9 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_isdigit B15A 0 CODE 0 text2 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lcinit 0 0 ABS 0 cinit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lconst 0 0 CODE 0 const dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lidata 0 0 CODE 0 idata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lidloc 200000 0 IDLOC 0 idloc dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_ColumnPage B2E6 0 CODE 0 text26 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lrdata 0 0 COMRAM 1 rdata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lstack 0 0 STACK 2 stack dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext0 0 0 ABS 0 text0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext1 0 0 ABS 0 text1 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext2 0 0 ABS 0 text2 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext3 0 0 ABS 0 text3 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext4 0 0 ABS 0 text4 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext5 0 0 ABS 0 text5 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext6 0 0 ABS 0 text6 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext7 0 0 ABS 0 text7 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext8 0 0 ABS 0 text8 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_Circle BF94 0 CODE 0 text23 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_WriteChar C74A 0 CODE 0 text22 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_T3CMX$PORTC0 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Habs1 0 0 ABS 0 abs1 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hdata 0 0 ABS 0 data dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hinit 0 0 CODE 0 init dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hrbit 0 0 COMRAM 1 rbit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hrbss 0 0 COMRAM 1 rbss dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htemp 0 0 COMRAM 1 temp dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext 0 0 ABS 0 text dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Labs1 0 0 ABS 0 abs1 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ldata 0 0 ABS 0 data dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Linit 0 0 CODE 0 init dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lrbit 0 0 COMRAM 1 rbit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lrbss 0 0 COMRAM 1 rbss dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltemp 0 0 COMRAM 1 temp dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext 0 0 ABS 0 text dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_XINST$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_Courier_New_Bold_20 FFC1 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_SSP1CON1 FC6 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_SSP1STAT FC7 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___wmul B19C 0 CODE 0 text13 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hintret 0 0 ABS 0 intret dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hirdata 0 0 CODE 0 irdata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__S0 30000E 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__S1 68 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__S2 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Rectangle@x1 35 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Rectangle@x2 39 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Rectangle@y1 37 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Rectangle@y2 3B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_FillScreen@color A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteParameter@parameter 2 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+SPI1_Write@data 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@x1 15 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@x2 19 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@y1 17 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@y2 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_Box 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_Dot 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+sprintf@val 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RoundEdge@x 25 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RoundEdge@y 27 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_Icon B682 0 CODE 0 text20 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_Init B92C 0 CODE 0 text14 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_Line B74A 0 CODE 0 text12 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_Text B338 0 CODE 0 text5 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RoundEdge@radius 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteChar@c 15 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteChar@i 16 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteChar@j 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteChar@k 17 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteChar@p 18 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteChar@x A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteChar@y C 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_WriteCommand B11A 0 CODE 0 text16 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_WriteCommand@command 2 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_BORV$190 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lintentry 0 0 ABS 0 intentry dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_SPI1_Close 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_height 64 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Icon@width_ 10 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_SPI1_Write 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hramtop 1000 0 RAM 0 ramtop dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_Icon B74A 0 CODE 0 text20 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_Init BB40 0 CODE 0 text14 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_Line B92C 0 CODE 0 text12 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_Text B392 0 CODE 0 text5 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hrparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_WriteCommand 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__pdataBANK0 65 0 BANK0 1 dataBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_PWRTEN$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__activetblptr 3 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hstruct 0 0 COMRAM 1 struct dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of___wmul 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_SetFont B19C 0 CODE 0 text6 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext10 0 0 ABS 0 text10 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext11 0 0 ABS 0 text11 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext12 0 0 ABS 0 text12 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext13 0 0 ABS 0 text13 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext14 0 0 ABS 0 text14 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext15 0 0 ABS 0 text15 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext16 0 0 ABS 0 text16 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext17 0 0 ABS 0 text17 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext18 0 0 ABS 0 text18 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext19 0 0 ABS 0 text19 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext20 0 0 ABS 0 text20 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext21 0 0 ABS 0 text21 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext22 0 0 ABS 0 text22 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext23 0 0 ABS 0 text23 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext24 0 0 ABS 0 text24 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext25 0 0 ABS 0 text25 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext26 0 0 ABS 0 text26 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext27 0 0 ABS 0 text27 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext28 0 0 ABS 0 text28 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Htext29 0 0 ABS 0 text29 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RectangleRound@x1 35 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RectangleRound@x2 39 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RectangleRound@y1 37 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RectangleRound@y2 3B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_HFOFST$ON 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+sprintf@flag 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+sprintf@prec 19 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext10 C1DE 0 CODE 0 text10 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext11 B518 0 CODE 0 text11 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext12 B74A 0 CODE 0 text12 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext13 B19C 0 CODE 0 text13 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext14 B92C 0 CODE 0 text14 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext15 B11A 0 CODE 0 text15 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext16 B10A 0 CODE 0 text16 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext17 B15A 0 CODE 0 text17 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext18 B1EC 0 CODE 0 text18 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext19 B46A 0 CODE 0 text19 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext20 B682 0 CODE 0 text20 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext21 B392 0 CODE 0 text21 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext22 C442 0 CODE 0 text22 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext23 BD62 0 CODE 0 text23 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext24 B5CA 0 CODE 0 text24 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext25 B3F6 0 CODE 0 text25 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext26 B294 0 CODE 0 text26 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext27 B0FA 0 CODE 0 text27 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext28 B12A 0 CODE 0 text28 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext29 B0EE 0 CODE 0 text29 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___lwdiv B2E6 0 CODE 0 text4 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___lwmod B252 0 CODE 0 text3 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank10 0 0 ABS 0 bank10 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank11 0 0 ABS 0 bank11 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank12 0 0 ABS 0 bank12 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank13 0 0 ABS 0 bank13 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank14 0 0 ABS 0 bank14 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbank15 0 0 ABS 0 bank15 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbigram 0 0 ABS 0 bigram dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_Reset B17A 0 CODE 0 text17 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lcomram 0 0 ABS 0 comram dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lconfig 300000 0 CONFIG 0 config dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_Reset 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___wmul@multiplier 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_LATDbits F8C 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_SetFont@font_ 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_FillScreen@i E 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_FillScreen@j 10 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___lwdiv@divisor 3 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_FillScreen@DH C 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_FillScreen@DL D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@shortest 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lfardata 0 0 FARRAM 0 fardata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RoundEdge@x1 15 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RoundEdge@y1 17 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_SPI1_Init B13C 0 CODE 0 text28 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+stackhi F37 0 ABS 0 - C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+stacklo 68 0 ABS 0 - C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+_TFT_Reset B15A 0 CODE 0 text17 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lintcode 0 0 CODE 0 intcode dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_SPI1_Init 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_RoundEdge C1DE 0 CODE 0 text10 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lintret 0 0 ABS 0 intret dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lirdata 0 0 CODE 0 irdata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_SetFont@letterspacing 3 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_frame_memory 67 0 BANK0 1 dataBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_SetDotSize B0F2 0 CODE 0 text8 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_FillScreen B46A 0 CODE 0 text19 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lspace_0 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lspace_1 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lspace_2 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__pbssCOMRAM 5B 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_Box B46A 0 CODE 0 text25 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_Dot B682 0 CODE 0 text24 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Circle@x1 15 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Circle@y1 17 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lend_init 0 0 CODE 0 end_init dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+end_of_initialization B24C 0 CODE 0 cinit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_SPI1_Init B12A 0 CODE 0 text28 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hintentry 0 0 ABS 0 intentry dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RectangleRound@radius 3D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_ColumnPage@x1 2 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_ColumnPage@x2 4 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_ColumnPage@y1 6 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_ColumnPage@y2 8 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___lwdiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+?___lwdiv 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+?___lwmod 8 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_CharHeight B1C2 0 CODE 0 text7 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hreset_vec 0 0 CODE 0 reset_vec dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_Circle 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_WriteParameter 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lramtop 1000 0 RAM 0 ramtop dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Text@buffer 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lrparam 0 0 COMRAM 1 rparam dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__pcinit B218 0 CODE 0 cinit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Text@color1 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Text@color2 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext0 C74A 0 CODE 0 text0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext1 BF94 0 CODE 0 text1 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext2 B13C 0 CODE 0 text2 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext3 B252 0 CODE 0 text3 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext4 B2E6 0 CODE 0 text4 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext5 B338 0 CODE 0 text5 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext6 B17A 0 CODE 0 text6 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext7 B1C2 0 CODE 0 text7 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext8 B0F2 0 CODE 0 text8 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ptext9 BB40 0 CODE 0 text9 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_RectangleRound 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lstruct 0 0 COMRAM 1 struct dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext11 0 0 ABS 0 text11 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext12 0 0 ABS 0 text12 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext13 0 0 ABS 0 text13 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext14 0 0 ABS 0 text14 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext16 0 0 ABS 0 text16 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext19 0 0 ABS 0 text19 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext20 0 0 ABS 0 text20 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext21 0 0 ABS 0 text21 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext22 0 0 ABS 0 text22 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext23 0 0 ABS 0 text23 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext24 0 0 ABS 0 text24 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext25 0 0 ABS 0 text25 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext26 0 0 ABS 0 text26 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext27 0 0 ABS 0 text27 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext28 0 0 ABS 0 text28 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Ltext29 0 0 ABS 0 text29 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__ramtop 1000 0 RAM 0 ramtop C:\Users\Hector\AppData\Local\Temp\s3kg.obj
+_sprintf BF94 0 CODE 0 text1 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@longest 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lpowerup 0 0 CODE 0 powerup dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+sprintf@ap 17 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+sprintf@sp D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Line@numerator 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_isdigit B13C 0 CODE 0 text2 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_RectangleRound@color 3F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TFT_ConstText B392 0 CODE 0 text21 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_SetDotSize B0FA 0 CODE 0 text8 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_FillScreen B518 0 CODE 0 text19 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___param_bank 10 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of__initialization B24C 0 CODE 0 cinit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_WRT2$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_WRT3$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Libigdata 0 0 CODE 0 ibigdata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_SetFont 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__pidataBANK0 B0EB 0 CODE 0 idataBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lclrtext 0 0 ABS 0 clrtext dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_CharHeight B1EC 0 CODE 0 text7 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_ColumnPage 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_letter_spacing 5E 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__size_of_TFT_RoundEdge 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__pmediumconst CD20 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_SSP1BUF FC9 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hend_init 4 0 CODE 0 end_init dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_BOREN$SBORDIS 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Circle@x 23 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Circle@y 25 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+sprintf@c 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+sprintf@f F 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_main CD20 0 CODE 0 text0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+isdigit@c 3 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Box@i 14 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Box@j 16 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Dot@i 14 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Dot@x A 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Dot@y C 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Icon@height_ 11 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_dpowers CD2B 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+?_sprintf D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_icon1 ED2B 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_isdigit$1162 2 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_PORTA F80 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_PORTB F81 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_PORTC F82 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_PORTD F83 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_PORTE F84 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TRISA F92 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TRISB F93 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TRISC F94 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TRISD F95 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_TRISE F96 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_dot_size 63 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_CP1$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__HRAM 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hbss 0 0 RAM 1 bss dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hram 0 0 ABS 0 ram dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hsfr 0 0 ABS 0 sfr dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__LRAM 1 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lbss 0 0 RAM 1 bss dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lram 0 0 ABS 0 ram dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lsfr 0 0 ABS 0 sfr dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_CP2$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_CP3$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_font2 60 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_icon1 CD2B 0 MEDIUMCONST 0 mediumconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_PLLCFG$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_CPB$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_tft_x 65 0 BANK0 1 dataBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+_width 5F 0 COMRAM 1 bssCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+sprintf@width 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__initialization B218 0 CODE 0 cinit dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Circle@radiusError 21 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__end_of_TFT_RoundEdge C442 0 CODE 0 text10 dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hfardata 0 0 FARRAM 0 fardata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+___wmul@product 5 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Lifardata 0 0 CODE 0 ifardata dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+TFT_Dot@color E 0 COMRAM 1 cstackCOMRAM dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+__Hintcode 0 0 CODE 0 intcode dist/default/production\PIC18F46K22_ILI9341.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 B218 B218 3A 1
+idloc 0 200000 200000 8 1
+text0 0 C74A C74A 5D6 1
+text1 0 BF94 BF94 24A 1
+text2 0 B13C B13C 1E 1
+text3 0 B252 B252 42 1
+text4 0 B2E6 B2E6 52 1
+text5 0 B338 B338 5A 1
+text6 0 B17A B17A 22 1
+text7 0 B1C2 B1C2 2A 1
+text8 0 B0F2 B0F2 8 1
+text9 0 BB40 BB40 222 1
+text10 0 C1DE C1DE 264 1
+text11 0 B518 B518 B2 1
+text12 0 B74A B74A 1E2 1
+text13 0 B19C B19C 26 1
+text14 0 B92C B92C 214 1
+text15 0 B11A B11A 10 1
+text16 0 B10A B10A 10 1
+text17 0 B15A B15A 20 1
+text18 0 B1EC B1EC 2C 1
+text19 0 B46A B46A AE 1
+text20 0 B682 B682 C8 1
+text21 0 B392 B392 64 1
+text22 0 C442 C442 308 1
+text23 0 BD62 BD62 232 1
+text24 0 B5CA B5CA B8 1
+text25 0 B3F6 B3F6 74 1
+text26 0 B294 B294 52 1
+text27 0 B0FA B0FA 10 1
+text28 0 B12A B12A 12 1
+text29 0 B0EE B0EE 4 1
+cstackCOMRAM 1 1 1 5F 1
+reset_vec 0 0 0 4 1
+bssBANK0 1 60 60 8 1
+idataBANK0 0 B0EB B0EB 3 1
+mediumconst 0 CD20 CD20 32E0 1
+config 0 300000 300000 E 1
