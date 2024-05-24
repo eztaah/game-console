@@ -30,6 +30,10 @@ void main(void)
         int x;
         int y;
     };
+
+    // Setup boutons 
+    TRISBbits.TRISB0 = 1;   // Configurer TRISB0 comme une entrée (bouton)
+    TRISAbits.TRISA4 = 1;   // Configurer TRISA4 comme une entrée (bouton)
     
     // Ball creation
     TFT_SetDotSize(1);
@@ -43,10 +47,11 @@ void main(void)
     
     // Game loop
     while(1){
-        // move the ball
-        ball_position.x += ball_speed.x;
-        ball_position.y += ball_speed.y;
-        
+        // move the ball (Check p.106 pour les interruptions)
+        if(PORTBbits.RB0 == 1) {
+            ball_position.x += ball_speed.x;
+            ball_position.y += ball_speed.y;
+        }
         // collision detection
         if (ball_position.y + ball_radius >= TFT_H || ball_position.y - ball_radius <= 0) {
             ball_speed.y *= -1;

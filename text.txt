@@ -1,0 +1,10 @@
+Resolution ecran : 240x320   -> 76800 pixels sur l'ecran 
+
+chaque pixel est codé sur 24 bits (car rgb)
+
+On a donc besoin d'envoyer 1 843 200 bits pour afficher une image en entier
+
+
+Si le microcontoleur fonctionne à 1 MHz, il peut envoyer un 1 bit toutes les 1/10^6 secondes, 
+
+Il va donc afficher l'image en 1.8 secondes

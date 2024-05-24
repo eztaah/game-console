@@ -9,6 +9,11 @@ void SPI1_Init(void){
 TRIS_SCK1 = 0; TRIS_SDO1 = 0; TRIS_SDI1 = 1; TRIS_SS1 = 0;
 SSP1STAT = 0xC0;
 SSP1CON1 = 0x21;
+
+// test pour augmenter le baude rate
+// BAUDCON1 = 0b00000000;
+// SPBRGH1 = 0b10000000;
+// SPBRGH2 = 0b11111111;
 }
 
 void SPI1_Close(void){
