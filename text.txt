@@ -25,3 +25,6 @@ voir datasheet_ecran p46
 - Si on veut verifier la frequence du microcontoleur, voir p7, on remarque que OSC2 est relié à RA6
 
 https://forum.microchip.com/s/topic/a5C3l000000Me82EAC/t384309
+
+
+https://forum.microchip.com/s/topic/a5C3l000000MO2oEAG/t322486

@@ -1,0 +1,6 @@
+IDI_ICON1 ICON DISCARDABLE "logo.ico"
+
+
+
+
+// powershell -> windres ressource.rc -o logo.o
