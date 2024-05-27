@@ -8,3 +8,7 @@ https://simple-circuit.com/pic18f46k22-ili9341-tft-ccs-c-proteus/
 
 Video qui montre un montage avec le pic et l'ecran : 
 https://www.youtube.com/watch?v=dFDeh2Nc86w
+
+
+Montage arduino : 
+https://learn.adafruit.com/adafruit-2-8-and-3-2-color-tft-touchscreen-breakout-v2/8-bit-wiring-and-test
