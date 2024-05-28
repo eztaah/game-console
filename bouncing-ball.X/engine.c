@@ -41,3 +41,21 @@ void renderRectangle(uint16_t old_left, uint16_t old_top, uint16_t old_right, ui
     // Draw the new ball position as a black square
     TFT_Box(new_left, new_top, new_right, new_bottom, fill_color);
 }
+
+void initBuzzer(void){
+    TRISCbits.TRISC2 = 0;   // RC2 est la sortie PWM, sur laquelle est connect? le buzzer
+    T2CON = 0b00000110;     // Postscaler = 1, Timer ON, Prescaler = 16
+    CCP1CON = 0b00001100;   // mode PWM, avec 1 seule sortie sur RC2
+}
+
+void impactSound(void){
+    PR2 = 35;           // fr?quence_PWM = (1MHz)/4 /prescaler / 36 = 440 Hz
+    CCPR1L = 18;        // rapport cyclique = 50%
+    _delay(125000);     // 125000 * Tcy = 125000 * 4us = 0.125 sec
+    stopBuzzer();
+}
+
+void stopBuzzer(void){
+    PR2 = 0;
+    CCPR1L = 0;
+}

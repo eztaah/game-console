@@ -71,6 +71,9 @@ void main(void)
     SPI1_Init();
     TFT_Init();
     
+    initBuzzer();
+    stopBuzzer();
+    impactSound();
     
     initialiser_timer();
 
