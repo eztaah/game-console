@@ -378,46 +378,46 @@ while(*buffer)
 // color1: Top color.
 // color2: Bottom color.
 //==============================================================================
-void TFT_TextLEFT(Schar *buffer, Uint y, Uint color1, Uint color2){
-Uint x = 0;
-while(*buffer)                
-     {
-      TFT_WriteChar(*buffer, x, y, color1, color2);
-      x += width + letter_spacing;
-      buffer++;               
-     }
-TFT_Box(x, y, tft_x, y + height - 1, color2);
-}
+//void TFT_TextLEFT(Schar *buffer, Uint y, Uint color1, Uint color2){
+//Uint x = 0;
+//while(*buffer)                
+//     {
+//      TFT_WriteChar(*buffer, x, y, color1, color2);
+//      x += width + letter_spacing;
+//      buffer++;               
+//     }
+//TFT_Box(x, y, tft_x, y + height - 1, color2);
+//}
 
-void TFT_TextCENTER(Schar *buffer, Uint y, Uint color1, Uint color2){
-Uint x;
-x = TFT_TextWidth(buffer);
-x = tft_x - x;
-x = x / 2;
-TFT_Box(0, y, x, y + height - 1, color2);
-x++;
-while(*buffer)                
-     {
-      TFT_WriteChar(*buffer, x, y, color1, color2);
-      x += width + letter_spacing;
-      buffer++;               
-     }
-TFT_Box(x, y, tft_x, y + height - 1, color2);
-}
+//void TFT_TextCENTER(Schar *buffer, Uint y, Uint color1, Uint color2){
+//Uint x;
+//x = TFT_TextWidth(buffer);
+//x = tft_x - x;
+//x = x / 2;
+//TFT_Box(0, y, x, y + height - 1, color2);
+//x++;
+//while(*buffer)                
+//     {
+//      TFT_WriteChar(*buffer, x, y, color1, color2);
+//      x += width + letter_spacing;
+//      buffer++;               
+//     }
+//TFT_Box(x, y, tft_x, y + height - 1, color2);
+//}
 
-void TFT_TextRIGHT(Schar *buffer, Uint y, Uint color1, Uint color2){
-Uint x;
-x = TFT_TextWidth(buffer);
-x = tft_x - x;
-TFT_Box(0, y, x, y + height - 1, color2);
-x++;
-while(*buffer)                
-     {
-      TFT_WriteChar(*buffer, x, y, color1, color2);
-      x += width + letter_spacing;
-      buffer++;               
-     }
-}
+//void TFT_TextRIGHT(Schar *buffer, Uint y, Uint color1, Uint color2){
+//Uint x;
+//x = TFT_TextWidth(buffer);
+//x = tft_x - x;
+//TFT_Box(0, y, x, y + height - 1, color2);
+//x++;
+//while(*buffer)                
+//     {
+//      TFT_WriteChar(*buffer, x, y, color1, color2);
+//      x += width + letter_spacing;
+//      buffer++;               
+//     }
+//}
 
 //==============================================================================
 // This function fills screen with given color.  
@@ -479,45 +479,45 @@ TFT_CS = 1;
 // y2: y coordinate of the line end. Valid values: 0..320 
 // color: color parameter.
 //==============================================================================
-void TFT_Line(Uint x1, Uint y1, Uint x2, Uint y2, Uint color){
-Sint i;
-Sint longest, shortest; 
-Sint numerator;
-Sint w = x2 - x1;
-Sint h = y2 - y1;
-Sint dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
-
-if(w < 0) dx1 = -1; else if(w > 0) dx1 = 1;
-if(h < 0) dy1 = -1; else if(h > 0) dy1 = 1;
-if(w < 0) dx2 = -1; else if(w > 0) dx2 = 1;
-if(w < 0) w *= -1;
-if(h < 0) h *= -1;
-longest = w; 
-shortest = h;
-if(!(longest > shortest)) 
-  {//if(w < 0) w *= -1; //if(h < 0) h *= -1; 
-   longest = h; 
-   shortest = w;
-   if(h < 0) dy2 = -1; else if(h > 0) dy2 = 1;
-   dx2 = 0;         
-  }
-numerator = longest >> 1;
-for (i = 0; i <= longest; i++)
-    {
-     TFT_Dot(x1, y1, color);
-     numerator += shortest;
-     if(!(numerator < longest)) 
-       {
-        numerator -= longest;
-        x1 += dx1;
-        y1 += dy1;
-       }else
-       {
-        x1 += dx2;
-        y1 += dy2;
-       }
-    }
-}
+//void TFT_Line(Uint x1, Uint y1, Uint x2, Uint y2, Uint color){
+//Sint i;
+//Sint longest, shortest; 
+//Sint numerator;
+//Sint w = x2 - x1;
+//Sint h = y2 - y1;
+//Sint dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
+//
+//if(w < 0) dx1 = -1; else if(w > 0) dx1 = 1;
+//if(h < 0) dy1 = -1; else if(h > 0) dy1 = 1;
+//if(w < 0) dx2 = -1; else if(w > 0) dx2 = 1;
+//if(w < 0) w *= -1;
+//if(h < 0) h *= -1;
+//longest = w; 
+//shortest = h;
+//if(!(longest > shortest)) 
+//  {//if(w < 0) w *= -1; //if(h < 0) h *= -1; 
+//   longest = h; 
+//   shortest = w;
+//   if(h < 0) dy2 = -1; else if(h > 0) dy2 = 1;
+//   dx2 = 0;         
+//  }
+//numerator = longest >> 1;
+//for (i = 0; i <= longest; i++)
+//    {
+//     TFT_Dot(x1, y1, color);
+//     numerator += shortest;
+//     if(!(numerator < longest)) 
+//       {
+//        numerator -= longest;
+//        x1 += dx1;
+//        y1 += dy1;
+//       }else
+//       {
+//        x1 += dx2;
+//        y1 += dy2;
+//       }
+//    }
+//}
 
 //==============================================================================
 // This function draws a rectangle on TFT.
@@ -527,44 +527,39 @@ for (i = 0; i <= longest; i++)
 // y2: y coordinate of the lower right rectangle corner. Valid values: 0..320 
 // color: color parameter.
 //==============================================================================
-void TFT_Rectangle(Uint x1, Uint y1, Uint x2, Uint y2, Uint color){
-TFT_Line(x1, y1, x2, y1, color);
-TFT_Line(x1, y2, x2, y2, color);
-TFT_Line(x1, y1, x1, y2, color);
-TFT_Line(x2, y1, x2, y2, color);
-}
-
-void TFT_RectangleFill(Uint x1, Uint y1, Uint x2, Uint y2, Uint color){
-TFT_Box(x1, y1, x2, y2, color);
-}
-
+//void TFT_Rectangle(Uint x1, Uint y1, Uint x2, Uint y2, Uint color){
+//TFT_Line(x1, y1, x2, y1, color);
+//TFT_Line(x1, y2, x2, y2, color);
+//TFT_Line(x1, y1, x1, y2, color);
+//TFT_Line(x2, y1, x2, y2, color);
+//}
 
 //==============================================================================
 // This function draws a rounded edge rectangle on TFT.
 // radius: radius of the rounded edge.
 //==============================================================================
-void TFT_RectangleRound(Uint x1, Uint y1, Uint x2, Uint y2, Uint radius, Uint color){
-TFT_Line(x1 + radius, y1, x2 - radius, y1, color);
-TFT_Line(x1 + radius, y2, x2 - radius, y2, color);
-TFT_Line(x1, y1 + radius, x1, y2 - radius, color);
-TFT_Line(x2, y1 + radius, x2, y2 - radius, color);
-TFT_RoundEdge(x1 + radius, y1 + radius, 3, radius, color); 
-TFT_RoundEdge(x2 - radius, y1 + radius, 4, radius, color); 
-TFT_RoundEdge(x1 + radius, y2 - radius, 2, radius, color); 
-TFT_RoundEdge(x2 - radius, y2 - radius, 1, radius, color); 
-}
+//void TFT_RectangleRound(Uint x1, Uint y1, Uint x2, Uint y2, Uint radius, Uint color){
+//TFT_Line(x1 + radius, y1, x2 - radius, y1, color);
+//TFT_Line(x1 + radius, y2, x2 - radius, y2, color);
+//TFT_Line(x1, y1 + radius, x1, y2 - radius, color);
+//TFT_Line(x2, y1 + radius, x2, y2 - radius, color);
+//TFT_RoundEdge(x1 + radius, y1 + radius, 3, radius, color); 
+//TFT_RoundEdge(x2 - radius, y1 + radius, 4, radius, color); 
+//TFT_RoundEdge(x1 + radius, y2 - radius, 2, radius, color); 
+//TFT_RoundEdge(x2 - radius, y2 - radius, 1, radius, color); 
+//}
 
 //==============================================================================
 // This function draws a filled rounded edge rectangle on TFT.
 //==============================================================================
-void TFT_RectangleRoundFill(Uint x1, Uint y1, Uint x2, Uint y2, Uint radius, Uint color){ 
-TFT_Box(x1 + radius, y1, x2 - radius, y2, color);
-TFT_Box(x1, y1 + radius, x2, y2 - radius, color);
-TFT_CircleFill(x1 + radius, y1 + radius, radius, color); 
-TFT_CircleFill(x2 - radius, y1 + radius, radius, color); 
-TFT_CircleFill(x1 + radius, y2 - radius, radius, color); 
-TFT_CircleFill(x2 - radius, y2 - radius, radius, color);
-}
+//void TFT_RectangleRoundFill(Uint x1, Uint y1, Uint x2, Uint y2, Uint radius, Uint color){ 
+//TFT_Box(x1 + radius, y1, x2 - radius, y2, color);
+//TFT_Box(x1, y1 + radius, x2, y2 - radius, color);
+//TFT_CircleFill(x1 + radius, y1 + radius, radius, color); 
+//TFT_CircleFill(x2 - radius, y1 + radius, radius, color); 
+//TFT_CircleFill(x1 + radius, y2 - radius, radius, color); 
+//TFT_CircleFill(x2 - radius, y2 - radius, radius, color);
+//}
 
 //==============================================================================
 // This function draws a circle on TFT (Midpoint circle algorithm).
@@ -573,104 +568,104 @@ TFT_CircleFill(x2 - radius, y2 - radius, radius, color);
 // radius: radius size
 // color: color parameter.
 //==============================================================================
-void TFT_Circle(Uint x1, Uint y1, Uint radius, Uint color){  
-Sint x = radius, y = 0;
-Sint radiusError = 1 - x;
-while(x >= y)
-     {
-      TFT_Dot(x + x1, y + y1, color);
-      TFT_Dot(y + x1, x + y1, color);
-      TFT_Dot(-x + x1, y + y1, color);
-      TFT_Dot(-y + x1, x + y1, color);
-      TFT_Dot(-x + x1, -y + y1, color);
-      TFT_Dot(-y + x1, -x + y1, color);
-      TFT_Dot(x + x1, -y + y1, color);
-      TFT_Dot(y + x1, -x + y1, color);
-      y++;
-      if(radiusError<0)
-        {
-         radiusError += 2 * y + 1;
-        }else
-        {
-         x--;
-         radiusError += 2 * (y - x + 1);
-        }
-     }
-}
+//void TFT_Circle(Uint x1, Uint y1, Uint radius, Uint color){  
+//Sint x = radius, y = 0;
+//Sint radiusError = 1 - x;
+//while(x >= y)
+//     {
+//      TFT_Dot(x + x1, y + y1, color);
+//      TFT_Dot(y + x1, x + y1, color);
+//      TFT_Dot(-x + x1, y + y1, color);
+//      TFT_Dot(-y + x1, x + y1, color);
+//      TFT_Dot(-x + x1, -y + y1, color);
+//      TFT_Dot(-y + x1, -x + y1, color);
+//      TFT_Dot(x + x1, -y + y1, color);
+//      TFT_Dot(y + x1, -x + y1, color);
+//      y++;
+//      if(radiusError<0)
+//        {
+//         radiusError += 2 * y + 1;
+//        }else
+//        {
+//         x--;
+//         radiusError += 2 * (y - x + 1);
+//        }
+//     }
+//}
 
 //==============================================================================
 // This function draws a filled circle on TFT.
 //==============================================================================
-void TFT_CircleFill(Uint x1, Uint y1, Uint radius, Uint color){
-Uchar i = dot_size;    
-Sint x = radius, y = 0;
-Sint radiusError = 1 - x;
-dot_size = 0; 
-while(x >= y)
-     {
-      TFT_Line(x1-x, y1+y, x1+x, y1+y, color);
-      TFT_Line(x1-x, y1-y, x1+x, y1-y, color);
-      TFT_Line(x1-y, y1+x, x1+y, y1+x, color);
-      TFT_Line(x1-y, y1-x, x1+y, y1-x, color);
-      TFT_Dot(x + x1, y + y1, color);
-      TFT_Dot(y + x1, x + y1, color);
-      TFT_Dot(-x + x1, y + y1, color);
-      TFT_Dot(-y + x1, x + y1, color);
-      TFT_Dot(-x + x1, -y + y1, color);
-      TFT_Dot(-y + x1, -x + y1, color);
-      TFT_Dot(x + x1, -y + y1, color);
-      TFT_Dot(y + x1, -x + y1, color);
-      y++;
-      if(radiusError<0)
-        {
-         radiusError += 2 * y + 1;
-        }else
-        {
-         x--;
-         radiusError += 2 * (y - x + 1);
-        }
-     }
-dot_size = i;
-}
+//void TFT_CircleFill(Uint x1, Uint y1, Uint radius, Uint color){
+//Uchar i = dot_size;    
+//Sint x = radius, y = 0;
+//Sint radiusError = 1 - x;
+//dot_size = 0; 
+//while(x >= y)
+//     {
+//      TFT_Line(x1-x, y1+y, x1+x, y1+y, color);
+//      TFT_Line(x1-x, y1-y, x1+x, y1-y, color);
+//      TFT_Line(x1-y, y1+x, x1+y, y1+x, color);
+//      TFT_Line(x1-y, y1-x, x1+y, y1-x, color);
+//      TFT_Dot(x + x1, y + y1, color);
+//      TFT_Dot(y + x1, x + y1, color);
+//      TFT_Dot(-x + x1, y + y1, color);
+//      TFT_Dot(-y + x1, x + y1, color);
+//      TFT_Dot(-x + x1, -y + y1, color);
+//      TFT_Dot(-y + x1, -x + y1, color);
+//      TFT_Dot(x + x1, -y + y1, color);
+//      TFT_Dot(y + x1, -x + y1, color);
+//      y++;
+//      if(radiusError<0)
+//        {
+//         radiusError += 2 * y + 1;
+//        }else
+//        {
+//         x--;
+//         radiusError += 2 * (y - x + 1);
+//        }
+//     }
+//dot_size = i;
+//}
 
 //==============================================================================
 // This function is used to draw a round edge.
 //==============================================================================
-void TFT_RoundEdge(Uint x1, Uint y1, Uint alignment, Uint radius, Uint color){
-Sint x = radius, y = 0;
-Sint radiusError = 1 - x;
-while(x >= y)
-     {
-      switch(alignment)
-        {
-         case 1: 
-                TFT_Dot(x + x1, y + y1, color);
-                TFT_Dot(y + x1, x + y1, color);
-         break;
-         case 2:
-                TFT_Dot(-x + x1, y + y1, color);
-                TFT_Dot(-y + x1, x + y1, color); 
-         break;
-         case 3:
-                 TFT_Dot(-x + x1, -y + y1, color);
-                 TFT_Dot(-y + x1, -x + y1, color); 
-         break;
-         case 4:
-                TFT_Dot(x + x1, -y + y1, color);
-                TFT_Dot(y + x1, -x + y1, color);
-         break;
-        }      
-      y++;
-      if(radiusError<0)
-        {
-         radiusError += 2 * y + 1;
-        }else
-        {
-         x--;
-         radiusError += 2 * (y - x + 1);
-        }
-     }
-}
+//void TFT_RoundEdge(Uint x1, Uint y1, Uint alignment, Uint radius, Uint color){
+//Sint x = radius, y = 0;
+//Sint radiusError = 1 - x;
+//while(x >= y)
+//     {
+//      switch(alignment)
+//        {
+//         case 1: 
+//                TFT_Dot(x + x1, y + y1, color);
+//                TFT_Dot(y + x1, x + y1, color);
+//         break;
+//         case 2:
+//                TFT_Dot(-x + x1, y + y1, color);
+//                TFT_Dot(-y + x1, x + y1, color); 
+//         break;
+//         case 3:
+//                 TFT_Dot(-x + x1, -y + y1, color);
+//                 TFT_Dot(-y + x1, -x + y1, color); 
+//         break;
+//         case 4:
+//                TFT_Dot(x + x1, -y + y1, color);
+//                TFT_Dot(y + x1, -x + y1, color);
+//         break;
+//        }      
+//      y++;
+//      if(radiusError<0)
+//        {
+//         radiusError += 2 * y + 1;
+//        }else
+//        {
+//         x--;
+//         radiusError += 2 * (y - x + 1);
+//        }
+//     }
+//}
 
 //==============================================================================
 // This function draws a image on a desired location.
@@ -679,18 +674,18 @@ while(x >= y)
 // width: width of the image in pixels.
 // height: height of the image in pixels.
 //==============================================================================
-void TFT_Icon(CUint *buffer, Uint x, Uint y, Uchar width_, Uchar height_){
-Uint i, j;    
-TFT_ColumnPage(x, x + (width_ - 1), y, y + (height_ - 1));
-TFT_CS = 0; TFT_DC = 1;
-for(i = 0; i < height_; i++)
-   {
-    for(j = 0; j < width_; j++)
-       {
-        SPI1_Write(*buffer >> 8);
-        SPI1_Write(*buffer & 0xFF);    
-        buffer++;
-       }
-   }
-TFT_CS = 1;
-}
+//void TFT_Icon(CUint *buffer, Uint x, Uint y, Uchar width_, Uchar height_){
+//Uint i, j;    
+//TFT_ColumnPage(x, x + (width_ - 1), y, y + (height_ - 1));
+//TFT_CS = 0; TFT_DC = 1;
+//for(i = 0; i < height_; i++)
+//   {
+//    for(j = 0; j < width_; j++)
+//       {
+//        SPI1_Write(*buffer >> 8);
+//        SPI1_Write(*buffer & 0xFF);    
+//        buffer++;
+//       }
+//   }
+//TFT_CS = 1;
+//}

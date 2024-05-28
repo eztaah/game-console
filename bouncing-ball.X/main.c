@@ -13,37 +13,55 @@
 #include "bitmap.h"
 #include "time_delay.h"
 
+#include "engine.h"
 
-void renderRectangle(int old_left, int old_top, int old_right, int old_bottom,
-                     int new_left, int new_top, int new_right, int new_bottom,
-                     uint16_t clear_color, uint16_t fill_color) {
-    // Clear the regions not overlapped
-    // Clear left strip
-    if (new_left > old_left) {
-        TFT_Box(old_left, old_top, new_left - 1, old_bottom, clear_color);
-    }
-    // Clear right strip
-    if (new_right < old_right) {
-        TFT_Box(new_right + 1, old_top, old_right, old_bottom, clear_color);
-    }
-    // Clear top strip
-    if (new_top > old_top) {
-        TFT_Box(old_left, old_top, old_right, new_top - 1, clear_color);
-    }
-    // Clear bottom strip
-    if (new_bottom < old_bottom) {
-        TFT_Box(old_left, new_bottom + 1, old_right, old_bottom, clear_color);
-    }
 
-    // Draw the new ball position as a black square
-    TFT_Box(new_left, new_top, new_right, new_bottom, fill_color);
+uint16_t temps_de_la_frame = 0;
+
+#define DEBUG_MODE 1
+
+void initialiser_timer(void){
+    T0CON = 0x02;           // TIMER0: OFF, 16-bit, cadenc? par Tcy (1MHz/4), prescaler = 8
+                            // donc f = (1MHz/4) / 8 = 31.250 kHz
+
+    INTCONbits.TMR0IF = 0;
+    INTCONbits.TMR0IE = 1;
+    // T0CONbits.TMR0ON = ON;
+};
+
+void lancer_le_timer(void) {
+    TMR0 = 0x0;
+    T0CONbits.TMR0ON = 1;
 }
 
+uint16_t recuperer_valeur_timer(uint16_t target_delay) {
+    T0CONbits.TMR0ON = 0;     // On arrete le timer
+    
+    uint16_t timer_value = TMR0;
+    uint16_t time_passed = (uint16_t)(timer_value * 0.016f);
+    
+    if (time_passed < target_delay) {
+        //Delay_ms(target_delay - time_passed);
+        return time_passed;
+    }
+    else {
+        return time_passed;
+    }
+
+}
+
+void __interrupt() timer0_ISR(void){
+    if (INTCONbits.TMR0IF == 1){     // v?rifie si l'interruption est bien provoqu?e par le timer0
+        printf("Le timer a overflow, ce n'est pas normal");
+        exit(1);
+        INTCONbits.TMR0IF = 0;      // flag d'interruption effac?
+    }
+}
 
 
 void main(void)
 {
-    int i;
+    uint16_t i;
     char buffer1[20];
     OSCCON = 0b01110000;
     OSCTUNEbits.PLLEN = 1; // turn on the PLL 64 MHz
@@ -53,23 +71,35 @@ void main(void)
     SPI1_Close();
     SPI1_Init();
     TFT_Init();
-
     
+    
+    initialiser_timer();
+
     TFT_SetFont(Courier_New_Bold_20, 1);
     TFT_SetDotSize(1);
     
     // score 
-    int score = 0; // Initialisation du score
+    uint16_t score = 0; // Initialisation du score
     char scoreText[30] = {0}; // Buffer pour le texte du score
+    
+    uint16_t time_passed = 0;
+    char time_passed_text[30] = {0};
+    char fps_text[30] = {0};
     
     // first rendering
     TFT_FillScreen(BLACK);
     sprintf(scoreText, "%d", score);
     
     typedef struct Vector2 {
-        int x;
-        int y;
+        int16_t x;
+        int16_t y;
     } Vector2;
+    
+    typedef struct uVector2 {
+        uint16_t x;
+        uint16_t y;
+    } uVector2;
+    
     
     // Setup boutons 
     TRISBbits.TRISB0 = 1;   // Configurer TRISB0 comme une entrï¿½e (bouton)
@@ -77,26 +107,28 @@ void main(void)
 
     // Ball creation
     Vector2 ball_position = {TFT_W/2, TFT_H/2};
-    Vector2 ball_speed = {3, 3};
-    int ball_size = 10;
+    uVector2 ball_speed = {5, 5};
+    uint16_t ball_size = 10;
     
     // Paddle creation
     Vector2 paddle_position = {TFT_W/2, TFT_H - 20};
-    uint8_t paddle_speed = 7;
+    uint16_t paddle_speed = 7;
     Vector2 paddle_size = {60, 6};
     
     // Game loop
     while(1) {
-        // Store the old ball position
-        int ball_old_left = ball_position.x - ball_size/2;
-        int ball_old_top = ball_position.y - ball_size/2;
-        int ball_old_right = ball_position.x + ball_size/2;
-        int ball_old_bottom = ball_position.y + ball_size/2;
+        lancer_le_timer();
         
-        int paddle_old_left = paddle_position.x - paddle_size.x/2;
-        int paddle_old_top = paddle_position.y - paddle_size.y/2;
-        int paddle_old_right = paddle_position.x + paddle_size.x/2;
-        int paddle_old_bottom = paddle_position.y + paddle_size.y/2;
+        // Store the old ball position
+        int16_t ball_old_left = ball_position.x - ball_size/2;
+        int16_t ball_old_top = ball_position.y - ball_size/2;
+        int16_t ball_old_right = ball_position.x + ball_size/2;
+        int16_t ball_old_bottom = ball_position.y + ball_size/2;
+        
+        int16_t paddle_old_left = paddle_position.x - paddle_size.x/2;
+        int16_t paddle_old_top = paddle_position.y - paddle_size.y/2;
+        int16_t paddle_old_right = paddle_position.x + paddle_size.x/2;
+        int16_t paddle_old_bottom = paddle_position.y + paddle_size.y/2;
 
         // Move the ball (Check p.106 pour les interruptions)
         ball_position.x += ball_speed.x;
@@ -112,15 +144,15 @@ void main(void)
         }
 
         // New ball position
-        int ball_new_left = ball_position.x - ball_size/2;
-        int ball_new_top = ball_position.y - ball_size/2;
-        int ball_new_right = ball_position.x + ball_size/2;
-        int ball_new_bottom = ball_position.y + ball_size/2;
+        int16_t ball_new_left = ball_position.x - ball_size/2;
+        int16_t ball_new_top = ball_position.y - ball_size/2;
+        int16_t ball_new_right = ball_position.x + ball_size/2;
+        int16_t ball_new_bottom = ball_position.y + ball_size/2;
         
-        int paddle_new_left = paddle_position.x - paddle_size.x/2;
-        int paddle_new_top = paddle_position.y - paddle_size.y/2;
-        int paddle_new_right = paddle_position.x + paddle_size.x/2;
-        int paddle_new_bottom = paddle_position.y + paddle_size.y/2;
+        int16_t paddle_new_left = paddle_position.x - paddle_size.x/2;
+        int16_t paddle_new_top = paddle_position.y - paddle_size.y/2;
+        int16_t paddle_new_right = paddle_position.x + paddle_size.x/2;
+        int16_t paddle_new_bottom = paddle_position.y + paddle_size.y/2;
 
         // Collision detection and correction
         if (ball_new_top <= 0) {
@@ -149,18 +181,21 @@ void main(void)
             (ball_new_left < paddle_new_right) &&
             (ball_new_right > paddle_new_left)) {
             ball_speed.y *= -1;  // Inverse la direction verticale de la balle
-            ball_position.y = paddle_new_top - ball_size;  // Repositionne la balle pour éviter les chevauchements
+            ball_position.y = paddle_new_top - ball_size;  // Repositionne la balle pour ï¿½viter les chevauchements
             ball_new_bottom = ball_position.y;
             
             score += 1;  // Augmente le score
-            sprintf(scoreText, "%d", score);  // Met à jour le texte du score
+            sprintf(scoreText, "%d", score);  // Met ï¿½ jour le texte du score
         }
-
-
-        
         
         // RENDER ON THE SCREEN
         TFT_Text(scoreText, 110, 10, RED, BLACK);
+        
+        if (DEBUG_MODE) {
+            TFT_Text(time_passed_text, 5, 90, GREEN, BLACK);
+            TFT_Text(fps_text, 5, 120, GREEN, BLACK);
+        }
+        
         // Draw the ball
         renderRectangle(ball_old_left, ball_old_top, ball_old_right, ball_old_bottom,
                      ball_new_left, ball_new_top, ball_new_right, ball_new_bottom,
@@ -171,49 +206,14 @@ void main(void)
              paddle_new_left, paddle_new_top, paddle_new_right, paddle_new_bottom,
              BLACK, RED);
                 
+        
+        // Rï¿½cuperer la valeur du timer
+        time_passed = recuperer_valeur_timer(16);
+        sprintf(time_passed_text, "dt: %d", time_passed);
+        sprintf(fps_text, "fps: %d", (uint16_t)((1.f/time_passed)*1000));
+        
+        
         // Wait until the next frame (here 60fps)
-        Delay_ms(16);
+        //Delay_ms(16);
     }
 }
-
-
-
-// Ancien code
-/*
-    // Ball creation
-    TFT_SetDotSize(1);
-    struct Vector2 ball_position;
-    ball_position.x = 240/2;
-    ball_position.y = 320/2;
-    struct Vector2 ball_speed;
-    ball_speed.x = 20;
-    ball_speed.y = 20;
-    int ball_radius = 10;
-    
-    int old_position_x;
-    int old_position_y;
-    
-    // Game loop
-    while(1){
-        // move the ball
-        old_position_x = ball_position.x;
-        old_position_y = ball_position.y;
-                
-        ball_position.x += ball_speed.x;
-        ball_position.y += ball_speed.y;
-        
-        // collision detection
-        if (ball_position.y + ball_radius >= TFT_H || ball_position.y - ball_radius <= 0) {
-            ball_speed.y *= -1;
-        }
-        if (ball_position.x + ball_radius >= TFT_W || ball_position.x - ball_radius <= 0) {
-            ball_speed.x *= -1;
-        }
-        
-        // draw on the screen
-        //TFT_FillScreen(WHITE);
-        TFT_CircleFill(old_position_x, old_position_y, ball_radius, WHITE);
-        TFT_CircleFill(ball_position.x, ball_position.y, ball_radius, BLACK);
-    }
- 
-*/    
