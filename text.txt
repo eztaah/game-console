@@ -28,3 +28,9 @@ https://forum.microchip.com/s/topic/a5C3l000000Me82EAC/t384309
 
 
 https://forum.microchip.com/s/topic/a5C3l000000MO2oEAG/t322486
+
+
+
+---------------------------------------------------------------------------
+
+PIC18F97J94 pour plus de mémoire ram et flash
