@@ -38,7 +38,7 @@ uint16_t recuperer_valeur_timer(uint16_t target_delay) {
     T0CONbits.TMR0ON = 0;     // On arrete le timer
     
     uint16_t timer_value = TMR0;
-    uint16_t time_passed = (uint16_t)(timer_value * 0.016f);
+    uint16_t time_passed = (uint16_t)(timer_value * 0.0016f);
     
     if (time_passed < target_delay) {
         //Delay_ms(target_delay - time_passed);
@@ -47,7 +47,6 @@ uint16_t recuperer_valeur_timer(uint16_t target_delay) {
     else {
         return time_passed;
     }
-
 }
 
 void __interrupt() timer0_ISR(void){
@@ -115,6 +114,11 @@ void main(void)
     uint16_t paddle_speed = 7;
     Vector2 paddle_size = {60, 6};
     
+    // Bot Paddle creation
+    Vector2 bot_paddle_position = {TFT_W/2, TFT_H - 280};
+    uint16_t bot_paddle_speed = 7;
+    Vector2 bot_paddle_size = {60, 6};
+    
     // Game loop
     while(1) {
         lancer_le_timer();
@@ -129,30 +133,50 @@ void main(void)
         int16_t paddle_old_top = paddle_position.y - paddle_size.y/2;
         int16_t paddle_old_right = paddle_position.x + paddle_size.x/2;
         int16_t paddle_old_bottom = paddle_position.y + paddle_size.y/2;
+        
+        int16_t bot_paddle_old_left = bot_paddle_position.x - bot_paddle_size.x/2;
+        int16_t bot_paddle_old_top = bot_paddle_position.y - bot_paddle_size.y/2;
+        int16_t bot_paddle_old_right = bot_paddle_position.x + bot_paddle_size.x/2;
+        int16_t bot_paddle_old_bottom = bot_paddle_position.y + bot_paddle_size.y/2;
 
         // Move the ball (Check p.106 pour les interruptions)
         ball_position.x += ball_speed.x;
         ball_position.y += ball_speed.y;
         
   
-        if(PORTBbits.RB0 == 1) {
+        if(PORTBbits.RB0 == 1 && paddle_position.x - paddle_size.x/2 >= 7) {
             paddle_position.x -= paddle_speed;
         }
         
-        if(PORTAbits.RA4 == 1) {
+        if(PORTAbits.RA4 == 1 && paddle_position.x + paddle_size.x/2 <= TFT_W) {
             paddle_position.x += paddle_speed;
         }
-
+        
+        bot_paddle_position.x = ball_position.x;
+        
         // New ball position
         int16_t ball_new_left = ball_position.x - ball_size/2;
         int16_t ball_new_top = ball_position.y - ball_size/2;
         int16_t ball_new_right = ball_position.x + ball_size/2;
         int16_t ball_new_bottom = ball_position.y + ball_size/2;
         
+        // New paddle position
         int16_t paddle_new_left = paddle_position.x - paddle_size.x/2;
         int16_t paddle_new_top = paddle_position.y - paddle_size.y/2;
         int16_t paddle_new_right = paddle_position.x + paddle_size.x/2;
         int16_t paddle_new_bottom = paddle_position.y + paddle_size.y/2;
+        
+        // New bot paddle position
+        int16_t bot_paddle_new_left = bot_paddle_position.x - bot_paddle_size.x/2;
+        int16_t bot_paddle_new_top = bot_paddle_position.y - bot_paddle_size.y/2;
+        int16_t bot_paddle_new_right = bot_paddle_position.x + bot_paddle_size.x/2;
+        int16_t bot_paddle_new_bottom = bot_paddle_position.y + bot_paddle_size.y/2;
+        
+        // Bloquage du paddle du bot sur le coté gauche
+        if (bot_paddle_new_left <= 7) {
+            bot_paddle_new_left = 7;
+            bot_paddle_position.x = bot_paddle_size.x/2 + 7;
+        }
 
         // Collision detection and correction
         if (ball_new_top <= 0) {
@@ -175,7 +199,6 @@ void main(void)
             ball_speed.x *= -1;
         }
         
-        
         // collision ball paddle
         if ((ball_new_bottom >= paddle_new_top) &&
             (ball_new_left < paddle_new_right) &&
@@ -188,10 +211,21 @@ void main(void)
             sprintf(scoreText, "%d", score);  // Met ï¿½ jour le texte du score
         }
         
+        // collision ball bot paddle
+        if ((ball_new_top <= bot_paddle_new_bottom) &&
+            (ball_new_right > bot_paddle_new_left) &&
+            (ball_new_left < bot_paddle_new_right)) {
+            ball_speed.y *= -1;  // Inverse la direction verticale de la balle
+            ball_position.y = bot_paddle_new_bottom + ball_size;  // Repositionne la balle pour ï¿½viter les chevauchements
+            ball_new_top = ball_position.y;
+            ball_speed.x += 1;
+            ball_speed.y += 1;
+        }
+        
         // RENDER ON THE SCREEN
         TFT_Text(scoreText, 110, 10, RED, BLACK);
         
-        if (DEBUG_MODE) {
+         if (DEBUG_MODE) {
             TFT_Text(time_passed_text, 5, 90, GREEN, BLACK);
             TFT_Text(fps_text, 5, 120, GREEN, BLACK);
         }
@@ -204,6 +238,11 @@ void main(void)
         // draw the paddle
         renderRectangle(paddle_old_left, paddle_old_top, paddle_old_right, paddle_old_bottom,
              paddle_new_left, paddle_new_top, paddle_new_right, paddle_new_bottom,
+             BLACK, RED);
+        
+        // draw the bot paddle
+        renderRectangle(bot_paddle_old_left, bot_paddle_old_top, bot_paddle_old_right, bot_paddle_old_bottom,
+             bot_paddle_new_left, bot_paddle_new_top, bot_paddle_new_right, bot_paddle_new_bottom,
              BLACK, RED);
                 
         
