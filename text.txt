@@ -34,3 +34,7 @@ https://forum.microchip.com/s/topic/a5C3l000000MO2oEAG/t322486
 ---------------------------------------------------------------------------
 
 PIC18F97J94 pour plus de mémoire ram et flash
+
+taille ecran : 8 cm de long avec les barres bleue, 6.5cm de large avec les barre bleue
+6.6 de long sans barre bleue, 5 de large sans barre bleue
+
