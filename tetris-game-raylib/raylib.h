@@ -1581,6 +1581,8 @@ RLAPI void DetachAudioStreamProcessor(AudioStream stream, AudioCallback processo
 RLAPI void AttachAudioMixedProcessor(AudioCallback processor); // Attach audio stream processor to the entire audio pipeline
 RLAPI void DetachAudioMixedProcessor(AudioCallback processor); // Detach audio stream processor from the entire audio pipeline
 
+RLAPI Color randomColor(void); // Generate random color
+
 #if defined(__cplusplus)
 }
 #endif
