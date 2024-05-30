@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c time_delay.c ili9341.c spi_pic18f.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c time_delay.c ili9341.c spi_pic18f.c engine.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time_delay.p1 ${OBJECTDIR}/ili9341.p1 ${OBJECTDIR}/spi_pic18f.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/time_delay.p1.d ${OBJECTDIR}/ili9341.p1.d ${OBJECTDIR}/spi_pic18f.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time_delay.p1 ${OBJECTDIR}/ili9341.p1 ${OBJECTDIR}/spi_pic18f.p1 ${OBJECTDIR}/engine.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/time_delay.p1.d ${OBJECTDIR}/ili9341.p1.d ${OBJECTDIR}/spi_pic18f.p1.d ${OBJECTDIR}/engine.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time_delay.p1 ${OBJECTDIR}/ili9341.p1 ${OBJECTDIR}/spi_pic18f.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/time_delay.p1 ${OBJECTDIR}/ili9341.p1 ${OBJECTDIR}/spi_pic18f.p1 ${OBJECTDIR}/engine.p1
 
 # Source Files
-SOURCEFILES=main.c time_delay.c ili9341.c spi_pic18f.c
+SOURCEFILES=main.c time_delay.c ili9341.c spi_pic18f.c engine.c
 
 
 
@@ -120,6 +120,14 @@ ${OBJECTDIR}/spi_pic18f.p1: spi_pic18f.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/spi_pic18f.d ${OBJECTDIR}/spi_pic18f.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/spi_pic18f.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/engine.p1: engine.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/engine.p1.d 
+	@${RM} ${OBJECTDIR}/engine.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/engine.p1 engine.c 
+	@-${MV} ${OBJECTDIR}/engine.d ${OBJECTDIR}/engine.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/engine.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -152,6 +160,14 @@ ${OBJECTDIR}/spi_pic18f.p1: spi_pic18f.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/spi_pic18f.p1 spi_pic18f.c 
 	@-${MV} ${OBJECTDIR}/spi_pic18f.d ${OBJECTDIR}/spi_pic18f.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/spi_pic18f.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/engine.p1: engine.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/engine.p1.d 
+	@${RM} ${OBJECTDIR}/engine.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=0 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/engine.p1 engine.c 
+	@-${MV} ${OBJECTDIR}/engine.d ${OBJECTDIR}/engine.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/engine.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

@@ -314,6 +314,28 @@ void TFT_Box(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color)
 
 
 //==============================================================================
+// This function sets the type of font.
+// letterspacing: Letter spacing. Valid values: 1, 2, 3...
+//==============================================================================
+void TFT_SetFont(const uchar_t *font_, uchar_t letterspacing){
+    font2 = font_;
+    letter_spacing = letterspacing;
+    height = TFT_CharHeight();
+}
+
+
+//==============================================================================
+// This function returns the height of character. The size is determined in pixels.
+//==============================================================================
+uchar_t TFT_CharHeight(void){
+    font = font2;
+    font += 6;
+    return *font;
+}
+
+
+
+//==============================================================================
 // This function draws a character on the TFT.
 // c: character to be written. 
 // x: x position. Valid values: 0..240 

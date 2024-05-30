@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef char                       schar__t;
+typedef unsigned char              uchar__t;
+
 #define SCREEN_WIDTH 240
 #define SCREEN_HEIGHT 320
 
@@ -68,12 +71,11 @@ void sleep_ms(int16_t duration);
 // ---------- RENDERING ----------
 void fill_screen(uint16_t color);
 //shape
-void draw_rectangle(Vector2i position, Vector2i size, uint16_t color);
+void draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t height, uint16_t color);
 void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, Vector2i size, uint16_t color, uint16_t background_color);
 // text
 void draw_fps(int16_t pos_x, int16_t pos_y);
-void draw_text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2);
-void draw_const_text(const char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2);
+void draw_text(schar__t *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);
 
 
 

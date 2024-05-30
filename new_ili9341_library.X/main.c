@@ -22,14 +22,9 @@ void main(void) {
     ball.speed.y = 5;
     ball.size = 10;
 
+    draw_rectangle(ball.position.x, ball.position.y, ball.size, ball.size, RED);
+    draw_text("TFT 240x320", 20, 10, BLACK, MAGENTA);
     
-    
-    // GAME LOOP
-    while(1)
-    {
-//        draw_rectangle(ball.position, ball.size, RED);
-    }
-    
-    
+
     while(1){}
 }

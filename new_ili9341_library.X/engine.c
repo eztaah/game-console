@@ -10,22 +10,23 @@
 #include "spi_pic18f.h"
 #include "ili9341.h"
 #include "bitmap.h"
+#include "font.h"
 #include "time_delay.h"
 
 #include "engine.h"
 
 
 // Helper functions
-void exit_car_error(const char message[])
+void exit_car_error(char message[])
 {
     TFT_FillScreen(BROWN);
     draw_text(message, 10, 10, WHITE, BLACK);
     while(1) {};
 }
 
-uint16_t safe_convert(int16_t value, const char error_token[]) {
+uint16_t safe_convert(int16_t value, char error_token[]) {
     if (value < 0) {
-        exit_car_error("E: " + error_token);
+        exit_car_error("E: ");
     }
     return (uint16_t)value;
 }
@@ -87,6 +88,9 @@ void init_game_console(void)
     SPI1_Init();
     TFT_Init();
     
+    // init font
+    TFT_SetFont(Courier_New_Bold_20, 1);
+    
     // Init timer0
     init_timer();
     
@@ -110,7 +114,7 @@ void mystery_function() {
     
     // On attends si on est au dessus de 60 fps
     if (time_passed < target_dt) {
-        Delay_ms(target_dt - time_passed);
+        sleep_ms(target_dt - time_passed);
     }
     
     // restart the timer
@@ -119,7 +123,8 @@ void mystery_function() {
 
 void sleep_ms(int16_t duration)
 {
-    Delay_ms(safe_convert(duration));
+    uint16_t count = safe_convert(duration, "1111");
+    Delay_ms(count);
 }
 
 
@@ -129,12 +134,12 @@ void fill_screen(uint16_t color)
     TFT_FillScreen(color);
 }
 
-void draw_rectangle(Vector2i position, Vector2i size, uint16_t color)
+void draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t height, uint16_t color)
 {
-    uint16_t x1 = safe_convert(position.x, "1");
-    uint16_t y1 = safe_convert(position.y, "2");
-    uint16_t x2 = safe_convert(position.x + size.x, "3");
-    uint16_t y2 = safe_convert(position.y + size.y, "4");
+    uint16_t x1 = safe_convert(pos_x, "1");
+    uint16_t y1 = safe_convert(pos_y, "2");
+    uint16_t x2 = safe_convert(pos_x + width, "3");
+    uint16_t y2 = safe_convert(pos_y + height, "4");
 
     TFT_Box(x1, y1, x2, y2, color);
 }
@@ -170,6 +175,13 @@ void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, Vector2
     //}
     
     
+}
+
+
+void draw_text(schar__t *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2)
+{
+    //  void TFT_Text(schar_t *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
+    TFT_Text(text, x, y, color1, color2);
 }
 
 
