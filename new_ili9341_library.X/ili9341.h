@@ -1,6 +1,6 @@
 /*
  * File:   ili9341.h
- * Author: 
+ * Author: http://pic18fxx.blogspot.com 
  *
  * Graphical display TFT 240x320. 
  * Driver ILI9341.
@@ -79,6 +79,8 @@
 #define TFT_W 240
 #define TFT_H 320
 
+typedef char                       schar_t;
+typedef unsigned char              uchar_t;
 //typedef char                     Schar;
 //typedef unsigned char            Uchar;
 //typedef const char               CSchar;
@@ -92,14 +94,17 @@
 //==============================================================================
 void TFT_Init(void);
 void TFT_Reset(void);
-void TFT_WriteCommand(unsigned char command);
-void TFT_WriteParameter(unsigned char parameter);
+void TFT_WriteCommand(uchar_t command);
+void TFT_WriteParameter(uchar_t parameter);
 void TFT_ColumnPage(uint16_t x1, uint16_t x2, uint16_t y1, uint16_t y2);
-unsigned char TFT_MemoryAccessControl(unsigned char frame_memory_);
+unsigned char TFT_MemoryAccessControl(uchar_t frame_memory_);
 uint16_t TFT_RGBConvert(uint16_t red, uint16_t green, uint16_t blue);
 //==============================================================================
 void TFT_Pixel(uint16_t x, uint16_t y, uint16_t color);
 void TFT_FillScreen(uint16_t color);
 void TFT_Box(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+
+void TFT_WriteChar(uchar_t c, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2);
+void TFT_Text(schar_t *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2);
 
 #endif

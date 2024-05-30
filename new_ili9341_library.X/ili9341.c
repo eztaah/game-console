@@ -15,8 +15,8 @@
 //==============================================================================
 // Declaration of global variables.
 //==============================================================================
-const unsigned char *font, *font2;
-unsigned char width, height, letter_spacing, dot_size = 0, frame_memory = TFT_VERTICAL; 
+const uchar_t *font, *font2;
+uchar_t width, height, letter_spacing, dot_size = 0, frame_memory = TFT_VERTICAL; 
 uint16_t tft_x = TFT_W - 1;
 //==============================================================================
 // This function initializes the driver ILI9341.
@@ -148,7 +148,7 @@ void TFT_Reset(void){
 //==============================================================================
 // This function writes a command.
 //==============================================================================
-void TFT_WriteCommand(unsigned char command){   
+void TFT_WriteCommand(uchar_t command){   
     TFT_CS = 0;
     TFT_DC = 0; // When DCX = ’0’, command is selected.
     SPI1_Write(command);
@@ -158,7 +158,7 @@ void TFT_WriteCommand(unsigned char command){
 //==============================================================================
 // This function writes a Parameter.
 //==============================================================================
-void TFT_WriteParameter(unsigned char parameter){   
+void TFT_WriteParameter(uchar_t parameter){   
     TFT_CS = 0;
     TFT_DC = 1; // When DCX = ’1’, data is selected.
     SPI1_Write(parameter);
@@ -196,7 +196,7 @@ void TFT_ColumnPage(uint16_t x1, uint16_t x2, uint16_t y1, uint16_t y2){
 //==============================================================================
 // This function sets the memory access control. 
 //==============================================================================
-unsigned char TFT_MemoryAccessControl(unsigned char frame_memory_){
+uchar_t TFT_MemoryAccessControl(uchar_t frame_memory_){
     if(frame_memory_ == 0){
         return frame_memory;
     }
@@ -264,29 +264,26 @@ void TFT_Pixel(uint16_t x, uint16_t y, uint16_t color){
 // color: color parameter.
 //==============================================================================
 void TFT_FillScreen(uint16_t color){    
-    unsigned char DH, DL;
+    uchar_t DH, DL;
     uint16_t i, j;
     DH = color >> 8;
     DL = color & 0xFF;
-    switch(frame_memory)
-          {
-           case TFT_VERTICAL:   
-               TFT_ColumnPage(0, TFT_W - 1, 0, TFT_H - 1); 
-               break;
-           case TFT_HORIZONTAL: 
-               TFT_ColumnPage(0, TFT_H - 1, 0, TFT_W - 1); 
-               break;    
-          }
+    switch(frame_memory) {
+        case TFT_VERTICAL:   
+            TFT_ColumnPage(0, TFT_W - 1, 0, TFT_H - 1); 
+            break;
+        case TFT_HORIZONTAL: 
+            TFT_ColumnPage(0, TFT_H - 1, 0, TFT_W - 1); 
+            break;    
+    }
     TFT_CS = 0; 
     TFT_DC = 1;
-    for(i = 0; i < TFT_H; i++)
-       {
-        for (j = 0; j < TFT_W; j++)
-            {
-             SPI1_Write(DH);
-             SPI1_Write(DL);
-            }
-       }
+    for(i = 0; i < TFT_H; i++) {
+        for (j = 0; j < TFT_W; j++) {
+            SPI1_Write(DH);
+            SPI1_Write(DL);
+        }
+    }
     TFT_CS = 1;
 }
 
@@ -299,20 +296,85 @@ void TFT_FillScreen(uint16_t color){
 // color: color parameter. 
 //==============================================================================
 void TFT_Box(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color){
-    unsigned char DH, DL;
+    uchar_t DH, DL;
     uint16_t i, j;
     DH = color >> 8;
     DL = color & 0xFF;
     TFT_ColumnPage(x1, x2, y1, y2);
     TFT_CS = 0; 
     TFT_DC = 1;
-    for(i = y1; i <= y2; i++)
-       {
-        for (j = x1; j <= x2; j++)
-            {
-                SPI1_Write(DH);
-                SPI1_Write(DL);        
-            }
-       }
+    for(i = y1; i <= y2; i++) {
+        for (j = x1; j <= x2; j++) {
+            SPI1_Write(DH);
+            SPI1_Write(DL);        
+        }
+    }
     TFT_CS = 1;
 }
+
+
+//==============================================================================
+// This function draws a character on the TFT.
+// c: character to be written. 
+// x: x position. Valid values: 0..240 
+// y: y position. Valid values: 0..320 
+// color1: Top color.
+// color2: Bottom color.
+//==============================================================================
+void TFT_WriteChar(uchar_t c, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
+{
+    uchar_t i, j, k;
+    uint16_t p;
+    p = c - 32; p = p * 4; p = p + 8;       
+    font = font2;                
+    font += p;                  
+    width = *font;
+    font += 2; 
+    p = *font;
+    font -= 1; 
+    p = (p << 8) | *font;
+    font = font2;
+    font += p;
+    i = height;
+    TFT_ColumnPage(x, x + width + letter_spacing - 1, y, y + height);
+    TFT_CS = 0; 
+    TFT_DC = 1; 
+    while(i){
+        j = width;
+        while(j) {
+            if(j>0){if(*font&0x01){SPI1_Write(color1>>8);SPI1_Write(color1&0xFF);}else{SPI1_Write(color2>>8);SPI1_Write(color2&0xFF);}j--;}else{font++;break;}
+            if(j>0){if(*font&0x02){SPI1_Write(color1>>8);SPI1_Write(color1&0xFF);}else{SPI1_Write(color2>>8);SPI1_Write(color2&0xFF);}j--;}else{font++;break;}
+            if(j>0){if(*font&0x04){SPI1_Write(color1>>8);SPI1_Write(color1&0xFF);}else{SPI1_Write(color2>>8);SPI1_Write(color2&0xFF);}j--;}else{font++;break;}
+            if(j>0){if(*font&0x08){SPI1_Write(color1>>8);SPI1_Write(color1&0xFF);}else{SPI1_Write(color2>>8);SPI1_Write(color2&0xFF);}j--;}else{font++;break;}
+            if(j>0){if(*font&0x10){SPI1_Write(color1>>8);SPI1_Write(color1&0xFF);}else{SPI1_Write(color2>>8);SPI1_Write(color2&0xFF);}j--;}else{font++;break;}
+            if(j>0){if(*font&0x20){SPI1_Write(color1>>8);SPI1_Write(color1&0xFF);}else{SPI1_Write(color2>>8);SPI1_Write(color2&0xFF);}j--;}else{font++;break;}
+            if(j>0){if(*font&0x40){SPI1_Write(color1>>8);SPI1_Write(color1&0xFF);}else{SPI1_Write(color2>>8);SPI1_Write(color2&0xFF);}j--;}else{font++;break;}
+            if(j>0){if(*font&0x80){SPI1_Write(color1>>8);SPI1_Write(color1&0xFF);}else{SPI1_Write(color2>>8);SPI1_Write(color2&0xFF);}j--;}else{font++;break;}
+            font++;
+        }
+        for(k = 0; k < letter_spacing; k++) {
+            SPI1_Write(color2 >> 8); 
+            SPI1_Write(color2 & 0xFF);
+        }
+        i--;
+    }
+    TFT_CS = 1;
+}
+
+
+//==============================================================================
+// This function writes text variable on TFT.
+// buffer: Pointer to read all the array.
+// x: x position. Valid values: 0..240 
+// y: y position. Valid values: 0..320 
+// color1: Top color.
+// color2: Bottom color.
+//==============================================================================
+void TFT_Text(schar_t *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2){
+    while(*buffer) {
+        TFT_WriteChar(*buffer, x, y, color1, color2);
+        x += width + letter_spacing;
+        buffer++;               
+    } 
+}
+
