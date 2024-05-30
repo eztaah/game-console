@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Projet électronique - console de jeu\projet-electronique\PCB_Design\LPKF_ISEN_MAXSIZE_25-05-2020.PCBDOC
-Date     : 29/05/2024
-Time     : 16:53:42
+Date     : 30/05/2024
+Time     : 17:15:32
 
 Processing Rule : Clearance Constraint (Gap=10mil) (OnLayer('Multi-Layer')),(OnLayer('Multi-Layer'))
 Rule Violations :0
@@ -25,41 +25,15 @@ Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
 Rule Violations :0
 
 Processing Rule : Un-Routed Net Constraint ( (All) )
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW6-4(1207.953mil,721.417mil) on Multi-Layer And Pad BUZZER-2(1380mil,-300mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C2-2(-750mil,900mil) on Top Layer And Pad SW1-3(-687.953mil,661.417mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C3-2(81.181mil,310mil) on Top Layer And Pad C4-2(410mil,478.819mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW2-3(-122.047mil,478.583mil) on Multi-Layer And Pad C3-2(81.181mil,310mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C4-2(410mil,478.819mil) on Top Layer And Pad SW3-3(532.047mil,361.417mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad uC-31(310mil,1280mil) on Multi-Layer And Pad C4-2(410mil,478.819mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW1-3(-687.953mil,661.417mil) on Multi-Layer And Pad C5-2(-618.819mil,480mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C5-2(-618.819mil,480mil) on Top Layer And Pad SW2-4(-377.953mil,478.583mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW4-4(-742.047mil,301.417mil) on Multi-Layer And Pad C5-2(-618.819mil,480mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW5-3(-422.047mil,148.583mil) on Multi-Layer And Pad C6-2(-240mil,-30mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW3-4(787.953mil,361.417mil) on Multi-Layer And Pad C7-2(830mil,838.819mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C7-2(830mil,838.819mil) on Top Layer And Pad SW6-3(952.047mil,721.417mil) on Multi-Layer 
    Violation between Un-Routed Net Constraint: Net VCC5V Between Pad R23-2(800mil,930mil) on Top Layer And Pad PICKIT4-2(1910mil,1030mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW6-4(1207.953mil,721.417mil) on Multi-Layer And Pad PICKIT4-3(1910mil,1130mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R10-1(-15mil,2270mil) on Top Layer And Pad R11-1(80mil,2220mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R9-1(-120mil,2330mil) on Top Layer And Pad R10-1(-15mil,2270mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R11-1(80mil,2220mil) on Top Layer And Pad uC-12(110mil,1880mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net VCC5V Between Pad R13-2(-330mil,880mil) on Top Layer And Pad R15-2(-10mil,340mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net VCC5V Between Pad R19-2(-700mil,520mil) on Top Layer And Pad R13-2(-330mil,880mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net VCC5V Between Pad SCREEN-22(-580mil,2620mil) on Multi-Layer And Pad R13-2(-330mil,880mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net VCC5V Between Pad R15-2(-10mil,340mil) on Top Layer And Pad R17-2(380mil,575mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net VCC5V Between Pad R21-2(-320mil,10mil) on Top Layer And Pad R15-2(-10mil,340mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net VCC5V Between Pad R15-2(50mil,340mil) on Top Layer And Pad R17-2(380mil,575mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net VCC5V Between Pad R21-2(-300mil,10mil) on Top Layer And Pad R15-2(50mil,340mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net VCC5V Between Pad R17-2(380mil,575mil) on Top Layer And Pad R23-2(800mil,930mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net VCC5V Between Pad R19-2(-700mil,520mil) on Top Layer And Pad R21-2(-300mil,10mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net VCC5V Between Pad R23-2(800mil,930mil) on Top Layer And Pad R4-2(1210mil,2150mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R7-1(-420mil,2510mil) on Top Layer And Pad R8-1(-220mil,2400mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SCREEN-21(-680mil,2620mil) on Multi-Layer And Pad R7-1(-420mil,2510mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R8-1(-220mil,2400mil) on Top Layer And Pad R9-1(-120mil,2330mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW1-4(-432.047mil,661.417mil) on Multi-Layer And Pad SW2-4(-377.953mil,478.583mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW2-4(-377.953mil,478.583mil) on Multi-Layer And Pad SW2-3(-122.047mil,478.583mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW3-3(532.047mil,361.417mil) on Multi-Layer And Pad SW3-4(787.953mil,361.417mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW4-3(-997.953mil,301.417mil) on Multi-Layer And Pad SW4-4(-742.047mil,301.417mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW4-4(-742.047mil,301.417mil) on Multi-Layer And Pad SW5-4(-677.953mil,148.583mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW5-4(-677.953mil,148.583mil) on Multi-Layer And Pad SW5-3(-422.047mil,148.583mil) on Multi-Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad SW6-3(952.047mil,721.417mil) on Multi-Layer And Pad SW6-4(1207.953mil,721.417mil) on Multi-Layer 
-Rule Violations :34
+Rule Violations :8
 
 Processing Rule : Width Constraint (Min=10mil) (Max=10000mil) (Preferred=32mil) (OnLayer('Bottom Layer') or OnLayer('Top Layer'))
 Rule Violations :0
@@ -80,6 +54,6 @@ Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (
 Rule Violations :0
 
 
-Violations Detected : 34
+Violations Detected : 8
 Waived Violations : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02
