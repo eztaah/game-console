@@ -72,7 +72,7 @@ void sleep_ms(int16_t duration);
 void fill_screen(uint16_t color);
 //shape
 void draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t height, uint16_t color);
-void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, Vector2i size, uint16_t color, uint16_t background_color);
+void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, int16_t width, int16_t height, uint16_t color, uint16_t background_color);
 // text
 void draw_fps(int16_t pos_x, int16_t pos_y);
 void draw_text(schar__t *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);

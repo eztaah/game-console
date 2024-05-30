@@ -18,14 +18,16 @@ void main(void) {
     Ball ball;
     ball.position.x = SCREEN_WIDTH / 2;
     ball.position.y = SCREEN_HEIGHT / 2;
-    ball.speed.x = 5;
-    ball.speed.y = 5;
+    ball.speed.x = 1;
+    ball.speed.y = 1;
     ball.size = 30;
     
-    draw_rectangle(ball.position.x, ball.position.y, ball.size, ball.size, BLACK);
-    draw_text("hello everyone", 20, 10, BLACK, WHITE);
+    // first render
+    fill_screen(GREEN);
+    draw_rectangle(ball.position.x, ball.position.y, ball.size, ball.size, MAGENTA);
     
-
+    draw_rectangle(30, 30, 250, 50, BLUE);
+    
 
     // GAME LOOP
     while(1){
@@ -41,20 +43,23 @@ void main(void) {
             ball.position.y = 0;
             ball.speed.y *= -1;
         } 
-        else if (ball.position.y >= SCREEN_HEIGHT) {
-            ball.position.y = SCREEN_WIDTH;
+        else if (ball.position.y >= SCREEN_HEIGHT - ball.size) {
+            ball.position.y = SCREEN_HEIGHT - ball.size;
             ball.speed.y *= -1;
         }
         if (ball.position.x <= 0) {
             ball.position.x = 0;
             ball.speed.x *= -1;
         } 
-        else if (ball.position.x >= SCREEN_WIDTH) {
-            ball.position.x = SCREEN_WIDTH;
+        else if (ball.position.x >= SCREEN_WIDTH - ball.size) {
+            ball.position.x = SCREEN_WIDTH - ball.size;
             ball.speed.x *= -1;
         }
         
         // Draw on the screen
-        draw_moving_rectangle()
+        // void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, Vector2i size, uint16_t color, uint16_t background_color);
+        draw_moving_rectangle(ball.position, old_ball_position, ball.size, ball.size, BLACK, WHITE);
+        
+        sleep_ms(100);
     }
 }
