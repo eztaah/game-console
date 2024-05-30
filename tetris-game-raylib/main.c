@@ -347,9 +347,108 @@ void DrawGame()
                     else if (grid[i][j] == BLOCK)
                     {
                         DrawRectangle(offset.x, offset.y + SQUARE_SIZE*2, SQUARE_SIZE, SQUARE_SIZE, DARKGRAY);
-                        DrawLine(offset.x, offset.y + SQUARE_SIZE*2, offset.x + SQUARE_SIZE, offset.y + SQUARE_SIZE*2, LIGHTGRAY);
-                        DrawLine(offset.x, offset.y + SQUARE_SIZE*2, offset.x, offset.y + SQUARE_SIZE*3, LIGHTGRAY);
-                        DrawLine(offset.x + SQUARE_SIZE, offset.y + SQUARE_SIZE*2, offset.x + SQUARE_SIZE, offset.y + SQUARE_SIZE*3, LIGHTGRAY);
+                        DrawRectangle(0, offset.y - SQUARE_SIZE*14, 320, SQUARE_SIZE, DARKGRAY);
+                        DrawRectangle(offset.x, offset.y - SQUARE_SIZE*13, 320 - offset.x, SQUARE_SIZE, DARKGRAY);
+                        DrawRectangle(0, 0, 44, 240, DARKGRAY);
+                        DrawRectangle(253, 0, 67, 240, DARKGRAY);
+                        DrawRectangle(175, 122, 82, 118, DARKGRAY);
+                        DrawRectangle(44, 226, 131, 14, DARKGRAY);
+
+                        // Lignes verticales
+                        DrawLine(6, 0, 6, 240, LIGHTGRAY);
+                        DrawLine(19, 0, 19, 240, LIGHTGRAY);
+                        DrawLine(32, 0, 32, 240, LIGHTGRAY);
+                        DrawLine(45, 0, 45, 240, LIGHTGRAY);
+                        DrawLine(58, 0, 58, 240, LIGHTGRAY);
+                        DrawLine(162, 0, 162, 240, LIGHTGRAY);
+                        DrawLine(175, 0, 175, 240, LIGHTGRAY);
+                        DrawLine(253, 0, 253, 240, LIGHTGRAY);
+                        DrawLine(266, 0, 266, 240, LIGHTGRAY);
+                        DrawLine(279, 0, 279, 240, LIGHTGRAY);
+                        DrawLine(292, 0, 292, 240, LIGHTGRAY);
+                        DrawLine(305, 0, 305, 240, LIGHTGRAY);
+                        DrawLine(318, 0, 318, 240, LIGHTGRAY);
+
+                        DrawLine(71, 0, 71, 30, LIGHTGRAY);
+                        DrawLine(84, 0, 84, 30, LIGHTGRAY);
+                        DrawLine(97, 0, 97, 30, LIGHTGRAY);
+                        DrawLine(110, 0, 110, 30, LIGHTGRAY);
+                        DrawLine(123, 0, 123, 30, LIGHTGRAY);
+                        DrawLine(136, 0, 136, 30, LIGHTGRAY);
+                        DrawLine(149, 0, 149, 30, LIGHTGRAY);
+                        DrawLine(188, 0, 188, 30, LIGHTGRAY);
+                        DrawLine(201, 0, 201, 30, LIGHTGRAY);
+                        DrawLine(214, 0, 214, 30, LIGHTGRAY);
+                        DrawLine(227, 0, 227, 30, LIGHTGRAY);
+                        DrawLine(240, 0, 240, 30, LIGHTGRAY);
+
+                        DrawLine(71, 213, 71, 240, LIGHTGRAY);
+                        DrawLine(84, 213, 84, 240, LIGHTGRAY);
+                        DrawLine(97, 213, 97, 240, LIGHTGRAY);
+                        DrawLine(110, 213, 110, 240, LIGHTGRAY);
+                        DrawLine(123, 213, 123, 240, LIGHTGRAY);
+                        DrawLine(136, 213, 136, 240, LIGHTGRAY);
+                        DrawLine(149, 213, 149, 240, LIGHTGRAY);
+
+                        DrawLine(188, 122, 188, 240, LIGHTGRAY);
+                        DrawLine(201, 122, 201, 240, LIGHTGRAY);
+                        DrawLine(214, 122, 214, 240, LIGHTGRAY);
+                        DrawLine(227, 122, 227, 240, LIGHTGRAY);
+                        DrawLine(240, 122, 240, 240, LIGHTGRAY);
+                        
+                        
+                        
+                        // Lignes horizontales
+                        DrawLine(0, 213, 320, 213, LIGHTGRAY);
+                        DrawLine(0, 226, 320, 226, LIGHTGRAY);
+                        DrawLine(0, 239, 320, 239, LIGHTGRAY);
+                        DrawLine(0, 30, 320, 30, LIGHTGRAY);
+                        DrawLine(0, 17, 320, 17, LIGHTGRAY);
+                        DrawLine(0, 4, 320, 4, LIGHTGRAY);
+
+                        DrawLine(0, 200, 58, 200, LIGHTGRAY);
+                        DrawLine(0, 187, 58, 187, LIGHTGRAY);
+                        DrawLine(0, 174, 58, 174, LIGHTGRAY);
+                        DrawLine(0, 161, 58, 161, LIGHTGRAY);
+                        DrawLine(0, 148, 58, 148, LIGHTGRAY);
+                        DrawLine(0, 135, 58, 135, LIGHTGRAY);
+                        DrawLine(0, 122, 58, 122, LIGHTGRAY);
+                        DrawLine(0, 109, 58, 109, LIGHTGRAY);
+                        DrawLine(0, 96, 58, 96, LIGHTGRAY);
+                        DrawLine(0, 83, 58, 83, LIGHTGRAY);
+                        DrawLine(0, 70, 58, 70, LIGHTGRAY);
+                        DrawLine(0, 57, 58, 57, LIGHTGRAY);
+                        DrawLine(0, 44, 58, 44, LIGHTGRAY);
+
+                        DrawLine(162, 200, 175, 200, LIGHTGRAY);
+                        DrawLine(162, 187, 175, 187, LIGHTGRAY);
+                        DrawLine(162, 174, 175, 174, LIGHTGRAY);
+                        DrawLine(162, 161, 175, 161, LIGHTGRAY);
+                        DrawLine(162, 148, 175, 148, LIGHTGRAY);
+                        DrawLine(162, 135, 175, 135, LIGHTGRAY);
+                        DrawLine(162, 122, 175, 122, LIGHTGRAY);
+                        DrawLine(162, 109, 175, 109, LIGHTGRAY);
+                        DrawLine(162, 96, 175, 96, LIGHTGRAY);
+                        DrawLine(162, 83, 175, 83, LIGHTGRAY);
+                        DrawLine(162, 70, 175, 70, LIGHTGRAY);
+                        DrawLine(162, 57, 175, 57, LIGHTGRAY);
+                        DrawLine(162, 44, 175, 44, LIGHTGRAY);
+
+                        DrawLine(175, 200, 320, 200, LIGHTGRAY);
+                        DrawLine(175, 187, 320, 187, LIGHTGRAY);
+                        DrawLine(175, 174, 320, 174, LIGHTGRAY);
+                        DrawLine(175, 161, 320, 161, LIGHTGRAY);
+                        DrawLine(175, 148, 320, 148, LIGHTGRAY);
+                        DrawLine(175, 135, 320, 135, LIGHTGRAY);
+                        DrawLine(175, 122, 320, 122, LIGHTGRAY);
+                        DrawLine(253, 109, 320, 109, LIGHTGRAY);
+                        DrawLine(253, 96, 320, 96, LIGHTGRAY);
+                        DrawLine(253, 83, 320, 83, LIGHTGRAY);
+                        DrawLine(253, 70, 320, 70, LIGHTGRAY);
+                        DrawLine(253, 57, 320, 57, LIGHTGRAY);
+                        DrawLine(253, 44, 320, 44, LIGHTGRAY);
+
+                
                         offset.x += SQUARE_SIZE;
                     }
                     else if (grid[i][j] == FADING)
@@ -364,7 +463,7 @@ void DrawGame()
             }
 
             // Draw incoming piece (hardcoded)
-            offset.x = GetScreenWidth()/2 + 30;
+            offset.x = GetScreenWidth()/2 + 28;
             offset.y = GetScreenWidth()/2 - 108;
 
             int controler = offset.x;
@@ -395,12 +494,12 @@ void DrawGame()
             }
             
             // DrawRectangle
-            DrawText("INCOMING:", GetScreenWidth()/2 + 30, GetScreenWidth()/2 - 120, 6, WHITE);
-            DrawText(TextFormat("LINES: %04i", lines), GetScreenWidth()/2 + 30, GetScreenWidth()/2 - 50, 6, WHITE);
+            DrawText("INCOMING:", GetScreenWidth()/2 + 28, GetScreenWidth()/2 - 120, 6, WHITE);
+            DrawText(TextFormat("LINES:%03i", lines), GetScreenWidth()/2 + 28, GetScreenWidth()/2 - 50, 6, WHITE);
 
             if (pause) {
                 ClearBackground(BLACK);
-                DrawText("GAME PAUSED", screenWidth/2 - MeasureText("GAME PAUSED", 40)/2, screenHeight/2 - 40, 14, WHITE);
+                DrawText("GAME PAUSED", screenWidth/2 - 93, screenHeight/2 - 40, 12, RED);
             }
         }
         else {
