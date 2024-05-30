@@ -33,12 +33,10 @@ uint16_t safe_convert(int16_t value, char error_token[]) {
 
 
 // ---------- VARIABLES ----------
-// global
 int16_t target_fps = 60;
-
-// internal
-int16_t target_dt;
-char time_passed_text[30] = {0};
+int16_t target_dt = 17;
+int16_t last_frame_duration = 0;
+char last_frame_duration_text[30] = {0};
 char fps_text[30] = {0};
 
 
@@ -67,7 +65,7 @@ int16_t get_timer_value(void) {
     T0CONbits.TMR0ON = 0;     // On arrete le timer
     
     uint16_t timer_value = TMR0;
-    int16_t time_passed = (int16_t)(timer_value * 0.0016f);
+    int16_t time_passed = (int16_t)(timer_value * 0.0016f);   // car microc en 64MHz
     
     return time_passed;
 }
@@ -87,6 +85,14 @@ void init_game_console(void)
     SPI1_Init();
     TFT_Init();
     
+//    while(1) {
+//        Delay_ms(1000);
+//        TFT_Box(10, 10, 20, 20, BLUE);
+//        Delay_ms(1000);
+//        TFT_Box(10, 10, 20, 20, GREEN);
+//    }
+
+    
     // init font
     TFT_SetFont(Courier_New_Bold_20, 1);
     
@@ -101,19 +107,17 @@ void init_game_console(void)
 void set_target_fps(const int16_t fps)
 {
     target_fps = fps;
-    
     target_dt = 1000 / fps;
 }
 
 void mystery_function() {
     // R�cuperer la valeur du timer
-    int16_t time_passed = get_timer_value();
-    sprintf(time_passed_text, "dt: %d", time_passed);
-    sprintf(fps_text, "fps: %d", (uint16_t)((1.f/time_passed)*1000));
+    last_frame_duration = get_timer_value();
     
-    // On attends si on est au dessus de 60 fps
-    if (time_passed < target_dt) {
-        sleep_ms(target_dt - time_passed);
+    // Si on est au dessus de target_fps
+    if (last_frame_duration < target_dt) {
+        sleep_ms(target_dt - last_frame_duration);
+        last_frame_duration = target_dt;
     }
     
     // restart the timer
@@ -126,6 +130,10 @@ void sleep_ms(int16_t duration)
     Delay_ms(count);
 }
 
+float get_frame_time(void)
+{
+    return (float)last_frame_duration / 1000;
+}
 
 // ---------- RENDERING ----------
 void fill_screen(uint16_t color)
@@ -144,86 +152,59 @@ void draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t height,
 }
 
 
-void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, int16_t width, int16_t height, uint16_t color, uint16_t background_color) {
-    
-    uint16_t new_position_x = safe_convert(new_position.x, "81");
-    uint16_t new_position_y = safe_convert(new_position.y, "82");
-    uint16_t old_position_x = safe_convert(old_position.x, "83");
-    uint16_t old_position_y = safe_convert(new_position.y, "84");
-    uint16_t width2 = safe_convert(width, "85");
-    uint16_t height2 = safe_convert(height, "86");
-    
+void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, int16_t width, int16_t height, uint16_t color, uint16_t background_color) 
+{
     // Calcul de la zone de chevauchement
-    int right = old_position_x + width;
-    if (new_position_x + width < right) {
-        right = new_position_x + width;
-    }
-    int bottom = old_position_y + height;
-    if (new_position_y + height < bottom) {
-        bottom = new_position_y + height;
-    }
+    int left = old_position.x;
+    if (new_position.x > left) left = new_position.x;
+    int right = old_position.x + width;
+    if (new_position.x + width < right) right = new_position.x + width;
+    int top = old_position.y;
+    if (new_position.y > top) top = new_position.y;
+    int bottom = old_position.y + height;
+    if (new_position.y + height < bottom) bottom = new_position.y + height;
 
     // Dessin des nouvelles zones
-    if (new_position_x < old_position_x) {
-        TFT_Box(new_position_x, new_position_y, old_position_x, new_position_y + height, color);
+    if (new_position.x < old_position.x) {
+        TFT_Box(safe_convert(new_position.x, "0"), safe_convert(new_position.y, "0"), safe_convert(old_position.x, "0"), safe_convert(new_position.y + height, "0"), color);
     }
-    if (new_position_x > old_position_x) {
-        TFT_Box(old_position_x + width, new_position_y, new_position_x + width, new_position_y + height, color);
+    if (new_position.x > old_position.x) {
+        TFT_Box(safe_convert(old_position.x + width, "0"), safe_convert(new_position.y, "0"), safe_convert(new_position.x + width, "0"), safe_convert(new_position.y + height, "0"), color);
     }
-    if (new_position_y < old_position_y) {
-        TFT_Box(new_position_x, new_position_y, new_position_x + width, old_position_y, color);
+    if (new_position.y < old_position.y) {
+        TFT_Box(safe_convert(new_position.x, "0"), safe_convert(new_position.y, "0"), safe_convert(new_position.x + width, "0"), safe_convert(old_position.y, "0"), color);
     }
-    if (new_position_y > old_position_y) {
-        TFT_Box(new_position_x, old_position_y + height, new_position_x + width, new_position_y + height, color);
+    if (new_position.y > old_position.y) {
+        TFT_Box(safe_convert(new_position.x, "0"), safe_convert(old_position.y + height, "0"), safe_convert(new_position.x + width, "0"), safe_convert(new_position.y + height, "0"), color);
     }
 
     // Nettoyage des anciennes zones
-    if (old_position_x < new_position_x) {
-        TFT_Box(old_position_x, old_position_y, new_position_x, old_position_y + height, background_color);
+    if (old_position.x < new_position.x) {
+        TFT_Box(safe_convert(old_position.x, "0"), safe_convert(old_position.y, "0"), safe_convert(new_position.x, "0"), safe_convert(old_position.y + height, "0"), background_color);
     }
-    if (old_position_x > new_position_x) {
-        TFT_Box(right, old_position_y, old_position_x + width, old_position_y + height, background_color);
+    if (old_position.x > new_position.x) {
+        TFT_Box(safe_convert(right, "0"), safe_convert(old_position.y, "0"), safe_convert(old_position.x + width, "0"), safe_convert(old_position.y + height, "0"), background_color);
     }
-    if (old_position_y < new_position_y) {
-        TFT_Box(old_position_x, old_position_y, old_position_x + width, new_position_y, background_color);
+    if (old_position.y < new_position.y) {
+        TFT_Box(safe_convert(old_position.x, "0"), safe_convert(old_position.y, "0"), safe_convert(old_position.x + width, "0"), safe_convert(new_position.y, "0"), background_color);
     }
-    if (old_position_y > new_position_y) {
-        TFT_Box(old_position_x , bottom, old_position_x + width, old_position_y + height, background_color);
+    if (old_position.y > new_position.y) {
+        TFT_Box(safe_convert(old_position.x, "0"), safe_convert(bottom, "0"), safe_convert(old_position.x + width, "0"), safe_convert(old_position.y + height, "0"), background_color);
     }
 }
 
-
-
-//void draw_moving_rectangle(int16_t old_left, int16_t old_top, int16_t old_right, int16_t old_bottom,
-//                    int16_t new_left, int16_t new_top, int16_t new_right, int16_t new_bottom,
-//                    int16_t clear_color, int16_t fill_color)
-//{
-//    // Clear the regions not overlapped
-//    // Clear left strip
-//    if (new_left > old_left) {
-//        TFT_Box(safe_convert(old_left), safe_convert(old_top), safe_convert(new_left - 1), safe_convert(old_bottom), safe_convert(clear_color));
-//    }
-//    // Clear right strip
-//    if (new_right < old_right) {
-//        TFT_Box(safe_convert(new_right + 1), safe_convert(old_top), safe_convert(old_right), safe_convert(old_bottom), safe_convert(clear_color));
-//    }
-//    // Clear top strip
-//    if (new_top > old_top) {
-//        TFT_Box(safe_convert(old_left), safe_convert(old_top), safe_convert(old_right), safe_convert(new_top - 1), safe_convert(clear_color));
-//    }
-//    // Clear bottom strip
-//    if (new_bottom < old_bottom) {
-//        TFT_Box(safe_convert(old_left), safe_convert(new_bottom + 1), safe_convert(old_right), safe_convert(old_bottom), safe_convert(clear_color));
-//    }
-//
-//    // Draw the new rectangle position as a filled box
-//    TFT_Box(safe_convert(new_left), safe_convert(new_top), safe_convert(new_right), safe_convert(new_bottom), safe_convert(fill_color));
-//}
-
-
-void draw_text(schar__t *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2)
+void draw_fps(int16_t pos_x, int16_t pos_y)
 {
-    //  void TFT_Text(schar_t *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
+    sprintf(last_frame_duration_text, "dt: %d", last_frame_duration);
+    sprintf(fps_text, "fps: %d", (uint16_t)((1.f/last_frame_duration)*1000));
+    
+    draw_text(last_frame_duration_text, pos_x, pos_y, GREEN, BLACK);
+    draw_text(fps_text, pos_x, pos_y + 30, GREEN, BLACK);
+}
+
+void draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2)
+{
+    //  void TFT_Text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
     uint16_t x1 = safe_convert(x, "67");
     uint16_t y1 = safe_convert(y, "68");
     TFT_Text(text, x1, y1, color1, color2);

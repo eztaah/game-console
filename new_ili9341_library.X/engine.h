@@ -41,10 +41,6 @@
 #define GRAY6	           0b0010000100000100
 
 
-// ---------- GLOABAL VARIABLES ----------
-extern int16_t target_fps;
-
-
 // ---------- STRUCTS ----------
 typedef struct Vector2i {
     int16_t x;
@@ -56,12 +52,20 @@ typedef struct Vector2u {
     uint16_t y;
 } Vector2u;
 
+typedef struct Vector2f {
+    float x;
+    float y;
+} Vector2f;
+
+
 
 // ---------- CORE ----------
 void init_game_console(void);
 void set_target_fps(const int16_t fps);
 void mystery_function(void);
+//sleep
 void sleep_ms(int16_t duration);
+float get_frame_time(void);
 
 
 

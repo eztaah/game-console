@@ -99,8 +99,8 @@ unsigned char TFT_MemoryAccessControl(unsigned char frame_memory_);
 uint16_t TFT_RGBConvert(uint16_t red, uint16_t green, uint16_t blue);
 //==============================================================================
 void TFT_Pixel(uint16_t x, uint16_t y, uint16_t color);
-void TFT_FillScreen(uint16_t color);
 void TFT_Box(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+void TFT_FillScreen(uint16_t color);
 
 void TFT_SetFont(const unsigned char *font_, unsigned char letterspacing);
 unsigned char TFT_CharHeight(void);
