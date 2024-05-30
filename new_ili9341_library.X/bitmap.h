@@ -1,6 +1,6 @@
 /* 
  * File:   bitmap.h
- * Author: http://pic18fxx.blogspot.com 
+ * Author: 
  */
 
 #ifndef BITMAP_H

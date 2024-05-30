@@ -1,6 +1,6 @@
 /*
  * File:   spi_pic18f.c
- * Author: http://pic18fxx.blogspot.com 
+ * Author: 
  */
 #include <xc.h>
 #include "spi_pic18f.h"

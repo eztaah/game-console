@@ -1,6 +1,6 @@
 /*
  * File:   bit_settings.h
- * Author: http://pic18fxx.blogspot.com 
+ * Author: 
  *
  * PIC18F46K22 Configuration Bit Settings.
  * Internal oscillator block enable.

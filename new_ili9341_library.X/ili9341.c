@@ -1,6 +1,6 @@
 /*
  * File:   ili9341.c
- * Author: http://pic18fxx.blogspot.com 
+ * Author: 
  * 
  * Graphical display TFT 240x320. 
  * Driver ILI9341.
@@ -15,9 +15,9 @@
 //==============================================================================
 // Declaration of global variables.
 //==============================================================================
-CUchar *font, *font2;
-Uchar width, height, letter_spacing, dot_size = 0, frame_memory = TFT_VERTICAL; 
-Uint tft_x = TFT_W - 1;
+const unsigned char *font, *font2;
+unsigned char width, height, letter_spacing, dot_size = 0, frame_memory = TFT_VERTICAL; 
+uint16_t tft_x = TFT_W - 1;
 //==============================================================================
 // This function initializes the driver ILI9341.
 //==============================================================================
@@ -148,7 +148,7 @@ void TFT_Reset(void){
 //==============================================================================
 // This function writes a command.
 //==============================================================================
-void TFT_WriteCommand(Uchar command){   
+void TFT_WriteCommand(unsigned char command){   
     TFT_CS = 0;
     TFT_DC = 0; // When DCX = ’0’, command is selected.
     SPI1_Write(command);
@@ -158,7 +158,7 @@ void TFT_WriteCommand(Uchar command){
 //==============================================================================
 // This function writes a Parameter.
 //==============================================================================
-void TFT_WriteParameter(Uchar parameter){   
+void TFT_WriteParameter(unsigned char parameter){   
     TFT_CS = 0;
     TFT_DC = 1; // When DCX = ’1’, data is selected.
     SPI1_Write(parameter);
@@ -172,7 +172,7 @@ void TFT_WriteParameter(Uchar parameter){
 // y1: Set start page address.
 // y2: Set end page address.
 //==============================================================================
-void TFT_ColumnPage(Uint x1, Uint x2, Uint y1, Uint y2){      
+void TFT_ColumnPage(uint16_t x1, uint16_t x2, uint16_t y1, uint16_t y2){      
     TFT_CS = 0;
     TFT_DC = 0; 
     SPI1_Write(0x2A);
@@ -196,18 +196,20 @@ void TFT_ColumnPage(Uint x1, Uint x2, Uint y1, Uint y2){
 //==============================================================================
 // This function sets the memory access control. 
 //==============================================================================
-Uchar TFT_MemoryAccessControl(Uchar frame_memory_){
+unsigned char TFT_MemoryAccessControl(unsigned char frame_memory_){
     if(frame_memory_ == 0){
         return frame_memory;
     }
     TFT_WriteCommand(0x36);
     TFT_WriteParameter(frame_memory_);
-    switch(frame_memory_)
-          {
-           case TFT_VERTICAL:     tft_x = TFT_W - 1; break;
-           case TFT_HORIZONTAL:   tft_x = TFT_H - 1; break;    
-           case TFT_VERTICAL_BMP: tft_x = TFT_W - 1; break;
-          }
+    switch(frame_memory_) {
+        case TFT_VERTICAL:     tft_x = TFT_W - 1; 
+        break;
+        case TFT_HORIZONTAL:   tft_x = TFT_H - 1; 
+        break;    
+        case TFT_VERTICAL_BMP: tft_x = TFT_W - 1; 
+        break;
+    }
     frame_memory = frame_memory_;
     return frame_memory;
 } 
@@ -217,8 +219,8 @@ Uchar TFT_MemoryAccessControl(Uchar frame_memory_){
 // 16 bit/pixel color order (R:5-bit, G:6-bit, B:5-bit), 65,536 colors.
 // 8-8-8 to to 5-6-5 conversion.
 //==============================================================================
-Uint TFT_RGBConvert(Uint red, Uint green, Uint blue){
-    Uint color = 0;
+uint16_t TFT_RGBConvert(uint16_t red, uint16_t green, uint16_t blue){
+    uint16_t color = 0;
     red = (red & 0xF8) << 8; 
     green = (green & 0xFC) << 3; 
     blue = (blue & 0xF8) >> 3;
@@ -232,7 +234,7 @@ Uint TFT_RGBConvert(Uint red, Uint green, Uint blue){
 // y: y position. Valid values: 0..320 
 // color: color parameter.
 //==============================================================================
-void TFT_Pixel(Uint x, Uint y, Uint color){
+void TFT_Pixel(uint16_t x, uint16_t y, uint16_t color){
     TFT_CS = 0;
     TFT_DC = 0; 
     SPI1_Write(0x2A);
@@ -261,9 +263,9 @@ void TFT_Pixel(Uint x, Uint y, Uint color){
 // This function fills screen with given color.  
 // color: color parameter.
 //==============================================================================
-void TFT_FillScreen(Uint color){    
-    Uchar DH, DL;
-    Uint i, j;
+void TFT_FillScreen(uint16_t color){    
+    unsigned char DH, DL;
+    uint16_t i, j;
     DH = color >> 8;
     DL = color & 0xFF;
     switch(frame_memory)
@@ -296,9 +298,9 @@ void TFT_FillScreen(Uint color){
 // y2: y coordinate of the lower right rectangle corner. Valid values: 0..320 
 // color: color parameter. 
 //==============================================================================
-void TFT_Box(Uint x1, Uint y1, Uint x2, Uint y2, Uint color){
-    Uchar DH, DL;
-    Uint i, j;
+void TFT_Box(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color){
+    unsigned char DH, DL;
+    uint16_t i, j;
     DH = color >> 8;
     DL = color & 0xFF;
     TFT_ColumnPage(x1, x2, y1, y2);

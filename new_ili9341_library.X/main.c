@@ -1,6 +1,6 @@
 /*
  * File:   main.c
- * Author: http://pic18fxx.blogspot.com  
+ * Author:  
  */
 #include <xc.h>
 #include <stdio.h>

@@ -1,6 +1,6 @@
 /*
  * File:   spi_pic18f.h
- * Author: http://pic18fxx.blogspot.com 
+ * Author:  
  */
 #ifndef SPI_PIC18F_H
 #define	SPI_PIC18F_H
