@@ -17,27 +17,19 @@
 
 
 // Helper functions
-void exit_car_error(char message[])
+void exit_car_error(const char message[])
 {
     TFT_FillScreen(BROWN);
-    //draw_text(message, 10, 10, WHITE, BLACK);
+    TFT_ConstText(message, 10, 10, WHITE, BLACK);
     while(1) {};
 }
 
-uint16_t safe_convert_with_message(int16_t value, char error_token[]) {
+uint16_t safe_convert(int16_t value, char error_token[]) {
     if (value < 0) {
         exit_car_error("E: ");
     }
     return (uint16_t)value;
 }
-
-uint16_t safe_convert(int16_t value) {
-    if (value < 0) {
-        exit_car_error("E: ");
-    }
-    return (uint16_t)value;
-}
-
 
 
 // ---------- VARIABLES ----------
@@ -130,7 +122,7 @@ void mystery_function() {
 
 void sleep_ms(int16_t duration)
 {
-    uint16_t count = safe_convert_with_message(duration, "1111");
+    uint16_t count = safe_convert(duration, "1111");
     Delay_ms(count);
 }
 
@@ -143,10 +135,10 @@ void fill_screen(uint16_t color)
 
 void draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t height, uint16_t color)
 {
-    uint16_t x1 = safe_convert_with_message(pos_x, "1");
-    uint16_t y1 = safe_convert_with_message(pos_y, "2");
-    uint16_t x2 = safe_convert_with_message(pos_x + width, "3");
-    uint16_t y2 = safe_convert_with_message(pos_y + height, "4");
+    uint16_t x1 = safe_convert(pos_x, "1");
+    uint16_t y1 = safe_convert(pos_y, "2");
+    uint16_t x2 = safe_convert(pos_x + width, "3");
+    uint16_t y2 = safe_convert(pos_y + height, "4");
 
     TFT_Box(x1, y1, x2, y2, color);
 }
@@ -154,42 +146,49 @@ void draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t height,
 
 void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, int16_t width, int16_t height, uint16_t color, uint16_t background_color) {
     
+    uint16_t new_position_x = safe_convert(new_position.x, "81");
+    uint16_t new_position_y = safe_convert(new_position.y, "82");
+    uint16_t old_position_x = safe_convert(old_position.x, "83");
+    uint16_t old_position_y = safe_convert(new_position.y, "84");
+    uint16_t width2 = safe_convert(width, "85");
+    uint16_t height2 = safe_convert(height, "86");
+    
     // Calcul de la zone de chevauchement
-    int left = old_position.x;
-    if (new_position.x > left) left = new_position.x;
-    int right = old_position.x + width;
-    if (new_position.x + width < right) right = new_position.x + width;
-    int top = old_position.y;
-    if (new_position.y > top) top = new_position.y;
-    int bottom = old_position.y + height;
-    if (new_position.y + height < bottom) bottom = new_position.y + height;
+    int right = old_position_x + width;
+    if (new_position_x + width < right) {
+        right = new_position_x + width;
+    }
+    int bottom = old_position_y + height;
+    if (new_position_y + height < bottom) {
+        bottom = new_position_y + height;
+    }
 
     // Dessin des nouvelles zones
-    if (new_position.x < old_position.x) {
-        TFT_Box(safe_convert(new_position.x), safe_convert(new_position.y), safe_convert(old_position.x), safe_convert(new_position.y + height), color);
+    if (new_position_x < old_position_x) {
+        TFT_Box(new_position_x, new_position_y, old_position_x, new_position_y + height, color);
     }
-    if (new_position.x > old_position.x) {
-        TFT_Box(safe_convert(old_position.x + width), safe_convert(new_position.y), safe_convert(new_position.x + width), safe_convert(new_position.y + height), color);
+    if (new_position_x > old_position_x) {
+        TFT_Box(old_position_x + width, new_position_y, new_position_x + width, new_position_y + height, color);
     }
-    if (new_position.y < old_position.y) {
-        TFT_Box(safe_convert(new_position.x), safe_convert(new_position.y), safe_convert(new_position.x + width), safe_convert(old_position.y), color);
+    if (new_position_y < old_position_y) {
+        TFT_Box(new_position_x, new_position_y, new_position_x + width, old_position_y, color);
     }
-    if (new_position.y > old_position.y) {
-        TFT_Box(safe_convert(new_position.x), safe_convert(old_position.y + height), safe_convert(new_position.x + width), safe_convert(new_position.y + height), color);
+    if (new_position_y > old_position_y) {
+        TFT_Box(new_position_x, old_position_y + height, new_position_x + width, new_position_y + height, color);
     }
 
     // Nettoyage des anciennes zones
-    if (old_position.x < new_position.x) {
-        TFT_Box(safe_convert(old_position.x), safe_convert(old_position.y), safe_convert(new_position.x), safe_convert(old_position.y + height), background_color);
+    if (old_position_x < new_position_x) {
+        TFT_Box(old_position_x, old_position_y, new_position_x, old_position_y + height, background_color);
     }
-    if (old_position.x > new_position.x) {
-        TFT_Box(safe_convert(right), safe_convert(old_position.y), safe_convert(old_position.x + width), safe_convert(old_position.y + height), background_color);
+    if (old_position_x > new_position_x) {
+        TFT_Box(right, old_position_y, old_position_x + width, old_position_y + height, background_color);
     }
-    if (old_position.y < new_position.y) {
-        TFT_Box(safe_convert(old_position.x), safe_convert(old_position.y), safe_convert(old_position.x + width), safe_convert(new_position.y), background_color);
+    if (old_position_y < new_position_y) {
+        TFT_Box(old_position_x, old_position_y, old_position_x + width, new_position_y, background_color);
     }
-    if (old_position.y > new_position.y) {
-        TFT_Box(safe_convert(old_position.x), safe_convert(bottom), safe_convert(old_position.x + width), safe_convert(old_position.y + height), background_color);
+    if (old_position_y > new_position_y) {
+        TFT_Box(old_position_x , bottom, old_position_x + width, old_position_y + height, background_color);
     }
 }
 
@@ -225,8 +224,8 @@ void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, int16_t
 void draw_text(schar__t *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2)
 {
     //  void TFT_Text(schar_t *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
-    uint16_t x1 = safe_convert_with_message(x, "67");
-    uint16_t y1 = safe_convert_with_message(y, "68");
+    uint16_t x1 = safe_convert(x, "67");
+    uint16_t y1 = safe_convert(y, "68");
     TFT_Text(text, x1, y1, color1, color2);
 }
 

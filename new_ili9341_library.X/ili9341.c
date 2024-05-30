@@ -15,8 +15,8 @@
 //==============================================================================
 // Declaration of global variables.
 //==============================================================================
-const uchar_t *font, *font2;
-uchar_t width, height, letter_spacing, dot_size = 0, frame_memory = TFT_VERTICAL; 
+const unsigned char *font, *font2;
+unsigned char width, height, letter_spacing, dot_size = 0, frame_memory = TFT_VERTICAL; 
 uint16_t tft_x = TFT_W - 1;
 //==============================================================================
 // This function initializes the driver ILI9341.
@@ -148,9 +148,9 @@ void TFT_Reset(void){
 //==============================================================================
 // This function writes a command.
 //==============================================================================
-void TFT_WriteCommand(uchar_t command){   
+void TFT_WriteCommand(unsigned char command){   
     TFT_CS = 0;
-    TFT_DC = 0; // When DCX = ’0’, command is selected.
+    TFT_DC = 0; // When DCX = ï¿½0ï¿½, command is selected.
     SPI1_Write(command);
     TFT_CS = 1;
 }
@@ -158,9 +158,9 @@ void TFT_WriteCommand(uchar_t command){
 //==============================================================================
 // This function writes a Parameter.
 //==============================================================================
-void TFT_WriteParameter(uchar_t parameter){   
+void TFT_WriteParameter(unsigned char parameter){   
     TFT_CS = 0;
-    TFT_DC = 1; // When DCX = ’1’, data is selected.
+    TFT_DC = 1; // When DCX = ï¿½1ï¿½, data is selected.
     SPI1_Write(parameter);
     TFT_CS = 1;
 }
@@ -196,7 +196,7 @@ void TFT_ColumnPage(uint16_t x1, uint16_t x2, uint16_t y1, uint16_t y2){
 //==============================================================================
 // This function sets the memory access control. 
 //==============================================================================
-uchar_t TFT_MemoryAccessControl(uchar_t frame_memory_){
+unsigned char TFT_MemoryAccessControl(unsigned char frame_memory_){
     if(frame_memory_ == 0){
         return frame_memory;
     }
@@ -264,7 +264,7 @@ void TFT_Pixel(uint16_t x, uint16_t y, uint16_t color){
 // color: color parameter.
 //==============================================================================
 void TFT_FillScreen(uint16_t color){    
-    uchar_t DH, DL;
+    unsigned char DH, DL;
     uint16_t i, j;
     DH = color >> 8;
     DL = color & 0xFF;
@@ -296,7 +296,7 @@ void TFT_FillScreen(uint16_t color){
 // color: color parameter. 
 //==============================================================================
 void TFT_Box(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color){
-    uchar_t DH, DL;
+    unsigned char DH, DL;
     uint16_t i, j;
     DH = color >> 8;
     DL = color & 0xFF;
@@ -317,7 +317,7 @@ void TFT_Box(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color)
 // This function sets the type of font.
 // letterspacing: Letter spacing. Valid values: 1, 2, 3...
 //==============================================================================
-void TFT_SetFont(const uchar_t *font_, uchar_t letterspacing){
+void TFT_SetFont(const unsigned char *font_, unsigned char letterspacing){
     font2 = font_;
     letter_spacing = letterspacing;
     height = TFT_CharHeight();
@@ -327,7 +327,7 @@ void TFT_SetFont(const uchar_t *font_, uchar_t letterspacing){
 //==============================================================================
 // This function returns the height of character. The size is determined in pixels.
 //==============================================================================
-uchar_t TFT_CharHeight(void){
+unsigned char TFT_CharHeight(void){
     font = font2;
     font += 6;
     return *font;
@@ -343,9 +343,9 @@ uchar_t TFT_CharHeight(void){
 // color1: Top color.
 // color2: Bottom color.
 //==============================================================================
-void TFT_WriteChar(uchar_t c, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
+void TFT_WriteChar(unsigned char c, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
 {
-    uchar_t i, j, k;
+    unsigned char i, j, k;
     uint16_t p;
     p = c - 32; p = p * 4; p = p + 8;       
     font = font2;                
@@ -385,6 +385,24 @@ void TFT_WriteChar(uchar_t c, uint16_t x, uint16_t y, uint16_t color1, uint16_t 
 
 
 //==============================================================================
+// This function writes text constant on TFT.
+// buffer: Pointer to read all the array.
+// x: x position. Valid values: 0..240 
+// y: y position. Valid values: 0..320 
+// color1: Top color.
+// color2: Bottom color.
+//==============================================================================
+void TFT_ConstText(const char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2){
+while(*buffer)                
+    {
+     TFT_WriteChar(*buffer, x, y, color1, color2);
+     x += width + letter_spacing;
+     buffer++;               
+    } 
+}
+
+
+//==============================================================================
 // This function writes text variable on TFT.
 // buffer: Pointer to read all the array.
 // x: x position. Valid values: 0..240 
@@ -392,7 +410,7 @@ void TFT_WriteChar(uchar_t c, uint16_t x, uint16_t y, uint16_t color1, uint16_t 
 // color1: Top color.
 // color2: Bottom color.
 //==============================================================================
-void TFT_Text(schar_t *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2){
+void TFT_Text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2){
     while(*buffer) {
         TFT_WriteChar(*buffer, x, y, color1, color2);
         x += width + letter_spacing;
