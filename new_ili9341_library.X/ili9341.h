@@ -76,8 +76,8 @@
 // Define number of pixels in width and height.
 // New name for data types.
 //==============================================================================
-#define TFT_W 240
-#define TFT_H 320
+#define TFT_W 320
+#define TFT_H 240
 
 typedef char                       schar_t;
 typedef unsigned char              uchar_t;

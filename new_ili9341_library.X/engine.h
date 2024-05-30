@@ -8,8 +8,8 @@
 typedef char                       schar__t;
 typedef unsigned char              uchar__t;
 
-#define SCREEN_WIDTH 240
-#define SCREEN_HEIGHT 320
+#define SCREEN_WIDTH 320
+#define SCREEN_HEIGHT 240
 
 // COLORS
 #define BLACK              0b0000000000000000

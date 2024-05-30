@@ -20,11 +20,41 @@ void main(void) {
     ball.position.y = SCREEN_HEIGHT / 2;
     ball.speed.x = 5;
     ball.speed.y = 5;
-    ball.size = 10;
-
-    draw_rectangle(ball.position.x, ball.position.y, ball.size, ball.size, RED);
-    draw_text("TFT 240x320", 20, 10, BLACK, MAGENTA);
+    ball.size = 30;
+    
+    draw_rectangle(ball.position.x, ball.position.y, ball.size, ball.size, BLACK);
+    draw_text("hello everyone", 20, 10, BLACK, WHITE);
     
 
-    while(1){}
+
+    // GAME LOOP
+    while(1){
+        // store the old ball position
+        Vector2i old_ball_position = {ball.position.x, ball.position.y};
+        
+        // Move the ball
+        ball.position.x += ball.speed.x;
+        ball.position.y += ball.speed.y;
+
+        // Collision detection and correction
+        if (ball.position.y <= 0) {
+            ball.position.y = 0;
+            ball.speed.y *= -1;
+        } 
+        else if (ball.position.y >= SCREEN_HEIGHT) {
+            ball.position.y = SCREEN_WIDTH;
+            ball.speed.y *= -1;
+        }
+        if (ball.position.x <= 0) {
+            ball.position.x = 0;
+            ball.speed.x *= -1;
+        } 
+        else if (ball.position.x >= SCREEN_WIDTH) {
+            ball.position.x = SCREEN_WIDTH;
+            ball.speed.x *= -1;
+        }
+        
+        // Draw on the screen
+        draw_moving_rectangle()
+    }
 }

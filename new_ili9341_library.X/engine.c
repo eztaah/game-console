@@ -144,38 +144,74 @@ void draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t height,
     TFT_Box(x1, y1, x2, y2, color);
 }
 
-void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, Vector2i size, uint16_t color, uint16_t background_color)
-{
-    
-    
-    //void draw_moving_rectangle(int16_t old_left, int16_t old_top, int16_t old_right, int16_t old_bottom,
-    //                    int16_t new_left, int16_t new_top, int16_t new_right, int16_t new_bottom,
-    //                    int16_t clear_color, int16_t fill_color)
-    //{
-    //    // Clear the regions not overlapped
-    //    // Clear left strip
-    //    if (new_left > old_left) {
-    //        TFT_Box(safe_convert(old_left), safe_convert(old_top), safe_convert(new_left - 1), safe_convert(old_bottom), safe_convert(clear_color));
-    //    }
-    //    // Clear right strip
-    //    if (new_right < old_right) {
-    //        TFT_Box(safe_convert(new_right + 1), safe_convert(old_top), safe_convert(old_right), safe_convert(old_bottom), safe_convert(clear_color));
-    //    }
-    //    // Clear top strip
-    //    if (new_top > old_top) {
-    //        TFT_Box(safe_convert(old_left), safe_convert(old_top), safe_convert(old_right), safe_convert(new_top - 1), safe_convert(clear_color));
-    //    }
-    //    // Clear bottom strip
-    //    if (new_bottom < old_bottom) {
-    //        TFT_Box(safe_convert(old_left), safe_convert(new_bottom + 1), safe_convert(old_right), safe_convert(old_bottom), safe_convert(clear_color));
-    //    }
-    //
-    //    // Draw the new rectangle position as a filled box
-    //    TFT_Box(safe_convert(new_left), safe_convert(new_top), safe_convert(new_right), safe_convert(new_bottom), safe_convert(fill_color));
-    //}
-    
-    
+
+void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, Vector2i size, uint16_t color, uint16_t background_color) {
+    // Calcul de la zone de chevauchement
+    int left = old_position.x;
+    if (new_position.x > left) left = new_position.x;
+    int right = old_position.x + size.x;
+    if (new_position.x + size.x < right) right = new_position.x + size.x;
+    int top = old_position.y;
+    if (new_position.y > top) top = new_position.y;
+    int bottom = old_position.y + size.y;
+    if (new_position.y + size.y < bottom) bottom = new_position.y + size.y;
+
+    // Dessin des nouvelles zones
+    if (new_position.x < old_position.x) {
+        TFT_Box(new_position.x, new_position.y, old_position.x, new_position.y + size.y, color);
+    }
+    if (new_position.x > old_position.x) {
+        TFT_Box(old_position.x + size.x, new_position.y, new_position.x + size.x, new_position.y + size.y, color);
+    }
+    if (new_position.y < old_position.y) {
+        TFT_Box(new_position.x, new_position.y, new_position.x + size.x, old_position.y, color);
+    }
+    if (new_position.y > old_position.y) {
+        TFT_Box(new_position.x, old_position.y + size.y, new_position.x + size.x, new_position.y + size.y, color);
+    }
+
+    // Nettoyage des anciennes zones
+    if (old_position.x < new_position.x) {
+        TFT_Box(old_position.x, old_position.y, new_position.x, old_position.y + size.y, background_color);
+    }
+    if (old_position.x > new_position.x) {
+        TFT_Box(right, old_position.y, old_position.x + size.x, old_position.y + size.y, background_color);
+    }
+    if (old_position.y < new_position.y) {
+        TFT_Box(old_position.x, old_position.y, old_position.x + size.x, new_position.y, background_color);
+    }
+    if (old_position.y > new_position.y) {
+        TFT_Box(old_position.x, bottom, old_position.x + size.x, old_position.y + size.y, background_color);
+    }
 }
+
+
+
+//void draw_moving_rectangle(int16_t old_left, int16_t old_top, int16_t old_right, int16_t old_bottom,
+//                    int16_t new_left, int16_t new_top, int16_t new_right, int16_t new_bottom,
+//                    int16_t clear_color, int16_t fill_color)
+//{
+//    // Clear the regions not overlapped
+//    // Clear left strip
+//    if (new_left > old_left) {
+//        TFT_Box(safe_convert(old_left), safe_convert(old_top), safe_convert(new_left - 1), safe_convert(old_bottom), safe_convert(clear_color));
+//    }
+//    // Clear right strip
+//    if (new_right < old_right) {
+//        TFT_Box(safe_convert(new_right + 1), safe_convert(old_top), safe_convert(old_right), safe_convert(old_bottom), safe_convert(clear_color));
+//    }
+//    // Clear top strip
+//    if (new_top > old_top) {
+//        TFT_Box(safe_convert(old_left), safe_convert(old_top), safe_convert(old_right), safe_convert(new_top - 1), safe_convert(clear_color));
+//    }
+//    // Clear bottom strip
+//    if (new_bottom < old_bottom) {
+//        TFT_Box(safe_convert(old_left), safe_convert(new_bottom + 1), safe_convert(old_right), safe_convert(old_bottom), safe_convert(clear_color));
+//    }
+//
+//    // Draw the new rectangle position as a filled box
+//    TFT_Box(safe_convert(new_left), safe_convert(new_top), safe_convert(new_right), safe_convert(new_bottom), safe_convert(fill_color));
+//}
 
 
 void draw_text(schar__t *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2)

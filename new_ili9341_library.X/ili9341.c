@@ -74,7 +74,7 @@ void TFT_Init(void) {
     TFT_WriteParameter(0x86);  
 
     TFT_WriteCommand(0x36);   // Memory Access Control (36h)
-    TFT_WriteParameter(TFT_VERTICAL);
+    TFT_WriteParameter(TFT_HORIZONTAL);
 
     TFT_WriteCommand(0x3A);   // COLMOD: Pixel Format Set (3Ah)    
     TFT_WriteParameter(0x55); 
