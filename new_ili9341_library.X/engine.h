@@ -40,6 +40,16 @@
 #define GRAY5              0b0100001000001000
 #define GRAY6	           0b0010000100000100
 
+// KEYS 
+typedef enum {
+    BUTTON_UP,
+    BUTTON_DOWN,
+    BUTTON_RIGHT,
+    BUTTON_LEFT,
+    BUTTON_A,
+    BUTTON_B,
+    BUTTON_HOME
+} BUTTON;
 
 #define TRUE 1
 #define FALSE 0
@@ -65,11 +75,11 @@ typedef struct Vector2f {
 // ---------- CORE ----------
 void init_game_console(void);
 void set_target_fps(const int16_t fps);
-void game_should_stop(void);
+int16_t game_should_stop(void);
 //sleep
 void sleep_ms(int16_t duration);
 float get_frame_time(void);
-
+int16_t is_button_pressed(int16_t button);
 
 
 // ---------- RENDERING ----------

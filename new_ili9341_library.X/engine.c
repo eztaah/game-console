@@ -93,8 +93,16 @@ void init_game_console(void)
     init_timer();
     
     // Init buttons
-    TRISBbits.TRISB0 = 1;   // Configurer TRISB0 comme une entrï¿½e (bouton)
+    
     TRISAbits.TRISA4 = 1;   // Configurer TRISA4 comme une entrï¿½e (bouton)
+ 
+    TRISBbits.TRISB0 = 1;   // Configurer TRISB0 comme une entrï¿½e (bouton)
+    TRISBbits.TRISB1 = 1;   // Configurer TRISB0 comme une entrï¿½e (bouton)
+    TRISBbits.TRISB2 = 1;   // Configurer TRISA4 comme une entrï¿½e (bouton)
+    TRISBbits.TRISB3 = 1;   // Configurer TRISB0 comme une entrï¿½e (bouton)
+    TRISBbits.TRISB4 = 1;   // Configurer TRISA4 comme une entrï¿½e (bouton)
+    TRISBbits.TRISB5 = 1;   // Configurer TRISB0 comme une entrï¿½e (bouton)
+    TRISBbits.TRISB6 = 1;   // Configurer TRISA4 comme une entrï¿½e (bouton)
 }
 
 void set_target_fps(const int16_t fps)
@@ -103,7 +111,7 @@ void set_target_fps(const int16_t fps)
     target_dt = 1000 / fps;
 }
 
-void game_should_stop() {
+int16_t game_should_stop() {
     // CLOSE THE GAME IF NEEDED
     if (running == FALSE) {
         return TRUE;
@@ -135,6 +143,39 @@ float get_frame_time(void)
 {
     return (float)last_frame_duration / 1000;
 }
+
+
+int16_t is_button_pressed(int16_t button)
+{
+    switch (button) {
+        case BUTTON_UP:
+            return PORTBbits.RB2;     // 1 si pressé, et 0 sinon
+            break;
+        case BUTTON_DOWN:
+            return PORTBbits.RB3;
+            break;
+        case BUTTON_RIGHT:
+            return PORTBbits.RB1;
+            break;
+        case BUTTON_LEFT:
+            return PORTBbits.RB0;
+            break;
+        case BUTTON_A:
+            return PORTBbits.RB4;
+            break;
+        case BUTTON_B:
+            return PORTBbits.RB5;
+            break;
+        case BUTTON_HOME:
+            return PORTBbits.RB6;
+            break;
+        default:
+            return -1;
+            break;
+    }
+}
+
+
 
 // ---------- RENDERING ----------
 void fill_screen(uint16_t color)
