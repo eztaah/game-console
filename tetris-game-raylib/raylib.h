@@ -1581,6 +1581,12 @@ RLAPI void DetachAudioStreamProcessor(AudioStream stream, AudioCallback processo
 RLAPI void AttachAudioMixedProcessor(AudioCallback processor); // Attach audio stream processor to the entire audio pipeline
 RLAPI void DetachAudioMixedProcessor(AudioCallback processor); // Detach audio stream processor from the entire audio pipeline
 
+RLAPI static void dessinLigneVerticale(void);
+RLAPI static void dessinLigneHorizontale(void);
+RLAPI static void dessinBordureJeuEtInfo(void);
+RLAPI static void dessinPicXel(void);
+RLAPI static void dessinLines(void);
+
 #if defined(__cplusplus)
 }
 #endif
