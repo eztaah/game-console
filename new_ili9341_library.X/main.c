@@ -13,22 +13,19 @@ typedef struct Ball {
 
 void main(void) {
     init_game_console();
-    set_target_fps(1);
+    set_target_fps(300);
     
     // Ball creation
     Ball ball;
     ball.position.x = SCREEN_WIDTH / 2;
     ball.position.y = SCREEN_HEIGHT / 2;
-    ball.speed.x = 30;
-    ball.speed.y = 30;
+    ball.speed.x = 6;
+    ball.speed.y = 6;
     ball.size = 30;
     
     // first render
-    fill_screen(LIGHTBLUE);
-    draw_rectangle(ball.position.x, ball.position.y, ball.size, ball.size, MAGENTA);
-    
-    draw_rectangle(30, 30, 250, 50, BLUE);
-    
+    fill_screen(WHITE);
+    draw_rectangle(ball.position.x, ball.position.y, ball.size, ball.size, BLACK);
 
     // GAME LOOP
     while(1){
@@ -38,9 +35,8 @@ void main(void) {
         Vector2i old_ball_position = {ball.position.x, ball.position.y};
         
         // Move the ball
-        float value = get_frame_time();
-        ball.position.x += ball.speed.x * value;
-        ball.position.y += ball.speed.y * value;
+        ball.position.x += ball.speed.x;
+        ball.position.y += ball.speed.y;
 
         // Collision detection and correction
         if (ball.position.y <= 0) {
@@ -64,6 +60,6 @@ void main(void) {
         // void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, Vector2i size, uint16_t color, uint16_t background_color);
         draw_fps(5, 90);
 
-        draw_moving_rectangle(ball.position, old_ball_position, ball.size, ball.size, BLACK, WHITE);
+        draw_moving_rectangle(ball.position.x, ball.position.y, old_ball_position.x, old_ball_position.y, ball.size, ball.size, BLACK, WHITE);
     }
 }

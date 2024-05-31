@@ -152,46 +152,83 @@ void draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t height,
 }
 
 
-void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, int16_t width, int16_t height, uint16_t color, uint16_t background_color) 
-{
-    // Calcul de la zone de chevauchement
-    int left = old_position.x;
-    if (new_position.x > left) left = new_position.x;
-    int right = old_position.x + width;
-    if (new_position.x + width < right) right = new_position.x + width;
-    int top = old_position.y;
-    if (new_position.y > top) top = new_position.y;
-    int bottom = old_position.y + height;
-    if (new_position.y + height < bottom) bottom = new_position.y + height;
+void draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_pos_x, int16_t old_pos_y,
+                           int16_t width, int16_t height, uint16_t color, uint16_t background_color) {
+    // Calculate the old and new rectangle boundaries
+    uint16_t old_left = safe_convert(old_pos_x, "1");
+    uint16_t old_top = safe_convert(old_pos_y, "2");
+    uint16_t old_right = safe_convert(old_pos_x + width - 1, "3");
+    uint16_t old_bottom = safe_convert(old_pos_y + height - 1, "4");
 
-    // Dessin des nouvelles zones
-    if (new_position.x < old_position.x) {
-        TFT_Box(safe_convert(new_position.x, "0"), safe_convert(new_position.y, "0"), safe_convert(old_position.x, "0"), safe_convert(new_position.y + height, "0"), color);
+    uint16_t new_left = safe_convert(new_pos_x, "5");
+    uint16_t new_top = safe_convert(new_pos_y, "6");
+    uint16_t new_right = safe_convert(new_pos_x + width - 1, "7");
+    uint16_t new_bottom = safe_convert(new_pos_y + height - 1, "8");
+
+    // Clear the regions not overlapped
+    // Clear left strip
+    if (new_left > old_left) {
+        TFT_Box(old_left, old_top, new_left - 1, old_bottom, background_color);
     }
-    if (new_position.x > old_position.x) {
-        TFT_Box(safe_convert(old_position.x + width, "0"), safe_convert(new_position.y, "0"), safe_convert(new_position.x + width, "0"), safe_convert(new_position.y + height, "0"), color);
+    // Clear right strip
+    if (new_right < old_right) {
+        TFT_Box(new_right + 1, old_top, old_right, old_bottom, background_color);
     }
-    if (new_position.y < old_position.y) {
-        TFT_Box(safe_convert(new_position.x, "0"), safe_convert(new_position.y, "0"), safe_convert(new_position.x + width, "0"), safe_convert(old_position.y, "0"), color);
+    // Clear top strip
+    if (new_top > old_top) {
+        TFT_Box(old_left, old_top, old_right, new_top - 1, background_color);
     }
-    if (new_position.y > old_position.y) {
-        TFT_Box(safe_convert(new_position.x, "0"), safe_convert(old_position.y + height, "0"), safe_convert(new_position.x + width, "0"), safe_convert(new_position.y + height, "0"), color);
+    // Clear bottom strip
+    if (new_bottom < old_bottom) {
+        TFT_Box(old_left, new_bottom + 1, old_right, old_bottom, background_color);
     }
 
-    // Nettoyage des anciennes zones
-    if (old_position.x < new_position.x) {
-        TFT_Box(safe_convert(old_position.x, "0"), safe_convert(old_position.y, "0"), safe_convert(new_position.x, "0"), safe_convert(old_position.y + height, "0"), background_color);
-    }
-    if (old_position.x > new_position.x) {
-        TFT_Box(safe_convert(right, "0"), safe_convert(old_position.y, "0"), safe_convert(old_position.x + width, "0"), safe_convert(old_position.y + height, "0"), background_color);
-    }
-    if (old_position.y < new_position.y) {
-        TFT_Box(safe_convert(old_position.x, "0"), safe_convert(old_position.y, "0"), safe_convert(old_position.x + width, "0"), safe_convert(new_position.y, "0"), background_color);
-    }
-    if (old_position.y > new_position.y) {
-        TFT_Box(safe_convert(old_position.x, "0"), safe_convert(bottom, "0"), safe_convert(old_position.x + width, "0"), safe_convert(old_position.y + height, "0"), background_color);
-    }
+    // Draw the new rectangle position
+    TFT_Box(new_left, new_top, new_right, new_bottom, color);
 }
+
+
+//void draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_pos_x, int16_t old_pos_y,
+//                           int16_t width, int16_t height, uint16_t color, uint16_t background_color)
+//{
+//    // Calcul de la zone de chevauchement
+//    int left = old_pos_x;
+//    if (new_pos_x > left) left = new_pos_x;
+//    int right = old_pos_x + width;
+//    if (new_pos_x + width < right) right = new_pos_x + width;
+//    int top = old_pos_y;
+//    if (new_pos_y > top) top = new_pos_y;
+//    int bottom = old_pos_y + height;
+//    if (new_pos_y + height < bottom) bottom = new_pos_y + height;
+//
+//    // Dessin des nouvelles zones
+//    if (new_pos_x < old_pos_x) {
+//        TFT_Box(safe_convert(new_pos_x, "0"), safe_convert(new_pos_y, "0"), safe_convert(old_pos_x, "0"), safe_convert(new_pos_y + height, "0"), color);
+//    }
+//    if (new_pos_x > old_pos_x) {
+//        TFT_Box(safe_convert(old_pos_x + width, "0"), safe_convert(new_pos_y, "0"), safe_convert(new_pos_x + width, "0"), safe_convert(new_pos_y + height, "0"), color);
+//    }
+//    if (new_pos_y < old_pos_y) {
+//        TFT_Box(safe_convert(new_pos_x, "0"), safe_convert(new_pos_y, "0"), safe_convert(new_pos_x + width, "0"), safe_convert(old_pos_y, "0"), color);
+//    }
+//    if (new_pos_y > old_pos_y) {
+//        TFT_Box(safe_convert(new_pos_x, "0"), safe_convert(old_pos_y + height, "0"), safe_convert(new_pos_x + width, "0"), safe_convert(new_pos_y + height, "0"), color);
+//    }
+//
+//    // Nettoyage des anciennes zones
+//    if (old_pos_x < new_pos_x) {
+//        TFT_Box(safe_convert(old_pos_x, "0"), safe_convert(old_pos_y, "0"), safe_convert(new_pos_x, "0"), safe_convert(old_pos_y + height, "0"), background_color);
+//    }
+//    if (old_pos_x > new_pos_x) {
+//        TFT_Box(safe_convert(right, "0"), safe_convert(old_pos_y, "0"), safe_convert(old_pos_x + width, "0"), safe_convert(old_pos_y + height, "0"), background_color);
+//    }
+//    if (old_pos_y < new_pos_y) {
+//        TFT_Box(safe_convert(old_pos_x, "0"), safe_convert(old_pos_y, "0"), safe_convert(old_pos_x + width, "0"), safe_convert(new_pos_y, "0"), background_color);
+//    }
+//    if (old_pos_y > new_pos_y) {
+//        TFT_Box(safe_convert(old_pos_x, "0"), safe_convert(bottom, "0"), safe_convert(old_pos_x + width, "0"), safe_convert(old_pos_y + height, "0"), background_color);
+//    }
+//}
 
 void draw_fps(int16_t pos_x, int16_t pos_y)
 {
