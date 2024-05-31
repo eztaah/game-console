@@ -97,7 +97,14 @@ void draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color
 
 // ---------- AUDIO ---------- 
 void init_buzzer(void);
-void play_impact_sound(void);
+void play_A3(int16_t duration);
+void play_B3(int16_t duration);//
+void play_C4(int16_t duration);
+void play_D4(int16_t duration);
+void play_E4(int16_t duration);
+void play_G4(int16_t duration);
+void play_tetris(void);
+void play_game_over(void);
 void stop_buzzer(void);
 
 #endif

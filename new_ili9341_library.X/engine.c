@@ -302,21 +302,98 @@ void draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color
 
 // ---------- AUDIO ---------- 
 void init_buzzer(void){
-    TRISCbits.TRISC2 = 0;   // RC2 est la sortie PWM, sur laquelle est connect? le buzzer
+    TRISCbits.TRISC1 = 0;   // RC1 est la sortie PWM, sur laquelle est connect? le buzzer
     T2CON = 0b00000110;     // Postscaler = 1, Timer ON, Prescaler = 16
-    CCP1CON = 0b00001100;   // mode PWM, avec 1 seule sortie sur RC2
+    CCP2CON = 0b00001100;   // mode PWM, avec 1 seule sortie sur RC1
+}
+// La 3
+void play_A3(int16_t duration){
+    PR2 = 180;
+    CCPR2L = 90;
+    sleep_ms(duration);
+    //stop_buzzer();
+}
+// Si 3
+void play_B3(int16_t duration){
+    PR2 = 160;
+    CCPR2L = 80;
+    sleep_ms(duration);
+    //stop_buzzer();
+}
+// Do 4
+void play_C4(int16_t duration){
+    PR2 = 151;
+    CCPR2L = 75;
+    sleep_ms(duration);
+    //stop_buzzer();
+}
+// Ré 4
+void play_D4(int16_t duration){
+    PR2 = 135;
+    CCPR2L = 67;
+    sleep_ms(duration);
+    //stop_buzzer();
+}
+//
+void play_D_4(int16_t duration){
+    PR2 = 127;
+    CCPR2L = 63;
+    sleep_ms(duration);
+    //stop_buzzer();
+}
+// Mi 4
+void play_E4(int16_t duration){
+    PR2 = 120;
+    CCPR2L = 60;
+    sleep_ms(duration);
+    //stop_buzzer();
+}
+// Sol 4
+void play_G4(int16_t duration){
+    PR2 = 101;
+    CCPR2L = 50;
+    sleep_ms(duration);
+    //stop_buzzer();
+}
+//
+void play_A_4(int16_t duration){
+    PR2 = 86;
+    CCPR2L = 43;
+    sleep_ms(duration);
+    //stop_buzzer();
 }
 
-void play_impact_sound(void){
-    PR2 = 35;           // fr?quence_PWM = (1MHz)/4 /prescaler / 36 = 440 Hz
-    CCPR1L = 18;        // rapport cyclique = 50%
-    _delay(125000);     // 125000 * Tcy = 125000 * 4us = 0.125 sec
+void play_tetris(void){
+    play_E4(400);
+    play_B3(200);
+    play_C4(200);
+    play_D4(400);
+    play_C4(200);
+    play_B3(200);
+    play_A3(400);
+    play_A3(200);
+    stop_buzzer();
+    play_C4(200);
+    play_E4(400);
+    stop_buzzer();
+}
+
+void play_game_over(void){
+    play_G4(400);
+    play_G4(400);
+    play_G4(400);
+    play_D_4(150);
+    play_A_4(100);
+    play_G4(400);
+    play_D_4(150);
+    play_A_4(100);
+    play_G4(400);
     stop_buzzer();
 }
 
 void stop_buzzer(void){
     PR2 = 0;
-    CCPR1L = 0;
+    CCPR2L = 0;
 }
 
 
