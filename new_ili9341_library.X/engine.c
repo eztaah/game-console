@@ -33,6 +33,7 @@ uint16_t safe_convert(int16_t value, char error_token[]) {
 
 
 // ---------- VARIABLES ----------
+int16_t running = TRUE;
 int16_t target_fps = 60;
 int16_t target_dt = 17;
 int16_t last_frame_duration = 0;
@@ -85,14 +86,6 @@ void init_game_console(void)
     SPI1_Init();
     TFT_Init();
     
-//    while(1) {
-//        Delay_ms(1000);
-//        TFT_Box(10, 10, 20, 20, BLUE);
-//        Delay_ms(1000);
-//        TFT_Box(10, 10, 20, 20, GREEN);
-//    }
-
-    
     // init font
     TFT_SetFont(Courier_New_Bold_20, 1);
     
@@ -110,7 +103,13 @@ void set_target_fps(const int16_t fps)
     target_dt = 1000 / fps;
 }
 
-void mystery_function() {
+void game_should_stop() {
+    // CLOSE THE GAME IF NEEDED
+    if (running == FALSE) {
+        return TRUE;
+    }
+    
+    // GESTION DES FPS
     // R�cuperer la valeur du timer
     last_frame_duration = get_timer_value();
     
@@ -122,6 +121,8 @@ void mystery_function() {
     
     // restart the timer
     start_timer();
+    
+    return FALSE;
 }
 
 void sleep_ms(int16_t duration)
@@ -238,6 +239,15 @@ void draw_fps(int16_t pos_x, int16_t pos_y)
     draw_text(last_frame_duration_text, pos_x, pos_y, GREEN, BLACK);
     draw_text(fps_text, pos_x, pos_y + 30, GREEN, BLACK);
 }
+
+void draw_const_text(const char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2)
+{
+    //  void TFT_Text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
+    uint16_t x1 = safe_convert(x, "67");
+    uint16_t y1 = safe_convert(y, "68");
+    TFT_ConstText(text, x1, y1, color1, color2);
+}
+
 
 void draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2)
 {

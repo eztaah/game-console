@@ -10,6 +10,7 @@
       <itemPath>bitmap.h</itemPath>
       <itemPath>spi_pic18f.h</itemPath>
       <itemPath>engine.h</itemPath>
+      <itemPath>pong.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,6 +24,7 @@
       <itemPath>ili9341.c</itemPath>
       <itemPath>spi_pic18f.c</itemPath>
       <itemPath>engine.c</itemPath>
+      <itemPath>pong.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

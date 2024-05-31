@@ -41,6 +41,9 @@
 #define GRAY6	           0b0010000100000100
 
 
+#define TRUE 1
+#define FALSE 0
+
 // ---------- STRUCTS ----------
 typedef struct Vector2i {
     int16_t x;
@@ -62,7 +65,7 @@ typedef struct Vector2f {
 // ---------- CORE ----------
 void init_game_console(void);
 void set_target_fps(const int16_t fps);
-void mystery_function(void);
+void game_should_stop(void);
 //sleep
 void sleep_ms(int16_t duration);
 float get_frame_time(void);
@@ -77,6 +80,7 @@ void draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_pos
                            int16_t width, int16_t height, uint16_t color, uint16_t background_color);
 // text
 void draw_fps(int16_t pos_x, int16_t pos_y);
+void draw_const_text(const char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);
 void draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);
 
 
