@@ -22,9 +22,6 @@ void run_pong_game(void) {
     
     //play_init_console_sound();
     fill_screen(BLACK);
-    draw_const_text("pong game is starting...", 10, 130, WHITE, BLACK);
-    sleep_ms(2000);
-    
     
     // Ball creation
     Ball ball;
@@ -53,6 +50,7 @@ void run_pong_game(void) {
     // first render
     fill_screen(BLACK);
     draw_rectangle(ball.position.x, ball.position.y, ball.size, ball.size, WHITE);
+    sleep_ms(1000);
 
     
     // GAME LOOP
@@ -90,18 +88,26 @@ void run_pong_game(void) {
         if (ball.position.y <= 0) {
             ball.position.y = 0;
             ball.speed.y *= -1;
+            play_A3(50);
+            stop_buzzer();
         } 
         else if (ball.position.y >= SCREEN_HEIGHT - ball.size) {
             ball.position.y = SCREEN_HEIGHT - ball.size;
             ball.speed.y *= -1;
+            play_A3(50);
+            stop_buzzer();
         }
         if (ball.position.x <= 0) {
-            ball.position.x = 0;
-            ball.speed.x *= -1;
+            fill_screen(BLACK);
+            draw_const_text("GAME OVER", 90, 110, RED, BLACK);
+            play_game_over();
+            return;
         } 
         else if (ball.position.x >= SCREEN_WIDTH - ball.size) {
             ball.position.x = SCREEN_WIDTH - ball.size;
             ball.speed.x *= -1;
+            play_A3(50);
+            stop_buzzer();
         }
         
         // Player paddle collision
@@ -110,6 +116,8 @@ void run_pong_game(void) {
             ball.position.y <= player_paddle.position.y + player_paddle.height) {
             ball.position.x = player_paddle.position.x + player_paddle.width;
             ball.speed.x *= -1;
+            play_A3(50);
+            stop_buzzer();
         }
 
         // Bot paddle collision
@@ -118,6 +126,8 @@ void run_pong_game(void) {
             ball.position.y <= bot_paddle.position.y + bot_paddle.height) {
             ball.position.x = bot_paddle.position.x - ball.size;
             ball.speed.x *= -1;
+            play_A3(50);
+            stop_buzzer();
         }
        
         // Draw on the screen

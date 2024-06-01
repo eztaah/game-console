@@ -92,10 +92,11 @@ void init_game_console(void)
     // Init timer0
     init_timer();
     
-    // Init buttons
+    // init buzzer 
+    init_buzzer();
     
+    // Init buttons
     TRISAbits.TRISA4 = 1;   // Configurer TRISA4 comme une entrï¿½e (bouton)
- 
     TRISBbits.TRISB0 = 1;   // Configurer TRISB0 comme une entrï¿½e (bouton)
     TRISBbits.TRISB1 = 1;   // Configurer TRISB0 comme une entrï¿½e (bouton)
     TRISBbits.TRISB2 = 1;   // Configurer TRISA4 comme une entrï¿½e (bouton)
@@ -103,6 +104,15 @@ void init_game_console(void)
     TRISBbits.TRISB4 = 1;   // Configurer TRISA4 comme une entrï¿½e (bouton)
     TRISBbits.TRISB5 = 1;   // Configurer TRISB0 comme une entrï¿½e (bouton)
     TRISBbits.TRISB6 = 1;   // Configurer TRISA4 comme une entrï¿½e (bouton)
+    // mettre les boutons à 0
+    PORTAbits.RA4 = 0;
+    PORTBbits.RB0 = 0;
+    PORTBbits.RB1 = 0;
+    PORTBbits.RB2 = 0;
+    PORTBbits.RB3 = 0;
+    PORTBbits.RB4 = 0;
+    PORTBbits.RB5 = 0;
+    PORTBbits.RB6 = 0;
 }
 
 void set_target_fps(const int16_t fps)
@@ -149,25 +159,25 @@ int16_t is_button_pressed(int16_t button)
 {
     switch (button) {
         case BUTTON_UP:
-            return PORTBbits.RB2;     // 1 si pressé, et 0 sinon
+            return !PORTBbits.RB2;     // 1 si pressé, et 0 sinon
             break;
         case BUTTON_DOWN:
-            return PORTBbits.RB3;
+            return !PORTBbits.RB3;
             break;
         case BUTTON_RIGHT:
-            return PORTBbits.RB1;
+            return !PORTBbits.RB1;
             break;
         case BUTTON_LEFT:
-            return PORTBbits.RB0;
+            return !PORTBbits.RB0;
             break;
         case BUTTON_A:
-            return PORTBbits.RB4;
+            return !PORTBbits.RB4;
             break;
         case BUTTON_B:
-            return PORTBbits.RB5;
+            return !PORTBbits.RB5;
             break;
         case BUTTON_HOME:
-            return PORTBbits.RB6;
+            return !PORTBbits.RB6;
             break;
         default:
             return -1;
@@ -305,6 +315,9 @@ void init_buzzer(void){
     TRISCbits.TRISC1 = 0;   // RC1 est la sortie PWM, sur laquelle est connect? le buzzer
     T2CON = 0b00000110;     // Postscaler = 1, Timer ON, Prescaler = 16
     CCP2CON = 0b00001100;   // mode PWM, avec 1 seule sortie sur RC1
+    
+    PR2 = 0;
+    CCPR2L = 0;
 }
 // La 3
 void play_A3(int16_t duration){
