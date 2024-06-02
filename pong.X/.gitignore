@@ -1,9 +1,0 @@
-dist/
-build/
-debug/
-
-nbproject/private/
-
-*.bak
-*.tmp
-*.log

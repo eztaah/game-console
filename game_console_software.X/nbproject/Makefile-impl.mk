@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=engine-creation.X
+PROJECTNAME=game_console_software.X
 
 # Active Configuration
 DEFAULTCONF=default

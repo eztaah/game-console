@@ -3,6 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>game_console_software</name>
             <name>new_ili9341_library</name>
             <name>bouncing-ball</name>
             <name>bouncing-ball</name>
