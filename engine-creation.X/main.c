@@ -8,20 +8,20 @@
 void main(void)
 {
     // Initialisation
-    init_game_console();
-    set_target_fps(3);
+    e_init_game_console();
+    e_set_target_fps(3);
     
     // Variables declaration
     int16_t score = 0; // Initialisation du score
     char scoreText[30] = {0}; // Buffer pour le texte du score
     
     // test code buzzer
-    init_buzzer();
-    stop_buzzer();
+    e_init_buzzer();
+    _e_stop_buzzer();
     play_impact_sound();
     
     // first rendering
-    fill_screen(BLACK);
+    e_fill_screen(BLACK);
     sprintf(scoreText, "%d", score);
     
     // Ball creation
@@ -104,9 +104,9 @@ void main(void)
             ball_position.y = ball_size/2;
             ball_speed.y *= -1;
         } else if (ball_new_bottom >= SCREEN_HEIGHT) {
-            fill_screen(RED);
-            fill_screen(BLACK);
-            draw_const_text("GAME OVER", 60, 130, RED, BLACK);
+            e_fill_screen(RED);
+            e_fill_screen(BLACK);
+            e_draw_const_text("GAME OVER", 60, 130, RED, BLACK);
             while(1) {};
         }
         if (ball_new_left <= 0) {
@@ -146,23 +146,23 @@ void main(void)
         
         // ---------------------- RENDERING ---------------------
         // Draw the score
-        draw_text(scoreText, 110, 10, RED, BLACK);
+        e_draw_text(scoreText, 110, 10, RED, BLACK);
         
         // Draw fps
-        draw_fps(5, 90);
+        e_draw_fps(5, 90);
         
         // Draw the ball
-        draw_rectangle(ball_old_left, ball_old_top, ball_old_right, ball_old_bottom,
+        e_draw_rectangle(ball_old_left, ball_old_top, ball_old_right, ball_old_bottom,
                      ball_new_left, ball_new_top, ball_new_right, ball_new_bottom,
                      BLACK, RED);
        
         // draw the paddle
-        draw_rectangle(paddle_old_left, paddle_old_top, paddle_old_right, paddle_old_bottom,
+        e_draw_rectangle(paddle_old_left, paddle_old_top, paddle_old_right, paddle_old_bottom,
              paddle_new_left, paddle_new_top, paddle_new_right, paddle_new_bottom,
              BLACK, RED);
         
         // draw the bot paddle
-        draw_rectangle(bot_paddle_old_left, bot_paddle_old_top, bot_paddle_old_right, bot_paddle_old_bottom,
+        e_draw_rectangle(bot_paddle_old_left, bot_paddle_old_top, bot_paddle_old_right, bot_paddle_old_bottom,
              bot_paddle_new_left, bot_paddle_new_top, bot_paddle_new_right, bot_paddle_new_bottom,
              BLACK, RED);
     }

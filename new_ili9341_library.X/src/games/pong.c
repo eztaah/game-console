@@ -1,4 +1,4 @@
-#include "engine.h"
+#include "../engine/engine.h"
 
 
 typedef struct Ball {
@@ -14,14 +14,26 @@ typedef struct Paddle {
     int16_t speed;
 } Paddle;
 
+void play_game_over_music(void){
+    e_play_G4(400);
+    e_play_G4(400);
+    e_play_G4(400);
+    e_play_D_4(150);
+    e_play_A_4(100);
+    e_play_G4(400);
+    e_play_D_4(150);
+    e_play_A_4(100);
+    e_play_G4(400);
+}
+
 
 void run_pong_game(void) {  
     
     // INITIALISATION
-    set_target_fps(20);
+    e_set_target_fps(20);
     
     //play_init_console_sound();
-    fill_screen(BLACK);
+    e_fill_screen(BLACK);
     
     // Ball creation
     Ball ball;
@@ -48,13 +60,13 @@ void run_pong_game(void) {
     bot_paddle.speed = 7;
     
     // first render
-    fill_screen(BLACK);
-    draw_rectangle(ball.position.x, ball.position.y, ball.size, ball.size, WHITE);
-    sleep_ms(1000);
+    e_fill_screen(BLACK);
+    e_draw_rectangle(ball.position.x, ball.position.y, ball.size, ball.size, WHITE);
+    e_sleep_ms(1000);
 
     
     // GAME LOOP
-    while(!game_should_stop()) {
+    while(!e_game_should_stop()) {
         // store old ball, player_paddle and bot_paddle positions
         Vector2i old_ball_position = {ball.position.x, ball.position.y};
         Vector2i old_player_paddle_position = {player_paddle.position.x, player_paddle.position.y};
@@ -65,17 +77,17 @@ void run_pong_game(void) {
         ball.position.y += ball.speed.y;
         
         // move player_paddle
-        if(is_button_pressed(BUTTON_UP) && (player_paddle.position.y > player_paddle.speed)) {
+        if(e_is_button_pressed(BUTTON_UP) && (player_paddle.position.y > player_paddle.speed)) {
             player_paddle.position.y -= player_paddle.speed;
         }
-        if (is_button_pressed(BUTTON_DOWN) && (player_paddle.position.y + player_paddle.height + player_paddle.speed < SCREEN_HEIGHT)) {
+        if (e_is_button_pressed(BUTTON_DOWN) && (player_paddle.position.y + player_paddle.height + player_paddle.speed < SCREEN_HEIGHT)) {
             player_paddle.position.y += player_paddle.speed;
         }
         // move player_paddle
-        if(is_button_pressed(BUTTON_HOME)) {
+        if(e_is_button_pressed(BUTTON_HOME)) {
             player_paddle.position.x += player_paddle.speed;
         }
-        if (is_button_pressed(BUTTON_LEFT)) {
+        if (e_is_button_pressed(BUTTON_LEFT)) {
             player_paddle.position.x -= player_paddle.speed;
         }
         
@@ -88,26 +100,23 @@ void run_pong_game(void) {
         if (ball.position.y <= 0) {
             ball.position.y = 0;
             ball.speed.y *= -1;
-            play_A3(50);
-            stop_buzzer();
+            e_play_A3(50);
         } 
         else if (ball.position.y >= SCREEN_HEIGHT - ball.size) {
             ball.position.y = SCREEN_HEIGHT - ball.size;
             ball.speed.y *= -1;
-            play_A3(50);
-            stop_buzzer();
+            e_play_A3(50);
         }
         if (ball.position.x <= 0) {
-            fill_screen(BLACK);
-            draw_const_text("GAME OVER", 90, 110, RED, BLACK);
-            play_game_over();
+            e_fill_screen(BLACK);
+            e_draw_const_text("GAME OVER", 90, 110, RED, BLACK);
+            play_game_over_music();
             return;
         } 
         else if (ball.position.x >= SCREEN_WIDTH - ball.size) {
             ball.position.x = SCREEN_WIDTH - ball.size;
             ball.speed.x *= -1;
-            play_A3(50);
-            stop_buzzer();
+            e_play_A3(50);
         }
         
         // Player paddle collision
@@ -116,8 +125,7 @@ void run_pong_game(void) {
             ball.position.y <= player_paddle.position.y + player_paddle.height) {
             ball.position.x = player_paddle.position.x + player_paddle.width;
             ball.speed.x *= -1;
-            play_A3(50);
-            stop_buzzer();
+            e_play_A3(50);
         }
 
         // Bot paddle collision
@@ -126,18 +134,17 @@ void run_pong_game(void) {
             ball.position.y <= bot_paddle.position.y + bot_paddle.height) {
             ball.position.x = bot_paddle.position.x - ball.size;
             ball.speed.x *= -1;
-            play_A3(50);
-            stop_buzzer();
+            e_play_A3(50);
         }
        
         // Draw on the screen
-        // void draw_moving_rectangle(Vector2i new_position, Vector2i old_position, Vector2i size, uint16_t color, uint16_t background_color);
-        draw_fps(110, 170);
+        // void e_draw_moving_rectangle(Vector2i new_position, Vector2i old_position, Vector2i size, uint16_t color, uint16_t background_color);
+        e_draw_fps(110, 170);
         
-        draw_moving_rectangle(ball.position.x, ball.position.y, old_ball_position.x, old_ball_position.y, ball.size, ball.size, WHITE, BLACK);
+        e_draw_moving_rectangle(ball.position.x, ball.position.y, old_ball_position.x, old_ball_position.y, ball.size, ball.size, WHITE, BLACK);
 
-        draw_moving_rectangle(player_paddle.position.x, player_paddle.position.y, old_player_paddle_position.x, old_player_paddle_position.y, player_paddle.width, player_paddle.height, WHITE, BLACK);
+        e_draw_moving_rectangle(player_paddle.position.x, player_paddle.position.y, old_player_paddle_position.x, old_player_paddle_position.y, player_paddle.width, player_paddle.height, WHITE, BLACK);
 
-        draw_moving_rectangle(bot_paddle.position.x, bot_paddle.position.y, old_bot_paddle_position.x, old_bot_paddle_position.y, bot_paddle.width, bot_paddle.height, WHITE, BLACK);
+        e_draw_moving_rectangle(bot_paddle.position.x, bot_paddle.position.y, old_bot_paddle_position.x, old_bot_paddle_position.y, bot_paddle.width, bot_paddle.height, WHITE, BLACK);
     }
 }

@@ -17,16 +17,16 @@
 
 
 // Helper functions
-void exit_car_error(const char message[])
+void e_exit_with_error(const char message[])
 {
     TFT_FillScreen(BROWN);
-    draw_text(message, 10, 10, WHITE, BLACK);
+    e_draw_text(message, 10, 10, WHITE, BLACK);
     while(1) {};
 }
 
-uint16_t safe_convert(int16_t value) {
+uint16_t e_safe_convert(int16_t value) {
     if (value < 0) {
-        exit_car_error("Error: Negative coordinate value cannot be used");
+        e_exit_with_error("Error: Negative coordinate value cannot be used");
     }
     return (uint16_t)value;
 }
@@ -47,24 +47,24 @@ char fps_text[30] = {0};
 // ---------- INTERNALS ---------- 
 void __interrupt() timer0_ISR(void){
     if (INTCONbits.TMR0IF == 1){     // v?rifie si l'interruption est bien provoqu?e par le timer0
-        exit_car_error("Le timer a overflow, ce n'est pas normal");
+        e_exit_with_error("Le timer a overflow, ce n'est pas normal");
         INTCONbits.TMR0IF = 0;      // flag d'interruption effac�
     }
 }
 
-void init_timer(void){
+void _e_init_timer(void){
     T0CON = 0x02;           // TIMER0: OFF, 16-bit, cadenc? par Tcy (1MHz/4), prescaler = 8
                             // donc f = (1MHz/4) / 8 = 31.250 kHz
     INTCONbits.TMR0IF = 0;
     INTCONbits.TMR0IE = 1;
 };
 
-void start_timer(void) {
+void _e_start_timer(void) {
     TMR0 = 0x0;                 // on met le timer � 0
     T0CONbits.TMR0ON = 1;       // allume le timer
 }
 
-int16_t get_timer_value(void) {
+int16_t _e_get_timer_value(void) {
     T0CONbits.TMR0ON = 0;     // On arrete le timer
     
     uint16_t timer_value = TMR0;
@@ -76,7 +76,7 @@ int16_t get_timer_value(void) {
 
 
 // ---------- CORE ----------
-void init_game_console(void)
+void e_init_game_console(void)
 {
     // Init screen 
     OSCCON = 0b01110000;
@@ -91,14 +91,14 @@ void init_game_console(void)
     TFT_SetFont(Courier_New_Bold_20, 1);
     
     // Init timer0
-    init_timer();
+    _e_init_timer();
     
     // Init buttons
     TRISBbits.TRISB0 = 1;   // Configurer TRISB0 comme une entr�e (bouton)
     TRISAbits.TRISA4 = 1;   // Configurer TRISA4 comme une entr�e (bouton)
 }
 
-void set_target_fps(const int16_t fps)
+void e_set_target_fps(const int16_t fps)
 {
     target_fps = fps;
     
@@ -107,7 +107,7 @@ void set_target_fps(const int16_t fps)
 
 void mystery_function() {
     // R�cuperer la valeur du timer
-    int16_t time_passed = get_timer_value();
+    int16_t time_passed = _e_get_timer_value();
     sprintf(time_passed_text, "dt: %d", time_passed);
     sprintf(fps_text, "fps: %d", (uint16_t)((1.f/time_passed)*1000));
     
@@ -117,66 +117,66 @@ void mystery_function() {
     }
     
     // restart the timer
-    start_timer();
+    _e_start_timer();
 }
 
-void sleep_ms(int16_t duration)
+void e_sleep_ms(int16_t duration)
 {
-    Delay_ms(safe_convert(duration));
+    Delay_ms(e_safe_convert(duration));
 }
 
 
 // ---------- RENDERING ----------
-void fill_screen(uint16_t color)
+void e_fill_screen(uint16_t color)
 {
     TFT_FillScreen(color);
 }
 
-void draw_rectangle(int16_t old_left, int16_t old_top, int16_t old_right, int16_t old_bottom,
+void e_draw_rectangle(int16_t old_left, int16_t old_top, int16_t old_right, int16_t old_bottom,
                     int16_t new_left, int16_t new_top, int16_t new_right, int16_t new_bottom,
                     int16_t clear_color, int16_t fill_color)
 {
     // Clear the regions not overlapped
     // Clear left strip
     if (new_left > old_left) {
-        TFT_Box(safe_convert(old_left), safe_convert(old_top), safe_convert(new_left - 1), safe_convert(old_bottom), safe_convert(clear_color));
+        TFT_Box(e_safe_convert(old_left), e_safe_convert(old_top), e_safe_convert(new_left - 1), e_safe_convert(old_bottom), e_safe_convert(clear_color));
     }
     // Clear right strip
     if (new_right < old_right) {
-        TFT_Box(safe_convert(new_right + 1), safe_convert(old_top), safe_convert(old_right), safe_convert(old_bottom), safe_convert(clear_color));
+        TFT_Box(e_safe_convert(new_right + 1), e_safe_convert(old_top), e_safe_convert(old_right), e_safe_convert(old_bottom), e_safe_convert(clear_color));
     }
     // Clear top strip
     if (new_top > old_top) {
-        TFT_Box(safe_convert(old_left), safe_convert(old_top), safe_convert(old_right), safe_convert(new_top - 1), safe_convert(clear_color));
+        TFT_Box(e_safe_convert(old_left), e_safe_convert(old_top), e_safe_convert(old_right), e_safe_convert(new_top - 1), e_safe_convert(clear_color));
     }
     // Clear bottom strip
     if (new_bottom < old_bottom) {
-        TFT_Box(safe_convert(old_left), safe_convert(new_bottom + 1), safe_convert(old_right), safe_convert(old_bottom), safe_convert(clear_color));
+        TFT_Box(e_safe_convert(old_left), e_safe_convert(new_bottom + 1), e_safe_convert(old_right), e_safe_convert(old_bottom), e_safe_convert(clear_color));
     }
 
     // Draw the new rectangle position as a filled box
-    TFT_Box(safe_convert(new_left), safe_convert(new_top), safe_convert(new_right), safe_convert(new_bottom), safe_convert(fill_color));
+    TFT_Box(e_safe_convert(new_left), e_safe_convert(new_top), e_safe_convert(new_right), e_safe_convert(new_bottom), e_safe_convert(fill_color));
 }
 
-void draw_fps(int16_t pos_x, int16_t pos_y)
+void e_draw_fps(int16_t pos_x, int16_t pos_y)
 {
     TFT_Text(time_passed_text, pos_x, pos_y, GREEN, BLACK);
     TFT_Text(fps_text, pos_x, pos_y + 30, GREEN, BLACK);
 }
 
-void draw_text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
+void e_draw_text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
 {
     TFT_Text(buffer, x, y, color1, color2);
 }
 
-void draw_const_text(const char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
+void e_draw_const_text(const char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
 {
     TFT_ConstText(buffer, x, y, color1, color2);
 }
 
 
 // ---------- AUDIO ---------- 
-void init_buzzer(void){
+void e_init_buzzer(void){
     TRISCbits.TRISC2 = 0;   // RC2 est la sortie PWM, sur laquelle est connect? le buzzer
     T2CON = 0b00000110;     // Postscaler = 1, Timer ON, Prescaler = 16
     CCP1CON = 0b00001100;   // mode PWM, avec 1 seule sortie sur RC2
@@ -186,10 +186,10 @@ void play_impact_sound(void){
     PR2 = 35;           // fr?quence_PWM = (1MHz)/4 /prescaler / 36 = 440 Hz
     CCPR1L = 18;        // rapport cyclique = 50%
     _delay(125000);     // 125000 * Tcy = 125000 * 4us = 0.125 sec
-    stop_buzzer();
+    _e_stop_buzzer();
 }
 
-void stop_buzzer(void){
+void _e_stop_buzzer(void){
     PR2 = 0;
     CCPR1L = 0;
 }

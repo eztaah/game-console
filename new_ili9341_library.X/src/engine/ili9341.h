@@ -32,40 +32,6 @@
 #define TRIS_DC            TRISDbits.TRISD2
 
 //==============================================================================
-// These are some colors that you can use for fonts and graphics.
-//==============================================================================
-#define BLACK              0b0000000000000000
-#define BRIGHTBLUE         0b0000000000011111
-#define BRIGHTGREEN        0b0000011111100000
-#define BRIGHTCYAN         0b0000011111111111
-#define BRIGHTRED          0b1111100000000000
-#define BRIGHTMAGENTA      0b1111100000011111
-#define BRIGHTYELLOW       0b1111111111100000
-#define BLUE               0b0000000000010000
-#define GREEN              0b0000010000000000
-#define CYAN               0b0000010000010000
-#define RED                0b1000000000000000
-#define MAGENTA            0b1000000000010000
-#define BROWN              0b1111110000000000
-#define LIGHTGRAY          0b1000010000010000
-#define DARKGRAY           0b0100001000001000
-#define LIGHTBLUE          0b1000010000011111
-#define LIGHTGREEN         0b1000011111110000
-#define LIGHTCYAN          0b1000011111111111
-#define LIGHTRED           0b1111110000010000
-#define LIGHTMAGENTA       0b1111110000011111
-#define YELLOW             0b1111111111110000
-#define WHITE              0b1111111111111111
-
-#define GRAY0       	   0b1110011100011100
-#define GRAY1         	   0b1100011000011000   
-#define GRAY2              0b1010010100010100   
-#define GRAY3              0b1000010000010000
-#define GRAY4              0b0110001100001100
-#define GRAY5              0b0100001000001000
-#define GRAY6	           0b0010000100000100
-
-//==============================================================================
 // These are the defines to select the memory access control.
 //==============================================================================
 #define TFT_VERTICAL       0x88
@@ -79,17 +45,21 @@
 #define TFT_W 320
 #define TFT_H 240
 
-//typedef char                     Schar;
-//typedef unsigned char            Uchar;
-//typedef const char               CSchar;
-//typedef const unsigned char      CUchar;
-//typedef int16_t                  Sint; 
-//typedef uint16_t                 Uint;
-//typedef const uint16_t           CUint;
-
 //==============================================================================
 // Function Prototypes.
 //==============================================================================
+// SPI
+#define TRIS_SCK1   TRISCbits.TRISC3         
+#define TRIS_SDO1   TRISCbits.TRISC5
+#define TRIS_SDI1   TRISCbits.TRISC4
+#define TRIS_SS1    TRISAbits.TRISA5
+void SPI1_Init(void);
+void SPI1_Close(void);
+void SPI1_Write(unsigned char data);
+unsigned char SPI1_Read(void);
+
+
+// SCREEN
 void TFT_Init(void);
 void TFT_Reset(void);
 void TFT_WriteCommand(unsigned char command);

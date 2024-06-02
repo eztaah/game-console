@@ -58,29 +58,29 @@ typedef struct Vector2u {
 
 
 // ---------- CORE ----------
-void init_game_console(void);
-void set_target_fps(const int16_t fps);
+void e_init_game_console(void);
+void e_set_target_fps(const int16_t fps);
 void mystery_function(void);
 
-void sleep_ms(int16_t duration);
+void e_sleep_ms(int16_t duration);
 
 
 // ---------- RENDERING ----------
-void fill_screen(uint16_t color);
-void draw_rectangle(int16_t old_left, int16_t old_top, int16_t old_right, int16_t old_bottom,
+void e_fill_screen(uint16_t color);
+void e_draw_rectangle(int16_t old_left, int16_t old_top, int16_t old_right, int16_t old_bottom,
                     int16_t new_left, int16_t new_top, int16_t new_right, int16_t new_bottom,
                     int16_t clear_color, int16_t fill_color);
-void draw_fps(int16_t pos_x, int16_t pos_y);
+void e_draw_fps(int16_t pos_x, int16_t pos_y);
 
 // text
-void draw_text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2);
-void draw_const_text(const char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2);
+void e_draw_text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2);
+void e_draw_const_text(const char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2);
 
 
 // ---------- AUDIO ---------- 
-void init_buzzer(void);
+void e_init_buzzer(void);
 void play_impact_sound(void);
-void stop_buzzer(void);
+void _e_stop_buzzer(void);
 
 #endif
 
