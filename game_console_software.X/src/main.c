@@ -23,6 +23,9 @@ void main(void) {
     e_init_game_console();
     e_set_target_fps(20);
     
+    // init font
+    e_set_font(Courier_New_Bold_8);
+    
     e_fill_screen(BLACK);
     e_draw_const_text("PIC18 GAME CONSOLE", 42, 80, BLACK, WHITE);
     play_init_music();

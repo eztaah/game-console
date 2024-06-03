@@ -5,8 +5,8 @@
 
 #include "bit_settings.h"
 #include "ili9341.h"
-#include "font.h"
 #include "engine.h"
+#include "font.h"
 
 
 //                              INTERNALS
@@ -79,7 +79,7 @@ void e_init_game_console(void)
     TFT_Init();
     
     // init font
-    TFT_SetFont(Courier_New_Bold_20, 1);
+    e_set_font(Courier_New_Bold_20);
     
     // Init timer0
     _e_init_timer();
@@ -294,6 +294,27 @@ void e_draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_p
 
     // Draw the new rectangle position
     TFT_Box(new_left, new_top, new_right, new_bottom, color);
+}
+
+//==============================================================================
+// ????
+//==============================================================================
+void e_set_font(Font font)
+{
+    switch (font) {
+        case Courier_New_Bold_8:
+            TFT_SetFont(Courier_New_Bold_8_char, 1);
+            break;
+        case Courier_New_Bold_10:
+            TFT_SetFont(Courier_New_Bold_10_char, 1);
+            break;
+        case Courier_New_Bold_14:
+            TFT_SetFont(Courier_New_Bold_14_char, 1);
+            break;
+        case Courier_New_Bold_20:
+            TFT_SetFont(Courier_New_Bold_20_char, 1);
+            break;
+    }
 }
 
 //==============================================================================

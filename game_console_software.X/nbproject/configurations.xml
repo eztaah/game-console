@@ -7,8 +7,8 @@
       <logicalFolder name="f1" displayName="engine" projectFiles="true">
         <itemPath>src/engine/bit_settings.h</itemPath>
         <itemPath>src/engine/engine.h</itemPath>
-        <itemPath>src/engine/font.h</itemPath>
         <itemPath>src/engine/ili9341.h</itemPath>
+        <itemPath>src/engine/font.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="games" projectFiles="true">
         <itemPath>src/games/pong.h</itemPath>
@@ -335,6 +335,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
         <property key="poweroptions.powerenable" value="true"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/kabay/Documents/github/projet-electronique/game_console_software.X/debug/default/PIC18F46K22 ILI9341_ptg"/>
         <property key="programmerToGoImageName" value="PIC18F46K22 ILI9341_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

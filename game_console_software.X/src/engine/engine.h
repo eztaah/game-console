@@ -16,10 +16,10 @@
 //==============================================================================
 #define SCREEN_WIDTH 320
 #define SCREEN_HEIGHT 240
-
 #define TRUE 1
 #define FALSE 0
 
+// colors
 #define BLACK              0b0000000000000000
 #define BRIGHTBLUE         0b0000000000011111
 #define BRIGHTGREEN        0b0000011111100000
@@ -50,10 +50,7 @@
 #define GRAY5              0b0100001000001000
 #define GRAY6	           0b0010000100000100
 
-
-//==============================================================================
-// STRUCTURES DEFINITIONS
-//==============================================================================
+// vectors
 typedef struct Vector2i {
     int16_t x;
     int16_t y;
@@ -69,9 +66,7 @@ typedef struct Vector2f {
     float y;
 } Vector2f;
 
-//==============================================================================
-// ENUMS
-//==============================================================================
+// buttons
 typedef enum {
     BUTTON_UP,
     BUTTON_DOWN,
@@ -80,7 +75,16 @@ typedef enum {
     BUTTON_A,
     BUTTON_B,
     BUTTON_HOME
-} BUTTON;
+} Button;
+
+// fonts
+typedef enum {
+    Courier_New_Bold_8,
+    Courier_New_Bold_10,
+    Courier_New_Bold_14,
+    Courier_New_Bold_20,
+} Font;
+
 
 //==============================================================================
 // USEFUL FUNCTIONS 
@@ -113,6 +117,7 @@ void e_draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t heigh
 void e_draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_pos_x, int16_t old_pos_y,
                            int16_t width, int16_t height, uint16_t color, uint16_t background_color);   // Only draw the moving part of the rectangle
 // text
+void e_set_font(Font font);
 void e_draw_fps(int16_t pos_x, int16_t pos_y);  // Draw current FPS
 void e_draw_const_text(const char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);   // Draw const text (using chosen font)
 void e_draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);               // Draw text (using chosen font)
