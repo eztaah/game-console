@@ -7,7 +7,7 @@
             "label": "MPLABX Build",
             "type": "mplabx",
             "task": "build",
-            "projectFolder": "${workspaceFolder}/game_console_software.X",
+            "projectFolder": "${workspaceFolder}",
             "args": [
                 "CONF=\"default\"",
             ],
@@ -16,7 +16,7 @@
                     "base": "$xc",
                     "fileLocation": [
                         "relative",
-                        "${workspaceFolder}/game_console_software.X"
+                        "${workspaceFolder}"
                     ],
                 }
             ],
