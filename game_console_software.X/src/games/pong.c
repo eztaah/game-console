@@ -83,13 +83,6 @@ void run_pong_game(void) {
         if (e_is_button_pressed(BUTTON_DOWN) && (player_paddle.position.y + player_paddle.height + player_paddle.speed < SCREEN_HEIGHT)) {
             player_paddle.position.y += player_paddle.speed;
         }
-        // move player_paddle
-        if(e_is_button_pressed(BUTTON_HOME)) {
-            player_paddle.position.x += player_paddle.speed;
-        }
-        if (e_is_button_pressed(BUTTON_LEFT)) {
-            player_paddle.position.x -= player_paddle.speed;
-        }
         
         // move bot_paddle
         if ((ball.position.y > 0) && (ball.position.y < SCREEN_HEIGHT - ball.size - bot_paddle.height)) {

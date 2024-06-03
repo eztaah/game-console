@@ -117,7 +117,7 @@ void e_draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t heigh
 void e_draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_pos_x, int16_t old_pos_y,
                            int16_t width, int16_t height, uint16_t color, uint16_t background_color);   // Only draw the moving part of the rectangle
 // text
-void e_set_font(Font font);
+void e_set_font(int16_t font);
 void e_draw_fps(int16_t pos_x, int16_t pos_y);  // Draw current FPS
 void e_draw_const_text(const char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);   // Draw const text (using chosen font)
 void e_draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);               // Draw text (using chosen font)

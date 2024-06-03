@@ -299,7 +299,7 @@ void e_draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_p
 //==============================================================================
 // ????
 //==============================================================================
-void e_set_font(Font font)
+void e_set_font(int16_t font)
 {
     switch (font) {
         case Courier_New_Bold_8:
