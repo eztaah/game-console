@@ -1,6 +1,7 @@
 dist/
 build/
 debug/
+.vscode/
 
 nbproject/private/
 
