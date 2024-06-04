@@ -1,3 +1,14 @@
-__Previews
-History/
-*.LOG
+# Folders
+**/__Previews
+**/History
+/Project Logs for*
+
+# General reports
+/*.html
+/Project Outputs for*/*.drc
+/Project Outputs for*/*.rep
+/Project Outputs for*/*.html
+/Project Outputs for*/*.txt
+
+
+/*.PrjPcbStructure
