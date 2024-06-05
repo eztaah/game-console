@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=game_console_software.X
+PROJECTNAME=software.X
 
 # Active Configuration
 DEFAULTCONF=default

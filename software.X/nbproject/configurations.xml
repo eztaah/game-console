@@ -246,6 +246,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
         <property key="poweroptions.powerenable" value="true"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/kabay/Documents/github/projet-electronique/game_console_software.X/debug/default/PIC18F46K22 ILI9341_ptg"/>
         <property key="programmerToGoImageName" value="PIC18F46K22 ILI9341_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
