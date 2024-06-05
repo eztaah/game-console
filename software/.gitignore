@@ -27,3 +27,7 @@ disassembly/
 .generated_files/
 
 *.log
+
+# queuelog/
+# defmplabxtrace.log
+# defmplabxtrace.log.inx

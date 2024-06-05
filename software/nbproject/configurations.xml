@@ -29,13 +29,13 @@
         <itemPath>src/games/pong.c</itemPath>
       </logicalFolder>
       <itemPath>src/main.c</itemPath>
+      <itemPath>src/useful_code.txt</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>useful_code.txt</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
