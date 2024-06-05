@@ -1,4 +1,4 @@
-PIC18F46K22           COMPONEMT
+PIC18F46K22           COMPONEMTS
 
 RD0         ->        S-CS
 RD1         ->        S-RST
