@@ -168,7 +168,7 @@ GenerateClassCluster=0
 DocumentUniqueId=UJOOYDLU
 
 [Document8]
-DocumentPath=PCB_Design.OutJob
+DocumentPath=Settings\Output Job Files\PCB_Design.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
