@@ -66,7 +66,7 @@ GenerateClassCluster=0
 DocumentUniqueId=RSHHSOHU
 
 [Document2]
-DocumentPath=Libraries\Compiled Libraries\2478.IntLib
+DocumentPath=Libraries\Compiled Libraries\ILI9341_Display.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -134,23 +134,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document6]
-DocumentPath=Libraries\Schematic Library Documents\ILI9341_schematic.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=GJGWMTAW
-
-[Document7]
 DocumentPath=Source Documents\sheet_template.SchDot
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -167,41 +150,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ATUXSGBO
 
-[Document8]
-DocumentPath=Libraries\Compiled Libraries\1825910-6.IntLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document9]
-DocumentPath=Libraries\PCB Library Documents\SW_1825910-6-4.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document10]
+[Document7]
 DocumentPath=LPKF_ISEN_MAXSIZE_25-05-2020.PCBDOC
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -218,7 +167,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UJOOYDLU
 
-[Document11]
+[Document8]
 DocumentPath=PCB_Design.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -235,8 +184,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document12]
-DocumentPath=Libraries\Compiled Libraries\B3F-4055.IntLib
+[Document9]
+DocumentPath=Libraries\Compiled Libraries\custom_push_button.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -251,10 +200,6 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
-
-[GeneratedDocument1]
-DocumentPath=Project Outputs for PCB_Design\Design Rule Check - LPKF_ISEN_MAXSIZE_25-05-2020.html
-DItemRevisionGUID=
 
 [Configuration1]
 Name=Sources

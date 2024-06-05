@@ -5,10 +5,11 @@
 
 # General reports
 /*.html
-/Project Outputs for*/*.drc
-/Project Outputs for*/*.rep
-/Project Outputs for*/*.html
-/Project Outputs for*/*.txt
+# /Project Outputs for*/*.drc
+# /Project Outputs for*/*.rep
+# /Project Outputs for*/*.html
+# /Project Outputs for*/*.txt
+Project\ Outputs*/
 
 
 /*.PrjPcbStructure
