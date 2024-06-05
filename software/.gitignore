@@ -28,6 +28,7 @@ disassembly/
 
 *.log
 
+# debug/default
 # queuelog/
 # defmplabxtrace.log
 # defmplabxtrace.log.inx
