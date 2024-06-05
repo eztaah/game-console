@@ -151,7 +151,7 @@ GenerateClassCluster=0
 DocumentUniqueId=ATUXSGBO
 
 [Document7]
-DocumentPath=LPKF_ISEN_MAXSIZE_25-05-2020.PCBDOC
+DocumentPath=game_console_pcb.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
