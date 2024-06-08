@@ -22,14 +22,14 @@
 // TFT_SDO  <<<>>> Connect to SDI MCU.
 // LED      <<<>>> 3.3 V (Use a 10-ohm resistor).
 //==============================================================================
-#define TFT_CS             LATDbits.LATD0
-#define TRIS_CS            TRISDbits.TRISD0
+#define TFT_CS             LATAbits.LATA3
+#define TRIS_CS            TRISAbits.TRISA3
 
-#define TFT_RES            LATDbits.LATD1
-#define TRIS_RES           TRISDbits.TRISD1
+#define TFT_RES            LATAbits.LATA1
+#define TRIS_RES           TRISAbits.TRISA1
 
-#define TFT_DC             LATDbits.LATD2
-#define TRIS_DC            TRISDbits.TRISD2
+#define TFT_DC             LATAbits.LATA2
+#define TRIS_DC            TRISAbits.TRISA2
 
 //==============================================================================
 // These are the defines to select the memory access control.
@@ -52,7 +52,7 @@
 #define TRIS_SCK1   TRISCbits.TRISC3         
 #define TRIS_SDO1   TRISCbits.TRISC5
 #define TRIS_SDI1   TRISCbits.TRISC4
-#define TRIS_SS1    TRISAbits.TRISA5
+//#define TRIS_SS1    TRISAbits.TRISA5
 void SPI1_Init(void);
 void SPI1_Close(void);
 void SPI1_Write(unsigned char data);

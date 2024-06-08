@@ -24,6 +24,7 @@ void _e_init_timer(void);
 void _e_start_timer(void);
 int16_t _e_get_timer_value(void);
 void _e_stop_buzzer(void);
+void _e_init_buttons(void);
 
 //==============================================================================
 // This function is the interrupt service routine for TIMER0 overflows.
@@ -88,23 +89,7 @@ void e_init_game_console(void)
     e_init_buzzer();
     
     // Init buttons
-    TRISAbits.TRISA4 = 1;   // Configurer TRISA4 comme une entr�e (bouton)
-    TRISBbits.TRISB0 = 1;   // Configurer TRISB0 comme une entr�e (bouton)
-    TRISBbits.TRISB1 = 1;   // Configurer TRISB0 comme une entr�e (bouton)
-    TRISBbits.TRISB2 = 1;   // Configurer TRISA4 comme une entr�e (bouton)
-    TRISBbits.TRISB3 = 1;   // Configurer TRISB0 comme une entr�e (bouton)
-    TRISBbits.TRISB4 = 1;   // Configurer TRISA4 comme une entr�e (bouton)
-    TRISBbits.TRISB5 = 1;   // Configurer TRISB0 comme une entr�e (bouton)
-    TRISBbits.TRISB6 = 1;   // Configurer TRISA4 comme une entr�e (bouton)
-    // mettre les boutons � 0
-    PORTAbits.RA4 = 0;
-    PORTBbits.RB0 = 0;
-    PORTBbits.RB1 = 0;
-    PORTBbits.RB2 = 0;
-    PORTBbits.RB3 = 0;
-    PORTBbits.RB4 = 0;
-    PORTBbits.RB5 = 0;
-    PORTBbits.RB6 = 0;
+    _e_init_buttons();
 }
 
 //==============================================================================
@@ -518,3 +503,29 @@ void _e_stop_buzzer(void)
     CCPR2L = 0;
 }
 
+//==============================================================================
+// 
+//==============================================================================
+void _e_init_buttons(void)
+{
+    TRISAbits.TRISA4 = 1;   // LEFT
+    PORTAbits.RA4 = 0;
+    
+    TRISAbits.TRISA5 = 1;   // UP
+    PORTAbits.RA5 = 0;
+    
+    TRISAbits.TRISA7 = 1;   // RIGHT
+    PORTAbits.RA7 = 0;
+    
+    TRISAbits.TRISA6 = 1;   // LEFT
+    PORTAbits.RA6 = 0;
+    
+    TRISBbits.TRISB0 = 1;   // A
+    PORTBbits.RB0 = 0;
+    
+    TRISDbits.TRISD5 = 1;   // B
+    PORTDbits.RD5 = 0;
+    
+    TRISDbits.TRISD2 = 1;   // HOME
+    PORTDbits.RD2 = 0;   
+}
