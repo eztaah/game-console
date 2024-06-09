@@ -1,16 +1,35 @@
 /*
- * File:   ili9341.c
- * Author: 
- * 
- * Graphical display TFT 240x320. 
- * Driver ILI9341.
- * Interface: SPI.
- * Version 2.0
+ * File:   rendering.c
+ * Author: eztaah, MatteoPerez, MokhmadGUIRIEV and 21KEBY
  */
-#include <xc.h>
-#include "ili9341.h"
 
-#include "engine.h"
+#include "../engine.h"
+#include "internal.h"
+#include "font.h"
+
+
+#define TFT_CS             LATAbits.LATA3
+#define TRIS_CS            TRISAbits.TRISA3
+#define TFT_RES            LATAbits.LATA1
+#define TRIS_RES           TRISAbits.TRISA1
+#define TFT_DC             LATAbits.LATA2
+#define TRIS_DC            TRISAbits.TRISA2
+#define TFT_BL             LATEbits.LATE0
+#define TRIS_BL            TRISEbits.TRISE0
+
+#define TFT_VERTICAL       0x88
+#define TFT_HORIZONTAL     0xE8
+#define TFT_VERTICAL_BMP   0x08
+
+#define TFT_W 320
+#define TFT_H 240
+
+// SPI
+#define TRIS_SCK1   TRISCbits.TRISC3         
+#define TRIS_SDO1   TRISCbits.TRISC5
+#define TRIS_SDI1   TRISCbits.TRISC4
+//#define TRIS_SS1    TRISAbits.TRISA5
+
 
 //==============================================================================
 // Declaration of global variables.
@@ -18,10 +37,16 @@
 const unsigned char *font, *font2;
 unsigned char width, height, letter_spacing, dot_size = 0, frame_memory = TFT_VERTICAL; 
 uint16_t tft_x = TFT_W - 1;
+
+char last_frame_duration_text[30] = {0};
+char fps_text[30] = {0};
+
+
+
+
 //==============================================================================
-// This function initializes the driver ILI9341.
+// SPI FUNCTIONS
 //==============================================================================
-// SPI
 void SPI1_Init(void){
     TRIS_SCK1 = 0; 
     TRIS_SDO1 = 0; 
@@ -49,14 +74,17 @@ unsigned char SPI1_Read(void){
 }
 
 
+
 // SCREEN
 void TFT_Init(void) {
     TRIS_CS = 0; 
     TRIS_DC = 0; 
     TRIS_RES = 0;
+    TRIS_BL = 0;
     TFT_CS = 1; 
     TFT_DC = 0; 
     TFT_RES = 0;
+    TFT_BL = 0b11111111;
 
     TFT_Reset();
     TFT_WriteCommand(0xCB);   // Power control A (CBh)
@@ -447,3 +475,191 @@ void TFT_Text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t co
     } 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//                             INTERNAL FUNCTIONS
+//==============================================================================
+// This function fills the entire TFT screen with a single color.
+// color: The color to fill the screen with.
+//==============================================================================
+void _e_init_screen(void)
+{
+    OSCCON = 0b01110000;
+    OSCTUNEbits.PLLEN = 1; // turn on the PLL 64 MHz
+    ANSELA = 0; 
+    ANSELB = 0; 
+    ANSELC = 0; 
+    ANSELD = 0; 
+    ANSELE = 0;
+    PORTA  = 0; 
+    PORTB  = 0; 
+    PORTC  = 0; 
+    PORTD  = 0; 
+    PORTE  = 0;
+    TRISA  = 0; 
+    TRISB  = 0; 
+    TRISC  = 0; 
+    TRISD  = 0; 
+    TRISE  = 0;
+    SPI1_Close();
+    SPI1_Init();
+    TFT_Init();
+}
+
+
+//                              RENDERING
+//==============================================================================
+// This function fills the entire TFT screen with a single color.
+// color: The color to fill the screen with.
+//==============================================================================
+void e_fill_screen(uint16_t color)
+{
+    TFT_FillScreen(color);
+}
+
+//==============================================================================
+// This function draws a rectangle on the TFT display.
+// pos_x: The x-coordinate of the top-left corner of the rectangle.
+// pos_y: The y-coordinate of the top-left corner of the rectangle.
+// width: The width of the rectangle.
+// height: The height of the rectangle.
+// color: The color of the rectangle.
+//==============================================================================
+void e_draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t height, uint16_t color)
+{
+    uint16_t x1 = e_safe_convert(pos_x, "1");
+    uint16_t y1 = e_safe_convert(pos_y, "2");
+    uint16_t x2 = e_safe_convert(pos_x + width, "3");
+    uint16_t y2 = e_safe_convert(pos_y + height, "4");
+
+    TFT_Box(x1, y1, x2, y2, color);
+}
+
+//==============================================================================
+// This function updates the position of a rectangle on the TFT display, clearing the old position.
+// new_pos_x: The new x-coordinate of the rectangle.
+// new_pos_y: The new y-coordinate of the rectangle.
+// old_pos_x: The old x-coordinate of the rectangle.
+// old_pos_y: The old y-coordinate of the rectangle.
+// width: The width of the rectangle.
+// height: The height of the rectangle.
+// color: The color of the rectangle.
+// background_color: The background color to fill the old rectangle area.
+//==============================================================================
+void e_draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_pos_x, int16_t old_pos_y,
+                           int16_t width, int16_t height, uint16_t color, uint16_t background_color) 
+{
+    // Calculate the old and new rectangle boundaries
+    uint16_t old_left = e_safe_convert(old_pos_x, "1");
+    uint16_t old_top = e_safe_convert(old_pos_y, "2");
+    uint16_t old_right = e_safe_convert(old_pos_x + width - 1, "3");
+    uint16_t old_bottom = e_safe_convert(old_pos_y + height - 1, "4");
+
+    uint16_t new_left = e_safe_convert(new_pos_x, "5");
+    uint16_t new_top = e_safe_convert(new_pos_y, "6");
+    uint16_t new_right = e_safe_convert(new_pos_x + width - 1, "7");
+    uint16_t new_bottom = e_safe_convert(new_pos_y + height - 1, "8");
+
+    // Clear the regions not overlapped
+    // Clear left strip
+    if (new_left > old_left) {
+        TFT_Box(old_left, old_top, new_left - 1, old_bottom, background_color);
+    }
+    // Clear right strip
+    if (new_right < old_right) {
+        TFT_Box(new_right + 1, old_top, old_right, old_bottom, background_color);
+    }
+    // Clear top strip
+    if (new_top > old_top) {
+        TFT_Box(old_left, old_top, old_right, new_top - 1, background_color);
+    }
+    // Clear bottom strip
+    if (new_bottom < old_bottom) {
+        TFT_Box(old_left, new_bottom + 1, old_right, old_bottom, background_color);
+    }
+
+    // Draw the new rectangle position
+    TFT_Box(new_left, new_top, new_right, new_bottom, color);
+}
+
+//==============================================================================
+// ????
+//==============================================================================
+void e_set_font(int16_t font)
+{
+    switch (font) {
+        case Courier_New_Bold_8:
+            TFT_SetFont(Courier_New_Bold_8_char, 1);
+            break;
+        case Courier_New_Bold_10:
+            TFT_SetFont(Courier_New_Bold_10_char, 1);
+            break;
+        case Courier_New_Bold_14:
+            TFT_SetFont(Courier_New_Bold_14_char, 1);
+            break;
+        case Courier_New_Bold_20:
+            TFT_SetFont(Courier_New_Bold_20_char, 1);
+            break;
+    }
+}
+
+//==============================================================================
+// This function displays the current frame rate and duration of the last frame on the TFT display.
+// pos_x: The x-coordinate for text placement.
+// pos_y: The y-coordinate for text placement.
+//==============================================================================
+void e_draw_fps(int16_t pos_x, int16_t pos_y)
+{
+    sprintf(last_frame_duration_text, "dt: %d", last_frame_duration);
+    sprintf(fps_text, "fps: %d", (uint16_t)((1.f/last_frame_duration)*1000));
+    
+    e_draw_text(last_frame_duration_text, pos_x, pos_y, GREEN, BLACK);
+    e_draw_text(fps_text, pos_x, pos_y + 30, GREEN, BLACK);
+}
+
+//==============================================================================
+// This function displays constant text at a specified position on the TFT display.
+// text: The text to display.
+// x: The x-coordinate for text placement.
+// y: The y-coordinate for text placement.
+// color1: The foreground color of the text.
+// color2: The background color behind the text.
+//==============================================================================
+void e_draw_const_text(const char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2)
+{
+    //  void TFT_Text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
+    uint16_t x1 = e_safe_convert(x, "67");
+    uint16_t y1 = e_safe_convert(y, "68");
+    TFT_ConstText(text, x1, y1, color1, color2);
+}
+
+//==============================================================================
+// This function displays variable text at a specified position on the TFT display.
+// text: The text to display.
+// x: The x-coordinate for text placement.
+// y: The y-coordinate for text placement.
+// color1: The foreground color of the text.
+// color2: The background color behind the text.
+//==============================================================================
+void e_draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2)
+{
+    //  void TFT_Text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
+    uint16_t x1 = e_safe_convert(x, "67");
+    uint16_t y1 = e_safe_convert(y, "68");
+    TFT_Text(text, x1, y1, color1, color2);
+}

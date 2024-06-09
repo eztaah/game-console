@@ -104,12 +104,19 @@ void    e_set_target_fps(const int16_t fps);    // Set target FPS (maximum)
 void    e_sleep_ms(int16_t duration);           // Wait for X ms
 void    e_sleep_us(int16_t duration);           // Wait for X us
 float   e_get_frame_time(void);                 // Get time in seconds for last frame drawn
-// buttons
+
+//void    e_set_backlight()
+//void    e_reduce_backlight(void);
+
+
+//==============================================================================
+// INPUT MANAGEMENT FUNCTIONS  (inputs.c)
+//==============================================================================
 int16_t e_is_button_pressed(int16_t button);    // Check if a button is being pressed
 
 
 //==============================================================================
-// RENDERING FUNCTIONS 
+// RENDERING FUNCTIONS  (rendering.c)
 //==============================================================================
 void e_fill_screen(uint16_t color);             // Fill the screen with a specific color
 //shape
@@ -124,9 +131,8 @@ void e_draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t col
 
 
 //==============================================================================
-// AUDIO FUNCTIONS 
+// AUDIO FUNCTIONS   (audio.c)
 //==============================================================================
-void e_init_buzzer(void);                 // Initialize the buzzer with PWM settings and turn it off
 void e_play_A3(int16_t duration);         // Play note A3 (La 3) for specified duration in ms
 void e_play_B3(int16_t duration);         // Play note B3 (Si 3) for specified duration in ms
 void e_play_C4(int16_t duration);         // Play note C4 (Do 4) for specified duration in ms

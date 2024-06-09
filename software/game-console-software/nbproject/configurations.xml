@@ -4,15 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <logicalFolder name="f1" displayName="engine" projectFiles="true">
-        <itemPath>src/engine/bit_settings.h</itemPath>
-        <itemPath>src/engine/engine.h</itemPath>
-        <itemPath>src/engine/ili9341.h</itemPath>
-        <itemPath>src/engine/font.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f2" displayName="games" projectFiles="true">
-        <itemPath>src/games/pong.h</itemPath>
-      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,15 +12,22 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="f1" displayName="engine" projectFiles="true">
-        <itemPath>src/engine/ili9341.c</itemPath>
-        <itemPath>src/engine/engine.c</itemPath>
+      <logicalFolder name="f1" displayName="engine_internals" projectFiles="true">
+        <itemPath>src/engine_internals/bit_settings.h</itemPath>
+        <itemPath>src/engine_internals/font.h</itemPath>
+        <itemPath>src/engine_internals/audio.c</itemPath>
+        <itemPath>src/engine_internals/inputs.c</itemPath>
+        <itemPath>src/engine_internals/redering.c</itemPath>
+        <itemPath>src/engine_internals/core.c</itemPath>
+        <itemPath>src/engine_internals/internal.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="games" projectFiles="true">
         <itemPath>src/games/pong.c</itemPath>
+        <itemPath>src/games/pong.h</itemPath>
       </logicalFolder>
       <itemPath>src/main.c</itemPath>
       <itemPath>src/useful_code.txt</itemPath>
+      <itemPath>src/engine.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -277,7 +275,7 @@
                   value="toolpack.updateoptions.uselatestoolpack"/>
         <property key="toolpack.updateoptions.packversion"
                   value="Press to select which tool pack to use"/>
-        <property key="voltagevalue" value="5"/>
+        <property key="voltagevalue" value="3.3"/>
       </Tool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
@@ -337,8 +335,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
         <property key="poweroptions.powerenable" value="true"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Users/kabay/Documents/github/projet-electronique/game_console_software.X/debug/default/PIC18F46K22 ILI9341_ptg"/>
         <property key="programmerToGoImageName" value="PIC18F46K22 ILI9341_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -367,7 +363,7 @@
                   value="toolpack.updateoptions.uselatestoolpack"/>
         <property key="toolpack.updateoptions.packversion"
                   value="Press to select which tool pack to use"/>
-        <property key="voltagevalue" value="5"/>
+        <property key="voltagevalue" value="3.3"/>
       </pk4hybrid>
     </conf>
   </confs>

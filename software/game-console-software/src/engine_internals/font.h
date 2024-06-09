@@ -2,7 +2,7 @@
 #define FONT_H
 
 #include <xc.h>
-#include "engine.h"
+#include "../engine.h"
 
 const unsigned char Courier_New_Bold_8_char[] = {
    0x00,
