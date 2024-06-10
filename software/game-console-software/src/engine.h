@@ -105,6 +105,8 @@ void    e_sleep_ms(int16_t duration);           // Wait for X ms
 void    e_sleep_us(int16_t duration);           // Wait for X us
 float   e_get_frame_time(void);                 // Get time in seconds for last frame drawn
 
+void    e_generate_rd_nb(int x, int y);         // Generate random number
+
 //void    e_set_backlight()
 //void    e_reduce_backlight(void);
 

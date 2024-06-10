@@ -188,7 +188,12 @@ float e_get_frame_time(void)
     return (float)last_frame_duration / 1000;
 }
 
-
-
-
-
+//==============================================================================
+// This function returns a random number between x and y.
+//==============================================================================
+float e_generate_rd_nb(int x, int y)
+{
+    int seed = _e_get_timer_value();
+    srand(seed);
+    return x + rand() % (y - x + 1);
+}
