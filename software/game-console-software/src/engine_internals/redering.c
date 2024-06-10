@@ -8,12 +8,15 @@
 #include "font.h"
 
 
-#define TFT_CS             LATAbits.LATA3
-#define TRIS_CS            TRISAbits.TRISA3
-#define TFT_RES            LATAbits.LATA1
-#define TRIS_RES           TRISAbits.TRISA1
-#define TFT_DC             LATAbits.LATA2
-#define TRIS_DC            TRISAbits.TRISA2
+#define TFT_CS             LATAbits.LATA1
+#define TRIS_CS            TRISAbits.TRISA1
+
+#define TFT_RES            LATAbits.LATA2
+#define TRIS_RES           TRISAbits.TRISA2
+
+#define TFT_DC             LATAbits.LATA3
+#define TRIS_DC            TRISAbits.TRISA3
+
 #define TFT_BL             LATEbits.LATE0
 #define TRIS_BL            TRISEbits.TRISE0
 
