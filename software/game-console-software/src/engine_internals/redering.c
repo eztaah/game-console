@@ -84,7 +84,7 @@ void TFT_Init(void) {
     TFT_CS = 1; 
     TFT_DC = 0; 
     TFT_RES = 0;
-    TFT_BL = 0b11111111;
+    TFT_BL = 1;
 
     TFT_Reset();
     TFT_WriteCommand(0xCB);   // Power control A (CBh)

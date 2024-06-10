@@ -24,6 +24,8 @@
       <logicalFolder name="f2" displayName="games" projectFiles="true">
         <itemPath>src/games/pong.c</itemPath>
         <itemPath>src/games/pong.h</itemPath>
+        <itemPath>src/games/tetris.h</itemPath>
+        <itemPath>src/games/tetris.c</itemPath>
       </logicalFolder>
       <itemPath>src/main.c</itemPath>
       <itemPath>src/useful_code.txt</itemPath>
