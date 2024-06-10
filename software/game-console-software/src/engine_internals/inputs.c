@@ -7,48 +7,48 @@
 #include "internal.h"
 
 
-//#define TRIS_B_UP           TRISAbits.TRISA5
-//#define B_UP                PORTAbits.RA5
+#define TRIS_B_UP           TRISAbits.TRISA5
+#define B_UP                PORTAbits.RA5
+
+#define TRIS_B_DOWN         TRISEbits.TRISE2
+#define B_DOWN              PORTEbits.RE2
+
+#define TRIS_B_RIGHT        TRISAbits.TRISA7
+#define B_RIGHT             PORTAbits.RA7
+
+#define TRIS_B_LEFT         TRISAbits.TRISA4
+#define B_LEFT              PORTAbits.RA4
+
+#define TRIS_B_A            TRISBbits.TRISB0
+#define B_A                 PORTBbits.RB0
+
+#define TRIS_B_B            TRISDbits.TRISD5
+#define B_B                 PORTDbits.RD5
+
+#define TRIS_B_HOME         TRISDbits.TRISD2
+#define B_HOME              PORTDbits.RD2
+
+
+//#define TRIS_B_UP           TRISBbits.TRISB0
+//#define B_UP                PORTBbits.RB0
 //
-//#define TRIS_B_DOWN         TRISEbits.TRISE2
-//#define B_DOWN              PORTEbits.RE2
+//#define TRIS_B_DOWN         TRISDbits.TRISD2
+//#define B_DOWN              PORTDbits.RD2
 //
-//#define TRIS_B_RIGHT        TRISAbits.TRISA7
-//#define B_RIGHT             PORTAbits.RA7
+//#define TRIS_B_RIGHT        TRISBbits.TRISB2
+//#define B_RIGHT             PORTBbits.RB2
 //
-//#define TRIS_B_LEFT         TRISAbits.TRISA4
-//#define B_LEFT              PORTAbits.RA4
+//#define TRIS_B_LEFT         TRISBbits.TRISB3
+//#define B_LEFT              PORTBbits.RB3
 //
-//#define TRIS_B_A            TRISBbits.TRISB0
-//#define B_A                 PORTBbits.RB0
+//#define TRIS_B_A            TRISBbits.TRISB4
+//#define B_A                 PORTBbits.RB4
 //
-//#define TRIS_B_B            TRISDbits.TRISD5
-//#define B_B                 PORTDbits.RD5
+//#define TRIS_B_B            TRISBbits.TRISB5
+//#define B_B                 PORTBbits.RB5
 //
-//#define TRIS_B_HOME         TRISDbits.TRISD2
-//#define B_HOME              PORTDbits.RD2
-
-
-#define TRIS_B_UP           TRISBbits.TRISB0
-#define B_UP                PORTBbits.RB0
-
-#define TRIS_B_DOWN         TRISDbits.TRISD2
-#define B_DOWN              PORTDbits.RD2
-
-#define TRIS_B_RIGHT        TRISBbits.TRISB2
-#define B_RIGHT             PORTBbits.RB2
-
-#define TRIS_B_LEFT         TRISBbits.TRISB3
-#define B_LEFT              PORTBbits.RB3
-
-#define TRIS_B_A            TRISBbits.TRISB4
-#define B_A                 PORTBbits.RB4
-
-#define TRIS_B_B            TRISBbits.TRISB5
-#define B_B                 PORTBbits.RB5
-
-#define TRIS_B_HOME         TRISAbits.TRISA4
-#define B_HOME              PORTAbits.RA4
+//#define TRIS_B_HOME         TRISAbits.TRISA4
+//#define B_HOME              PORTAbits.RA4
 
 
 
