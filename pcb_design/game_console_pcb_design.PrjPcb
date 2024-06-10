@@ -1326,7 +1326,7 @@ ComparisonOptions5=Kind=Structure Class|MinPercent=75|MinMatch=3|ShowMatch=0|Use
 [SmartPDF]
 PageOptions=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 Configuration_Name1=OutputConfigurationParameter1
-Configuration_Item1=DesignatorDisplayMode=Physical|PrintArea=SpecificArea|PrintAreaLowerLeftCornerX=60269680|PrintAreaLowerLeftCornerY=40763780|PrintAreaUpperRightCornerX=101269690|PrintAreaUpperRightCornerY=100263780|Record=PcbPrintView|DocumentPath=C:\Users\kabay\Documents\github\pic18-game-console\pcb_design\Source Documents\game_console_pcb.PcbDoc
+Configuration_Item1=DesignatorDisplayMode=Physical|PrintArea=SpecificArea|PrintAreaLowerLeftCornerX=60269685|PrintAreaLowerLeftCornerY=40763780|PrintAreaUpperRightCornerX=101269685|PrintAreaUpperRightCornerY=100263780|Record=PcbPrintView|DocumentPath=C:\Users\kabay\Documents\github\pic18-game-console\pcb_design\Source Documents\game_console_pcb.PcbDoc
 Configuration_Name2=OutputConfigurationParameter2
 Configuration_Item2=IncludeBoardCutouts=False|IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|IncludeViewports=False|Index=0|Mirror=False|Name=Multilayer Composite Print|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=False|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False|DocumentPath=C:\Users\kabay\Documents\github\pic18-game-console\pcb_design\Source Documents\game_console_pcb.PcbDoc
 Configuration_Name3=OutputConfigurationParameter3
