@@ -480,6 +480,28 @@ void TFT_Text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t co
 
 
 
+//==============================================================================
+// This function draws a image on a desired location.
+// x: x position. 
+// y: y position. 
+// width: width of the image in pixels.
+// height: height of the image in pixels.
+//==============================================================================
+void TFT_Icon(const uint16_t *buffer, uint16_t x, uint16_t y, unsigned char width_, unsigned char height_)
+{
+    uint16_t i, j;    
+    TFT_ColumnPage(x, x + (width_ - 1), y, y + (height_ - 1));
+    TFT_CS = 0; 
+    TFT_DC = 1;
+    for(i = 0; i < height_; i++) {
+        for(j = 0; j < width_; j++) {
+            SPI1_Write(*buffer >> 8);
+            SPI1_Write(*buffer & 0xFF);    
+            buffer++;
+        }
+    }
+    TFT_CS = 1;
+}
 
 
 
@@ -666,3 +688,15 @@ void e_draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t col
     uint16_t y1 = e_safe_convert(y, "68");
     TFT_Text(text, x1, y1, color1, color2);
 }
+
+//==============================================================================
+// 
+//==============================================================================
+void e_draw_icon(const uint16_t *buffer, int16_t x, int16_t y, unsigned char width, unsigned char height)
+{
+    uint16_t x1 = e_safe_convert(x, "70");
+    uint16_t y1 = e_safe_convert(y, "71");
+    
+    TFT_Icon(buffer, x1, y1, width, height);
+}
+

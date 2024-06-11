@@ -1,0 +1,9 @@
+C:\Users\Hector\Desktop\TFT Bitmap Editor\TFT Bitmap Editor\bin\Debug\TFT Bitmap Editor.exe.config
+C:\Users\Hector\Desktop\TFT Bitmap Editor\TFT Bitmap Editor\bin\Debug\TFT Bitmap Editor.exe
+C:\Users\Hector\Desktop\TFT Bitmap Editor\TFT Bitmap Editor\bin\Debug\TFT Bitmap Editor.pdb
+C:\Users\Hector\Desktop\TFT Bitmap Editor\TFT Bitmap Editor\obj\Debug\TFT Bitmap Editor.csprojResolveAssemblyReference.cache
+C:\Users\Hector\Desktop\TFT Bitmap Editor\TFT Bitmap Editor\obj\Debug\TFT_Bitmap_Editor.Form1.resources
+C:\Users\Hector\Desktop\TFT Bitmap Editor\TFT Bitmap Editor\obj\Debug\TFT_Bitmap_Editor.Properties.Resources.resources
+C:\Users\Hector\Desktop\TFT Bitmap Editor\TFT Bitmap Editor\obj\Debug\TFT Bitmap Editor.csproj.GenerateResource.Cache
+C:\Users\Hector\Desktop\TFT Bitmap Editor\TFT Bitmap Editor\obj\Debug\TFT Bitmap Editor.exe
+C:\Users\Hector\Desktop\TFT Bitmap Editor\TFT Bitmap Editor\obj\Debug\TFT Bitmap Editor.pdb
