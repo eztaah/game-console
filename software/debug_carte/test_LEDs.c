@@ -8,16 +8,20 @@
 #include "engine.h"
 
 void main(void) {
-    TRISBbits.TRISB3 = 0;
-    TRISBbits.TRISB4 = 0;
-    TRISBbits.TRISB5 = 0;
-    LATBbits.LATB3 = 0;
-    LATBbits.LATB4 = 0;
-    LATBbits.LATB5 = 0;
-    // Toutes les LEDs s'allument
+    e_init_game_console();
+    // Les LEDs clignotent à tour de rôle
     while(1){
+        LATBbits.LATB5 = 0;
+        LATBbits.LATB2 = 1;
+        e_sleep_ms(1000);
+        LATBbits.LATB2 = 0;
         LATBbits.LATB3 = 1;
+        e_sleep_ms(1000);
+        LATBbits.LATB3 = 0;
         LATBbits.LATB4 = 1;
+        e_sleep_ms(1000);
+        LATBbits.LATB4 = 0;
         LATBbits.LATB5 = 1;
+        e_sleep_ms(1000);
     }
 }

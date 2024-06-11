@@ -108,6 +108,9 @@ void e_init_game_console(void)
     
     // Init buttons
     _e_init_buttons();
+    
+    //Init LEDs
+    _e_init_LEDs();
 }
 
 //==============================================================================
@@ -196,4 +199,18 @@ int16_t e_generate_rd_nb(int16_t min, int16_t max)
     int seed = _e_get_timer_value();
     srand(seed);
     return min + rand() % (max - min + 1);
+}
+
+//==============================================================================
+// This function initiates the LEDs ports as output and turn the LEDs off.
+//==============================================================================
+void _e_init_LEDs(void){
+    TRISBbits.TRISB2 = 0;
+    TRISBbits.TRISB3 = 0;
+    TRISBbits.TRISB4 = 0;
+    TRISBbits.TRISB5 = 0;
+    LATBbits.LATB2 = 0;
+    LATBbits.LATB3 = 0;
+    LATBbits.LATB4 = 0;
+    LATBbits.LATB5 = 0;
 }

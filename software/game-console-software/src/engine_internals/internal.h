@@ -19,7 +19,7 @@ void _e_stop_buzzer(void);
 // inputs.c
 void _e_init_buttons(void);
 
-
+void _e_init_LEDs(void);
 
 
 // TFT functions 

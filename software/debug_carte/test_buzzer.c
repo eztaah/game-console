@@ -8,7 +8,7 @@
 #include "engine.h"
 
 void main(void) {
-    _e_init_buzzer(void);
+    e_init_game_console();
     while(1){
         e_play_A_4(500);
         e_play_D4(250);
