@@ -29,11 +29,18 @@ typedef struct {
     BlockType board[BOARD_HEIGHT][BOARD_WIDTH];
     Tetromino current;
     Tetromino previous;
+    Tetromino next;
+    int is_over;
+    int score;
 } TetrisGame;
+
+
+
 
 void init_game(TetrisGame *game);
 void update_game(TetrisGame *game);
 void draw_game(TetrisGame *game);
+void draw_next_piece(const Tetromino *piece, int offsetX, int offsetY);
 
 Tetromino get_random_piece(void);
 int is_valid_position(TetrisGame *game, Tetromino *piece);
@@ -47,5 +54,6 @@ void check_lines(TetrisGame *game);
 void clear_line(TetrisGame *game, int line);
 
 int run_tetris_game(void);
+int is_game_over(TetrisGame *game);
 
 #endif // TETRIS_H

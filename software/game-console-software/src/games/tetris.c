@@ -2,6 +2,8 @@
 #include "../engine.h"
 #include <stdlib.h> // Pour rand()
 
+int update_next_piece_display;
+
 Tetromino get_random_piece(void) {
     Tetromino piece;
     int random = rand() % 7; // Génère un nombre entre 0 et 6
@@ -68,6 +70,9 @@ void init_game(TetrisGame *game) {
             game->board[y][x] = EMPTY;
         }
     }
+    
+    // Réinitialiser le score
+    game->score = 0;
 
     // Dessiner l'arrière-plan de la surface de jeu en noir
     for (int y = 0; y < BOARD_HEIGHT; y++) {
@@ -77,18 +82,6 @@ void init_game(TetrisGame *game) {
     }
 
     // Dessiner le fond autour de la zone de jeu en blanc
-    // Dessiner au-dessus de la zone de jeu
-    for (int x = 0; x < SCREEN_WIDTH; x++) {
-        for (int y = 0; y < OFFSET_Y; y++) {
-            e_draw_rectangle(x, y, 1, 1, WHITE);
-        }
-    }
-    // Dessiner en dessous de la zone de jeu
-    for (int x = 0; x < SCREEN_WIDTH; x++) {
-        for (int y = OFFSET_Y + BOARD_HEIGHT * BLOCK_SIZE; y < SCREEN_HEIGHT; y++) {
-            e_draw_rectangle(x, y, 1, 1, WHITE);
-        }
-    }
     // Dessiner à gauche de la zone de jeu
     for (int y = OFFSET_Y; y < OFFSET_Y + BOARD_HEIGHT * BLOCK_SIZE; y++) {
         for (int x = 0; x < OFFSET_X; x++) {
@@ -102,8 +95,10 @@ void init_game(TetrisGame *game) {
         }
     }
 
-    // Initialiser la première pièce
+    // Initialiser la première pièce, la pièce précedente et la pièce prochaine
     game->current = get_random_piece();
+    game->next = get_random_piece();
+    update_next_piece_display = 1;
     game->previous = game->current;
 }
 
@@ -157,6 +152,9 @@ void clear_line(TetrisGame *game, int line) {
         game->board[0][x] = EMPTY;
         e_draw_rectangle(OFFSET_X + x * BLOCK_SIZE, OFFSET_Y, BLOCK_SIZE, BLOCK_SIZE, BLACK);
     }
+    
+    // Mettre à jour le score pour chaque ligne effacée
+    game->score += 1;  // Augmente de 1 pour chaque ligne complète
 }
 
 
@@ -177,31 +175,31 @@ void check_lines(TetrisGame *game) {
 }
 
 void update_game(TetrisGame *game) {
-    // Copier la pièce actuelle dans l'ancienne position
     game->previous = game->current;
 
-    // Faire tomber la pièce d'une ligne
     for (int i = 0; i < 4; i++) {
         game->current.blocks[i].y += 1;
     }
 
-    // Si la nouvelle position n'est pas valide, restaurer l'ancienne position
     if (!is_valid_position(game, &game->current)) {
         for (int i = 0; i < 4; i++) {
             game->current.blocks[i].y -= 1;
         }
-        
-        // Fixer la pièce sur le plateau
         for (int i = 0; i < 4; i++) {
             Point p = game->current.blocks[i];
             game->board[p.y][p.x] = game->current.type;
         }
 
-        // Vérifier les lignes complètes
         check_lines(game);
 
-        // Générer une nouvelle pièce
-        game->current = get_random_piece();
+        game->current = game->next;        // La pièce actuelle devient la pièce suivante
+        game->next = get_random_piece();   // Générer une nouvelle pièce suivante
+        update_next_piece_display = 1;
+        
+        // Vérifier le game over après la génération d'une nouvelle pièce
+        if (is_game_over(game)) {
+            game->is_over = 1; // Définir l'état de game over
+        }
     }
 }
 
@@ -230,6 +228,32 @@ void draw_game(TetrisGame *game) {
                 e_draw_rectangle(OFFSET_X + x * BLOCK_SIZE, OFFSET_Y + y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE, BRIGHTBLUE);
             }
         }
+    }
+
+    // Afficher le score
+    char score_text[20];
+    sprintf(score_text, "Score: %d", game->score);
+    e_set_font(Courier_New_Bold_10);
+    e_draw_text(score_text, OFFSET_X + BOARD_WIDTH * BLOCK_SIZE + 10, 20, WHITE, BLACK);
+    
+    if (update_next_piece_display) {
+        // Effacer l'ancienne pièce suivante
+        e_draw_rectangle(OFFSET_X + BOARD_WIDTH * BLOCK_SIZE + 10, 50, 50, 50, BLACK);
+
+        // Afficher la pièce suivante
+        char next_text[] = "Next Piece:";
+        e_set_font(Courier_New_Bold_10);
+        e_draw_text(next_text, OFFSET_X + BOARD_WIDTH * BLOCK_SIZE + 10, 40, WHITE, BLACK);
+        draw_next_piece(&game->next, OFFSET_X + BOARD_WIDTH * BLOCK_SIZE + 10, 60);
+        update_next_piece_display = 0;
+    }
+}
+
+void draw_next_piece(const Tetromino *piece, int offsetX, int offsetY) {
+    for (int i = 0; i < 4; i++) {
+        Point p = piece->blocks[i];
+        // Dessinez chaque bloc de la pièce suivante, ajusté selon le besoin
+        e_draw_rectangle(offsetX + (p.x - 4) * 10 + 10, offsetY + p.y * 10, 10, 10, BRIGHTRED);
     }
 }
 
@@ -332,34 +356,60 @@ void move_piece_down(TetrisGame *game) {
     draw_piece(&game->current, BRIGHTRED);
 }
 
+int is_game_over(TetrisGame *game) {
+    for (int i = 0; i < 4; i++) {
+        Point p = game->current.blocks[i];
+        if (game->board[p.y][p.x] != EMPTY) {
+            return 1; // Le jeu se termine car il y a un chevauchement.
+        }
+    }
+    return 0;
+}
+
 int run_tetris_game(void) {
     e_init_game_console();
-    e_set_target_fps(5);
+    e_set_target_fps(7);
 
     TetrisGame game;
+    game.is_over = 0;
     init_game(&game);
 
     while (!e_game_should_stop()) {
-        // Gérer les entrées utilisateur pour déplacer les pièces
-        if (e_is_button_pressed(BUTTON_LEFT)) {
-            move_piece_left(&game);
-        }
-        if (e_is_button_pressed(BUTTON_RIGHT)) {
-            move_piece_right(&game);
-        }
-        if (e_is_button_pressed(BUTTON_A)) { // Bouton pour tourner la pièce
-            rotate_piece(&game);
-        }
-        if (e_is_button_pressed(BUTTON_DOWN)) { // Bouton pour déplacer la pièce rapidement vers le bas
-            move_piece_down(&game);
-        }
+        if (game.is_over) {
+            e_fill_screen(BLACK);
+            // Afficher le message de Game Over avec les couleurs spécifiées
+            e_set_font(Courier_New_Bold_20);
+            e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, RED, BLACK);
+            e_set_font(Courier_New_Bold_10);
+            e_draw_text("Press A to restart", SCREEN_WIDTH / 2 - 64, SCREEN_HEIGHT / 2, RED, BLACK);
+            while(1){
+                if (e_is_button_pressed(BUTTON_A)) {
+                    init_game(&game); // Réinitialiser le jeu
+                    game.is_over = 0; // Réinitialiser l'état de game over
+                    break;
+                }
+            }
+        } else {
+            // Gérer les entrées utilisateur pour déplacer les pièces
+            if (e_is_button_pressed(BUTTON_LEFT)) {
+                move_piece_left(&game);
+            }
+            if (e_is_button_pressed(BUTTON_RIGHT)) {
+                move_piece_right(&game);
+            }
+            if (e_is_button_pressed(BUTTON_A)) { // Bouton pour tourner la pièce
+                rotate_piece(&game);
+            }
+            if (e_is_button_pressed(BUTTON_DOWN)) { // Bouton pour déplacer la pièce rapidement vers le bas
+                move_piece_down(&game);
+            }
 
-        // Mettre à jour et dessiner le jeu
-        update_game(&game);
-        draw_game(&game);
-
-        e_sleep_ms(16);
+            // Mettre à jour et dessiner le jeu
+            update_game(&game);
+            draw_game(&game);
+        }
     }
 
     return 0;
 }
+
