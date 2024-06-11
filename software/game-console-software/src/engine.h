@@ -85,6 +85,13 @@ typedef enum {
     Courier_New_Bold_20,
 } Font;
 
+// LEDs
+typedef enum {
+    DEBUG_LED_1,
+    DEBUG_LED_2,
+    DEBUG_LED_3,
+    DEBUG_LED_4
+} LEDs;
 
 //==============================================================================
 // USEFUL FUNCTIONS 
@@ -116,6 +123,9 @@ int16_t e_generate_rd_nb(int16_t min, int16_t max);         // Generate random n
 //==============================================================================
 int16_t e_is_button_pressed(int16_t button);    // Check if a button is being pressed
 
+void e_turn_on_led(int16_t led);    // Lights on one of the LEDs
+void e_turn_off_led(int16_t led);   // Lights off one of the LEDs
+void e_toggle_led(int16_t led);     // Toggles one of the LEDs
 
 //==============================================================================
 // RENDERING FUNCTIONS  (rendering.c)

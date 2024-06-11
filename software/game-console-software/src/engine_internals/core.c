@@ -214,3 +214,96 @@ void _e_init_LEDs(void){
     LATBbits.LATB4 = 0;
     LATBbits.LATB5 = 0;
 }
+
+//==============================================================================
+// This function turns on one of the LEDs depending of input "led".
+//==============================================================================
+void e_turn_on_led(int16_t led)
+{
+    switch (led) {
+        case DEBUG_LED_1:
+            PORTBbits.RB5 = 1;
+            break;
+        case DEBUG_LED_2:
+            PORTBbits.RB4 = 1;
+            break;
+        case DEBUG_LED_3:
+            PORTBbits.RB3 = 1;
+            break;
+        case DEBUG_LED_4:
+            PORTBbits.RB2 = 1;
+            break;
+        default:
+            break;
+    }
+}
+
+//==============================================================================
+// This function turns off one of the LEDs depending of input "led".
+//==============================================================================
+void e_turn_off_led(int16_t led)
+{
+    switch (led) {
+        case DEBUG_LED_1:
+            PORTBbits.RB5 = 0;
+            break;
+        case DEBUG_LED_2:
+            PORTBbits.RB4 = 0;
+            break;
+        case DEBUG_LED_3:
+            PORTBbits.RB3 = 0;
+            break;
+        case DEBUG_LED_4:
+            PORTBbits.RB2 = 0;
+            break;
+        default:
+            break;
+    }
+}
+
+//==============================================================================
+// This function toggles one of the LEDs depending of input "led".
+//==============================================================================
+void e_toggle_led(int16_t led)
+{
+    switch (led) {
+        case DEBUG_LED_1:
+            if(PORTBbits.RB5 == 0){
+                PORTBbits.RB5 = 1;
+                break;
+            }
+            if(PORTBbits.RB5 == 1){
+                PORTBbits.RB5 = 0;
+                break;
+            }        
+        case DEBUG_LED_2:
+            if(PORTBbits.RB4 == 0){
+                PORTBbits.RB4 = 1;
+                break;
+            }
+            if(PORTBbits.RB4 == 1){
+                PORTBbits.RB4 = 0;
+                break;
+            }   
+        case DEBUG_LED_3:
+            if(PORTBbits.RB3 == 0){
+                PORTBbits.RB3 = 1;
+                break;
+            }
+            if(PORTBbits.RB3 == 1){
+                PORTBbits.RB3 = 0;
+                break;
+            }   
+        case DEBUG_LED_4:
+            if(PORTBbits.RB2 == 0){
+                PORTBbits.RB2 = 1;
+                break;
+            }
+            if(PORTBbits.RB2 == 1){
+                PORTBbits.RB2 = 0;
+                break;
+            }   
+        default:
+            break;
+    }
+}
