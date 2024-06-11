@@ -189,11 +189,11 @@ float e_get_frame_time(void)
 }
 
 //==============================================================================
-// This function returns a random number between x and y.
+// This function returns a random number between a min and a max value.
 //==============================================================================
-//float e_generate_rd_nb(int x, int y)
-//{
-//    int seed = _e_get_timer_value();
-//    srand(seed);
-//    return x + rand() % (y - x + 1);
-//}
+int16_t e_generate_rd_nb(int16_t min, int16_t max)
+{
+    int seed = _e_get_timer_value();
+    srand(seed);
+    return min + rand() % (max - min + 1);
+}
