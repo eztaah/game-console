@@ -5,7 +5,7 @@
  * Created on 11 juin 2024, 12:02
  */
 
-#include "engine.h"
+#include "../game-console-software/src/engine.h"
 
 void main(void) {
     e_init_game_console();
