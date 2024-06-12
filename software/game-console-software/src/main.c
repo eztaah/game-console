@@ -35,7 +35,7 @@ void main(void) {
     e_draw_const_text("PIC18 GAME CONSOLE", 42, 80, BLACK, WHITE);
     e_draw_icon(controller_image, 145, 130, 30, 20, 2);
     play_init_music();
-    
+
     e_draw_const_text("loading", 90, 200, WHITE, BLACK);
     e_sleep_ms(500);
 

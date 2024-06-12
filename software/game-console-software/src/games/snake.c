@@ -7,7 +7,7 @@ int run_snake_game(void) {
     e_set_target_fps(10);
 
     initialize_game(&snake);
-    e_fill_screen(GREEN);
+    e_fill_screen(BRIGHTGREEN);
 
     while (!e_game_should_stop()) {
         update1_game(&snake);
@@ -25,6 +25,9 @@ void update1_game(Snake *snake) {
         }
         return;  // Empêche toute autre mise à jour tant que le jeu est en état de game over
     }
+    
+    // Sauvegarde de la dernière position de la queue
+    snake->last_tail_position = snake->position[snake->length - 1];
     
     // Mise à jour de la position du serpent
     Vector2i new_head = snake->position[0];
@@ -59,6 +62,16 @@ void update1_game(Snake *snake) {
 }
 
 void render_game(Snake *snake) {
+    // Dessiner la bordure
+    uint16_t border_color = BLACK;
+    e_draw_rectangle(0, 0, SCREEN_WIDTH, border_thickness, border_color);  // Haut
+    e_draw_rectangle(0, SCREEN_HEIGHT - border_thickness, SCREEN_WIDTH, border_thickness, border_color);  // Bas
+    e_draw_rectangle(0, 0, border_thickness, SCREEN_HEIGHT, border_color);  // Gauche
+    e_draw_rectangle(SCREEN_WIDTH - border_thickness, 0, border_thickness, SCREEN_HEIGHT, border_color);  // Droite
+
+    // Efface l'ancienne position de la queue
+    e_draw_rectangle(snake->last_tail_position.x, snake->last_tail_position.y, SNAKE_BLOCK_SIZE, SNAKE_BLOCK_SIZE, BRIGHTGREEN);
+    
     // Dessin du serpent
     for (int i = 0; i < snake->length; i++) {
         e_draw_rectangle(snake->position[i].x, snake->position[i].y, SNAKE_BLOCK_SIZE, SNAKE_BLOCK_SIZE, BLACK);
@@ -67,16 +80,20 @@ void render_game(Snake *snake) {
 
 int check_collision(Snake *snake) {
     Vector2i head = snake->position[0];
-    // Vérification des collisions avec les murs
-    if (head.x < 0 || head.x >= SCREEN_WIDTH || head.y < 0 || head.y >= SCREEN_HEIGHT) {
+    
+    // Vérification des collisions avec la bordure
+    if (head.x < border_thickness || head.x + SNAKE_BLOCK_SIZE > SCREEN_WIDTH - border_thickness ||
+        head.y < border_thickness || head.y + SNAKE_BLOCK_SIZE > SCREEN_HEIGHT - border_thickness) {
         return 1;
     }
+    
     // Vérification des collisions avec le corps
     for (int i = 1; i < snake->length; i++) {
         if (head.x == snake->position[i].x && head.y == snake->position[i].y) {
             return 1;
         }
     }
+    
     return 0;
 }
 
