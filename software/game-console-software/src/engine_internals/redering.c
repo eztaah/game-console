@@ -487,17 +487,34 @@ void TFT_Text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t co
 // width: width of the image in pixels.
 // height: height of the image in pixels.
 //==============================================================================
-void TFT_Icon(const uint16_t *buffer, uint16_t x, uint16_t y, unsigned char width_, unsigned char height_)
+//==============================================================================
+// This function draws an image on a desired location with zoom functionality.
+// buffer: pointer to the image data in memory.
+// x: x position on the display.
+// y: y position on the display.
+// width_: width of the image in pixels.
+// height_: height of the image in pixels.
+// zoom: scaling factor for each pixel (1x1, 2x2, 3x3, etc.)
+//==============================================================================
+void TFT_Icon(const uint16_t *buffer, uint16_t x, uint16_t y, uint16_t width_, uint16_t height_, uint16_t zoom)
 {
-    uint16_t i, j;    
-    TFT_ColumnPage(x, x + (width_ - 1), y, y + (height_ - 1));
+    uint16_t i, j, zx, zy;    
+    uint16_t new_width = width_ * zoom; // Calculate the original width of the image
+    uint16_t new_height = height_ * zoom; // Calculate the original height of the image
+
+    TFT_ColumnPage(x, x + new_width - 1, y, y + new_height - 1);
     TFT_CS = 0; 
     TFT_DC = 1;
-    for(i = 0; i < height_; i++) {
-        for(j = 0; j < width_; j++) {
-            SPI1_Write(*buffer >> 8);
-            SPI1_Write(*buffer & 0xFF);    
-            buffer++;
+
+    for (i = 0; i < height_; i++) {
+        for (zy = 0; zy < zoom; zy++) {  // Repeat the same line zoom times
+            const uint16_t *currentLine = buffer + i * width_;
+            for (j = 0; j < width_; j++) {
+                for (zx = 0; zx < zoom; zx++) {  // Repeat each pixel zoom times
+                    SPI1_Write(currentLine[j] >> 8);
+                    SPI1_Write(currentLine[j] & 0xFF);
+                }
+            }
         }
     }
     TFT_CS = 1;
@@ -692,11 +709,11 @@ void e_draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t col
 //==============================================================================
 // 
 //==============================================================================
-void e_draw_icon(const uint16_t *buffer, int16_t x, int16_t y, unsigned char width, unsigned char height)
+void e_draw_icon(const uint16_t *buffer, int16_t x, int16_t y, uint16_t width, uint16_t height, uint16_t zoom)
 {
     uint16_t x1 = e_safe_convert(x, "70");
     uint16_t y1 = e_safe_convert(y, "71");
     
-    TFT_Icon(buffer, x1, y1, width, height);
+    TFT_Icon(buffer, x1, y1, width, height, zoom);
 }
 
