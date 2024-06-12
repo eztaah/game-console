@@ -196,7 +196,7 @@ float e_get_frame_time(void)
 //==============================================================================
 int16_t e_generate_rd_nb(int16_t min, int16_t max)
 {
-    int seed = _e_get_timer_value();
+    uint16_t seed = (uint16_t)_e_get_timer_value();
     srand(seed);
     return min + rand() % (max - min + 1);
 }

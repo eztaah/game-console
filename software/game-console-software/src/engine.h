@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "engine_internals/bitmap.h"
+
 
 //==============================================================================
 // DEFINES
@@ -141,6 +143,8 @@ void e_draw_fps(int16_t pos_x, int16_t pos_y);  // Draw current FPS
 void e_draw_const_text(const char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);   // Draw const text (using chosen font)
 void e_draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);               // Draw text (using chosen font)
 
+// icon
+void e_draw_icon(const uint16_t *buffer, int16_t x, int16_t y, uint16_t width, uint16_t height, uint16_t zoom);
 
 //==============================================================================
 // AUDIO FUNCTIONS   (audio.c)
