@@ -6,8 +6,9 @@
 
 
 #include "engine.h"
-#include "games/pong.h"
-#include "games/tetris.h"
+#include "../src/games/pong.h"
+#include "../src/games/tetris.h"
+#include "../src/games/snake.h"
 
 
 void play_init_music(void){
@@ -32,9 +33,9 @@ void main(void) {
     e_fill_screen(BLACK);
     
     e_draw_const_text("PIC18 GAME CONSOLE", 42, 80, BLACK, WHITE);
-    e_draw_icon(controller_image, 145, 130, 30, 20);
+    e_draw_icon(controller_image, 145, 130, 30, 20, 2);
     play_init_music();
-    
+
     e_draw_const_text("loading", 90, 200, WHITE, BLACK);
     e_sleep_ms(500);
 
@@ -88,8 +89,7 @@ void main(void) {
                     cursor_position = 0;
                     break;
                 case 2:
-                    e_fill_screen(MAGENTA);
-                    e_sleep_ms(2000);
+                    run_snake_game();
                     e_fill_screen(BLACK);
                     cursor_position = 0;
                     break;

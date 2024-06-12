@@ -412,4 +412,3 @@ int run_tetris_game(void) {
 
     return 0;
 }
-
