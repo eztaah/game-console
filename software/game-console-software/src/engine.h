@@ -95,6 +95,11 @@ typedef enum {
     DEBUG_LED_4
 } LEDs;
 
+// EEPROM adresses
+#define EEPROM_ADRESS_PONG 0x0
+#define EEPROM_ADRESS_TETRIS 0x2
+#define EEPROM_ADRESS_SNAKE 0x4
+
 //==============================================================================
 // USEFUL FUNCTIONS 
 //==============================================================================
@@ -116,6 +121,13 @@ float   e_get_frame_time(void);                 // Get time in seconds for last 
 
 int16_t e_generate_rd_nb(int16_t min, int16_t max);         // Generate random number
 
+void e_turn_on_led(int16_t led);    // Lights on one of the LEDs
+void e_turn_off_led(int16_t led);   // Lights off one of the LEDs
+void e_toggle_led(int16_t led);     // Toggles one of the LEDs
+
+void e_write_eeprom(uint8_t adress, uint8_t data);
+uint8_t e_read_eeprom(uint8_t adress);
+
 //void    e_set_backlight()
 //void    e_reduce_backlight(void);
 
@@ -123,11 +135,8 @@ int16_t e_generate_rd_nb(int16_t min, int16_t max);         // Generate random n
 //==============================================================================
 // INPUT MANAGEMENT FUNCTIONS  (inputs.c)
 //==============================================================================
-int16_t e_is_button_pressed(int16_t button);    // Check if a button is being pressed
-
-void e_turn_on_led(int16_t led);    // Lights on one of the LEDs
-void e_turn_off_led(int16_t led);   // Lights off one of the LEDs
-void e_toggle_led(int16_t led);     // Toggles one of the LEDs
+int8_t e_is_button_down(uint8_t button);            // Check if a button is being pressed
+// int8_t e_is_button_down(uint8_t button);
 
 //==============================================================================
 // RENDERING FUNCTIONS  (rendering.c)
@@ -144,7 +153,8 @@ void e_draw_const_text(const char *text, int16_t x, int16_t y, uint16_t color1, 
 void e_draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2);               // Draw text (using chosen font)
 
 // icon
-void e_draw_icon(const uint16_t *buffer, int16_t x, int16_t y, uint16_t width, uint16_t height, uint16_t zoom);
+void e_draw_icon(const uint16_t *buffer, int16_t x, int16_t y, 
+                 uint16_t original_width, uint16_t original_height, uint16_t zoom);
 
 //==============================================================================
 // AUDIO FUNCTIONS   (audio.c)

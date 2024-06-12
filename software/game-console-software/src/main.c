@@ -57,7 +57,7 @@ void main(void) {
     int16_t last_button_pressed = -1;
     
     while (1) {
-        if (e_is_button_pressed(BUTTON_UP)) {
+        if (e_is_button_down(BUTTON_UP)) {
             if (cursor_position == 0) {
                 cursor_position = 2;
             } else {
@@ -66,7 +66,7 @@ void main(void) {
             last_button_pressed = BUTTON_UP;
         }
 
-        if (e_is_button_pressed(BUTTON_DOWN)) {
+        if (e_is_button_down(BUTTON_DOWN)) {
             if (cursor_position == 2) {
                 cursor_position = 0;
             } else {
@@ -76,7 +76,7 @@ void main(void) {
         }
 
 
-        if (e_is_button_pressed(BUTTON_A)) {
+        if (e_is_button_down(BUTTON_A)) {
             switch (cursor_position) {
                 case 0:
                     run_pong_game();
@@ -120,11 +120,11 @@ void main(void) {
         
         
         if (last_button_pressed == BUTTON_DOWN) {
-            while(e_is_button_pressed(BUTTON_DOWN)) {}
+            while(e_is_button_down(BUTTON_DOWN)) {}
             last_button_pressed = -1;
         }
         else if (last_button_pressed == BUTTON_UP) {
-            while(e_is_button_pressed(BUTTON_UP)) {}
+            while(e_is_button_down(BUTTON_UP)) {}
             last_button_pressed = -1;
         }
     }

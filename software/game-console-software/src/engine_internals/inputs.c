@@ -28,30 +28,6 @@
 #define TRIS_B_HOME         TRISDbits.TRISD2
 #define B_HOME              PORTDbits.RD2
 
-
-//#define TRIS_B_UP           TRISBbits.TRISB0
-//#define B_UP                PORTBbits.RB0
-//
-//#define TRIS_B_DOWN         TRISDbits.TRISD2
-//#define B_DOWN              PORTDbits.RD2
-//
-//#define TRIS_B_RIGHT        TRISBbits.TRISB2
-//#define B_RIGHT             PORTBbits.RB2
-//
-//#define TRIS_B_LEFT         TRISBbits.TRISB3
-//#define B_LEFT              PORTBbits.RB3
-//
-//#define TRIS_B_A            TRISBbits.TRISB4
-//#define B_A                 PORTBbits.RB4
-//
-//#define TRIS_B_B            TRISBbits.TRISB5
-//#define B_B                 PORTBbits.RB5
-//
-//#define TRIS_B_HOME         TRISAbits.TRISA4
-//#define B_HOME              PORTAbits.RA4
-
-
-
 //==============================================================================
 // 
 //==============================================================================
@@ -84,7 +60,15 @@ void _e_init_buttons(void)
 // button: The button identifier to check.
 // Returns 1 if pressed, 0 if not, -1 if an invalid button is checked.
 //==============================================================================
-int16_t e_is_button_pressed(int16_t button)
+//int8_t e_is_button_pressed(uint8_t button)
+//{
+// 
+//}
+
+//==============================================================================
+//
+//==============================================================================
+int8_t e_is_button_down(uint8_t button)
 {
     switch (button) {
         case BUTTON_UP:

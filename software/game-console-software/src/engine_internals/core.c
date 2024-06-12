@@ -52,6 +52,20 @@ int16_t _e_get_timer_value(void)
 }
 
 //==============================================================================
+// This function initiates the LEDs ports as output and turn the LEDs off.
+//==============================================================================
+void _e_init_LEDs(void){
+    TRISBbits.TRISB2 = 0;
+    TRISBbits.TRISB3 = 0;
+    TRISBbits.TRISB4 = 0;
+    TRISBbits.TRISB5 = 0;
+    LATBbits.LATB2 = 0;
+    LATBbits.LATB3 = 0;
+    LATBbits.LATB4 = 0;
+    LATBbits.LATB5 = 0;
+}
+
+//==============================================================================
 // This function is the interrupt service routine for TIMER0 overflows.
 //==============================================================================
 void __interrupt() timer0_ISR(void)
@@ -202,20 +216,6 @@ int16_t e_generate_rd_nb(int16_t min, int16_t max)
 }
 
 //==============================================================================
-// This function initiates the LEDs ports as output and turn the LEDs off.
-//==============================================================================
-void _e_init_LEDs(void){
-    TRISBbits.TRISB2 = 0;
-    TRISBbits.TRISB3 = 0;
-    TRISBbits.TRISB4 = 0;
-    TRISBbits.TRISB5 = 0;
-    LATBbits.LATB2 = 0;
-    LATBbits.LATB3 = 0;
-    LATBbits.LATB4 = 0;
-    LATBbits.LATB5 = 0;
-}
-
-//==============================================================================
 // This function turns on one of the LEDs depending of input "led".
 //==============================================================================
 void e_turn_on_led(int16_t led)
@@ -306,4 +306,35 @@ void e_toggle_led(int16_t led)
         default:
             break;
     }
+}
+
+//==============================================================================
+// 
+//==============================================================================
+void e_write_eeprom(uint8_t address, uint8_t data){
+    EEADR = address;
+    EEDATA = data;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.CFGS = 0;
+    EECON1bits.WREN = 1;
+    INTCONbits.GIE = 0;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+    while (EECON1bits.WR);
+    INTCONbits.GIE = 1;
+    EECON1bits.WREN =0;
+}
+
+//==============================================================================
+// 
+//==============================================================================
+uint8_t read_EEPROM(uint8_t address){  
+    uint8_t data;
+    EEADR = address;       // Adresse de mémoire à lire
+    EECON1bits.EEPGD = 0;  // Pointez sur la mémoire DATA
+    EECON1bits.CFGS = 0;   // Accéder à l'EEPROM
+    EECON1bits.RD = 1;     // Lecture de l'EEPROM
+    data = EEDATA;         // Lire la valeur dans le registre EEDATA
+    return data;
 }

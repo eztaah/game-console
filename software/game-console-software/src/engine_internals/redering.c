@@ -709,11 +709,11 @@ void e_draw_text(char *text, int16_t x, int16_t y, uint16_t color1, uint16_t col
 //==============================================================================
 // 
 //==============================================================================
-void e_draw_icon(const uint16_t *buffer, int16_t x, int16_t y, uint16_t width, uint16_t height, uint16_t zoom)
+void e_draw_icon(const uint16_t *buffer, int16_t x, int16_t y, uint16_t original_width, uint16_t original_height, uint16_t zoom)
 {
     uint16_t x1 = e_safe_convert(x, "70");
     uint16_t y1 = e_safe_convert(y, "71");
     
-    TFT_Icon(buffer, x1, y1, width, height, zoom);
+    TFT_Icon(buffer, x1, y1, original_width, original_height, zoom);
 }
 

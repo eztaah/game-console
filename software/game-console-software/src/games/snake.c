@@ -12,7 +12,7 @@ int run_snake_game(void) {
     while (!e_game_should_stop()) {
         update1_game(&snake);
         render_game(&snake);
-        e_sleep_ms(100);  // Délai pour contrôler la vitesse du jeu
+        e_sleep_ms(100);  // Dï¿½lai pour contrï¿½ler la vitesse du jeu
     }
 
     return 0;
@@ -20,16 +20,16 @@ int run_snake_game(void) {
 
 void update1_game(Snake *snake) {
     if (snake->game_over) {
-        if (e_is_button_pressed(BUTTON_A)) {
-            reset_game(snake);  // Réinitialise le jeu si BUTTON_A est pressé
+        if (e_is_button_down(BUTTON_A)) {
+            reset_game(snake);  // Rï¿½initialise le jeu si BUTTON_A est pressï¿½
         }
-        return;  // Empêche toute autre mise à jour tant que le jeu est en état de game over
+        return;  // Empï¿½che toute autre mise ï¿½ jour tant que le jeu est en ï¿½tat de game over
     }
     
-    // Sauvegarde de la dernière position de la queue
+    // Sauvegarde de la derniï¿½re position de la queue
     snake->last_tail_position = snake->position[snake->length - 1];
     
-    // Mise à jour de la position du serpent
+    // Mise ï¿½ jour de la position du serpent
     Vector2i new_head = snake->position[0];
 
     switch (snake->direction) {
@@ -39,26 +39,26 @@ void update1_game(Snake *snake) {
         case 3: new_head.x -= SNAKE_BLOCK_SIZE; break;  // Gauche
     }
 
-    // Collision avec les murs ou avec lui-même
+    // Collision avec les murs ou avec lui-mï¿½me
     if (check_collision(snake)) {
-        snake->game_over = 1;  // Met à jour l'état de game over
+        snake->game_over = 1;  // Met ï¿½ jour l'ï¿½tat de game over
         e_fill_screen(BLACK);
         e_set_font(Courier_New_Bold_20);
         e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, RED, BLACK);
         return;
     }
 
-    // Déplacement du serpent
+    // Dï¿½placement du serpent
     for (int i = snake->length - 1; i > 0; i--) {
         snake->position[i] = snake->position[i - 1];
     }
     snake->position[0] = new_head;
 
-    // Contrôles du jeu
-    if (e_is_button_pressed(BUTTON_LEFT) && snake->direction != 1) snake->direction = 3;
-    if (e_is_button_pressed(BUTTON_RIGHT) && snake->direction != 3) snake->direction = 1;
-    if (e_is_button_pressed(BUTTON_UP) && snake->direction != 2) snake->direction = 0;
-    if (e_is_button_pressed(BUTTON_DOWN) && snake->direction != 0) snake->direction = 2;
+    // Contrï¿½les du jeu
+    if (e_is_button_down(BUTTON_LEFT) && snake->direction != 1) snake->direction = 3;
+    if (e_is_button_down(BUTTON_RIGHT) && snake->direction != 3) snake->direction = 1;
+    if (e_is_button_down(BUTTON_UP) && snake->direction != 2) snake->direction = 0;
+    if (e_is_button_down(BUTTON_DOWN) && snake->direction != 0) snake->direction = 2;
 }
 
 void render_game(Snake *snake) {
@@ -81,13 +81,13 @@ void render_game(Snake *snake) {
 int check_collision(Snake *snake) {
     Vector2i head = snake->position[0];
     
-    // Vérification des collisions avec la bordure
+    // Vï¿½rification des collisions avec la bordure
     if (head.x < border_thickness || head.x + SNAKE_BLOCK_SIZE > SCREEN_WIDTH - border_thickness ||
         head.y < border_thickness || head.y + SNAKE_BLOCK_SIZE > SCREEN_HEIGHT - border_thickness) {
         return 1;
     }
     
-    // Vérification des collisions avec le corps
+    // Vï¿½rification des collisions avec le corps
     for (int i = 1; i < snake->length; i++) {
         if (head.x == snake->position[i].x && head.y == snake->position[i].y) {
             return 1;
@@ -99,8 +99,8 @@ int check_collision(Snake *snake) {
 
 void reset_game(Snake *snake) {
     snake->length = INITIAL_SNAKE_LENGTH;
-    snake->direction = 1;  // Commence en se déplaçant vers la droite
-    snake->game_over = 0;  // Réinitialise l'état de game over
+    snake->direction = 1;  // Commence en se dï¿½plaï¿½ant vers la droite
+    snake->game_over = 0;  // Rï¿½initialise l'ï¿½tat de game over
 
     for (int i = 0; i < snake->length; i++) {
         snake->position[i].x = SCREEN_WIDTH / 2 - i * SNAKE_BLOCK_SIZE;

@@ -10,27 +10,27 @@
 void main() {
     e_init_game_console();
     while(1){
-        if(e_is_button_pressed(BUTTON_UP)) {
+        if(e_is_button_down(BUTTON_UP)) {
             e_turn_on_led(DEBUG_LED_1);
         }
-        if(e_is_button_pressed(BUTTON_DOWN)) {
+        if(e_is_button_down(BUTTON_DOWN)) {
             e_turn_on_led(DEBUG_LED_2);
         }
-        if(e_is_button_pressed(BUTTON_RIGHT)) {
+        if(e_is_button_down(BUTTON_RIGHT)) {
             e_turn_on_led(DEBUG_LED_3);
         }
-        if(e_is_button_pressed(BUTTON_LEFT)) {
+        if(e_is_button_down(BUTTON_LEFT)) {
             e_turn_on_led(DEBUG_LED_4);
         }
-        if(e_is_button_pressed(BUTTON_A)) {
+        if(e_is_button_down(BUTTON_A)) {
             e_turn_on_led(DEBUG_LED_1);
             e_turn_on_led(DEBUG_LED_2);
         }
-        if(e_is_button_pressed(BUTTON_B)) {
+        if(e_is_button_down(BUTTON_B)) {
             e_turn_on_led(DEBUG_LED_3);
             e_turn_on_led(DEBUG_LED_4);
         }
-        if(e_is_button_pressed(BUTTON_HOME)) {
+        if(e_is_button_down(BUTTON_HOME)) {
             e_turn_on_led(DEBUG_LED_1);
             e_turn_on_led(DEBUG_LED_2);
             e_turn_on_led(DEBUG_LED_3);
