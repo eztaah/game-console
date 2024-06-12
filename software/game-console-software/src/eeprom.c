@@ -34,15 +34,7 @@
 //    return TABLAT;      // Retourne la valeur lue
 //}
 
-int16_t read_EEPROM(uint8_t address){
-//    asm(
-//        "MOVLW 0x06;"
-//        "MOVWF EEADR;"         // Data Memory Address to read
-//        "BCF EECON1, EEPGD;"   // Point to DATA memory
-//        "BCF EECON1, CFGS;"    // Access EEPROM
-//        "BSF EECON1, RD;"      // EEPROM Read
-//        "MOVF EEDATA, W;"      // W = EEDATA
-//    );    
+int16_t read_EEPROM(uint8_t address){  
     uint8_t data;
     EEADR = address;       // Adresse de mémoire à lire
     EECON1bits.EEPGD = 0;  // Pointez sur la mémoire DATA
@@ -52,26 +44,9 @@ int16_t read_EEPROM(uint8_t address){
     return data;
 }
 
-void write_EEPROM(){
-//    asm(
-//        "MOVLW 0x01;"
-//        "MOVWF EEADR;"   // Data Memory Address to write
-//        "MOVLW 0x03;"
-//        "MOVWF EEDATA;"      // Data Memory Value to write
-//        "BCF EECON1, EEPGD;" // Point to DATA memory
-//        "BCF EECON1, CFGS;"  // Access EEPROM
-//        "BSF EECON1, WREN;"  // Enable writes
-//        "BCF INTCON, GIE;"   // Disable Interrupts
-//        "MOVLW 55h;"
-//        "MOVWF EECON2;"  // Write 55h
-//        "MOVLW 0AAh;"
-//        "MOVWF EECON2;"  // Write 0AAh
-//        "BSF EECON1, WR;"    // Set WR bit to begin write
-//        "BSF INTCON, GIE;"   // Enable Interrupts
-//        "BCF EECON1, WREN;"  // Disable writes on write complete (EEIF set)
-//    );
-    EEADR = 0x01;
-    EEDATA = 0x03;
+void write_EEPROM(uint8_t address, uint8_t data){
+    EEADR = address;
+    EEDATA = data;
     EECON1bits.EEPGD = 0;
     EECON1bits.CFGS = 0;
     EECON1bits.WREN = 1;
@@ -84,7 +59,7 @@ void write_EEPROM(){
     EECON1bits.WREN =0;
 }
 
-void main(void) {
+void main1(void) {
     e_init_game_console();
     e_set_target_fps(20);
     
@@ -121,8 +96,8 @@ void main(void) {
         if (e_is_button_pressed(BUTTON_A)) {
             switch (cursor_position) {
                 case 0:
-                    write_EEPROM();
-                    score = read_EEPROM(0x01);
+                    write_EEPROM(0x01, 0x03);
+                    write_EEPROM(0x02, 0x04);
                     break;
                 case 1:
                     score = read_EEPROM(0x01);
