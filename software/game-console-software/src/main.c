@@ -4,8 +4,9 @@
  */
 
 #include "engine.h"
-#include "games/pong.h"
-#include "games/tetris.h"
+#include "../src/games/pong.h"
+#include "../src/games/tetris.h"
+#include "../src/games/snake.h"
 
 
 void play_init_music(void){
@@ -84,8 +85,7 @@ void main(void) {
                     cursor_position = 0;
                     break;
                 case 2:
-                    e_fill_screen(MAGENTA);
-                    e_sleep_ms(2000);
+                    run_snake_game();
                     e_fill_screen(BLACK);
                     cursor_position = 0;
                     break;
