@@ -33,25 +33,7 @@ void main(void) {
     e_fill_screen(BLACK);
     
     e_draw_const_text("PIC18 GAME CONSOLE", 42, 80, BLACK, WHITE);
-    e_draw_icon(controller_image, 145, 130, 30, 20, 2);
-    play_init_music();
-
-    e_draw_const_text("loading", 90, 200, WHITE, BLACK);
-    e_sleep_ms(500);
-
-    e_draw_const_text("loading.", 90, 200, WHITE, BLACK);
-    e_sleep_ms(500);
-
-    e_draw_const_text("loading..", 90, 200, WHITE, BLACK);
-    e_sleep_ms(500);
-
-    e_draw_const_text("loading...", 90, 200, WHITE, BLACK);
-    e_sleep_ms(500);
-    e_draw_rectangle(90, 200, 150, 30, BLACK);
-    
     e_fill_screen(BLACK);
-    
-
     
     int16_t cursor_position = 0;
     int16_t last_button_pressed = -1;
