@@ -30,10 +30,17 @@ int run_snake_game(void);
 void initialize_game(Snake *snake);
 void update1_game(Snake *snake);
 void render_game(Snake *snake);
+
 int check_collision(Snake *snake);
+
 void reset_game(Snake *snake);
-void initialize_game(Snake *snake);
+
 void place_apple(Snake *snake);
+
+int read_best_score(void);
+void change_best_score(int score);
+
+
 
 #endif
 

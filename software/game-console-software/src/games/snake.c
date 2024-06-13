@@ -1,16 +1,12 @@
-
 #include "../games/snake.h"
 #include "../engine.h"
-
-int best_score = 0;
 
 int run_snake_game(void) {
     Snake snake;
     e_init_game_console();
-    e_set_target_fps(60);
+    e_set_target_fps(13);
 
     initialize_game(&snake);
-    e_fill_screen(BRIGHTGREEN); // Remplir l' cran avec la couleur de fond
 
     while (!e_game_should_stop()) {
         update1_game(&snake);
@@ -27,16 +23,17 @@ void update1_game(Snake *snake) {
         e_set_font(Courier_New_Bold_20);
         e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, RED, BLACK);
 
-        // R initialiser les scores et les autres param tres
-        if (e_is_button_down(BUTTON_A)) {
-            if (snake->current_score > best_score) {
-                best_score = snake->current_score;
+        while(1){
+            // R initialiser les scores et les autres param tres
+            if (e_is_button_down(BUTTON_A)) {
+                if (snake->current_score > read_best_score()) {
+                    change_best_score(snake->current_score);
+                }
+                reset_game(snake);  // R initialise le jeu si BUTTON_A est press 
+                snake->game_over = 0;  // Revenir   l' tat normal
+                return;
             }
-            reset_game(snake);  // R initialise le jeu si BUTTON_A est press 
-            snake->game_over = 0;  // Revenir   l' tat normal
-            e_fill_screen(BRIGHTGREEN);  // Remplir l' cran avec la couleur de fond du jeu
         }
-        return;  // Emp che toute autre mise   jour tant que le jeu est en  tat de game over
     }
     
     // Sauvegarde de la derni re position de la queue
@@ -83,6 +80,11 @@ void update1_game(Snake *snake) {
     if ((snake_head_x1 < apple_x2) && (snake_head_x2 > apple_x1) &&
         (snake_head_y1 < apple_y2) && (snake_head_y2 > apple_y1)) {
         snake->current_score++;
+        // Affichage du score
+        char score_text[10];
+        sprintf(score_text, "%d", snake->current_score);
+        e_set_font(Courier_New_Bold_8);
+        e_draw_text(score_text, 10, 10, WHITE, BLACK);
         if (snake->length < MAX_SNAKE_LENGTH) {
             snake->position[snake->length] = new_head;
             snake->length++;
@@ -99,28 +101,12 @@ void update1_game(Snake *snake) {
 }
 
 void render_game(Snake *snake) {
-    // Dessiner la bordure sup rieure avec la nouvelle  paisseur
-    e_draw_rectangle(0, 0, SCREEN_WIDTH, BORDER_THICKNESS_TOP, BLACK);  // Haut
-
-    // Dessiner les autres bordures avec l' paisseur originale
-    e_draw_rectangle(0, SCREEN_HEIGHT - BORDER_THICKNESS_OTHER, SCREEN_WIDTH, BORDER_THICKNESS_OTHER, BLACK);  // Bas
-    e_draw_rectangle(0, 0, BORDER_THICKNESS_OTHER, SCREEN_HEIGHT, BLACK);  // Gauche
-    e_draw_rectangle(SCREEN_WIDTH - BORDER_THICKNESS_OTHER, 0, BORDER_THICKNESS_OTHER, SCREEN_HEIGHT, BLACK);  // Droite
 
     // Efface l'ancienne position de la queue
     e_draw_rectangle(snake->last_tail_position.x, snake->last_tail_position.y, SNAKE_BLOCK_SIZE, SNAKE_BLOCK_SIZE, BRIGHTGREEN);
     
     // Dessiner la pomme
     e_draw_rectangle(snake->apple_position.x, snake->apple_position.y, 6, 6, RED);
-    
-    // Affichage du score et du meilleur score
-    char score_text[10];
-    char best_score_text[10];
-    sprintf(score_text, "%d", snake->current_score);
-    sprintf(best_score_text, "%d", best_score);
-    e_set_font(Courier_New_Bold_8);
-    e_draw_text(score_text, 10, 10, WHITE, BLACK);
-    e_draw_text(best_score_text, 180, 10, WHITE, BLACK);
     
     // Dessin du serpent
     for (int i = 0; i < snake->length; i++) {
@@ -152,6 +138,22 @@ void reset_game(Snake *snake) {
     snake->direction = 1;  // Commence en se d pla ant vers la droite
     snake->game_over = 0;  // R initialise l' tat de game over
     snake->current_score = 0;  // R initialise le score actuel   0
+    
+    e_fill_screen(BRIGHTGREEN);
+    
+    // Dessiner la bordure sup rieure avec la nouvelle  paisseur
+    e_draw_rectangle(0, 0, SCREEN_WIDTH, BORDER_THICKNESS_TOP, BLACK);  // Haut
+
+    // Dessiner les autres bordures avec l' paisseur originale
+    e_draw_rectangle(0, SCREEN_HEIGHT - BORDER_THICKNESS_OTHER, SCREEN_WIDTH, BORDER_THICKNESS_OTHER, BLACK);  // Bas
+    e_draw_rectangle(0, 0, BORDER_THICKNESS_OTHER, SCREEN_HEIGHT, BLACK);  // Gauche
+    e_draw_rectangle(SCREEN_WIDTH - BORDER_THICKNESS_OTHER, 0, BORDER_THICKNESS_OTHER, SCREEN_HEIGHT, BLACK);  // Droite
+    
+    // Affichage du meilleur score
+    char best_score_text[10];
+    sprintf(best_score_text, "%d", read_best_score());
+    e_set_font(Courier_New_Bold_8);
+    e_draw_text(best_score_text, 180, 10, WHITE, BLACK);
 
     for (int i = 0; i < snake->length; i++) {
         snake->position[i].x = SCREEN_WIDTH / 2 - i * SNAKE_BLOCK_SIZE;
@@ -191,4 +193,12 @@ void place_apple(Snake *snake) {
     } while (!safe);
 }
 
+int read_best_score(void) {
+    uint8_t best_score = e_read_eeprom(EEPROM_ADRESS_SNAKE);
+    return (int) best_score;
+}
 
+void change_best_score(int score) {
+    uint8_t data = (uint8_t) score;
+    e_write_eeprom(EEPROM_ADRESS_SNAKE, data);
+}

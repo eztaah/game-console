@@ -85,7 +85,7 @@ void __interrupt() timer0_ISR(void)
 void e_exit_with_error(const char message[])
 {
     e_fill_screen(BROWN);
-    //e_draw_const_text(message, 10, 10, WHITE, BLACK);
+    e_draw_const_text(message, 10, 10, WHITE, BLACK);
     while(1) {};
 }
 
@@ -96,7 +96,7 @@ void e_exit_with_error(const char message[])
 //==============================================================================
 uint16_t e_safe_convert(int16_t value, char error_token[]) {
     if (value < 0) {
-        e_exit_with_error("E: ");
+        e_exit_with_error(error_token);
     }
     return (uint16_t)value;
 }
@@ -329,7 +329,7 @@ void e_write_eeprom(uint8_t address, uint8_t data){
 //==============================================================================
 // 
 //==============================================================================
-uint8_t read_EEPROM(uint8_t address){  
+uint8_t e_read_eeprom(uint8_t address){  
     uint8_t data;
     EEADR = address;       // Adresse de mémoire à lire
     EECON1bits.EEPGD = 0;  // Pointez sur la mémoire DATA

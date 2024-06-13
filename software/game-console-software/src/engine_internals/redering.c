@@ -685,8 +685,10 @@ void e_draw_fps(int16_t pos_x, int16_t pos_y)
 void e_draw_const_text(const char *text, int16_t x, int16_t y, uint16_t color1, uint16_t color2)
 {
     //  void TFT_Text(char *buffer, uint16_t x, uint16_t y, uint16_t color1, uint16_t color2)
-    uint16_t x1 = e_safe_convert(x, "67");
-    uint16_t y1 = e_safe_convert(y, "68");
+    //uint16_t x1 = e_safe_convert(x, "67");
+    //uint16_t y1 = e_safe_convert(y, "68");
+    uint16_t x1 = (uint16_t)x;
+    uint16_t y1 = (uint16_t)y;
     TFT_ConstText(text, x1, y1, color1, color2);
 }
 
