@@ -23,9 +23,7 @@ typedef struct {
     int game_over;      //  tat de game over
 } Snake;
 
-
-
-int run_snake_game(void);
+void run_snake_game(void);
 
 void initialize_game(Snake *snake);
 void update1_game(Snake *snake);

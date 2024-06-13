@@ -1,11 +1,14 @@
 #include "../games/snake.h"
 #include "../engine.h"
 
-int run_snake_game(void) {
+int16_t cursor_position = 0;
+int16_t last_button_pressed = -1;
+
+void run_snake_game(void) {
     Snake snake;
     e_init_game_console();
     e_set_target_fps(13);
-
+    
     initialize_game(&snake);
 
     while (!e_game_should_stop()) {
@@ -13,25 +16,72 @@ int run_snake_game(void) {
         render_game(&snake);
     }
 
-    return 0;
+    return;
 }
 
 void update1_game(Snake *snake) {
     if (snake->game_over) {
-        // Effacer le texte "GAME OVER" et r initialiser le fond
-        e_fill_screen(BLACK);
+        
         e_set_font(Courier_New_Bold_20);
-        e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, RED, BLACK);
-
+        e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, BLACK, BRIGHTGREEN);
+        e_set_font(Courier_New_Bold_10);
+        e_draw_text("Restart the game", SCREEN_WIDTH / 2 - 63, SCREEN_HEIGHT / 2 + 5, BLACK, BRIGHTGREEN);
+        e_draw_text("Quit the game", SCREEN_WIDTH / 2 - 53, SCREEN_HEIGHT / 2 + 20, BLACK, BRIGHTGREEN);
+        
         while(1){
-            // R initialiser les scores et les autres param tres
-            if (e_is_button_down(BUTTON_A)) {
-                if (snake->current_score > read_best_score()) {
-                    change_best_score(snake->current_score);
+            
+            if (e_is_button_down(BUTTON_UP)) {
+                if (cursor_position == 0) {
+                    cursor_position = 1;
+                } else {
+                    cursor_position--;
                 }
-                reset_game(snake);  // R initialise le jeu si BUTTON_A est press 
-                snake->game_over = 0;  // Revenir   l' tat normal
-                return;
+                last_button_pressed = BUTTON_UP;
+            }
+
+            if (e_is_button_down(BUTTON_DOWN)) {
+                if (cursor_position == 1) {
+                    cursor_position = 0;
+                } else {
+                    cursor_position++;
+                }
+                last_button_pressed = BUTTON_DOWN;
+            }
+            
+            if (cursor_position == 0) {
+                e_set_font(Courier_New_Bold_10);
+                e_draw_rectangle(SCREEN_WIDTH / 2 - 64, SCREEN_HEIGHT / 2 + 20, 10, 10, BRIGHTGREEN);
+                e_draw_const_text(">", SCREEN_WIDTH / 2 - 75, SCREEN_HEIGHT / 2 + 5, BLACK, BRIGHTGREEN);
+            }
+            
+            if (cursor_position == 1) {
+                e_set_font(Courier_New_Bold_10);
+                e_draw_rectangle(SCREEN_WIDTH / 2 - 74, SCREEN_HEIGHT / 2 + 5, 10, 10, BRIGHTGREEN);
+                e_draw_const_text(">", SCREEN_WIDTH / 2 - 65, SCREEN_HEIGHT / 2 + 20, BLACK, BRIGHTGREEN);
+            }
+        
+            if (e_is_button_down(BUTTON_A)) {
+                switch (cursor_position) {
+                    case 0:
+                        if (snake->current_score > read_best_score()) {
+                            change_best_score(snake->current_score);
+                        }
+                        reset_game(snake);  // R initialise le jeu si BUTTON_A est press 
+                        snake->game_over = 0;  // Revenir   l' tat normal
+                        return;
+                    case 1:
+                        // NECESSITE LA FONCTION POUR REVENIR AU MAIN MENU //
+                        return;
+                }
+            }
+            
+            if (last_button_pressed == BUTTON_DOWN) {
+                while(e_is_button_down(BUTTON_DOWN)) {}
+                    last_button_pressed = -1;
+            }
+            else if (last_button_pressed == BUTTON_UP) {
+                while(e_is_button_down(BUTTON_UP)) {}
+                    last_button_pressed = -1;
             }
         }
     }
@@ -52,9 +102,6 @@ void update1_game(Snake *snake) {
     // Collision avec les murs ou avec lui-m me
     if (check_collision(snake)) {
         snake->game_over = 1;  // Met   jour l' tat de game over
-        e_fill_screen(BLACK);
-        e_set_font(Courier_New_Bold_20);
-        e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, RED, BLACK);
         return;
     }
 
@@ -80,11 +127,7 @@ void update1_game(Snake *snake) {
     if ((snake_head_x1 < apple_x2) && (snake_head_x2 > apple_x1) &&
         (snake_head_y1 < apple_y2) && (snake_head_y2 > apple_y1)) {
         snake->current_score++;
-        // Affichage du score
-        char score_text[10];
-        sprintf(score_text, "%d", snake->current_score);
-        e_set_font(Courier_New_Bold_8);
-        e_draw_text(score_text, 10, 10, WHITE, BLACK);
+        
         if (snake->length < MAX_SNAKE_LENGTH) {
             snake->position[snake->length] = new_head;
             snake->length++;
@@ -92,6 +135,11 @@ void update1_game(Snake *snake) {
         place_apple(snake); // Replace la pomme
     }
 
+    // Affichage du score
+    char score_text[10];
+    sprintf(score_text, "%d", snake->current_score);
+    e_set_font(Courier_New_Bold_10);
+    e_draw_text(score_text, 10, 2, BLACK, BRIGHTGREEN);
 
     // Contr les du jeu
     if (e_is_button_down(BUTTON_LEFT) && snake->direction != 1) snake->direction = 3;
@@ -106,7 +154,7 @@ void render_game(Snake *snake) {
     e_draw_rectangle(snake->last_tail_position.x, snake->last_tail_position.y, SNAKE_BLOCK_SIZE, SNAKE_BLOCK_SIZE, BRIGHTGREEN);
     
     // Dessiner la pomme
-    e_draw_rectangle(snake->apple_position.x, snake->apple_position.y, 6, 6, RED);
+    e_draw_rectangle(snake->apple_position.x, snake->apple_position.y, SNAKE_BLOCK_SIZE, SNAKE_BLOCK_SIZE, RED);
     
     // Dessin du serpent
     for (int i = 0; i < snake->length; i++) {
@@ -137,12 +185,12 @@ void reset_game(Snake *snake) {
     snake->length = INITIAL_SNAKE_LENGTH;
     snake->direction = 1;  // Commence en se d pla ant vers la droite
     snake->game_over = 0;  // R initialise l' tat de game over
-    snake->current_score = 0;  // R initialise le score actuel   0
+    snake->current_score = 0;
     
     e_fill_screen(BRIGHTGREEN);
     
     // Dessiner la bordure sup rieure avec la nouvelle  paisseur
-    e_draw_rectangle(0, 0, SCREEN_WIDTH, BORDER_THICKNESS_TOP, BLACK);  // Haut
+    e_draw_rectangle(0, 19, SCREEN_WIDTH, SNAKE_BLOCK_SIZE, BLACK);  // Haut
 
     // Dessiner les autres bordures avec l' paisseur originale
     e_draw_rectangle(0, SCREEN_HEIGHT - BORDER_THICKNESS_OTHER, SCREEN_WIDTH, BORDER_THICKNESS_OTHER, BLACK);  // Bas
@@ -152,8 +200,8 @@ void reset_game(Snake *snake) {
     // Affichage du meilleur score
     char best_score_text[10];
     sprintf(best_score_text, "%d", read_best_score());
-    e_set_font(Courier_New_Bold_8);
-    e_draw_text(best_score_text, 180, 10, WHITE, BLACK);
+    e_set_font(Courier_New_Bold_10);
+    e_draw_text(best_score_text, 260, 2, BLACK, BRIGHTGREEN);
 
     for (int i = 0; i < snake->length; i++) {
         snake->position[i].x = SCREEN_WIDTH / 2 - i * SNAKE_BLOCK_SIZE;
@@ -187,7 +235,7 @@ void place_apple(Snake *snake) {
         if (snake->apple_position.x <= 9 || snake->apple_position.x >= 231) {
             safe = 0;
         }
-        if (snake->apple_position.y <= 29 || snake->apple_position.y >= 311) {
+        if (snake->apple_position.y <= 39 || snake->apple_position.y >= 311) {
             safe = 0;
         }
     } while (!safe);
