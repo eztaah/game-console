@@ -12,7 +12,7 @@
 //==============================================================================
 // Internal variable and functions definitions
 //==============================================================================
-int16_t running = TRUE;
+int16_t want_to_exit_game = FALSE;
 int16_t target_fps = 60;
 int16_t target_dt = 17;
 int16_t last_frame_duration = 0;
@@ -134,9 +134,11 @@ void e_init_game_console(void)
 int16_t e_game_should_stop()
 {
     // CLOSE THE GAME IF NEEDED
-    if (running == FALSE) {
+    if (want_to_exit_game == TRUE || e_is_button_down(BUTTON_HOME)) {
+        want_to_exit_game = FALSE;
         return TRUE;
     }
+
     
     // GESTION DES FPS
     // R�cuperer la valeur du timer
@@ -162,6 +164,14 @@ void e_set_target_fps(const int16_t fps)
 {
     target_fps = fps;
     target_dt = 1000 / fps;
+}
+
+//==============================================================================
+// 
+//==============================================================================
+void e_exit_game(void)
+{
+    want_to_exit_game = TRUE;
 }
 
 //==============================================================================
