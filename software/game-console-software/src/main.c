@@ -10,8 +10,11 @@
 #include "../src/games/tetris.h"
 #include "../src/games/snake.h"
 
+int16_t cursor_position;
 
-void play_init_music(void){
+
+void play_init_music(void)
+{
     e_play_G4(400);
     e_play_G4(400);
     e_play_G4(400);
@@ -23,62 +26,55 @@ void play_init_music(void){
     e_play_G4(400);
 }
 
+void init_menu()
+{
+    e_set_target_fps(20);
+    e_set_font(Courier_New_Bold_20);
+    cursor_position = 0;
+    e_fill_screen(BLACK);
+}
+
 void main(void) {
     e_init_game_console();
-    e_set_target_fps(20);
-    
-    // init font
-    e_set_font(Courier_New_Bold_20);
-    
-    e_fill_screen(BLACK);
+    init_menu();
     
     e_draw_const_text("PIC18 GAME CONSOLE", 42, 80, BLACK, WHITE);
     e_fill_screen(BLACK);
     
-    int16_t cursor_position = 0;
-    int16_t last_button_pressed = -1;
-    
     while (1) {
-        if (e_is_button_down(BUTTON_UP)) {
+        if (e_is_button_pressed(BUTTON_UP)) {
             if (cursor_position == 0) {
                 cursor_position = 2;
             } else {
                 cursor_position--;
             }
-            last_button_pressed = BUTTON_UP;
         }
 
-        if (e_is_button_down(BUTTON_DOWN)) {
+        if (e_is_button_pressed(BUTTON_DOWN)) {
             if (cursor_position == 2) {
                 cursor_position = 0;
             } else {
                 cursor_position++;
             }
-            last_button_pressed = BUTTON_DOWN;
         }
 
-
-        if (e_is_button_down(BUTTON_A)) {
+        if (e_is_button_pressed(BUTTON_A)) {
             switch (cursor_position) {
                 case 0:
                     run_pong_game();
-                    e_fill_screen(BLACK);
-                    cursor_position = 0;
+                    init_menu();
                     break;
                 case 1:
                     run_tetris_game();
-                    e_fill_screen(BLACK);
-                    cursor_position = 0;
+                    init_menu();
                     break;
                 case 2:
                     run_snake_game();
-                    e_fill_screen(BLACK);
-                    cursor_position = 0;
+                    init_menu();
                     break;
             }
         }
-
-
+        
         // DRAW
         e_draw_const_text("Choose a game : ", 50, 20, WHITE, BLACK);
         
@@ -99,17 +95,5 @@ void main(void) {
            e_draw_const_text("tetris", 110, 100, WHITE, BLACK);
            e_draw_const_text("snake", 110, 130, BLACK, WHITE);
         }    
-        
-        
-        if (last_button_pressed == BUTTON_DOWN) {
-            while(e_is_button_down(BUTTON_DOWN)) {}
-            last_button_pressed = -1;
-        }
-        else if (last_button_pressed == BUTTON_UP) {
-            while(e_is_button_down(BUTTON_UP)) {}
-            last_button_pressed = -1;
-        }
-    }
-
-      
+    }   
 }

@@ -28,6 +28,8 @@
 #define TRIS_B_HOME         TRISDbits.TRISD2
 #define B_HOME              PORTDbits.RD2
 
+static int8_t previous_state[7] = {0};
+
 //==============================================================================
 // 
 //==============================================================================
@@ -56,19 +58,9 @@ void _e_init_buttons(void)
 }
 
 //==============================================================================
-// This function checks if a specified button is currently pressed.
-// button: The button identifier to check.
-// Returns 1 if pressed, 0 if not, -1 if an invalid button is checked.
-//==============================================================================
-//int8_t e_is_button_pressed(uint8_t button)
-//{
-// 
-//}
-
-//==============================================================================
 //
 //==============================================================================
-int8_t e_is_button_down(uint8_t button)
+int8_t e_is_button_down(int8_t button)
 {
     switch (button) {
         case BUTTON_UP:
@@ -96,4 +88,23 @@ int8_t e_is_button_down(uint8_t button)
             return -1;
             break;
     }
+}
+
+//==============================================================================
+// This function checks if a specified button is currently pressed.
+// button: The button identifier to check.
+// Returns 1 if pressed, 0 if not, -1 if an invalid button is checked.
+//==============================================================================
+int8_t e_is_button_pressed(int8_t button)
+{
+    int8_t current_state = e_is_button_down(button);
+    int8_t pressed = 0;
+
+    if (current_state && !previous_state[button]) {
+        pressed = 1;
+    }
+
+    previous_state[button] = current_state;
+
+    return pressed;
 }

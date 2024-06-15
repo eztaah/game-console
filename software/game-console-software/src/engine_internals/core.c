@@ -134,7 +134,7 @@ void e_init_game_console(void)
 int16_t e_game_should_stop()
 {
     // CLOSE THE GAME IF NEEDED
-    if (want_to_exit_game == TRUE || e_is_button_down(BUTTON_HOME)) {
+    if (want_to_exit_game == TRUE || e_is_button_pressed(BUTTON_HOME)) {
         want_to_exit_game = FALSE;
         return TRUE;
     }
@@ -341,9 +341,9 @@ void e_write_eeprom(uint8_t address, uint8_t data){
 //==============================================================================
 uint8_t e_read_eeprom(uint8_t address){  
     uint8_t data;
-    EEADR = address;       // Adresse de mémoire à lire
-    EECON1bits.EEPGD = 0;  // Pointez sur la mémoire DATA
-    EECON1bits.CFGS = 0;   // Accéder à l'EEPROM
+    EEADR = address;       // Adresse de mï¿½moire ï¿½ lire
+    EECON1bits.EEPGD = 0;  // Pointez sur la mï¿½moire DATA
+    EECON1bits.CFGS = 0;   // Accï¿½der ï¿½ l'EEPROM
     EECON1bits.RD = 1;     // Lecture de l'EEPROM
     data = EEDATA;         // Lire la valeur dans le registre EEDATA
     return data;

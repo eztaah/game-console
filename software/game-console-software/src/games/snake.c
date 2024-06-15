@@ -2,7 +2,6 @@
 #include "../engine.h"
 
 int16_t cursor_position = 0;
-int16_t last_button_pressed = -1;
 
 void run_snake_game(void) {
     Snake snake;
@@ -30,22 +29,20 @@ void update1_game(Snake *snake) {
         
         while(1){
             
-            if (e_is_button_down(BUTTON_UP)) {
+            if (e_is_button_pressed(BUTTON_UP)) {
                 if (cursor_position == 0) {
                     cursor_position = 1;
                 } else {
                     cursor_position--;
                 }
-                last_button_pressed = BUTTON_UP;
             }
 
-            if (e_is_button_down(BUTTON_DOWN)) {
+            if (e_is_button_pressed(BUTTON_DOWN)) {
                 if (cursor_position == 1) {
                     cursor_position = 0;
                 } else {
                     cursor_position++;
                 }
-                last_button_pressed = BUTTON_DOWN;
             }
             
             if (cursor_position == 0) {
@@ -60,7 +57,7 @@ void update1_game(Snake *snake) {
                 e_draw_const_text(">", SCREEN_WIDTH / 2 - 65, SCREEN_HEIGHT / 2 + 20, BLACK, BRIGHTGREEN);
             }
         
-            if (e_is_button_down(BUTTON_A)) {
+            if (e_is_button_pressed(BUTTON_A)) {
                 switch (cursor_position) {
                     case 0:
                         if (snake->current_score > read_best_score()) {
@@ -70,18 +67,9 @@ void update1_game(Snake *snake) {
                         snake->game_over = 0;  // Revenir   l' tat normal
                         return;
                     case 1:
-                        // NECESSITE LA FONCTION POUR REVENIR AU MAIN MENU //
+                        e_exit_game();
                         return;
                 }
-            }
-            
-            if (last_button_pressed == BUTTON_DOWN) {
-                while(e_is_button_down(BUTTON_DOWN)) {}
-                    last_button_pressed = -1;
-            }
-            else if (last_button_pressed == BUTTON_UP) {
-                while(e_is_button_down(BUTTON_UP)) {}
-                    last_button_pressed = -1;
             }
         }
     }

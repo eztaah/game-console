@@ -108,13 +108,13 @@ uint16_t e_safe_convert(int16_t value, char error_token[]); // Safely convert in
 
 
 //==============================================================================
-// CORE FUNCTIONS 
+// CORE FUNCTIONS (core.c)
 //==============================================================================
 // base
 void    e_init_game_console(void);              // Initialize the game console
 int16_t e_game_should_stop(void);               // Check if home_button is pressed
 void    e_set_target_fps(const int16_t fps);    // Set target FPS (maximum)
-void e_exit_game(void);                         // Will exit the game next time e_game_should_stop is called
+void    e_exit_game(void);                         // Will exit the game next time e_game_should_stop is called
 // time
 void    e_sleep_ms(int16_t duration);           // Wait for X ms
 void    e_sleep_us(int16_t duration);           // Wait for X us
@@ -126,20 +126,14 @@ void e_turn_on_led(int16_t led);    // Lights on one of the LEDs
 void e_turn_off_led(int16_t led);   // Lights off one of the LEDs
 void e_toggle_led(int16_t led);     // Toggles one of the LEDs
 
-void e_write_eeprom(uint8_t adress, uint8_t data);
+void    e_write_eeprom(uint8_t adress, uint8_t data);
 uint8_t e_read_eeprom(uint8_t adress);
-
-
-
-//void    e_set_backlight()
-//void    e_reduce_backlight(void);
-
 
 //==============================================================================
 // INPUT MANAGEMENT FUNCTIONS  (inputs.c)
 //==============================================================================
-int8_t e_is_button_down(uint8_t button);            // Check if a button is being pressed
-// int8_t e_is_button_down(uint8_t button);
+int8_t e_is_button_down(int8_t button);            // Check if a button is being pressed
+int8_t e_is_button_pressed(int8_t button);
 
 //==============================================================================
 // RENDERING FUNCTIONS  (rendering.c)
