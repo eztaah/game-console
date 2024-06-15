@@ -29,11 +29,8 @@
       </logicalFolder>
       <logicalFolder name="f2" displayName="games" projectFiles="true">
         <itemPath>src/games/pong.c</itemPath>
-        <itemPath>src/games/pong.h</itemPath>
-        <itemPath>src/games/tetris.h</itemPath>
         <itemPath>src/games/tetris.c</itemPath>
         <itemPath>src/games/snake.c</itemPath>
-        <itemPath>src/games/snake.h</itemPath>
       </logicalFolder>
       <itemPath>src/main.c</itemPath>
       <itemPath>src/useful_code.txt</itemPath>
@@ -264,7 +261,7 @@
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
                   value="${memories.dataflash.default}"/>
-        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom" value="true"/>
         <property key="programoptions.preserveeeprom.ranges" value="0-3ff"/>
         <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
@@ -342,6 +339,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
         <property key="poweroptions.powerenable" value="true"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/anmou/Documents/github/pic18-game-console/software/game-console-software/debug/default/PIC18F46K22 ILI9341_ptg"/>
         <property key="programmerToGoImageName" value="PIC18F46K22 ILI9341_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -355,7 +354,7 @@
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
                   value="${memories.dataflash.default}"/>
-        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom" value="true"/>
         <property key="programoptions.preserveeeprom.ranges" value="0-3ff"/>
         <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>

@@ -3,14 +3,13 @@
  * Author:  
  */
 
-
-
 #include "engine.h"
-#include "../src/games/pong.h"
-#include "../src/games/tetris.h"
-#include "../src/games/snake.h"
 
 int16_t cursor_position;
+
+void run_pong_game(void);
+void run_tetris_game(void);
+void run_snake_game(void);
 
 
 void play_init_music(void)

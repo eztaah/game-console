@@ -139,7 +139,6 @@ int16_t e_game_should_stop()
         return TRUE;
     }
 
-    
     // GESTION DES FPS
     // R�cuperer la valeur du timer
     last_frame_duration = _e_get_timer_value();
