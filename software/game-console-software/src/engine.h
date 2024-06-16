@@ -103,7 +103,7 @@ typedef enum {
 //==============================================================================
 // USEFUL FUNCTIONS 
 //==============================================================================
-void     e_exit_with_error(const char message[]);           // Display error message on screen and halt execution
+void     e_throw_error(const char message[]);           // Display error message on screen and halt execution
 uint16_t e_safe_convert(int16_t value, char error_token[]); // Safely convert int16_t to uint16_t, display error if negative
 
 

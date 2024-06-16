@@ -3,6 +3,8 @@
  * Author: eztaah, MatteoPerez, MokhmadGUIRIEV and 21KEBY
  */
 
+#include <string.h>
+
 #include "bit_settings.h"
 #include "internal.h"
 #include "../engine.h"
@@ -71,7 +73,7 @@ void _e_init_LEDs(void){
 void __interrupt() timer0_ISR(void)
 {
     if (INTCONbits.TMR0IF == 1){     // v?rifie si l'interruption est bien provoqu?e par le timer0
-        e_exit_with_error("Le timer a overflow, ce n'est pas normal");
+        e_throw_error("Le timer a overflow, ce n'est pas normal");
         INTCONbits.TMR0IF = 0;      // flag d'interruption effac�
     }
 }
@@ -82,10 +84,11 @@ void __interrupt() timer0_ISR(void)
 // This function displays an error message on the TFT display and halts the system.
 // message: The text string to display on the TFT screen.
 //==============================================================================
-void e_exit_with_error(const char message[])
+void e_throw_error(const char message[])
 {
+    e_set_font(Courier_New_Bold_8);
     e_fill_screen(BROWN);
-    e_draw_const_text(message, 10, 10, WHITE, BLACK);
+    e_draw_const_text(message, 10, 30, WHITE, BLACK);
     while(1) {};
 }
 
@@ -96,7 +99,9 @@ void e_exit_with_error(const char message[])
 //==============================================================================
 uint16_t e_safe_convert(int16_t value, char error_token[]) {
     if (value < 0) {
-        e_exit_with_error(error_token);
+        char error_message[] = "error during safe conversion : \n";
+        strcat(error_message, error_token);
+        e_throw_error(error_message);
     }
     return (uint16_t)value;
 }
@@ -161,6 +166,9 @@ int16_t e_game_should_stop()
 //==============================================================================
 void e_set_target_fps(const int16_t fps)
 {
+    if (fps < 0) {
+        e_throw_error("fps needs to be a positive number");
+    }
     target_fps = fps;
     target_dt = 1000 / fps;
 }
@@ -181,7 +189,7 @@ void e_sleep_ms(int16_t duration)
 {
     // manage error
     if (duration < 0) {
-        e_exit_with_error("error in e_sleep_ms");
+        e_throw_error("error in e_sleep_ms");
     }
 
     for(int16_t i = 0; i < duration; i++){
@@ -197,7 +205,7 @@ void e_sleep_us(int16_t duration)
 {
     // manage error
     if (duration < 0) {
-        e_exit_with_error("error in e_sleep_us");
+        e_throw_error("error in e_sleep_us");
     }
 
     for(int16_t i = 0; i < duration; i++){
