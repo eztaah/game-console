@@ -4,7 +4,6 @@
  */
 
 #include "../engine.h"
-#include "internal.h"
 
 
 #define TRIS_B_UP           TRISAbits.TRISA5

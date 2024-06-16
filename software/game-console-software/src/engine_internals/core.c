@@ -6,9 +6,7 @@
 #include <string.h>
 
 #include "bit_settings.h"
-#include "internal.h"
 #include "../engine.h"
-
 
 //                              GLOBAL VARIABLES
 //==============================================================================
@@ -18,6 +16,13 @@ int16_t want_to_exit_game = FALSE;
 int16_t target_fps = 60;
 int16_t target_dt = 17;
 int16_t last_frame_duration = 0;
+
+void _e_init_screen(uint16_t color);
+void _e_init_buzzer(void);
+void _e_stop_buzzer(void);
+void _e_init_buttons(void);
+void _e_init_LEDs(void);
+
 
 
 //                          INTERNAL FUNCTIONS
@@ -86,26 +91,10 @@ void __interrupt() timer0_ISR(void)
 //==============================================================================
 void e_throw_error(const char message[])
 {
-    e_set_font(Courier_New_Bold_8);
     e_fill_screen(BROWN);
-    e_draw_const_text(message, 10, 30, WHITE, BLACK);
+    e_draw_text(message, 10, 30, Courier_New_Bold_8, WHITE, BLACK);
     while(1) {};
 }
-
-//==============================================================================
-// This function converts an int16_t value to uint16_t safely, showing an error if negative.
-// value: The signed integer value to convert.
-// error_token: Identifier for the specific error case.
-//==============================================================================
-uint16_t e_safe_convert(int16_t value, char error_token[]) {
-    if (value < 0) {
-        char error_message[] = "error during safe conversion : \n";
-        strcat(error_message, error_token);
-        e_throw_error(error_message);
-    }
-    return (uint16_t)value;
-}
-
 
 //                             CORE FUNCTIONS
 //==============================================================================
@@ -134,9 +123,6 @@ void e_init_game_console(uint16_t initial_screen_color)
     // Init screen 
     _e_init_screen(initial_screen_color);
     
-    // init font
-    e_set_font(Courier_New_Bold_20);
-    
     // Init timer0
     _e_init_timer();
     
@@ -154,7 +140,7 @@ void e_init_game_console(uint16_t initial_screen_color)
 // This function checks if the game loop should stop based on the running flag.
 // Returns TRUE if the game should stop, otherwise FALSE.
 //==============================================================================
-int16_t e_game_should_stop()
+uint8_t e_game_should_stop()
 {
     // CLOSE THE GAME IF NEEDED
     if (want_to_exit_game == TRUE || e_is_button_pressed(BUTTON_HOME)) {
@@ -253,7 +239,7 @@ int16_t e_generate_rd_nb(int16_t min, int16_t max)
 //==============================================================================
 // This function turns on one of the LEDs depending of input "led".
 //==============================================================================
-void e_turn_on_led(int16_t led)
+void e_turn_on_debug_led(int16_t led)
 {
     switch (led) {
         case DEBUG_LED_1:
@@ -276,7 +262,7 @@ void e_turn_on_led(int16_t led)
 //==============================================================================
 // This function turns off one of the LEDs depending of input "led".
 //==============================================================================
-void e_turn_off_led(int16_t led)
+void e_turn_off_debug_led(int16_t led)
 {
     switch (led) {
         case DEBUG_LED_1:
@@ -299,7 +285,7 @@ void e_turn_off_led(int16_t led)
 //==============================================================================
 // This function toggles one of the LEDs depending of input "led".
 //==============================================================================
-void e_toggle_led(int16_t led)
+void e_toggle_debug_led(int16_t led)
 {
     switch (led) {
         case DEBUG_LED_1:

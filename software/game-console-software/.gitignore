@@ -27,6 +27,7 @@ disassembly/
 .generated_files/
 
 *.log
+*.log.inx
 
 # debug/default
 # queuelog/

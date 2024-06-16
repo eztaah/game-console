@@ -28,7 +28,6 @@ void play_init_music(void)
 void init_menu()
 {
     e_set_target_fps(20);
-    e_set_font(Courier_New_Bold_20);
     cursor_position = 0;
     e_fill_screen(BLACK);
 }
@@ -37,7 +36,9 @@ void main(void) {
     e_init_game_console(BLACK);
     init_menu();
     
-    e_draw_const_text("PIC18 GAME CONSOLE", 42, 80, BLACK, WHITE);
+    e_draw_text("PIC18 GAME CONSOLE", 42, 80, Courier_New_Bold_20, BLACK, WHITE);
+    e_draw_icon(controller_image, 145, 130, 30, 20, 2);
+    play_init_music();
     e_fill_screen(BLACK);
     
     while (1) {
@@ -75,24 +76,24 @@ void main(void) {
         }
         
         // DRAW
-        e_draw_const_text("Choose a game : ", 50, 20, WHITE, BLACK);
+        e_draw_text("Choose a game : ", 50, 20, Courier_New_Bold_20, WHITE, BLACK);
         
         if (cursor_position == 0) {
-           e_draw_const_text("pong", 110, 70, BLACK, WHITE);
-           e_draw_const_text("tetris", 110, 100, WHITE, BLACK);
-           e_draw_const_text("snake", 110, 130, WHITE, BLACK);
+           e_draw_text("pong", 110, 70, Courier_New_Bold_20, BLACK, WHITE);
+           e_draw_text("tetris", 110, 100, Courier_New_Bold_20, WHITE, BLACK);
+           e_draw_text("snake", 110, 130, Courier_New_Bold_20, WHITE, BLACK);
         }
 
         else if (cursor_position == 1) {
-           e_draw_const_text("pong", 110, 70, WHITE, BLACK);
-           e_draw_const_text("tetris", 110, 100, BLACK, WHITE);
-           e_draw_const_text("snake", 110, 130, WHITE, BLACK);
+           e_draw_text("pong", 110, 70, Courier_New_Bold_20, WHITE, BLACK);
+           e_draw_text("tetris", 110, 100, Courier_New_Bold_20, BLACK, WHITE);
+           e_draw_text("snake", 110, 130, Courier_New_Bold_20, WHITE, BLACK);
         }
 
         else if (cursor_position == 2) {
-           e_draw_const_text("pong", 110, 70, WHITE, BLACK);
-           e_draw_const_text("tetris", 110, 100, WHITE, BLACK);
-           e_draw_const_text("snake", 110, 130, BLACK, WHITE);
+           e_draw_text("pong", 110, 70, Courier_New_Bold_20, WHITE, BLACK);
+           e_draw_text("tetris", 110, 100, Courier_New_Bold_20, WHITE, BLACK);
+           e_draw_text("snake", 110, 130, Courier_New_Bold_20, BLACK, WHITE);
         }    
     }   
 }

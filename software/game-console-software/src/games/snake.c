@@ -1,5 +1,13 @@
 #include "../engine.h"
 
+// add colors
+#define BRIGHTBLUE         0b0000000000011111
+#define BRIGHTGREEN        0b0000011111100000
+#define BRIGHTCYAN         0b0000011111111111
+#define BRIGHTRED          0b1111100000000000
+#define BRIGHTMAGENTA      0b1111100000011111
+#define BRIGHTYELLOW       0b1111111111100000
+
 // D finitions des dimensions du serpent
 #define INITIAL_SNAKE_LENGTH 5
 #define MAX_SNAKE_LENGTH 50
@@ -51,11 +59,9 @@ void run_snake_game(void) {
 void update1_game(Snake *snake) {
     if (snake->game_over) {
         
-        e_set_font(Courier_New_Bold_20);
-        e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, BLACK, BRIGHTGREEN);
-        e_set_font(Courier_New_Bold_10);
-        e_draw_text("Restart the game", SCREEN_WIDTH / 2 - 63, SCREEN_HEIGHT / 2 + 5, BLACK, BRIGHTGREEN);
-        e_draw_text("Quit the game", SCREEN_WIDTH / 2 - 53, SCREEN_HEIGHT / 2 + 20, BLACK, BRIGHTGREEN);
+        e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, Courier_New_Bold_20, BLACK, BRIGHTGREEN);
+        e_draw_text("Restart the game", SCREEN_WIDTH / 2 - 63, SCREEN_HEIGHT / 2 + 5, Courier_New_Bold_10, BLACK, BRIGHTGREEN);
+        e_draw_text("Quit the game", SCREEN_WIDTH / 2 - 53, SCREEN_HEIGHT / 2 + 20, Courier_New_Bold_10, BLACK, BRIGHTGREEN);
         
         while(1){
             
@@ -76,15 +82,13 @@ void update1_game(Snake *snake) {
             }
             
             if (cursor_position == 0) {
-                e_set_font(Courier_New_Bold_10);
                 e_draw_rectangle(SCREEN_WIDTH / 2 - 64, SCREEN_HEIGHT / 2 + 20, 10, 10, BRIGHTGREEN);
-                e_draw_const_text(">", SCREEN_WIDTH / 2 - 75, SCREEN_HEIGHT / 2 + 5, BLACK, BRIGHTGREEN);
+                e_draw_text(">", SCREEN_WIDTH / 2 - 75, SCREEN_HEIGHT / 2 + 5, Courier_New_Bold_10, BLACK, BRIGHTGREEN);
             }
             
             if (cursor_position == 1) {
-                e_set_font(Courier_New_Bold_10);
                 e_draw_rectangle(SCREEN_WIDTH / 2 - 74, SCREEN_HEIGHT / 2 + 5, 10, 10, BRIGHTGREEN);
-                e_draw_const_text(">", SCREEN_WIDTH / 2 - 65, SCREEN_HEIGHT / 2 + 20, BLACK, BRIGHTGREEN);
+                e_draw_text(">", SCREEN_WIDTH / 2 - 65, SCREEN_HEIGHT / 2 + 20, Courier_New_Bold_10, BLACK, BRIGHTGREEN);
             }
         
             if (e_is_button_pressed(BUTTON_A)) {
@@ -156,8 +160,7 @@ void update1_game(Snake *snake) {
     // Affichage du score
     char score_text[10];
     sprintf(score_text, "%d", snake->current_score);
-    e_set_font(Courier_New_Bold_10);
-    e_draw_text(score_text, 10, 2, BLACK, BRIGHTGREEN);
+    e_draw_text(score_text, 10, 2, Courier_New_Bold_10, BLACK, BRIGHTGREEN);
 
     // Contr les du jeu
     if (e_is_button_down(BUTTON_LEFT) && snake->direction != 1) snake->direction = 3;
@@ -218,8 +221,7 @@ void reset_game(Snake *snake) {
     // Affichage du meilleur score
     char best_score_text[10];
     sprintf(best_score_text, "%d", read_best_score());
-    e_set_font(Courier_New_Bold_10);
-    e_draw_text(best_score_text, 260, 2, BLACK, BRIGHTGREEN);
+    e_draw_text(best_score_text, 260, 2, Courier_New_Bold_10, BLACK, BRIGHTGREEN);
 
     for (int i = 0; i < snake->length; i++) {
         snake->position[i].x = SCREEN_WIDTH / 2 - i * SNAKE_BLOCK_SIZE;

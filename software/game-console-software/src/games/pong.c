@@ -139,7 +139,7 @@ void run_pong_game(void) {
         }
         if (ball.position.x <= 0) {
             e_fill_screen(BLACK);
-            e_draw_const_text("GAME OVER", 90, 110, RED, BLACK);
+            e_draw_text("GAME OVER", 90, 110, Courier_New_Bold_20, RED, BLACK);
             play_game_over_music();
             return;
         } 
@@ -169,7 +169,7 @@ void run_pong_game(void) {
        
         // Draw on the screen
         // void e_draw_moving_rectangle(Vector2i new_position, Vector2i old_position, Vector2i size, uint16_t color, uint16_t background_color);
-        e_draw_fps(110, 170);
+        e_draw_fps(110, 170, Courier_New_Bold_14);
         
         e_draw_moving_rectangle(ball.position.x, ball.position.y, old_ball_position.x, old_ball_position.y, ball.size, ball.size, WHITE, BLACK);
 

@@ -1,14 +1,19 @@
 #include <stdlib.h> // Pour rand()
 #include "../engine.h"
 
+// add colors
+#define BRIGHTBLUE         0b0000000000011111
+#define BRIGHTGREEN        0b0000011111100000
+#define BRIGHTCYAN         0b0000011111111111
+#define BRIGHTRED          0b1111100000000000
+#define BRIGHTMAGENTA      0b1111100000011111
+#define BRIGHTYELLOW       0b1111111111100000
+
 #define BOARD_WIDTH 10
 #define BOARD_HEIGHT 20
 #define BLOCK_SIZE 12
 
-#define SCREEN_WIDTH 320
-#define SCREEN_HEIGHT 240
-
-// Calculer les décalages pour centrer le terrain de jeu
+// Calculer les dï¿½calages pour centrer le terrain de jeu
 #define OFFSET_X ((SCREEN_WIDTH - (BOARD_WIDTH * BLOCK_SIZE)) / 2)
 #define OFFSET_Y ((SCREEN_HEIGHT - (BOARD_HEIGHT * BLOCK_SIZE)) / 2)
 
@@ -279,8 +284,7 @@ void draw_game(TetrisGame *game) {
     // Afficher le score
     char score_text[20];
     sprintf(score_text, "Score: %d", game->score);
-    e_set_font(Courier_New_Bold_10);
-    e_draw_text(score_text, OFFSET_X + BOARD_WIDTH * BLOCK_SIZE + 10, 20, WHITE, BLACK);
+    e_draw_text(score_text, OFFSET_X + BOARD_WIDTH * BLOCK_SIZE + 10, 20, Courier_New_Bold_10, WHITE, BLACK);
     
     if (update_next_piece_display) {
         // Effacer l'ancienne piï¿½ce suivante
@@ -288,8 +292,7 @@ void draw_game(TetrisGame *game) {
 
         // Afficher la piï¿½ce suivante
         char next_text[] = "Next Piece:";
-        e_set_font(Courier_New_Bold_10);
-        e_draw_text(next_text, OFFSET_X + BOARD_WIDTH * BLOCK_SIZE + 10, 40, WHITE, BLACK);
+        e_draw_text(next_text, OFFSET_X + BOARD_WIDTH * BLOCK_SIZE + 10, 40, Courier_New_Bold_10, WHITE, BLACK);
         draw_next_piece(&game->next, OFFSET_X + BOARD_WIDTH * BLOCK_SIZE + 10, 60);
         update_next_piece_display = 0;
     }
@@ -423,10 +426,8 @@ void run_tetris_game(void) {
         if (game.is_over) {
             e_fill_screen(BLACK);
             // Afficher le message de Game Over avec les couleurs spï¿½cifiï¿½es
-            e_set_font(Courier_New_Bold_20);
-            e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, RED, BLACK);
-            e_set_font(Courier_New_Bold_10);
-            e_draw_text("Press A to restart", SCREEN_WIDTH / 2 - 64, SCREEN_HEIGHT / 2, RED, BLACK);
+            e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, Courier_New_Bold_20, RED, BLACK);
+            e_draw_text("Press A to restart", SCREEN_WIDTH / 2 - 64, SCREEN_HEIGHT / 2, Courier_New_Bold_10, RED, BLACK);
             while(1){
                 if (e_is_button_down(BUTTON_A)) {
                     init_game(&game); // Rï¿½initialiser le jeu

@@ -4,7 +4,6 @@
  */
 
 #include "../engine.h"
-#include "internal.h"
 
 //==============================================================================
 // This function stops the buzzer by turning off the PWM output.
