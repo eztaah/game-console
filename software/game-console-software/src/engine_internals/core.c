@@ -111,10 +111,28 @@ uint16_t e_safe_convert(int16_t value, char error_token[]) {
 //==============================================================================
 // This function initializes the hardware and settings for the game console.
 //==============================================================================
-void e_init_game_console(void)
-{    
+void e_init_game_console(uint16_t initial_screen_color)
+{
+    OSCCON = 0b01110000;
+    OSCTUNEbits.PLLEN = 1; // turn on the PLL 64 MHz
+    ANSELA = 0; 
+    ANSELB = 0; 
+    ANSELC = 0; 
+    ANSELD = 0; 
+    ANSELE = 0;
+    PORTA  = 0; 
+    PORTB  = 0; 
+    PORTC  = 0; 
+    PORTD  = 0; 
+    PORTE  = 0;
+    TRISA  = 0; 
+    TRISB  = 0; 
+    TRISC  = 0; 
+    TRISD  = 0; 
+    TRISE  = 0;
+    
     // Init screen 
-    _e_init_screen();
+    _e_init_screen(initial_screen_color);
     
     // init font
     e_set_font(Courier_New_Bold_20);

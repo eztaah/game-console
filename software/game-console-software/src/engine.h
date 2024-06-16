@@ -111,7 +111,7 @@ uint16_t e_safe_convert(int16_t value, char error_token[]); // Safely convert in
 // CORE FUNCTIONS (core.c)
 //==============================================================================
 // base
-void    e_init_game_console(void);              // Initialize the game console
+void    e_init_game_console(uint16_t initial_screen_color);              // Initialize the game console
 int16_t e_game_should_stop(void);               // Check if home_button is pressed
 void    e_set_target_fps(const int16_t fps);    // Set target FPS (maximum)
 void    e_exit_game(void);                         // Will exit the game next time e_game_should_stop is called
@@ -141,8 +141,8 @@ int8_t e_is_button_pressed(int8_t button);
 void e_fill_screen(uint16_t color);             // Fill the screen with a specific color
 //shape
 void e_draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t height, uint16_t color);       // Draw a color-filled rectangle
-void e_draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_pos_x, int16_t old_pos_y,
-                           int16_t width, int16_t height, uint16_t color, uint16_t background_color);   // Only draw the moving part of the rectangle
+//void e_draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_pos_x, int16_t old_pos_y,
+//                           int16_t width, int16_t height, uint16_t color, uint16_t background_color);   // Only draw the moving part of the rectangle
 // text
 void e_set_font(int16_t font);
 void e_draw_fps(int16_t pos_x, int16_t pos_y);  // Draw current FPS

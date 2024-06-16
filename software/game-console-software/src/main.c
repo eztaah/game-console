@@ -34,7 +34,7 @@ void init_menu()
 }
 
 void main(void) {
-    e_init_game_console();
+    e_init_game_console(BLACK);
     init_menu();
     
     e_draw_const_text("PIC18 GAME CONSOLE", 42, 80, BLACK, WHITE);

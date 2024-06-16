@@ -413,7 +413,6 @@ int is_game_over(TetrisGame *game) {
 }
 
 void run_tetris_game(void) {
-    e_init_game_console();
     e_set_target_fps(7);
 
     TetrisGame game;

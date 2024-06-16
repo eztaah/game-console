@@ -10,7 +10,7 @@ extern int16_t last_frame_duration;
 
 
 // redering.c
-void _e_init_screen(void);
+void _e_init_screen(uint16_t color);
 
 // audio.c
 void _e_init_buzzer(void);

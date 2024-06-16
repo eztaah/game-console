@@ -26,11 +26,48 @@ void play_game_over_music(void){
     e_play_G4(400);
 }
 
+void e_draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_pos_x, int16_t old_pos_y,
+                             int16_t width, int16_t height, uint16_t color, uint16_t background_color) 
+{
+    // Calculate the old rectangle boundaries
+    int16_t old_left = old_pos_x;
+    int16_t old_top = old_pos_y;
+    int16_t old_right = old_pos_x + width - 1;
+    int16_t old_bottom = old_pos_y + height - 1;
+
+    // Calculate the new rectangle boundaries
+    int16_t new_left = new_pos_x;
+    int16_t new_top = new_pos_y;
+    int16_t new_right = new_pos_x + width - 1;
+    int16_t new_bottom = new_pos_y + height - 1;
+
+    // Clear the regions not overlapped
+    // Clear left strip
+    if (new_left > old_left) {
+        e_draw_rectangle(old_left, old_top, new_left - old_left, height, background_color);
+    }
+    // Clear right strip
+    if (new_right < old_right) {
+        e_draw_rectangle(new_right + 1, old_top, old_right - new_right, height, background_color);
+    }
+    // Clear top strip
+    if (new_top > old_top) {
+        e_draw_rectangle(old_left, old_top, width, new_top - old_top, background_color);
+    }
+    // Clear bottom strip
+    if (new_bottom < old_bottom) {
+        e_draw_rectangle(old_left, new_bottom + 1, width, old_bottom - new_bottom, background_color);
+    }
+
+    // Draw the new rectangle position
+    e_draw_rectangle(new_left, new_top, width, height, color);
+}
+
 
 void run_pong_game(void) {  
     
     // INITIALISATION
-    e_set_target_fps(20);
+    e_set_target_fps(60);
     
     //play_init_console_sound();
     e_fill_screen(BLACK);

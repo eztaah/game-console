@@ -36,7 +36,6 @@ int16_t cursor_position = 0;
 
 void run_snake_game(void) {
     Snake snake;
-    e_init_game_console();
     e_set_target_fps(13);
     
     initialize_game(&snake);
