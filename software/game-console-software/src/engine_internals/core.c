@@ -4,25 +4,19 @@
  */
 
 #include <string.h>
-
 #include "bit_settings.h"
 #include "../engine.h"
-
-//                              GLOBAL VARIABLES
-//==============================================================================
-// Internal variable and functions definitions
-//==============================================================================
-int16_t want_to_exit_game = FALSE;
-int16_t target_fps = 60;
-int16_t target_dt = 17;
-int16_t last_frame_duration = 0;
 
 void _e_init_screen(uint16_t color);
 void _e_init_buzzer(void);
 void _e_stop_buzzer(void);
 void _e_init_buttons(void);
-void _e_init_LEDs(void);
 
+// Global variables
+int16_t want_to_exit_game = FALSE;
+int16_t target_fps = 60;
+int16_t target_dt = 17;
+int16_t last_frame_duration = 0;
 
 
 //                          INTERNAL FUNCTIONS
@@ -83,18 +77,6 @@ void __interrupt() timer0_ISR(void)
     }
 }
 
-
-//                           USEFUL FUNCTIONS
-//==============================================================================
-// This function displays an error message on the TFT display and halts the system.
-// message: The text string to display on the TFT screen.
-//==============================================================================
-void e_throw_error(const char message[])
-{
-    e_fill_screen(BROWN);
-    e_draw_text(message, 10, 30, Courier_New_Bold_8, WHITE, BLACK);
-    while(1) {};
-}
 
 //                             CORE FUNCTIONS
 //==============================================================================
@@ -178,11 +160,32 @@ void e_set_target_fps(const int16_t fps)
 }
 
 //==============================================================================
+// This function displays an error message on the TFT display and halts the system.
+// message: The text string to display on the TFT screen.
+//==============================================================================
+void e_throw_error(const char message[])
+{
+    e_fill_screen(BROWN);
+    e_draw_text(message, 10, 30, Courier_New_Bold_8, WHITE, BLACK);
+    while(1) {};
+}
+
+//==============================================================================
 // 
 //==============================================================================
 void e_exit_game(void)
 {
     want_to_exit_game = TRUE;
+}
+
+//==============================================================================
+// This function returns a random number between a min and a max value.
+//==============================================================================
+int16_t e_generate_rd_nb(int16_t min, int16_t max)
+{
+    uint16_t seed = (uint16_t)_e_get_timer_value();
+    srand(seed);
+    return min + rand() % (max - min + 1);
 }
 
 //==============================================================================
@@ -224,16 +227,6 @@ void e_sleep_us(int16_t duration)
 float e_get_frame_time(void)
 {
     return (float)last_frame_duration / 1000;
-}
-
-//==============================================================================
-// This function returns a random number between a min and a max value.
-//==============================================================================
-int16_t e_generate_rd_nb(int16_t min, int16_t max)
-{
-    uint16_t seed = (uint16_t)_e_get_timer_value();
-    srand(seed);
-    return min + rand() % (max - min + 1);
 }
 
 //==============================================================================

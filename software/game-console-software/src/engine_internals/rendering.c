@@ -25,19 +25,16 @@
 #define COMMAND_MODE 0
 #define DATA_MODE 1
 
+extern int16_t last_frame_duration;
 
-//==============================================================================
-// Declaration of global variables.
-//==============================================================================
+
+// Global variables
 const unsigned char *letter_font;
 const unsigned char *letter_font2;
 unsigned char letter_width = 0;
 unsigned char letter_height = 0;
 unsigned char letter_spacing = 0;
 
-//// GLOBAL VARIABLES
-
-extern int16_t last_frame_duration;
 char last_frame_duration_text[30] = {0};
 char fps_text[30] = {0};
 

@@ -5,7 +5,6 @@
 
 #include "../engine.h"
 
-
 #define TRIS_B_UP           TRISAbits.TRISA5
 #define B_UP                PORTAbits.RA5
 
@@ -26,6 +25,7 @@
 
 #define TRIS_B_HOME         TRISDbits.TRISD2
 #define B_HOME              PORTDbits.RD2
+
 
 static int8_t previous_state[7] = {0};
 

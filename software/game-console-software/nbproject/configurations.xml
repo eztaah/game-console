@@ -21,9 +21,9 @@
         <itemPath>src/engine_internals/bit_settings.h</itemPath>
         <itemPath>src/engine_internals/audio.c</itemPath>
         <itemPath>src/engine_internals/inputs.c</itemPath>
-        <itemPath>src/engine_internals/redering.c</itemPath>
         <itemPath>src/engine_internals/core.c</itemPath>
         <itemPath>src/engine_internals/data.c</itemPath>
+        <itemPath>src/engine_internals/rendering.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="games" projectFiles="true">
         <itemPath>src/games/pong.c</itemPath>
@@ -339,6 +339,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
         <property key="poweroptions.powerenable" value="true"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/anmou/Documents/github/pic18-game-console/software/game-console-software/debug/default/PIC18F46K22 ILI9341_ptg"/>
         <property key="programmerToGoImageName" value="PIC18F46K22 ILI9341_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
