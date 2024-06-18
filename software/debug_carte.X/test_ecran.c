@@ -7,7 +7,7 @@
 
 #include "../game-console-software/src/engine.h"
 
-void main(void) {
+void main5(void) {
     e_init_game_console();
     while(1){
         e_fill_screen(RED);

@@ -7,7 +7,7 @@
 
 #include "../game-console-software/src/engine.h"
 
-void main(void) {
+void main4(void) {
     e_init_game_console();
     while(1){
         e_play_A_4(500);
