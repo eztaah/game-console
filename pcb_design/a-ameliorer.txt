@@ -1,3 +1,0 @@
-- decaler les pins de l'ecran pour qu'il soit centré sur le pcb (car pcb rouge centré mais pas ecran)
-
-- réduire hauteur pcb 
