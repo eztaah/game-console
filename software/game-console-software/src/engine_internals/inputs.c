@@ -30,7 +30,7 @@
 static int8_t previous_state[7] = {0};
 
 //==============================================================================
-// 
+// Initialize buttons
 //==============================================================================
 void _e_init_buttons(void)
 {
@@ -57,7 +57,8 @@ void _e_init_buttons(void)
 }
 
 //==============================================================================
-//
+// This function checks if a button is down
+// button: button to check
 //==============================================================================
 int8_t e_is_button_down(int8_t button)
 {
@@ -92,7 +93,6 @@ int8_t e_is_button_down(int8_t button)
 //==============================================================================
 // This function checks if a specified button is currently pressed.
 // button: The button identifier to check.
-// Returns 1 if pressed, 0 if not, -1 if an invalid button is checked.
 //==============================================================================
 int8_t e_is_button_pressed(int8_t button)
 {

@@ -1,11 +1,8 @@
 /*
  * File:   bit_settings.h
- * Author: 
- *
- * PIC18F46K22 Configuration Bit Settings.
- * Internal oscillator block enable.
- * MCLR disabled.
+ * Author: eztaah, MatteoPerez, MokhmadGUIRIEV and 21KEBY
  */
+
 #ifndef __BIT_SETTINGS_H
 #define __BIT_SETTINGS_H
 

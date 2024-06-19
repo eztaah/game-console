@@ -27,7 +27,6 @@
 
 extern int16_t last_frame_duration;
 
-
 // Global variables
 const unsigned char *letter_font;
 const unsigned char *letter_font2;
@@ -41,7 +40,7 @@ char fps_text[30] = {0};
 
 //                             INTERNAL FUNCTIONS
 //==============================================================================
-// 
+// Lowest level function
 //==============================================================================
 void spi_write(uint8_t data){    
     SSP1BUF = data;
@@ -486,10 +485,11 @@ void e_draw_rectangle(int16_t pos_x, int16_t pos_y, int16_t width, int16_t heigh
 //==============================================================================
 // This function writes text constant on TFT.
 // buffer: Pointer to read all the array.
-// x: x position. Valid values: 0..240 
-// y: y position. Valid values: 0..320 
-// color1: Top color.
-// color2: Bottom color.
+// pos_x: x position. Valid values: 0..240 
+// pos_y: y position. Valid values: 0..320 
+// font: the font
+// color: Color of the text
+// background_color: The background color.
 //==============================================================================
 void e_draw_text(const char *buffer, int16_t pos_x, int16_t pos_y, const uint8_t* font, uint16_t color, uint16_t background_color)
 {
@@ -525,6 +525,7 @@ void e_draw_text(const char *buffer, int16_t pos_x, int16_t pos_y, const uint8_t
 // This function displays the current frame rate and duration of the last frame on the TFT display.
 // pos_x: The x-coordinate for text placement.
 // pos_y: The y-coordinate for text placement.
+// font: The font
 //==============================================================================
 void e_draw_fps(int16_t pos_x, int16_t pos_y, const uint8_t* font)
 {
@@ -536,7 +537,13 @@ void e_draw_fps(int16_t pos_x, int16_t pos_y, const uint8_t* font)
 }
 
 //==============================================================================
-// 
+// This function draws an icon on the screen with zoom capability.
+// buffer: Pointer to the icon pixel data.
+// pos_x: X position to start drawing the icon.
+// pos_y: Y position to start drawing the icon.
+// original_width: Original width of the icon.
+// original_height: Original height of the icon.
+// zoom: Zoom factor to scale the icon.
 //==============================================================================
 void e_draw_icon(const uint16_t *buffer, int16_t pos_x, int16_t pos_y, int16_t original_width, int16_t original_height, uint16_t zoom)
 {

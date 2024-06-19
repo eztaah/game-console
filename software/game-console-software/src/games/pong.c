@@ -1,3 +1,8 @@
+/*
+ * File:   pong.c
+ * Author: eztaah, MatteoPerez, MokhmadGUIRIEV and 21KEBY
+ */
+
 #include "../engine.h"
 
 

@@ -131,15 +131,15 @@ void e_play_E4(int16_t duration);         // Play note E4 (Mi 4)
 void e_play_G4(int16_t duration);         // Play note G4 (Sol 4)
 void e_play_A_4(int16_t duration);        // Play note A#4 (La di�se 4)
 // premade sounds
-void e_play_init_music(void);               // Play initialisation music
+void e_play_init_music(void);             // Play initialisation music
 void e_play_bip_sound(void);              // Play a bip sound
-void e_play_game_over_music(void);          // Play game over music
+void e_play_game_over_music(void);        // Play game over music
         
 //==============================================================================
 // LORA FUNCTIONS   (lora.c)
 //==============================================================================
-void send_text(uint8_t txMsg[]);
-void send_score(int score);
-void send_best_score(uint8_t address_best_score);
+void send_text(uint8_t txMsg[]);                   // Send a text message
+void send_score(int score);                        // Send a score
+void send_best_score(uint8_t address_best_score);  // Send the best score
 
 #endif

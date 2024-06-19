@@ -67,7 +67,7 @@ void _e_init_LEDs(void){
 }
 
 //==============================================================================
-// This function is the interrupt service routine for TIMER0 overflows.
+// Interrupt function.
 //==============================================================================
 void __interrupt() timer0_ISR(void)
 {
@@ -122,7 +122,7 @@ void e_init_game_console(uint16_t initial_screen_color)
 // This function checks if the game loop should stop based on the running flag.
 // Returns TRUE if the game should stop, otherwise FALSE.
 //==============================================================================
-uint8_t e_game_should_stop()
+uint8_t e_game_should_stop(void)
 {
     // CLOSE THE GAME IF NEEDED
     if (want_to_exit_game == TRUE || e_is_button_pressed(BUTTON_HOME)) {
@@ -161,7 +161,7 @@ void e_set_target_fps(const int16_t fps)
 
 //==============================================================================
 // This function displays an error message on the TFT display and halts the system.
-// message: The text string to display on the TFT screen.
+// message: The text string to display on the screen.
 //==============================================================================
 void e_throw_error(const char message[])
 {
@@ -171,7 +171,7 @@ void e_throw_error(const char message[])
 }
 
 //==============================================================================
-// 
+// Will exit the game the next time e_game_should_stop() is called
 //==============================================================================
 void e_exit_game(void)
 {
@@ -323,7 +323,7 @@ void e_toggle_debug_led(int16_t led)
 }
 
 //==============================================================================
-// 
+// This function writes data into the EEPROM
 //==============================================================================
 void e_write_eeprom(uint8_t address, uint8_t data){
     EEADR = address;
@@ -341,7 +341,7 @@ void e_write_eeprom(uint8_t address, uint8_t data){
 }
 
 //==============================================================================
-// 
+// This function read data from the EEPROM
 //==============================================================================
 uint8_t e_read_eeprom(uint8_t address){  
     uint8_t data;

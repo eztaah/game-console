@@ -24,6 +24,7 @@
         <itemPath>src/engine_internals/core.c</itemPath>
         <itemPath>src/engine_internals/data.c</itemPath>
         <itemPath>src/engine_internals/rendering.c</itemPath>
+        <itemPath>src/engine_internals/lora.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="games" projectFiles="true">
         <itemPath>src/games/pong.c</itemPath>
@@ -31,7 +32,6 @@
         <itemPath>src/games/snake.c</itemPath>
       </logicalFolder>
       <itemPath>src/main.c</itemPath>
-      <itemPath>src/useful_code.txt</itemPath>
       <itemPath>src/engine.h</itemPath>
     </logicalFolder>
   </logicalFolder>

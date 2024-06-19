@@ -1,3 +1,9 @@
+/*
+ * File:   tetris.c
+ * Author: eztaah, MatteoPerez, MokhmadGUIRIEV and 21KEBY
+ */
+
+
 #include <stdlib.h> // Pour rand()
 #include "../engine.h"
 

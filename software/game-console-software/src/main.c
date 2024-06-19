@@ -1,6 +1,6 @@
 /*
  * File:   main.c
- * Author:  
+ * Author: eztaah, MatteoPerez, MokhmadGUIRIEV and 21KEBY
  */
 
 #include "engine.h"
