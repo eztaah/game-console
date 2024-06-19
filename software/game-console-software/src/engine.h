@@ -135,7 +135,8 @@ void e_play_A_4(int16_t duration);        // Play note A#4 (La di�se 4)
 //==============================================================================
 // LORA FUNCTIONS   (lora.c)
 //==============================================================================
-void send_text(uint8_t txMsg[]);   // Mettre en argument du texte sous forme : "message"
-void send_best_score(uint8_t address_best_score);   // Mettre en argument l'adresse de meilleur score du jeu
+void send_text(uint8_t txMsg[]);
+void send_score(int score);
+void send_best_score(uint8_t address_best_score);
 
 #endif

@@ -533,7 +533,6 @@ void CheckConfiguration (void){
 void send_text(uint8_t txMsg[]){
     uint8_t reg_val;      // reg_val is used to store temporarily the content of a register after reading
     int16_t i;            // i: general purpose variable (used in loops)
-    uint8_t txBuffer[256];
     
     UARTInit(19200);            // init UART @ 19200 bps
     InitRFLoRaPins();           // configure pins for RF Solutions LoRa module   
@@ -557,10 +556,6 @@ void send_text(uint8_t txMsg[]){
     
     // for debugging purpose only: check configuration registers content
     CheckConfiguration();
-    
-    strcpy(( char* )txBuffer, ( char* )txMsg);          // load txBuffer with content of txMsg
-                                                        // txMsg is a table of constant values, so it is stored in Flash Memory
-                                                        // txBuffer is a table of variables, so it is stored in RAM
 
     // load FIFO with data to transmit
     UARTWriteStrLn(" ");
@@ -569,7 +564,7 @@ void send_text(uint8_t txMsg[]){
     WriteSXRegister(REG_PAYLOAD_LENGTH_LORA, PAYLOAD_LENGTH);                       // set the number of bytes to transmit (PAYLOAD_LENGTH is defined in RF_LoRa868_SO.h)
 
     for (i = 0; i < PAYLOAD_LENGTH; i++) {
-        WriteSXRegister(REG_FIFO, txBuffer[i]);         // load FIFO with data to transmit  
+        WriteSXRegister(REG_FIFO, txMsg[i]);         // load FIFO with data to transmit  
     }
     
     while(1){
@@ -612,83 +607,16 @@ void send_text(uint8_t txMsg[]){
     }
 }
 
-void send_best_score(uint8_t address_best_score){
-    uint8_t reg_val;
-    int16_t i;
-    
+void send_score(int score){
+    const uint8_t txMsg[256];
+    memset(txMsg, 0, sizeof(txMsg));
+    sprintf(txMsg, "%u", score);
+    send_text(txMsg);
+}
+
+void send_best_score(uint8_t address_best_score){    
     const uint8_t txMsg[256];
     memset(txMsg, 0, sizeof(txMsg));
     sprintf(txMsg, "%u", e_read_eeprom(address_best_score));
-    
-    UARTInit(19200);            // init UART @ 19200 bps
-    InitRFLoRaPins();           // configure pins for RF Solutions LoRa module   
-    SPIInit();                  // init SPI   
-    ResetRFModule();            // reset the RF Solutions LoRa module (should be optional since Power On Reset is implemented)
-    
-    AntennaTX();                // connect antenna to module output
-    
-    // put module in LoRa mode (see SX1272 datasheet page 107)
-    UARTWriteStrLn("set mode to LoRa standby");
-
-    WriteSXRegister(REG_OP_MODE, FSK_SLEEP_MODE);       // SLEEP mode required first to change bit n°7
-    WriteSXRegister(REG_OP_MODE, LORA_SLEEP_MODE);      // switch from FSK mode to LoRa mode
-    WriteSXRegister(REG_OP_MODE, LORA_STANDBY_MODE);    // STANDBY mode required fot FIFO loading
-    __delay_ms(100);
-    GetMode();
-    
-    // initialize the module
-    UARTWriteStrLn("initialize module ");
-    InitModule();
-    
-    // for debugging purpose only: check configuration registers content
-    CheckConfiguration(); 
-
-    // load FIFO with data to transmit
-    UARTWriteStrLn(" ");
-    UARTWriteStrLn("step 1: load FIFO");
-    WriteSXRegister(REG_FIFO_ADDR_PTR, ReadSXRegister(REG_FIFO_TX_BASE_ADDR));      // FifiAddrPtr takes value of FifoTxBaseAddr
-    WriteSXRegister(REG_PAYLOAD_LENGTH_LORA, PAYLOAD_LENGTH);                       // set the number of bytes to transmit (PAYLOAD_LENGTH is defined in RF_LoRa868_SO.h)
-
-    for (i = 0; i < PAYLOAD_LENGTH; i++) {
-        WriteSXRegister(REG_FIFO, txMsg[i]);         // load FIFO with data to transmit  
-    }
-    
-    while(1){
-        // set mode to LoRa TX
-        UARTWriteStrLn(" ");
-        UARTWriteStrLn("step 2: set mode to LoRa TX");
-        WriteSXRegister(REG_OP_MODE, LORA_TX_MODE);
-        __delay_ms(100);                                    // delay required to start oscillator and PLL
-        GetMode();
-        
-        // wait end of transmission
-        reg_val = ReadSXRegister(REG_IRQ_FLAGS);
-        while (reg_val & 0x08 == 0x00) {                    // wait for end of transmission (wait until TxDone is set)
-            reg_val = ReadSXRegister(REG_IRQ_FLAGS);
-        }
-        UARTWriteStrLn(" ");
-        UARTWriteStrLn("step 3: TxDone flag set");
-        
-        __delay_ms(200);        // delay is required before checking mode: it takes some time to go from TX mode to STDBY mode
-        GetMode();              // check that mode is back to STDBY
-        
-        // reset all IRQs
-        UARTWriteStrLn(" ");
-        UARTWriteStrLn("step 4: clear flags");
-        reg_val = ReadSXRegister(REG_IRQ_FLAGS);
-        UARTWriteStr("before clear: REG_IRQ_FLAGS = 0x");
-        UARTWriteByteHex(reg_val);
-        
-        WriteSXRegister(REG_IRQ_FLAGS, 0xFF);           // clear flags: writing 1 clears flag
-
-        // check that flags are actually cleared (useless if not debugging)
-        reg_val = ReadSXRegister(REG_IRQ_FLAGS);
-        UARTWriteStr("after clear: REG_IRQ_FLAGS = 0x");
-        UARTWriteByteHex(reg_val);
-        
-        // wait before next transmission
-        for (i = 0; i < 4; i++) {
-           __delay_ms(500);  
-        }
-    }
+    send_text(txMsg);
 }
