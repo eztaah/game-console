@@ -1,8 +1,6 @@
 /*
  * File:   test_boutons.c
- * Author: samac
- *
- * Created on 11 juin 2024, 10:00
+ * Author: eztaah, MatteoPerez, MokhmadGUIRIEV and 21KEBY
  */
 
 #include "./engine.h"

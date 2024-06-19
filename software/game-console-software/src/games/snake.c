@@ -62,7 +62,7 @@ void update1_game(Snake *snake) {
         e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, Courier_New_Bold_20, BLACK, BRIGHTGREEN);
         e_draw_text("Restart the game", SCREEN_WIDTH / 2 - 63, SCREEN_HEIGHT / 2 + 5, Courier_New_Bold_10, BLACK, BRIGHTGREEN);
         e_draw_text("Quit the game", SCREEN_WIDTH / 2 - 53, SCREEN_HEIGHT / 2 + 20, Courier_New_Bold_10, BLACK, BRIGHTGREEN);
-        
+        e_play_game_over_music();
         while(1){
             
             if (e_is_button_pressed(BUTTON_UP)) {
@@ -151,6 +151,7 @@ void update1_game(Snake *snake) {
         snake->current_score++;
         
         if (snake->length < MAX_SNAKE_LENGTH) {
+            e_play_bip_sound();
             snake->position[snake->length] = new_head;
             snake->length++;
         }

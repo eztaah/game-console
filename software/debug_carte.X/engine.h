@@ -75,8 +75,6 @@ typedef enum {
     DEBUG_LED_4
 } LEDs;
 
-
-
 //==============================================================================
 // CORE FUNCTIONS (core.c)
 //==============================================================================
@@ -123,6 +121,7 @@ void e_draw_icon(const uint16_t *buffer, int16_t pos_x, int16_t pos_y, int16_t o
 //==============================================================================
 // AUDIO FUNCTIONS   (audio.c)
 //==============================================================================
+// specific notes
 void e_play_A3(int16_t duration);         // Play note A3 (La 3)
 void e_play_B3(int16_t duration);         // Play note B3 (Si 3)
 void e_play_C4(int16_t duration);         // Play note C4 (Do 4)
@@ -131,6 +130,10 @@ void e_play_D_4(int16_t duration);        // Play note D#4 (R� di�se 4)
 void e_play_E4(int16_t duration);         // Play note E4 (Mi 4)
 void e_play_G4(int16_t duration);         // Play note G4 (Sol 4)
 void e_play_A_4(int16_t duration);        // Play note A#4 (La di�se 4)
-
+// premade sounds
+void e_play_init_music(void);               // Play initialisation music
+void e_play_bip_sound(void);              // Play a bip sound
+void e_play_game_over_music(void);          // Play game over music
+        
 #endif
 

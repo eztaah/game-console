@@ -11,20 +11,6 @@ void run_pong_game(void);
 void run_tetris_game(void);
 void run_snake_game(void);
 
-
-void play_init_music(void)
-{
-    e_play_G4(400);
-    e_play_G4(400);
-    e_play_G4(400);
-    e_play_D_4(150);
-    e_play_A_4(100);
-    e_play_G4(400);
-    e_play_D_4(150);
-    e_play_A_4(100);
-    e_play_G4(400);
-}
-
 void init_menu()
 {
     e_set_target_fps(20);
@@ -38,7 +24,7 @@ void main(void) {
     
     e_draw_text("PIC18 GAME CONSOLE", 42, 80, Courier_New_Bold_20, BLACK, WHITE);
     e_draw_icon(controller_image, 145, 130, 30, 20, 2);
-    play_init_music();
+    // play_init_music();
     e_fill_screen(BLACK);
     
     while (1) {

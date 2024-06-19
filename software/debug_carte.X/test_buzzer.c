@@ -1,14 +1,12 @@
 /*
  * File:   test_buzzer.c
- * Author: samac
- *
- * Created on 11 juin 2024, 11:41
+ * Author: eztaah, MatteoPerez, MokhmadGUIRIEV and 21KEBY
  */
 
 #include "../game-console-software/src/engine.h"
 
-void main4(void) {
-    e_init_game_console();
+void main8(void) {
+    e_init_game_console(BLACK);
     while(1){
         e_play_A_4(500);
         e_play_D4(250);

@@ -14,17 +14,7 @@ typedef struct Paddle {
     int16_t speed;
 } Paddle;
 
-void play_game_over_music(void){
-    e_play_G4(400);
-    e_play_G4(400);
-    e_play_G4(400);
-    e_play_D_4(150);
-    e_play_A_4(100);
-    e_play_G4(400);
-    e_play_D_4(150);
-    e_play_A_4(100);
-    e_play_G4(400);
-}
+
 
 void e_draw_moving_rectangle(int16_t new_pos_x, int16_t new_pos_y, int16_t old_pos_x, int16_t old_pos_y,
                              int16_t width, int16_t height, uint16_t color, uint16_t background_color) 
@@ -130,23 +120,23 @@ void run_pong_game(void) {
         if (ball.position.y <= 0) {
             ball.position.y = 0;
             ball.speed.y *= -1;
-            e_play_A3(50);
+            e_play_bip_sound();
         } 
         else if (ball.position.y >= SCREEN_HEIGHT - ball.size) {
             ball.position.y = SCREEN_HEIGHT - ball.size;
             ball.speed.y *= -1;
-            e_play_A3(50);
+            e_play_bip_sound();
         }
         if (ball.position.x <= 0) {
             e_fill_screen(BLACK);
             e_draw_text("GAME OVER", 90, 110, Courier_New_Bold_20, RED, BLACK);
-            play_game_over_music();
+            e_play_game_over_music();
             return;
         } 
         else if (ball.position.x >= SCREEN_WIDTH - ball.size) {
             ball.position.x = SCREEN_WIDTH - ball.size;
             ball.speed.x *= -1;
-            e_play_A3(50);
+            e_play_bip_sound();
         }
         
         // Player paddle collision
@@ -155,7 +145,7 @@ void run_pong_game(void) {
             ball.position.y <= player_paddle.position.y + player_paddle.height) {
             ball.position.x = player_paddle.position.x + player_paddle.width;
             ball.speed.x *= -1;
-            e_play_A3(50);
+            e_play_bip_sound();
         }
 
         // Bot paddle collision
@@ -164,7 +154,7 @@ void run_pong_game(void) {
             ball.position.y <= bot_paddle.position.y + bot_paddle.height) {
             ball.position.x = bot_paddle.position.x - ball.size;
             ball.speed.x *= -1;
-            e_play_A3(50);
+            e_play_bip_sound();
         }
        
         // Draw on the screen

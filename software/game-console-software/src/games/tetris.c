@@ -206,6 +206,7 @@ void clear_line(TetrisGame *game, int line) {
     
     // Mettre � jour le score pour chaque ligne effac�e
     game->score += 1;  // Augmente de 1 pour chaque ligne compl�te
+    e_play_bip_sound();
 }
 
 
@@ -428,6 +429,7 @@ void run_tetris_game(void) {
             // Afficher le message de Game Over avec les couleurs sp�cifi�es
             e_draw_text("GAME OVER", SCREEN_WIDTH / 2 - 60, SCREEN_HEIGHT / 2 - 20, Courier_New_Bold_20, RED, BLACK);
             e_draw_text("Press A to restart", SCREEN_WIDTH / 2 - 64, SCREEN_HEIGHT / 2, Courier_New_Bold_10, RED, BLACK);
+            e_play_game_over_music();
             while(1){
                 if (e_is_button_down(BUTTON_A)) {
                     init_game(&game); // R�initialiser le jeu
