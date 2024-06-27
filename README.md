@@ -55,3 +55,5 @@ https://www.mikroe.com/glcd-font-creator
 - Supprimer pin MISO et BL sur le PCB
 
 - faire plan de masse top layer
+
+- proteger court cuircuit sur la borne bleue
