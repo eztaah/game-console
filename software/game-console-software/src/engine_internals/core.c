@@ -43,9 +43,7 @@ void _e_start_timer(void) {
 // Returns the time passed in milliseconds as calculated from TIMER0's count.
 //==============================================================================
 int16_t _e_get_timer_value(void) 
-{
-    T0CONbits.TMR0ON = 0;     // On arrete le timer
-    
+{    
     uint16_t timer_value = TMR0;
     int16_t time_passed = (int16_t)(timer_value * 0.0016f);   // car microc en 64MHz
     
@@ -133,6 +131,7 @@ uint8_t e_game_should_stop(void)
     // GESTION DES FPS
     // R�cuperer la valeur du timer
     last_frame_duration = _e_get_timer_value();
+    T0CONbits.TMR0ON = 0;     // On arrete le timer
     
     // Si on est au dessus de target_fps
     if (last_frame_duration < target_dt) {
